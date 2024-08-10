@@ -2,7 +2,7 @@
 using Entity.Dto.Operational;
 using Entity.Dto;
 using Microsoft.AspNetCore.Mvc;
-using WebA.Controllers.Implements.Parameter.Operational;
+using WebA.Controllers.Interfaces.Operational;
 
 namespace WebA.Controllers.Implements.Operational
 {

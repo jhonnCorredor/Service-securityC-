@@ -12,7 +12,7 @@ namespace Entity.Model.Operational
         public int Id { get; set; }
         public string Observation { get; set; }
         public int Qualification_criteria { get; set; }
-        public int AssesmentCriteriaId {  get; set; }
+        public int AssessmentCriteriaId {  get; set; }
         public AssessmentCriteria AssessmentCriteria { get; set; }
         public int ChecklistId { get; set; }
         public Checklist Checklist { get; set; }

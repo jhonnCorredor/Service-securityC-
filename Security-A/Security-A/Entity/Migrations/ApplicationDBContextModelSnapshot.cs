@@ -22,42 +22,6 @@ namespace Entity.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Entity.Model.Operational.AssessmentCriteria", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Deleted_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Rating_range")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("State")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Type_criterian")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AssessmentCriterias");
-                });
-
             modelBuilder.Entity("Entity.Model.Operational.Checklist", b =>
                 {
                     b.Property<int>("Id")
@@ -88,43 +52,6 @@ namespace Entity.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Checklists");
-                });
-
-            modelBuilder.Entity("Entity.Model.Operational.Crop", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Deleted_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("State")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("Updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Crops");
                 });
 
             modelBuilder.Entity("Entity.Model.Operational.Evidence", b =>
@@ -199,44 +126,6 @@ namespace Entity.Migrations
                     b.ToTable("Farms");
                 });
 
-            modelBuilder.Entity("Entity.Model.Operational.FarmCrop", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CropId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("Deleted_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("FarmId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Num_hectareas")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("State")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("Updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CropId");
-
-                    b.HasIndex("FarmId");
-
-                    b.ToTable("FarmCrops");
-                });
-
             modelBuilder.Entity("Entity.Model.Operational.Fertilization", b =>
                 {
                     b.Property<int>("Id")
@@ -278,45 +167,6 @@ namespace Entity.Migrations
                     b.ToTable("Fertilizations");
                 });
 
-            modelBuilder.Entity("Entity.Model.Operational.FertilizationSupplies", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Deleted_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Dose")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("FertilizationId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("State")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("SuppliesId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("Updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FertilizationId");
-
-                    b.HasIndex("SuppliesId");
-
-                    b.ToTable("FertilizationSupplies");
-                });
-
             modelBuilder.Entity("Entity.Model.Operational.Fumigation", b =>
                 {
                     b.Property<int>("Id")
@@ -354,45 +204,6 @@ namespace Entity.Migrations
                     b.ToTable("Fumigations");
                 });
 
-            modelBuilder.Entity("Entity.Model.Operational.FumigationSupplies", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Deleted_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Dose")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("FumigationId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("State")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("SuppliesId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("Updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FumigationId");
-
-                    b.HasIndex("SuppliesId");
-
-                    b.ToTable("FumigationSupplies");
-                });
-
             modelBuilder.Entity("Entity.Model.Operational.Qualification", b =>
                 {
                     b.Property<int>("Id")
@@ -400,9 +211,6 @@ namespace Entity.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AssesmentCriteriaId")
-                        .HasColumnType("int");
 
                     b.Property<int>("AssessmentCriteriaId")
                         .HasColumnType("int");
@@ -524,7 +332,7 @@ namespace Entity.Migrations
                     b.ToTable("ReviewTechnicals");
                 });
 
-            modelBuilder.Entity("Entity.Model.Operational.Supplies", b =>
+            modelBuilder.Entity("Entity.Model.Parameter.AssessmentCriteria", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -532,36 +340,32 @@ namespace Entity.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("Deleted_at")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Rating_range")
+                        .HasColumnType("int");
+
                     b.Property<bool>("State")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Type_criterian")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("Updated_at")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("price")
-                        .HasColumnType("float");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Supplies");
+                    b.ToTable("AssessmentCriterias");
                 });
 
             modelBuilder.Entity("Entity.Model.Parameter.City", b =>
@@ -683,6 +487,199 @@ namespace Entity.Migrations
                     b.HasIndex("ContinentId");
 
                     b.ToTable("Countrys");
+                });
+
+            modelBuilder.Entity("Entity.Model.Parameter.Crop", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Deleted_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Updated_at")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Crops");
+                });
+
+            modelBuilder.Entity("Entity.Model.Parameter.FarmCrop", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CropId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Deleted_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FarmId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Num_hectareas")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Updated_at")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CropId");
+
+                    b.HasIndex("FarmId");
+
+                    b.ToTable("FarmCrops");
+                });
+
+            modelBuilder.Entity("Entity.Model.Parameter.FertilizationSupplies", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Deleted_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Dose")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FertilizationId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SuppliesId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Updated_at")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FertilizationId");
+
+                    b.HasIndex("SuppliesId");
+
+                    b.ToTable("FertilizationSupplies");
+                });
+
+            modelBuilder.Entity("Entity.Model.Parameter.FumigationSupplies", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Deleted_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Dose")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FumigationId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SuppliesId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Updated_at")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FumigationId");
+
+                    b.HasIndex("SuppliesId");
+
+                    b.ToTable("FumigationSupplies");
+                });
+
+            modelBuilder.Entity("Entity.Model.Parameter.Supplies", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Deleted_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Updated_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Supplies");
                 });
 
             modelBuilder.Entity("Entity.Model.Security.Modulo", b =>
@@ -979,25 +976,6 @@ namespace Entity.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Entity.Model.Operational.FarmCrop", b =>
-                {
-                    b.HasOne("Entity.Model.Operational.Crop", "Crop")
-                        .WithMany()
-                        .HasForeignKey("CropId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entity.Model.Operational.Farm", "Farm")
-                        .WithMany()
-                        .HasForeignKey("FarmId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Crop");
-
-                    b.Navigation("Farm");
-                });
-
             modelBuilder.Entity("Entity.Model.Operational.Fertilization", b =>
                 {
                     b.HasOne("Entity.Model.Operational.ReviewTechnical", "ReviewTechnical")
@@ -1007,25 +985,6 @@ namespace Entity.Migrations
                         .IsRequired();
 
                     b.Navigation("ReviewTechnical");
-                });
-
-            modelBuilder.Entity("Entity.Model.Operational.FertilizationSupplies", b =>
-                {
-                    b.HasOne("Entity.Model.Operational.Fertilization", "Fertilization")
-                        .WithMany()
-                        .HasForeignKey("FertilizationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entity.Model.Operational.Supplies", "Supplies")
-                        .WithMany()
-                        .HasForeignKey("SuppliesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Fertilization");
-
-                    b.Navigation("Supplies");
                 });
 
             modelBuilder.Entity("Entity.Model.Operational.Fumigation", b =>
@@ -1039,28 +998,9 @@ namespace Entity.Migrations
                     b.Navigation("ReviewTechnical");
                 });
 
-            modelBuilder.Entity("Entity.Model.Operational.FumigationSupplies", b =>
-                {
-                    b.HasOne("Entity.Model.Operational.Fumigation", "Fumigation")
-                        .WithMany()
-                        .HasForeignKey("FumigationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entity.Model.Operational.Supplies", "Supplies")
-                        .WithMany()
-                        .HasForeignKey("SuppliesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Fumigation");
-
-                    b.Navigation("Supplies");
-                });
-
             modelBuilder.Entity("Entity.Model.Operational.Qualification", b =>
                 {
-                    b.HasOne("Entity.Model.Operational.AssessmentCriteria", "AssessmentCriteria")
+                    b.HasOne("Entity.Model.Parameter.AssessmentCriteria", "AssessmentCriteria")
                         .WithMany()
                         .HasForeignKey("AssessmentCriteriaId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1139,6 +1079,63 @@ namespace Entity.Migrations
                         .IsRequired();
 
                     b.Navigation("Continent");
+                });
+
+            modelBuilder.Entity("Entity.Model.Parameter.FarmCrop", b =>
+                {
+                    b.HasOne("Entity.Model.Parameter.Crop", "Crop")
+                        .WithMany()
+                        .HasForeignKey("CropId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entity.Model.Operational.Farm", "Farm")
+                        .WithMany()
+                        .HasForeignKey("FarmId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Crop");
+
+                    b.Navigation("Farm");
+                });
+
+            modelBuilder.Entity("Entity.Model.Parameter.FertilizationSupplies", b =>
+                {
+                    b.HasOne("Entity.Model.Operational.Fertilization", "Fertilization")
+                        .WithMany()
+                        .HasForeignKey("FertilizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entity.Model.Parameter.Supplies", "Supplies")
+                        .WithMany()
+                        .HasForeignKey("SuppliesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Fertilization");
+
+                    b.Navigation("Supplies");
+                });
+
+            modelBuilder.Entity("Entity.Model.Parameter.FumigationSupplies", b =>
+                {
+                    b.HasOne("Entity.Model.Operational.Fumigation", "Fumigation")
+                        .WithMany()
+                        .HasForeignKey("FumigationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entity.Model.Parameter.Supplies", "Supplies")
+                        .WithMany()
+                        .HasForeignKey("SuppliesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Fumigation");
+
+                    b.Navigation("Supplies");
                 });
 
             modelBuilder.Entity("Entity.Model.Security.Person", b =>

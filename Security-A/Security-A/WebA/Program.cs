@@ -75,7 +75,11 @@ namespace WebA
             builder.Services.AddScoped<ICountryBusiness, CountryBusiness>();
             builder.Services.AddScoped<ICityBusiness, CityBusiness>();
             builder.Services.AddScoped<IFarmBusiness, FarmBusiness>();
+            builder.Services.AddScoped<IFarmCropBusiness, FarmCropBusiness>();
+            builder.Services.AddScoped<IChecklistBusiness, ChecklistBusiness>();
+            builder.Services.AddScoped<IEvidenceBusiness, EvidenceBusiness>();
             builder.Services.AddScoped<ICropBusiness, CropBusiness>();
+            builder.Services.AddScoped<IAssesmentCriteriaBusiness, AssesmentCriteriaBusiness>();
             builder.Services.AddScoped<IFertilizationBusiness, FertilizationBusiness>();
             builder.Services.AddScoped<IFertilizationSuppliesBusiness, FertilizationSuppliesBusiness>();
             builder.Services.AddScoped<IFumigationBusiness, FumigationBusiness>();
