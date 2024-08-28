@@ -44,19 +44,6 @@
           <Property Name="Updated_at" Type="datetime2" Precision="7" />
           <Property Name="Deleted_at" Type="datetime2" Precision="7" />
         </EntityType>
-        <EntityType Name="Continents">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="State" Type="bit" Nullable="false" />
-          <Property Name="Created_at" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="Updated_at" Type="datetime2" Precision="7" />
-          <Property Name="Deleted_at" Type="datetime2" Precision="7" />
-        </EntityType>
         <EntityType Name="Countrys">
           <Key>
             <PropertyRef Name="Id" />
@@ -222,18 +209,6 @@
           <Property Name="Updated_at" Type="datetime2" Precision="7" />
           <Property Name="Deleted_at" Type="datetime2" Precision="7" />
         </EntityType>
-        <EntityType Name="ReviewEvidences">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="EvidenceId" Type="int" />
-          <Property Name="ReviewId" Type="int" />
-          <Property Name="State" Type="bit" Nullable="false" />
-          <Property Name="Created_at" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="Updated_at" Type="datetime2" Precision="7" />
-          <Property Name="Deleted_at" Type="datetime2" Precision="7" />
-        </EntityType>
         <EntityType Name="ReviewTechnicals">
           <Key>
             <PropertyRef Name="Id" />
@@ -338,20 +313,6 @@
             </Principal>
             <Dependent Role="Citys">
               <PropertyRef Name="CountryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Countrys_Continents_ContinentId">
-          <End Role="Continents" Type="Self.Continents" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Countrys" Type="Self.Countrys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Continents">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Countrys">
-              <PropertyRef Name="ContinentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -533,30 +494,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ReviewEvidences_Evidences_EvidenceId">
-          <End Role="Evidences" Type="Self.Evidences" Multiplicity="0..1" />
-          <End Role="ReviewEvidences" Type="Self.ReviewEvidences" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Evidences">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReviewEvidences">
-              <PropertyRef Name="EvidenceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ReviewEvidences_ReviewTechnicals_ReviewId">
-          <End Role="ReviewTechnicals" Type="Self.ReviewTechnicals" Multiplicity="0..1" />
-          <End Role="ReviewEvidences" Type="Self.ReviewEvidences" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReviewTechnicals">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReviewEvidences">
-              <PropertyRef Name="ReviewId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ReviewTechnicals_Checklists_ChecklistId">
           <End Role="Checklists" Type="Self.Checklists" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -687,7 +624,6 @@
           <EntitySet Name="AssessmentCriterias" EntityType="Self.AssessmentCriterias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Checklists" EntityType="Self.Checklists" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Citys" EntityType="Self.Citys" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Continents" EntityType="Self.Continents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Countrys" EntityType="Self.Countrys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Crops" EntityType="Self.Crops" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Evidences" EntityType="Self.Evidences" Schema="dbo" store:Type="Tables" />
@@ -700,7 +636,6 @@
           <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Persons" EntityType="Self.Persons" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Qualifications" EntityType="Self.Qualifications" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ReviewEvidences" EntityType="Self.ReviewEvidences" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReviewTechnicals" EntityType="Self.ReviewTechnicals" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoleViews" EntityType="Self.RoleViews" Schema="dbo" store:Type="Tables" />
@@ -711,10 +646,6 @@
           <AssociationSet Name="FK_Citys_Countrys_CountryId" Association="Self.FK_Citys_Countrys_CountryId">
             <End Role="Countrys" EntitySet="Countrys" />
             <End Role="Citys" EntitySet="Citys" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Countrys_Continents_ContinentId" Association="Self.FK_Countrys_Continents_ContinentId">
-            <End Role="Continents" EntitySet="Continents" />
-            <End Role="Countrys" EntitySet="Countrys" />
           </AssociationSet>
           <AssociationSet Name="FK_FarmCrops_Crops_CropId" Association="Self.FK_FarmCrops_Crops_CropId">
             <End Role="Crops" EntitySet="Crops" />
@@ -767,14 +698,6 @@
           <AssociationSet Name="FK_Qualifications_Checklists_ChecklistId" Association="Self.FK_Qualifications_Checklists_ChecklistId">
             <End Role="Checklists" EntitySet="Checklists" />
             <End Role="Qualifications" EntitySet="Qualifications" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReviewEvidences_Evidences_EvidenceId" Association="Self.FK_ReviewEvidences_Evidences_EvidenceId">
-            <End Role="Evidences" EntitySet="Evidences" />
-            <End Role="ReviewEvidences" EntitySet="ReviewEvidences" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReviewEvidences_ReviewTechnicals_ReviewId" Association="Self.FK_ReviewEvidences_ReviewTechnicals_ReviewId">
-            <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
-            <End Role="ReviewEvidences" EntitySet="ReviewEvidences" />
           </AssociationSet>
           <AssociationSet Name="FK_ReviewTechnicals_Checklists_ChecklistId" Association="Self.FK_ReviewTechnicals_Checklists_ChecklistId">
             <End Role="Checklists" EntitySet="Checklists" />
@@ -860,22 +783,6 @@
           <Property Name="Updated_at" Type="DateTime" Precision="7" />
           <Property Name="Deleted_at" Type="DateTime" Precision="7" />
           <NavigationProperty Name="Countrys" Relationship="Self.FK_Citys_Countrys_CountryId" FromRole="Citys" ToRole="Countrys" />
-          <NavigationProperty Name="Farms" Relationship="Self.FK_Farms_Citys_CityId" FromRole="Citys" ToRole="Farms" />
-          <NavigationProperty Name="Persons" Relationship="Self.FK_Persons_Citys_CityId" FromRole="Citys" ToRole="Persons" />
-        </EntityType>
-        <EntityType Name="Continents">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="State" Type="Boolean" Nullable="false" />
-          <Property Name="Created_at" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Updated_at" Type="DateTime" Precision="7" />
-          <Property Name="Deleted_at" Type="DateTime" Precision="7" />
-          <NavigationProperty Name="Countrys" Relationship="Self.FK_Countrys_Continents_ContinentId" FromRole="Continents" ToRole="Countrys" />
         </EntityType>
         <EntityType Name="Countrys">
           <Key>
@@ -885,13 +792,11 @@
           <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ContinentId" Type="Int32" Nullable="false" />
           <Property Name="State" Type="Boolean" Nullable="false" />
           <Property Name="Created_at" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Updated_at" Type="DateTime" Precision="7" />
           <Property Name="Deleted_at" Type="DateTime" Precision="7" />
           <NavigationProperty Name="Citys" Relationship="Self.FK_Citys_Countrys_CountryId" FromRole="Countrys" ToRole="Citys" />
-          <NavigationProperty Name="Continents" Relationship="Self.FK_Countrys_Continents_ContinentId" FromRole="Countrys" ToRole="Continents" />
         </EntityType>
         <EntityType Name="Crops">
           <Key>
@@ -918,9 +823,10 @@
           <Property Name="Created_at" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Updated_at" Type="DateTime" Precision="7" />
           <Property Name="Deleted_at" Type="DateTime" Precision="7" />
-          <NavigationProperty Name="ReviewEvidences" Relationship="Self.FK_ReviewEvidences_Evidences_EvidenceId" FromRole="Evidences" ToRole="ReviewEvidences" />
+          <NavigationProperty Name="ReviewTechnicals" Relationship="Security_ServiceModel.EvidencesReviewTechnicals" FromRole="Evidences" ToRole="ReviewTechnicals" />
+          <Property Name="ReviewId" Type="String" Nullable="false" />
         </EntityType>
-        <EntityType Name="FarmCrops">
+        <EntityType Name="Lots">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -941,16 +847,15 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CityId" Type="Int32" />
           <Property Name="UserId" Type="Int32" />
           <Property Name="State" Type="Boolean" Nullable="false" />
           <Property Name="Created_at" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Updated_at" Type="DateTime" Precision="7" />
           <Property Name="Deleted_at" Type="DateTime" Precision="7" />
-          <NavigationProperty Name="Citys" Relationship="Self.FK_Farms_Citys_CityId" FromRole="Farms" ToRole="Citys" />
           <NavigationProperty Name="FarmCrops" Relationship="Self.FK_FarmCrops_Farms_FarmId" FromRole="Farms" ToRole="FarmCrops" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Farms_Users_UserId" FromRole="Farms" ToRole="Users" />
-          <NavigationProperty Name="ReviewTechnicals" Relationship="Self.FK_ReviewTechnicals_Farms_FarmId" FromRole="Farms" ToRole="ReviewTechnicals" />
+          <NavigationProperty Name="Departament" Relationship="Security_ServiceModel.FarmsDepartament" FromRole="Farms" ToRole="Departament" />
+          <Property Name="DepartmentId" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Fertilizations">
           <Key>
@@ -960,12 +865,10 @@
           <Property Name="DateFertilization" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="TypeFertilization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="QuantityMix" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ReviewTechnicalId" Type="Int32" Nullable="false" />
           <Property Name="State" Type="Boolean" Nullable="false" />
           <Property Name="Created_at" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Updated_at" Type="DateTime" Precision="7" />
           <Property Name="Deleted_at" Type="DateTime" Precision="7" />
-          <NavigationProperty Name="ReviewTechnicals" Relationship="Self.FK_Fertilizations_ReviewTechnicals_ReviewTechnicalId" FromRole="Fertilizations" ToRole="ReviewTechnicals" />
           <NavigationProperty Name="FertilizationSupplies" Relationship="Self.FK_FertilizationSupplies_Fertilizations_FertilizationId" FromRole="Fertilizations" ToRole="FertilizationSupplies" />
         </EntityType>
         <EntityType Name="FertilizationSupplies">
@@ -990,12 +893,10 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateFumigation" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="QuantityMix" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ReviewTechnicalId" Type="Int32" Nullable="false" />
           <Property Name="State" Type="Boolean" Nullable="false" />
           <Property Name="Created_at" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Updated_at" Type="DateTime" Precision="7" />
           <Property Name="Deleted_at" Type="DateTime" Precision="7" />
-          <NavigationProperty Name="ReviewTechnicals" Relationship="Self.FK_Fumigations_ReviewTechnicals_ReviewTechnicalId" FromRole="Fumigations" ToRole="ReviewTechnicals" />
           <NavigationProperty Name="FumigationSupplies" Relationship="Self.FK_FumigationSupplies_Fumigations_FumigationId" FromRole="Fumigations" ToRole="FumigationSupplies" />
         </EntityType>
         <EntityType Name="FumigationSupplies">
@@ -1039,14 +940,14 @@
           <Property Name="Phone" Type="Int32" Nullable="false" />
           <Property Name="Type_document" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Document" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CityId" Type="Int32" Nullable="false" />
           <Property Name="State" Type="Boolean" Nullable="false" />
           <Property Name="Birth_of_date" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Created_at" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Updated_at" Type="DateTime" Precision="7" />
           <Property Name="Deleted_at" Type="DateTime" Precision="7" />
-          <NavigationProperty Name="Citys" Relationship="Self.FK_Persons_Citys_CityId" FromRole="Persons" ToRole="Citys" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Persons_PersonId" FromRole="Persons" ToRole="Users" />
+          <NavigationProperty Name="Departament" Relationship="Security_ServiceModel.PersonsDepartament" FromRole="Persons" ToRole="Departament" />
+          <Property Name="DepartmentId" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Qualifications">
           <Key>
@@ -1055,7 +956,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Observation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Qualification_criteria" Type="Int32" Nullable="false" />
-          <Property Name="AssesmentCriteriaId" Type="Int32" Nullable="false" />
           <Property Name="AssessmentCriteriaId" Type="Int32" Nullable="false" />
           <Property Name="ChecklistId" Type="Int32" Nullable="false" />
           <Property Name="State" Type="Boolean" Nullable="false" />
@@ -1065,20 +965,6 @@
           <NavigationProperty Name="AssessmentCriterias" Relationship="Self.FK_Qualifications_AssessmentCriterias_AssessmentCriteriaId" FromRole="Qualifications" ToRole="AssessmentCriterias" />
           <NavigationProperty Name="Checklists" Relationship="Self.FK_Qualifications_Checklists_ChecklistId" FromRole="Qualifications" ToRole="Checklists" />
         </EntityType>
-        <EntityType Name="ReviewEvidences">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EvidenceId" Type="Int32" />
-          <Property Name="ReviewId" Type="Int32" />
-          <Property Name="State" Type="Boolean" Nullable="false" />
-          <Property Name="Created_at" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Updated_at" Type="DateTime" Precision="7" />
-          <Property Name="Deleted_at" Type="DateTime" Precision="7" />
-          <NavigationProperty Name="Evidences" Relationship="Self.FK_ReviewEvidences_Evidences_EvidenceId" FromRole="ReviewEvidences" ToRole="Evidences" />
-          <NavigationProperty Name="ReviewTechnicals" Relationship="Self.FK_ReviewEvidences_ReviewTechnicals_ReviewId" FromRole="ReviewEvidences" ToRole="ReviewTechnicals" />
-        </EntityType>
         <EntityType Name="ReviewTechnicals">
           <Key>
             <PropertyRef Name="Id" />
@@ -1087,7 +973,7 @@
           <Property Name="Date_review" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Observation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FarmId" Type="Int32" Nullable="false" />
+          <Property Name="LotId" Type="Int32" Nullable="false" />
           <Property Name="TecnicoId" Type="Int32" Nullable="false" />
           <Property Name="ChecklistId" Type="Int32" Nullable="false" />
           <Property Name="State" Type="Boolean" Nullable="false" />
@@ -1095,11 +981,8 @@
           <Property Name="Updated_at" Type="DateTime" Precision="7" />
           <Property Name="Deleted_at" Type="DateTime" Precision="7" />
           <NavigationProperty Name="Checklists" Relationship="Self.FK_ReviewTechnicals_Checklists_ChecklistId" FromRole="ReviewTechnicals" ToRole="Checklists" />
-          <NavigationProperty Name="Farms" Relationship="Self.FK_ReviewTechnicals_Farms_FarmId" FromRole="ReviewTechnicals" ToRole="Farms" />
-          <NavigationProperty Name="Fertilizations" Relationship="Self.FK_Fertilizations_ReviewTechnicals_ReviewTechnicalId" FromRole="ReviewTechnicals" ToRole="Fertilizations" />
-          <NavigationProperty Name="Fumigations" Relationship="Self.FK_Fumigations_ReviewTechnicals_ReviewTechnicalId" FromRole="ReviewTechnicals" ToRole="Fumigations" />
-          <NavigationProperty Name="ReviewEvidences" Relationship="Self.FK_ReviewEvidences_ReviewTechnicals_ReviewId" FromRole="ReviewTechnicals" ToRole="ReviewEvidences" />
           <NavigationProperty Name="Users" Relationship="Self.FK_ReviewTechnicals_Users_TecnicoId" FromRole="ReviewTechnicals" ToRole="Users" />
+          <NavigationProperty Name="Lots" Relationship="Security_ServiceModel.ReviewTechnicalsLots" FromRole="ReviewTechnicals" ToRole="Lots" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -1248,51 +1131,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Farms_Citys_CityId">
-          <End Role="Citys" Type="Self.Citys" Multiplicity="0..1" />
-          <End Role="Farms" Type="Self.Farms" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Citys">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Farms">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Persons_Citys_CityId">
-          <End Role="Citys" Type="Self.Citys" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Persons" Type="Self.Persons" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Citys">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Persons">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Countrys_Continents_ContinentId">
-          <End Role="Continents" Type="Self.Continents" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Countrys" Type="Self.Countrys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Continents">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Countrys">
-              <PropertyRef Name="ContinentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_FarmCrops_Crops_CropId">
           <End Role="Crops" Type="Self.Crops" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="FarmCrops" Type="Self.FarmCrops" Multiplicity="*" />
+          <End Role="FarmCrops" Type="Security_ServiceModel.Lots" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Crops">
               <PropertyRef Name="Id" />
@@ -1302,23 +1145,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ReviewEvidences_Evidences_EvidenceId">
-          <End Role="Evidences" Type="Self.Evidences" Multiplicity="0..1" />
-          <End Role="ReviewEvidences" Type="Self.ReviewEvidences" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Evidences">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReviewEvidences">
-              <PropertyRef Name="EvidenceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_FarmCrops_Farms_FarmId">
           <End Role="Farms" Type="Self.Farms" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="FarmCrops" Type="Self.FarmCrops" Multiplicity="*" />
+          <End Role="FarmCrops" Type="Security_ServiceModel.Lots" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Farms">
               <PropertyRef Name="Id" />
@@ -1329,7 +1160,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Farms_Users_UserId">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Farms" Type="Self.Farms" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
@@ -1337,34 +1168,6 @@
             </Principal>
             <Dependent Role="Farms">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ReviewTechnicals_Farms_FarmId">
-          <End Role="Farms" Type="Self.Farms" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ReviewTechnicals" Type="Self.ReviewTechnicals" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Farms">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReviewTechnicals">
-              <PropertyRef Name="FarmId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Fertilizations_ReviewTechnicals_ReviewTechnicalId">
-          <End Role="ReviewTechnicals" Type="Self.ReviewTechnicals" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Fertilizations" Type="Self.Fertilizations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReviewTechnicals">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Fertilizations">
-              <PropertyRef Name="ReviewTechnicalId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1393,20 +1196,6 @@
             </Principal>
             <Dependent Role="FertilizationSupplies">
               <PropertyRef Name="SuppliesId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Fumigations_ReviewTechnicals_ReviewTechnicalId">
-          <End Role="ReviewTechnicals" Type="Self.ReviewTechnicals" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Fumigations" Type="Self.Fumigations" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReviewTechnicals">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Fumigations">
-              <PropertyRef Name="ReviewTechnicalId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1463,18 +1252,6 @@
             </Principal>
             <Dependent Role="Users">
               <PropertyRef Name="PersonId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ReviewEvidences_ReviewTechnicals_ReviewId">
-          <End Role="ReviewTechnicals" Type="Self.ReviewTechnicals" Multiplicity="0..1" />
-          <End Role="ReviewEvidences" Type="Self.ReviewEvidences" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ReviewTechnicals">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReviewEvidences">
-              <PropertyRef Name="ReviewId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1552,11 +1329,10 @@
           <EntitySet Name="AssessmentCriterias" EntityType="Self.AssessmentCriterias" />
           <EntitySet Name="Checklists" EntityType="Self.Checklists" />
           <EntitySet Name="Citys" EntityType="Self.Citys" />
-          <EntitySet Name="Continents" EntityType="Self.Continents" />
           <EntitySet Name="Countrys" EntityType="Self.Countrys" />
           <EntitySet Name="Crops" EntityType="Self.Crops" />
           <EntitySet Name="Evidences" EntityType="Self.Evidences" />
-          <EntitySet Name="FarmCrops" EntityType="Self.FarmCrops" />
+          <EntitySet Name="Lots" EntityType="Security_ServiceModel.Lots" />
           <EntitySet Name="Farms" EntityType="Self.Farms" />
           <EntitySet Name="Fertilizations" EntityType="Self.Fertilizations" />
           <EntitySet Name="FertilizationSupplies" EntityType="Self.FertilizationSupplies" />
@@ -1565,7 +1341,6 @@
           <EntitySet Name="Modulos" EntityType="Self.Modulos" />
           <EntitySet Name="Persons" EntityType="Self.Persons" />
           <EntitySet Name="Qualifications" EntityType="Self.Qualifications" />
-          <EntitySet Name="ReviewEvidences" EntityType="Self.ReviewEvidences" />
           <EntitySet Name="ReviewTechnicals" EntityType="Self.ReviewTechnicals" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="RoleViews" EntityType="Self.RoleViews" />
@@ -1589,41 +1364,17 @@
             <End Role="Countrys" EntitySet="Countrys" />
             <End Role="Citys" EntitySet="Citys" />
           </AssociationSet>
-          <AssociationSet Name="FK_Farms_Citys_CityId" Association="Self.FK_Farms_Citys_CityId">
-            <End Role="Citys" EntitySet="Citys" />
-            <End Role="Farms" EntitySet="Farms" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Persons_Citys_CityId" Association="Self.FK_Persons_Citys_CityId">
-            <End Role="Citys" EntitySet="Citys" />
-            <End Role="Persons" EntitySet="Persons" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Countrys_Continents_ContinentId" Association="Self.FK_Countrys_Continents_ContinentId">
-            <End Role="Continents" EntitySet="Continents" />
-            <End Role="Countrys" EntitySet="Countrys" />
-          </AssociationSet>
           <AssociationSet Name="FK_FarmCrops_Crops_CropId" Association="Self.FK_FarmCrops_Crops_CropId">
             <End Role="Crops" EntitySet="Crops" />
-            <End Role="FarmCrops" EntitySet="FarmCrops" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReviewEvidences_Evidences_EvidenceId" Association="Self.FK_ReviewEvidences_Evidences_EvidenceId">
-            <End Role="Evidences" EntitySet="Evidences" />
-            <End Role="ReviewEvidences" EntitySet="ReviewEvidences" />
+            <End Role="FarmCrops" EntitySet="Lots" />
           </AssociationSet>
           <AssociationSet Name="FK_FarmCrops_Farms_FarmId" Association="Self.FK_FarmCrops_Farms_FarmId">
             <End Role="Farms" EntitySet="Farms" />
-            <End Role="FarmCrops" EntitySet="FarmCrops" />
+            <End Role="FarmCrops" EntitySet="Lots" />
           </AssociationSet>
           <AssociationSet Name="FK_Farms_Users_UserId" Association="Self.FK_Farms_Users_UserId">
             <End Role="Users" EntitySet="Users" />
             <End Role="Farms" EntitySet="Farms" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReviewTechnicals_Farms_FarmId" Association="Self.FK_ReviewTechnicals_Farms_FarmId">
-            <End Role="Farms" EntitySet="Farms" />
-            <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Fertilizations_ReviewTechnicals_ReviewTechnicalId" Association="Self.FK_Fertilizations_ReviewTechnicals_ReviewTechnicalId">
-            <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
-            <End Role="Fertilizations" EntitySet="Fertilizations" />
           </AssociationSet>
           <AssociationSet Name="FK_FertilizationSupplies_Fertilizations_FertilizationId" Association="Self.FK_FertilizationSupplies_Fertilizations_FertilizationId">
             <End Role="Fertilizations" EntitySet="Fertilizations" />
@@ -1632,10 +1383,6 @@
           <AssociationSet Name="FK_FertilizationSupplies_Supplies_SuppliesId" Association="Self.FK_FertilizationSupplies_Supplies_SuppliesId">
             <End Role="Supplies" EntitySet="Supplies" />
             <End Role="FertilizationSupplies" EntitySet="FertilizationSupplies" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Fumigations_ReviewTechnicals_ReviewTechnicalId" Association="Self.FK_Fumigations_ReviewTechnicals_ReviewTechnicalId">
-            <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
-            <End Role="Fumigations" EntitySet="Fumigations" />
           </AssociationSet>
           <AssociationSet Name="FK_FumigationSupplies_Fumigations_FumigationId" Association="Self.FK_FumigationSupplies_Fumigations_FumigationId">
             <End Role="Fumigations" EntitySet="Fumigations" />
@@ -1652,10 +1399,6 @@
           <AssociationSet Name="FK_Users_Persons_PersonId" Association="Self.FK_Users_Persons_PersonId">
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Users" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ReviewEvidences_ReviewTechnicals_ReviewId" Association="Self.FK_ReviewEvidences_ReviewTechnicals_ReviewId">
-            <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
-            <End Role="ReviewEvidences" EntitySet="ReviewEvidences" />
           </AssociationSet>
           <AssociationSet Name="FK_ReviewTechnicals_Users_TecnicoId" Association="Self.FK_ReviewTechnicals_Users_TecnicoId">
             <End Role="Users" EntitySet="Users" />
@@ -1677,7 +1420,124 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="UserRoles" EntitySet="UserRoles" />
           </AssociationSet>
+          <AssociationSet Name="EvidencesReviewTechnicals" Association="Security_ServiceModel.EvidencesReviewTechnicals">
+            <End Role="Evidences" EntitySet="Evidences" />
+            <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
+          </AssociationSet>
+          <EntitySet Name="DepartamentSet" EntityType="Security_ServiceModel.Departament" />
+          <AssociationSet Name="DepartamentCitys" Association="Security_ServiceModel.DepartamentCitys">
+            <End Role="Departament" EntitySet="DepartamentSet" />
+            <End Role="Citys" EntitySet="Citys" />
+          </AssociationSet>
+          <AssociationSet Name="PersonsDepartament" Association="Security_ServiceModel.PersonsDepartament">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Departament" EntitySet="DepartamentSet" />
+          </AssociationSet>
+          <AssociationSet Name="FarmsDepartament" Association="Security_ServiceModel.FarmsDepartament">
+            <End Role="Farms" EntitySet="Farms" />
+            <End Role="Departament" EntitySet="DepartamentSet" />
+          </AssociationSet>
+          <EntitySet Name="LotFumigationSet" EntityType="Security_ServiceModel.LotFumigation" />
+          <AssociationSet Name="LotFumigationFumigations" Association="Security_ServiceModel.LotFumigationFumigations">
+            <End Role="LotFumigation" EntitySet="LotFumigationSet" />
+            <End Role="Fumigations" EntitySet="Fumigations" />
+          </AssociationSet>
+          <AssociationSet Name="LotFumigationLots" Association="Security_ServiceModel.LotFumigationLots">
+            <End Role="LotFumigation" EntitySet="LotFumigationSet" />
+            <End Role="Lots" EntitySet="Lots" />
+          </AssociationSet>
+          <EntitySet Name="LotFertilizationSet" EntityType="Security_ServiceModel.LotFertilization" />
+          <AssociationSet Name="LotFertilizationFertilizations" Association="Security_ServiceModel.LotFertilizationFertilizations">
+            <End Role="LotFertilization" EntitySet="LotFertilizationSet" />
+            <End Role="Fertilizations" EntitySet="Fertilizations" />
+          </AssociationSet>
+          <AssociationSet Name="LotFertilizationLots" Association="Security_ServiceModel.LotFertilizationLots">
+            <End Role="LotFertilization" EntitySet="LotFertilizationSet" />
+            <End Role="Lots" EntitySet="Lots" />
+          </AssociationSet>
+          <AssociationSet Name="ReviewTechnicalsLots" Association="Security_ServiceModel.ReviewTechnicalsLots">
+            <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
+            <End Role="Lots" EntitySet="Lots" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="EvidencesReviewTechnicals">
+          <End Type="Security_ServiceModel.Evidences" Role="Evidences" Multiplicity="*" />
+          <End Type="Security_ServiceModel.ReviewTechnicals" Role="ReviewTechnicals" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Departament">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="Created_at" Type="DateTime" Nullable="false" />
+          <Property Name="Updated_at" Type="String" />
+          <Property Name="Deleted_at" Type="String" />
+          <NavigationProperty Name="Citys" Relationship="Security_ServiceModel.DepartamentCitys" FromRole="Departament" ToRole="Citys" />
+        </EntityType>
+        <Association Name="DepartamentCitys">
+          <End Type="Security_ServiceModel.Departament" Role="Departament" Multiplicity="*" />
+          <End Type="Security_ServiceModel.Citys" Role="Citys" Multiplicity="1" />
+        </Association>
+        <Association Name="PersonsDepartament">
+          <End Type="Security_ServiceModel.Persons" Role="Persons" Multiplicity="*" />
+          <End Type="Security_ServiceModel.Departament" Role="Departament" Multiplicity="1" />
+        </Association>
+        <Association Name="FarmsDepartament">
+          <End Type="Security_ServiceModel.Farms" Role="Farms" Multiplicity="*" />
+          <End Type="Security_ServiceModel.Departament" Role="Departament" Multiplicity="1" />
+        </Association>
+        <EntityType Name="LotFumigation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LotId" Type="String" Nullable="false" />
+          <Property Name="FumigationId" Type="String" Nullable="false" />
+          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="Created_at" Type="DateTime" Nullable="false" />
+          <Property Name="Updated_at" Type="DateTime" />
+          <Property Name="Deleted_at" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Fumigations" Relationship="Security_ServiceModel.LotFumigationFumigations" FromRole="LotFumigation" ToRole="Fumigations" />
+          <NavigationProperty Name="Lots" Relationship="Security_ServiceModel.LotFumigationLots" FromRole="LotFumigation" ToRole="Lots" />
+        </EntityType>
+        <Association Name="LotFumigationFumigations">
+          <End Type="Security_ServiceModel.LotFumigation" Role="LotFumigation" Multiplicity="*" />
+          <End Type="Security_ServiceModel.Fumigations" Role="Fumigations" Multiplicity="1" />
+        </Association>
+        <Association Name="LotFumigationLots">
+          <End Type="Security_ServiceModel.LotFumigation" Role="LotFumigation" Multiplicity="*" />
+          <End Type="Security_ServiceModel.Lots" Role="Lots" Multiplicity="1" />
+        </Association>
+        <EntityType Name="LotFertilization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LotId" Type="String" Nullable="false" />
+          <Property Name="FertilizationId" Type="String" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" />
+          <Property Name="Created_at" Type="DateTime" Nullable="false" />
+          <Property Name="Updated_at" Type="DateTime" />
+          <Property Name="Deleted_at" Type="DateTime" />
+          <NavigationProperty Name="Fertilizations" Relationship="Security_ServiceModel.LotFertilizationFertilizations" FromRole="LotFertilization" ToRole="Fertilizations" />
+          <NavigationProperty Name="Lots" Relationship="Security_ServiceModel.LotFertilizationLots" FromRole="LotFertilization" ToRole="Lots" />
+        </EntityType>
+        <Association Name="LotFertilizationFertilizations">
+          <End Type="Security_ServiceModel.LotFertilization" Role="LotFertilization" Multiplicity="*" />
+          <End Type="Security_ServiceModel.Fertilizations" Role="Fertilizations" Multiplicity="1" />
+        </Association>
+        <Association Name="LotFertilizationLots">
+          <End Type="Security_ServiceModel.LotFertilization" Role="LotFertilization" Multiplicity="*" />
+          <End Type="Security_ServiceModel.Lots" Role="Lots" Multiplicity="1" />
+        </Association>
+        <Association Name="ReviewTechnicalsLots">
+          <End Type="Security_ServiceModel.ReviewTechnicals" Role="ReviewTechnicals" Multiplicity="*" />
+          <End Type="Security_ServiceModel.Lots" Role="Lots" Multiplicity="1" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1726,20 +1586,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Continents">
-            <EntityTypeMapping TypeName="Security_ServiceModel.Continents">
-              <MappingFragment StoreEntitySet="Continents">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-                <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-                <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Countrys">
             <EntityTypeMapping TypeName="Security_ServiceModel.Countrys">
               <MappingFragment StoreEntitySet="Countrys">
@@ -1747,7 +1593,6 @@
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ContinentId" ColumnName="ContinentId" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Created_at" ColumnName="Created_at" />
                 <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
@@ -1782,8 +1627,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FarmCrops">
-            <EntityTypeMapping TypeName="Security_ServiceModel.FarmCrops">
+          <EntitySetMapping Name="Lots">
+            <EntityTypeMapping TypeName="Security_ServiceModel.Lots">
               <MappingFragment StoreEntitySet="FarmCrops">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CropId" ColumnName="CropId" />
@@ -1801,7 +1646,6 @@
               <MappingFragment StoreEntitySet="Farms">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Created_at" ColumnName="Created_at" />
@@ -1817,7 +1661,6 @@
                 <ScalarProperty Name="DateFertilization" ColumnName="DateFertilization" />
                 <ScalarProperty Name="TypeFertilization" ColumnName="TypeFertilization" />
                 <ScalarProperty Name="QuantityMix" ColumnName="QuantityMix" />
-                <ScalarProperty Name="ReviewTechnicalId" ColumnName="ReviewTechnicalId" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Created_at" ColumnName="Created_at" />
                 <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
@@ -1845,7 +1688,6 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DateFumigation" ColumnName="DateFumigation" />
                 <ScalarProperty Name="QuantityMix" ColumnName="QuantityMix" />
-                <ScalarProperty Name="ReviewTechnicalId" ColumnName="ReviewTechnicalId" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Created_at" ColumnName="Created_at" />
                 <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
@@ -1892,7 +1734,6 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Type_document" ColumnName="Type_document" />
                 <ScalarProperty Name="Document" ColumnName="Document" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Birth_of_date" ColumnName="Birth_of_date" />
                 <ScalarProperty Name="Created_at" ColumnName="Created_at" />
@@ -1907,22 +1748,8 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Observation" ColumnName="Observation" />
                 <ScalarProperty Name="Qualification_criteria" ColumnName="Qualification_criteria" />
-                <ScalarProperty Name="AssesmentCriteriaId" ColumnName="AssesmentCriteriaId" />
                 <ScalarProperty Name="AssessmentCriteriaId" ColumnName="AssessmentCriteriaId" />
                 <ScalarProperty Name="ChecklistId" ColumnName="ChecklistId" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-                <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-                <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ReviewEvidences">
-            <EntityTypeMapping TypeName="Security_ServiceModel.ReviewEvidences">
-              <MappingFragment StoreEntitySet="ReviewEvidences">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="EvidenceId" ColumnName="EvidenceId" />
-                <ScalarProperty Name="ReviewId" ColumnName="ReviewId" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Created_at" ColumnName="Created_at" />
                 <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
@@ -1937,7 +1764,7 @@
                 <ScalarProperty Name="Date_review" ColumnName="Date_review" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Observation" ColumnName="Observation" />
-                <ScalarProperty Name="FarmId" ColumnName="FarmId" />
+                <ScalarProperty Name="LotId" ColumnName="FarmId" />
                 <ScalarProperty Name="TecnicoId" ColumnName="TecnicoId" />
                 <ScalarProperty Name="ChecklistId" ColumnName="ChecklistId" />
                 <ScalarProperty Name="State" ColumnName="State" />

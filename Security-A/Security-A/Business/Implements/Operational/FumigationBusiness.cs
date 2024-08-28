@@ -28,7 +28,6 @@ namespace Business.Implements.Operational
                 Id = Fumigation.Id,
                 DateFumigation = Fumigation.DateFumigation,
                 QuantityMix = Fumigation.QuantityMix,
-                ReviewTechnicalId = Fumigation.ReviewTechnicalId,
                 State = Fumigation.State
             });
 
@@ -47,7 +46,6 @@ namespace Business.Implements.Operational
             dto.Id = Fumigation.Id;
             dto.DateFumigation = Fumigation.DateFumigation;
             dto.QuantityMix = Fumigation.QuantityMix;
-            dto.ReviewTechnicalId = Fumigation.ReviewTechnicalId;
             dto.State = Fumigation.State;
             return dto;
         }
@@ -57,7 +55,6 @@ namespace Business.Implements.Operational
             fumigation.Id = entity.Id;
             fumigation.DateFumigation = entity.DateFumigation;
             fumigation.QuantityMix = entity.QuantityMix;
-            fumigation.ReviewTechnicalId = entity.ReviewTechnicalId;
             fumigation.State = entity.State;
             return fumigation;
         }

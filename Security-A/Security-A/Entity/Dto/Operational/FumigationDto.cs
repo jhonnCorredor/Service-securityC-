@@ -12,7 +12,6 @@ namespace Entity.Dto.Operational
         public int Id { get; set; }
         public DateTime DateFumigation { get; set; }
         public string QuantityMix { get; set; }
-        public int ReviewTechnicalId { get; set; }
         public Boolean State { get; set; }
     }
 }

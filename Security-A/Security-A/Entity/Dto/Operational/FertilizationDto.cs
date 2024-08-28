@@ -13,7 +13,6 @@ namespace Entity.Dto.Operational
         public DateTime DateFertilization { get; set; }
         public string TypeFertilization { get; set; }
         public string QuantityMix { get; set; }
-        public int ReviewTechnicalId { get; set; }
         public Boolean State { get; set; }
     }
 }

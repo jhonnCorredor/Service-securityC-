@@ -45,21 +45,22 @@ namespace WebA
             builder.Services.AddScoped<IUserData, UserData>();
             builder.Services.AddScoped<IUserRoleData, UserRoleData>();
             builder.Services.AddScoped<IViewData, ViewData>();
-            builder.Services.AddScoped<IContinentData, ContinentData>();
             builder.Services.AddScoped<ICountryData, CountryData>();
             builder.Services.AddScoped<ICityData, CityData>();
+            builder.Services.AddScoped<IDepartamentData, DepartamentData>();
             builder.Services.AddScoped<IFarmData, FarmData>();
             builder.Services.AddScoped<IAssesmentCriteriaData, AssesmentCriteriaData>();
             builder.Services.AddScoped<IChecklistData, ChecklistData>();
             builder.Services.AddScoped<ICropData, CropData>();
             builder.Services.AddScoped<IEvidenceData, EvidenceData>();
-            builder.Services.AddScoped<IFarmCropData, FarmCropData>();
+            builder.Services.AddScoped<ILotData, LotData>();
+            builder.Services.AddScoped<ILotFumigationData, LotFumigationData>();
+            builder.Services.AddScoped<ILotFertilizationData, LotFertilizationData>();
             builder.Services.AddScoped<IFertilizationData, FertilizationData>();
             builder.Services.AddScoped<IFertilizationSuppliesData, FertilizationSuppliesData>();
             builder.Services.AddScoped<IFumigationData, FumigationData>();
             builder.Services.AddScoped<IFumigationSuppliesData, FumigationSuppliesData>();
             builder.Services.AddScoped<IQualificationData, QualificationData>();
-            builder.Services.AddScoped<IReviewEvidenceData, ReviewEvidenceData>();
             builder.Services.AddScoped<IReviewTechnicalData, ReviewTechnicalData>();
             builder.Services.AddScoped<ISuppliesData, SuppliesData>();
 
@@ -71,11 +72,13 @@ namespace WebA
             builder.Services.AddScoped<IUserBusiness, UserBusiness>();
             builder.Services.AddScoped<IUserRoleBusiness, UserRoleBusiness>();
             builder.Services.AddScoped<IViewBusiness, ViewBusiness>();
-            builder.Services.AddScoped<IContinentBusiness, ContinentBusiness>();
             builder.Services.AddScoped<ICountryBusiness, CountryBusiness>();
             builder.Services.AddScoped<ICityBusiness, CityBusiness>();
+            builder.Services.AddScoped<IDepartamentBusiness, DepartamentBusiness>();
             builder.Services.AddScoped<IFarmBusiness, FarmBusiness>();
-            builder.Services.AddScoped<IFarmCropBusiness, FarmCropBusiness>();
+            builder.Services.AddScoped<ILotBusiness, LotBusiness>();
+            builder.Services.AddScoped<ILotFumigationBusiness, LotFumigationBusiness>();
+            builder.Services.AddScoped<ILotFertilizationBusiness, LotFertilizationBusiness>();
             builder.Services.AddScoped<IChecklistBusiness, ChecklistBusiness>();
             builder.Services.AddScoped<IEvidenceBusiness, EvidenceBusiness>();
             builder.Services.AddScoped<ICropBusiness, CropBusiness>();
@@ -85,7 +88,6 @@ namespace WebA
             builder.Services.AddScoped<IFumigationBusiness, FumigationBusiness>();
             builder.Services.AddScoped<IFumigationSuppliesBusiness, FumigationSuppliesBusiness>();
             builder.Services.AddScoped<IQualificationBusiness, QualificationBusiness>();
-            builder.Services.AddScoped<IReviewEvidenceBusiness, ReviewEvidenceBusiness>();
             builder.Services.AddScoped<IReviewTechnicalBusiness, ReviewTechnicalBusiness>();
             builder.Services.AddScoped<ISuppliesBusiness, SuppliesBusiness>();
 

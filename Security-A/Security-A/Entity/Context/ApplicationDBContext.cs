@@ -86,23 +86,24 @@ namespace Entity.Context
         public DbSet<User> Users => Set<User>();
         public DbSet<UserRole> UserRoles => Set<UserRole>();
         public DbSet<View> Views => Set<View>();
-        public DbSet<Continent> Continents => Set<Continent>();
         public DbSet<Country> Countrys => Set<Country>();
         public DbSet<City> Citys => Set<City>();
+        public DbSet<Departament> Departaments => Set<Departament>();
         public DbSet<Farm> Farms => Set<Farm>();
         public DbSet<Supplies> Supplies => Set<Supplies>();
         public DbSet<AssessmentCriteria> AssessmentCriterias => Set<AssessmentCriteria>();
         public DbSet<Checklist> Checklists => Set<Checklist>();
         public DbSet<Crop> Crops => Set<Crop>();
-        public DbSet<FarmCrop> FarmCrops => Set<FarmCrop>();
+        public DbSet<Lot> Lots => Set<Lot>();
         public DbSet<Fertilization> Fertilizations => Set<Fertilization>();
         public DbSet<FertilizationSupplies> FertilizationSupplies => Set<FertilizationSupplies>();
         public DbSet<Fumigation> Fumigations => Set<Fumigation>();
         public DbSet<FumigationSupplies> FumigationSupplies => Set<FumigationSupplies>();
+        public DbSet<LotFumigation> LotFumigations => Set<LotFumigation>();
+        public DbSet<LotFertilization> LotFertilizations => Set<LotFertilization>();
         public DbSet<Qualification> Qualifications => Set<Qualification>();
         public DbSet<ReviewTechnical> ReviewTechnicals => Set<ReviewTechnical>();
         public DbSet<Evidence> Evidences => Set<Evidence>();
-        public DbSet<ReviewEvidence> ReviewEvidences => Set<ReviewEvidence>();
 
 
         //Operational

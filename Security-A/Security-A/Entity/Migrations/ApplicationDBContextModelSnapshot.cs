@@ -76,6 +76,9 @@ namespace Entity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ReviewId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("State")
                         .HasColumnType("bit");
 
@@ -83,6 +86,8 @@ namespace Entity.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ReviewId");
 
                     b.ToTable("Evidences");
                 });
@@ -95,14 +100,14 @@ namespace Entity.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CityId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("Deleted_at")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("DepartamentId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -119,7 +124,7 @@ namespace Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
+                    b.HasIndex("DepartamentId");
 
                     b.HasIndex("UserId");
 
@@ -147,9 +152,6 @@ namespace Entity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ReviewTechnicalId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("State")
                         .HasColumnType("bit");
 
@@ -161,8 +163,6 @@ namespace Entity.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ReviewTechnicalId");
 
                     b.ToTable("Fertilizations");
                 });
@@ -188,7 +188,38 @@ namespace Entity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ReviewTechnicalId")
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Updated_at")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fumigations");
+                });
+
+            modelBuilder.Entity("Entity.Model.Operational.Lot", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CropId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Deleted_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FarmId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Num_hectareas")
                         .HasColumnType("int");
 
                     b.Property<bool>("State")
@@ -199,9 +230,11 @@ namespace Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ReviewTechnicalId");
+                    b.HasIndex("CropId");
 
-                    b.ToTable("Fumigations");
+                    b.HasIndex("FarmId");
+
+                    b.ToTable("Lots");
                 });
 
             modelBuilder.Entity("Entity.Model.Operational.Qualification", b =>
@@ -244,41 +277,6 @@ namespace Entity.Migrations
                     b.HasIndex("ChecklistId");
 
                     b.ToTable("Qualifications");
-                });
-
-            modelBuilder.Entity("Entity.Model.Operational.ReviewEvidence", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Deleted_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("EvidenceId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ReviewId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("State")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("Updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EvidenceId");
-
-                    b.HasIndex("ReviewId");
-
-                    b.ToTable("ReviewEvidences");
                 });
 
             modelBuilder.Entity("Entity.Model.Operational.ReviewTechnical", b =>
@@ -410,43 +408,6 @@ namespace Entity.Migrations
                     b.ToTable("Citys");
                 });
 
-            modelBuilder.Entity("Entity.Model.Parameter.Continent", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Created_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Deleted_at")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("State")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("Updated_at")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Continents");
-                });
-
             modelBuilder.Entity("Entity.Model.Parameter.Country", b =>
                 {
                     b.Property<int>("Id")
@@ -459,9 +420,6 @@ namespace Entity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ContinentId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
 
@@ -483,8 +441,6 @@ namespace Entity.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ContinentId");
 
                     b.ToTable("Countrys");
                 });
@@ -526,7 +482,7 @@ namespace Entity.Migrations
                     b.ToTable("Crops");
                 });
 
-            modelBuilder.Entity("Entity.Model.Parameter.FarmCrop", b =>
+            modelBuilder.Entity("Entity.Model.Parameter.Departament", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -534,20 +490,26 @@ namespace Entity.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("CropId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("Deleted_at")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FarmId")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Num_hectareas")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("State")
                         .HasColumnType("bit");
@@ -557,11 +519,9 @@ namespace Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CropId");
+                    b.HasIndex("CityId");
 
-                    b.HasIndex("FarmId");
-
-                    b.ToTable("FarmCrops");
+                    b.ToTable("Departaments");
                 });
 
             modelBuilder.Entity("Entity.Model.Parameter.FertilizationSupplies", b =>
@@ -682,6 +642,76 @@ namespace Entity.Migrations
                     b.ToTable("Supplies");
                 });
 
+            modelBuilder.Entity("Entity.Model.Security.LotFertilization", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Deleted_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FertilizationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LotId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Updated_at")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FertilizationId");
+
+                    b.HasIndex("LotId");
+
+                    b.ToTable("LotFertilizations");
+                });
+
+            modelBuilder.Entity("Entity.Model.Security.LotFumigation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Deleted_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FumigationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LotId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Updated_at")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FumigationId");
+
+                    b.HasIndex("LotId");
+
+                    b.ToTable("LotFumigations");
+                });
+
             modelBuilder.Entity("Entity.Model.Security.Modulo", b =>
                 {
                     b.Property<int>("Id")
@@ -733,14 +763,14 @@ namespace Entity.Migrations
                     b.Property<DateTime>("Birth_of_date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("Deleted_at")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("DepartamentId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Document")
                         .IsRequired()
@@ -773,7 +803,7 @@ namespace Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
+                    b.HasIndex("DepartamentId");
 
                     b.ToTable("Persons");
                 });
@@ -961,41 +991,49 @@ namespace Entity.Migrations
                     b.ToTable("Views");
                 });
 
+            modelBuilder.Entity("Entity.Model.Operational.Evidence", b =>
+                {
+                    b.HasOne("Entity.Model.Operational.ReviewTechnical", "Review")
+                        .WithMany()
+                        .HasForeignKey("ReviewId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Review");
+                });
+
             modelBuilder.Entity("Entity.Model.Operational.Farm", b =>
                 {
-                    b.HasOne("Entity.Model.Parameter.City", "City")
+                    b.HasOne("Entity.Model.Parameter.Departament", "Departament")
                         .WithMany()
-                        .HasForeignKey("CityId");
+                        .HasForeignKey("DepartamentId");
 
                     b.HasOne("Entity.Model.Security.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.Navigation("City");
+                    b.Navigation("Departament");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Entity.Model.Operational.Fertilization", b =>
+            modelBuilder.Entity("Entity.Model.Operational.Lot", b =>
                 {
-                    b.HasOne("Entity.Model.Operational.ReviewTechnical", "ReviewTechnical")
+                    b.HasOne("Entity.Model.Parameter.Crop", "Crop")
                         .WithMany()
-                        .HasForeignKey("ReviewTechnicalId")
+                        .HasForeignKey("CropId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ReviewTechnical");
-                });
-
-            modelBuilder.Entity("Entity.Model.Operational.Fumigation", b =>
-                {
-                    b.HasOne("Entity.Model.Operational.ReviewTechnical", "ReviewTechnical")
+                    b.HasOne("Entity.Model.Operational.Farm", "Farm")
                         .WithMany()
-                        .HasForeignKey("ReviewTechnicalId")
+                        .HasForeignKey("FarmId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ReviewTechnical");
+                    b.Navigation("Crop");
+
+                    b.Navigation("Farm");
                 });
 
             modelBuilder.Entity("Entity.Model.Operational.Qualification", b =>
@@ -1015,21 +1053,6 @@ namespace Entity.Migrations
                     b.Navigation("AssessmentCriteria");
 
                     b.Navigation("Checklist");
-                });
-
-            modelBuilder.Entity("Entity.Model.Operational.ReviewEvidence", b =>
-                {
-                    b.HasOne("Entity.Model.Operational.Evidence", "Evidence")
-                        .WithMany()
-                        .HasForeignKey("EvidenceId");
-
-                    b.HasOne("Entity.Model.Operational.ReviewTechnical", "Review")
-                        .WithMany()
-                        .HasForeignKey("ReviewId");
-
-                    b.Navigation("Evidence");
-
-                    b.Navigation("Review");
                 });
 
             modelBuilder.Entity("Entity.Model.Operational.ReviewTechnical", b =>
@@ -1070,34 +1093,15 @@ namespace Entity.Migrations
                     b.Navigation("Country");
                 });
 
-            modelBuilder.Entity("Entity.Model.Parameter.Country", b =>
+            modelBuilder.Entity("Entity.Model.Parameter.Departament", b =>
                 {
-                    b.HasOne("Entity.Model.Parameter.Continent", "Continent")
+                    b.HasOne("Entity.Model.Parameter.City", "City")
                         .WithMany()
-                        .HasForeignKey("ContinentId")
+                        .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Continent");
-                });
-
-            modelBuilder.Entity("Entity.Model.Parameter.FarmCrop", b =>
-                {
-                    b.HasOne("Entity.Model.Parameter.Crop", "Crop")
-                        .WithMany()
-                        .HasForeignKey("CropId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entity.Model.Operational.Farm", "Farm")
-                        .WithMany()
-                        .HasForeignKey("FarmId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Crop");
-
-                    b.Navigation("Farm");
+                    b.Navigation("City");
                 });
 
             modelBuilder.Entity("Entity.Model.Parameter.FertilizationSupplies", b =>
@@ -1138,15 +1142,53 @@ namespace Entity.Migrations
                     b.Navigation("Supplies");
                 });
 
-            modelBuilder.Entity("Entity.Model.Security.Person", b =>
+            modelBuilder.Entity("Entity.Model.Security.LotFertilization", b =>
                 {
-                    b.HasOne("Entity.Model.Parameter.City", "City")
+                    b.HasOne("Entity.Model.Operational.Fertilization", "Fertilization")
                         .WithMany()
-                        .HasForeignKey("CityId")
+                        .HasForeignKey("FertilizationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("City");
+                    b.HasOne("Entity.Model.Operational.Lot", "Lot")
+                        .WithMany()
+                        .HasForeignKey("LotId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Fertilization");
+
+                    b.Navigation("Lot");
+                });
+
+            modelBuilder.Entity("Entity.Model.Security.LotFumigation", b =>
+                {
+                    b.HasOne("Entity.Model.Operational.Fumigation", "Fumigation")
+                        .WithMany()
+                        .HasForeignKey("FumigationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entity.Model.Operational.Lot", "Lot")
+                        .WithMany()
+                        .HasForeignKey("LotId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Fumigation");
+
+                    b.Navigation("Lot");
+                });
+
+            modelBuilder.Entity("Entity.Model.Security.Person", b =>
+                {
+                    b.HasOne("Entity.Model.Parameter.Departament", "Departament")
+                        .WithMany()
+                        .HasForeignKey("DepartamentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Departament");
                 });
 
             modelBuilder.Entity("Entity.Model.Security.RoleView", b =>

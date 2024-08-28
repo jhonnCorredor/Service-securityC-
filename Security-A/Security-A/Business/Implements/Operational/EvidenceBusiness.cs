@@ -28,6 +28,7 @@ namespace Business.Implements.Operational
                 Id = evidence.Id,
                 Code = evidence.Code,
                 Document = evidence.Document,
+                ReviewId = evidence.ReviewId,
                 State = evidence.State
             });
 
@@ -46,6 +47,7 @@ namespace Business.Implements.Operational
             dto.Id = evidence.Id;
             dto.Document = evidence.Document;
             dto.Code = evidence.Code;
+            dto.ReviewId = evidence.ReviewId;
             dto.State = evidence.State;
             return dto;
         }
@@ -55,6 +57,7 @@ namespace Business.Implements.Operational
             evidence.Id = entity.Id;
             evidence.Document = entity.Document;
             evidence.Code = entity.Code;
+            evidence.ReviewId = entity.ReviewId;
             evidence.State = entity.State;
             return evidence;
         }

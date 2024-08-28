@@ -29,8 +29,7 @@ namespace Business.Implements.Parameter
                 Name = Country.Name,
                 Description = Country.Description,
                 Code = Country.Code,
-                State = Country.State,
-                ContinentId = Country.ContinentId
+                State = Country.State
             });
 
             return CountryDTOs;
@@ -49,7 +48,6 @@ namespace Business.Implements.Parameter
             countryDto.Name = country.Name;
             countryDto.Description = country.Description;
             countryDto.Code = country.Code;
-            countryDto.ContinentId = country.ContinentId;
             countryDto.State = country.State;
             return countryDto;
         }
@@ -60,7 +58,6 @@ namespace Business.Implements.Parameter
             country.Name = entity.Name;
             country.Description = entity.Description;
             country.Code = entity.Code;
-            country.ContinentId = entity.ContinentId;
             country.State = entity.State;
             return country;
         }

@@ -28,7 +28,7 @@ namespace Business.Implements.Operational
                 Id = Farm.Id,
                 Name = Farm.Name,
                 UserId = (int)Farm.UserId,
-                CityId = (int)Farm.CityId,
+                DepartamentId = (int)Farm.DepartamentId,
                 State = Farm.State,
             });
 
@@ -45,7 +45,7 @@ namespace Business.Implements.Operational
             Farm farm = await data.GetById(id);
             FarmDto farmDto = new FarmDto();
             farmDto.Id = farm.Id;
-            farmDto.CityId = (int)farm.CityId;
+            farmDto.DepartamentId = (int)farm.DepartamentId;
             farmDto.UserId = (int)farm.UserId;
             farmDto.Name = farm.Name;
             farmDto.State = farm.State;
@@ -55,7 +55,7 @@ namespace Business.Implements.Operational
         public Farm mapearDatos(Farm farm, FarmDto entity)
         {
             farm.Id = entity.Id;
-            farm.CityId = entity.CityId;
+            farm.DepartamentId = entity.DepartamentId;
             farm.UserId = entity.UserId;
             farm.Name = entity.Name;
             farm.State = entity.State;

@@ -28,7 +28,6 @@ namespace Business.Implements.Operational
                 Id = fertilization.Id,
                 DateFertilization = fertilization.DateFertilization,
                 QuantityMix = fertilization.QuantityMix,
-                ReviewTechnicalId = fertilization.ReviewTechnicalId,
                 TypeFertilization = fertilization.TypeFertilization,
                 State = fertilization.State
             });
@@ -48,7 +47,6 @@ namespace Business.Implements.Operational
             dto.Id = fertilization.Id;
             dto.DateFertilization = fertilization.DateFertilization;
             dto.QuantityMix = fertilization.QuantityMix;
-            dto.ReviewTechnicalId = fertilization.ReviewTechnicalId;
             dto.TypeFertilization = fertilization.TypeFertilization;
             dto.State = fertilization.State;
             return dto;
@@ -59,7 +57,6 @@ namespace Business.Implements.Operational
             fertilization.Id = entity.Id;
             fertilization.DateFertilization = entity.DateFertilization;
             fertilization.QuantityMix = entity.QuantityMix;
-            fertilization.ReviewTechnicalId = entity.ReviewTechnicalId;
             fertilization.TypeFertilization = entity.TypeFertilization;
             fertilization.State = entity.State;
             return fertilization;

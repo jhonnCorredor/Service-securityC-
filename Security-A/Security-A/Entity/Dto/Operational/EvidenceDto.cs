@@ -11,6 +11,7 @@ namespace Entity.Dto.Operational
         public int Id { get; set; }
         public string Code { get; set; }
         public string Document { get; set; }
+        public int ReviewId { get; set; }
         public Boolean State { get; set; }
     }
 }

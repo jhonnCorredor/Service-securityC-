@@ -34,7 +34,7 @@ namespace Business.Implements.Security
                 Email = person.Email,
                 Type_document = person.Type_document,
                 Document = person.Document,
-                CityId = person.CityId,
+                DepartamentId = person.DepartamentId,
                 State = person.State
             });
 
@@ -60,7 +60,7 @@ namespace Business.Implements.Security
             personDto.Email = person.Email;
             personDto.Type_document = person.Type_document;
             personDto.Document = person.Document;
-            personDto.CityId = person.CityId;
+            personDto.DepartamentId = person.DepartamentId;
             personDto.State = person.State;
             return personDto;
         }
@@ -76,7 +76,7 @@ namespace Business.Implements.Security
             person.Email = entity.Email;
             person.Type_document = entity.Type_document;
             person.Document = entity.Document;
-            person.CityId = entity.CityId;
+            person.DepartamentId = entity.DepartamentId;
             person.State = entity.State;
             return person;
         }
