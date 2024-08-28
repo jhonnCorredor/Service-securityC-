@@ -112,8 +112,8 @@ namespace Data.Implements.Security
 		                FOR JSON PATH
                     ) AS ListView
                 FROM Users AS u
-                INNER JOIN UserRoles AS ur ON ur.UserId = u.Id
-                INNER JOIN Roles AS r ON r.Id = ur.RoleId
+                LEFT JOIN UserRoles AS ur ON ur.UserId = u.Id
+                LEFt JOIN Roles AS r ON r.Id = ur.RoleId
                 WHERE u.Username = @Username AND u.Password = @Password
                 AND u.Deleted_at is null
                 GROUP BY u.Id, u.Username, u.Password, r.Id, r.Name;
