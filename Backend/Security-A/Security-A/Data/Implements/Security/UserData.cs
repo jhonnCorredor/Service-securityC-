@@ -92,22 +92,24 @@ namespace Data.Implements.Security
                     (
 		                SELECT
 			                m.Name AS Modulo,
+                            m.Description AS ModuloDescription,
 			                (
 				                SELECT 
 					                v.Id,
 					                v.Name,
-					                v.Route
+					                v.Route,
+                                    v.Description
 				                FROM Views AS v
 				                INNER JOIN RoleViews AS rv ON rv.ViewId = v.Id
 				                WHERE v.Deleted_at IS null AND rv.RoleId = r.Id AND v.ModuloId = m.Id
-				                GROUP BY v.Id, v.Name, v.Route
+				                GROUP BY v.Id, v.Name, v.Route, v.Description
 				                FOR JSON PATH
 			                ) AS views
 		                FROM Modulos AS m
 		                INNER JOIN Views AS v ON v.ModuloId = m.Id
 		                INNER JOIN RoleViews AS rv ON rv.ViewId = v.Id
                         WHERE m.Id = v.ModuloId AND rv.RoleId = r.Id 
-                        GROUP BY m.Id, m.Name, m.Position
+                        GROUP BY m.Id, m.Name, m.Position, m.Description
                         ORDER BY m.Position ASC
 		                FOR JSON PATH
                     ) AS ListView

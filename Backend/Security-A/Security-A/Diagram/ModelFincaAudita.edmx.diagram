@@ -41,14 +41,6 @@
         </AssociationConnector>
         <AssociationConnector Association="Security_ServiceModel.FK_Views_Modulos_ModuloId" ManuallyRouted="false" />
         <AssociationConnector Association="Security_ServiceModel.FK_Users_Persons_PersonId" ManuallyRouted="false" />
-        <AssociationConnector Association="Security_ServiceModel.FK_ReviewTechnicals_Users_TecnicoId" ManuallyRouted="true" >
-          <ConnectorPoint PointX="10.125" PointY="8.7528209931640539" />
-          <ConnectorPoint PointX="10.291666666666666" PointY="8.7528209931640539" />
-          <ConnectorPoint PointX="10.458333333333334" PointY="8.7528209931640539" />
-          <ConnectorPoint PointX="10.5" PointY="8.7528209931640539" />
-          <ConnectorPoint PointX="10.5" PointY="5.81224609375" />
-          <ConnectorPoint PointX="13.875" PointY="5.81224609375" />
-        </AssociationConnector>
         <AssociationConnector Association="Security_ServiceModel.FK_RoleViews_Roles_RoleId" ManuallyRouted="false" />
         <AssociationConnector Association="Security_ServiceModel.FK_UserRoles_Roles_RoleId" ManuallyRouted="false" />
         <AssociationConnector Association="Security_ServiceModel.FK_RoleViews_Views_ViewId" ManuallyRouted="false" />
@@ -58,14 +50,11 @@
         <AssociationConnector Association="Security_ServiceModel.DepartamentCitys" />
         <AssociationConnector Association="Security_ServiceModel.PersonsDepartament" />
         <AssociationConnector Association="Security_ServiceModel.FarmsDepartament" ManuallyRouted="true" >
-          <ConnectorPoint PointX="11.375" PointY="8.15353374755858" />
-          <ConnectorPoint PointX="10.583333333333334" PointY="8.15353374755858" />
-          <ConnectorPoint PointX="10.416666666666666" PointY="8.15353374755858" />
-          <ConnectorPoint PointX="10.375" PointY="8.15353374755858" />
-          <ConnectorPoint PointX="10.375" PointY="10.201396484375" />
-          <ConnectorPoint PointX="9.4583333333333339" PointY="10.201396484375" />
-          <ConnectorPoint PointX="9.2916666666666661" PointY="10.201396484375" />
-          <ConnectorPoint PointX="7.875" PointY="10.201396484375" />
+          <ConnectorPoint PointX="11.375" PointY="9.7590950520833335" />
+          <ConnectorPoint PointX="11.375" PointY="10.231517042431467" />
+          <ConnectorPoint PointX="9.4270808333333331" PointY="10.231517042431467" />
+          <ConnectorPoint PointX="9.2604141666666653" PointY="10.231517042431467" />
+          <ConnectorPoint PointX="7.875" PointY="10.231517042431467" />
           <ConnectorPoint PointX="7.875" PointY="10.970602213541667" />
           <ConnectorPoint PointX="7.164065" PointY="10.970602213541667" />
           <ConnectorPoint PointX="7.164065" PointY="11.5" />
@@ -77,6 +66,7 @@
         <AssociationConnector Association="Security_ServiceModel.LotFertilizationFertilizations" />
         <AssociationConnector Association="Security_ServiceModel.LotFertilizationLots" />
         <AssociationConnector Association="Security_ServiceModel.ReviewTechnicalsLots" />
+        <AssociationConnector Association="Security_ServiceModel.ReviewTechnicalsUsers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

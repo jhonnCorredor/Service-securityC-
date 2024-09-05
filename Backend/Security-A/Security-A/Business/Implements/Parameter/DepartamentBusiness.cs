@@ -30,7 +30,7 @@ namespace Business.Implements.Parameter
                 Description = departament.Description,
                 Code = departament.Code,
                 State = departament.State,
-                CityId = departament.CityId
+                CountryId = departament.CountryId
             });
 
             return departamentDTOs;
@@ -49,7 +49,7 @@ namespace Business.Implements.Parameter
             Dto.Name = departament.Name;
             Dto.Description = departament.Description;
             Dto.Code = departament.Code;
-            Dto.CityId = departament.CityId;
+            Dto.CountryId = departament.CountryId;
             Dto.State = departament.State;
             return Dto;
         }
@@ -60,7 +60,7 @@ namespace Business.Implements.Parameter
             departament.Name = entity.Name;
             departament.Description = entity.Description;
             departament.Code = entity.Code;
-            departament.CityId = entity.CityId;
+            departament.CountryId = entity.CountryId;
             departament.State = entity.State;
             return departament;
         }

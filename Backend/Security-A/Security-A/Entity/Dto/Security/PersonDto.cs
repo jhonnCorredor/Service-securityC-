@@ -18,6 +18,6 @@ namespace Entity.Dto.Security
         public string Document { get; set; }
         public bool State { get; set; }
         public DateTime Birth_of_date { get; set; }
-        public int DepartamentId {  get; set; }
+        public int CityId {  get; set; }
     }
 }

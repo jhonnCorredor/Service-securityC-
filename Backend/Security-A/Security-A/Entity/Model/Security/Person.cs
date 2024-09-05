@@ -12,8 +12,8 @@ namespace Entity.Model.Security
         public int Phone { get; set; }
         public string Type_document { get; set; }
         public string Document { get; set; }
-        public int DepartamentId { get; set; }
-        public Departament Departament { get; set; }
+        public int CityId { get; set; }
+        public City City { get; set; }
         public Boolean State { get; set; }
         public DateTime Birth_of_date { get; set; }
         public DateTime Created_at { get; set; }

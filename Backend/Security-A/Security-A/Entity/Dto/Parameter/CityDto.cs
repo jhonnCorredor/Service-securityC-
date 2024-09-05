@@ -12,7 +12,7 @@ namespace Entity.Dto.Parameter
         public string Name { get; set; }
         public string Description { get; set; }
         public string Code { get; set; }
-        public int CountryId { get; set; }
+        public int DepartamentId { get; set; }
         public Boolean State { get; set; }
     }
 }

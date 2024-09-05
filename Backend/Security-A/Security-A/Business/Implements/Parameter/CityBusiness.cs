@@ -30,7 +30,7 @@ namespace Business.Implements.Parameter
                 Description = City.Description,
                 Code = City.Code,
                 State = City.State,
-                CountryId = City.CountryId
+                DepartamentId = City.DepartamentId
             });
 
             return CityDTOs;
@@ -49,7 +49,7 @@ namespace Business.Implements.Parameter
             CityDto.Name = city.Name;
             CityDto.Description = city.Description;
             CityDto.Code = city.Code;
-            CityDto.CountryId = city.CountryId;
+            CityDto.DepartamentId = city.DepartamentId;
             CityDto.State = city.State;
             return CityDto;
         }
@@ -60,7 +60,7 @@ namespace Business.Implements.Parameter
             city.Name = entity.Name;
             city.Description = entity.Description;
             city.Code = entity.Code;
-            city.CountryId = entity.CountryId;
+            city.DepartamentId = entity.DepartamentId;
             city.State = entity.State;
             return city;
         }

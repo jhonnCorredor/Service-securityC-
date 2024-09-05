@@ -100,14 +100,14 @@ namespace Entity.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CityId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("Deleted_at")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("DepartamentId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -124,7 +124,7 @@ namespace Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartamentId");
+                    b.HasIndex("CityId");
 
                     b.HasIndex("UserId");
 
@@ -378,14 +378,14 @@ namespace Entity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("Deleted_at")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("DepartamentId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -403,7 +403,7 @@ namespace Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("DepartamentId");
 
                     b.ToTable("Citys");
                 });
@@ -490,12 +490,12 @@ namespace Entity.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
@@ -519,7 +519,7 @@ namespace Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
+                    b.HasIndex("CountryId");
 
                     b.ToTable("Departaments");
                 });
@@ -763,14 +763,14 @@ namespace Entity.Migrations
                     b.Property<DateTime>("Birth_of_date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("Deleted_at")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("DepartamentId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Document")
                         .IsRequired()
@@ -803,7 +803,7 @@ namespace Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartamentId");
+                    b.HasIndex("CityId");
 
                     b.ToTable("Persons");
                 });
@@ -1004,15 +1004,15 @@ namespace Entity.Migrations
 
             modelBuilder.Entity("Entity.Model.Operational.Farm", b =>
                 {
-                    b.HasOne("Entity.Model.Parameter.Departament", "Departament")
+                    b.HasOne("Entity.Model.Parameter.City", "City")
                         .WithMany()
-                        .HasForeignKey("DepartamentId");
+                        .HasForeignKey("CityId");
 
                     b.HasOne("Entity.Model.Security.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.Navigation("Departament");
+                    b.Navigation("City");
 
                     b.Navigation("User");
                 });
@@ -1084,6 +1084,17 @@ namespace Entity.Migrations
 
             modelBuilder.Entity("Entity.Model.Parameter.City", b =>
                 {
+                    b.HasOne("Entity.Model.Parameter.Departament", "Departament")
+                        .WithMany()
+                        .HasForeignKey("DepartamentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Departament");
+                });
+
+            modelBuilder.Entity("Entity.Model.Parameter.Departament", b =>
+                {
                     b.HasOne("Entity.Model.Parameter.Country", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId")
@@ -1091,17 +1102,6 @@ namespace Entity.Migrations
                         .IsRequired();
 
                     b.Navigation("Country");
-                });
-
-            modelBuilder.Entity("Entity.Model.Parameter.Departament", b =>
-                {
-                    b.HasOne("Entity.Model.Parameter.City", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("City");
                 });
 
             modelBuilder.Entity("Entity.Model.Parameter.FertilizationSupplies", b =>
@@ -1182,13 +1182,13 @@ namespace Entity.Migrations
 
             modelBuilder.Entity("Entity.Model.Security.Person", b =>
                 {
-                    b.HasOne("Entity.Model.Parameter.Departament", "Departament")
+                    b.HasOne("Entity.Model.Parameter.City", "City")
                         .WithMany()
-                        .HasForeignKey("DepartamentId")
+                        .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Departament");
+                    b.Navigation("City");
                 });
 
             modelBuilder.Entity("Entity.Model.Security.RoleView", b =>

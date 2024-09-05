@@ -981,8 +981,8 @@
           <Property Name="Updated_at" Type="DateTime" Precision="7" />
           <Property Name="Deleted_at" Type="DateTime" Precision="7" />
           <NavigationProperty Name="Checklists" Relationship="Self.FK_ReviewTechnicals_Checklists_ChecklistId" FromRole="ReviewTechnicals" ToRole="Checklists" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_ReviewTechnicals_Users_TecnicoId" FromRole="ReviewTechnicals" ToRole="Users" />
           <NavigationProperty Name="Lots" Relationship="Security_ServiceModel.ReviewTechnicalsLots" FromRole="ReviewTechnicals" ToRole="Lots" />
+          <NavigationProperty Name="Users" Relationship="Security_ServiceModel.ReviewTechnicalsUsers" FromRole="ReviewTechnicals" ToRole="Users" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -1056,8 +1056,8 @@
           <Property Name="Deleted_at" Type="DateTime" Precision="7" />
           <NavigationProperty Name="Farms" Relationship="Self.FK_Farms_Users_UserId" FromRole="Users" ToRole="Farms" />
           <NavigationProperty Name="Persons" Relationship="Self.FK_Users_Persons_PersonId" FromRole="Users" ToRole="Persons" />
-          <NavigationProperty Name="ReviewTechnicals" Relationship="Self.FK_ReviewTechnicals_Users_TecnicoId" FromRole="Users" ToRole="ReviewTechnicals" />
           <NavigationProperty Name="UserRoles" Relationship="Self.FK_UserRoles_Users_UserId" FromRole="Users" ToRole="UserRoles" />
+          <NavigationProperty Name="ReviewTechnicals" Relationship="Security_ServiceModel.ReviewTechnicalsUsers" FromRole="Users" ToRole="ReviewTechnicals" />
         </EntityType>
         <EntityType Name="Views">
           <Key>
@@ -1255,20 +1255,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ReviewTechnicals_Users_TecnicoId">
-          <End Role="Users" Type="Self.Users" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ReviewTechnicals" Type="Self.ReviewTechnicals" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ReviewTechnicals">
-              <PropertyRef Name="TecnicoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RoleViews_Roles_RoleId">
           <End Role="Roles" Type="Self.Roles" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1400,10 +1386,6 @@
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK_ReviewTechnicals_Users_TecnicoId" Association="Self.FK_ReviewTechnicals_Users_TecnicoId">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
-          </AssociationSet>
           <AssociationSet Name="FK_RoleViews_Roles_RoleId" Association="Self.FK_RoleViews_Roles_RoleId">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="RoleViews" EntitySet="RoleViews" />
@@ -1458,6 +1440,10 @@
           <AssociationSet Name="ReviewTechnicalsLots" Association="Security_ServiceModel.ReviewTechnicalsLots">
             <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
             <End Role="Lots" EntitySet="Lots" />
+          </AssociationSet>
+          <AssociationSet Name="ReviewTechnicalsUsers" Association="Security_ServiceModel.ReviewTechnicalsUsers">
+            <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
         <Association Name="EvidencesReviewTechnicals">
@@ -1537,6 +1523,10 @@
         <Association Name="ReviewTechnicalsLots">
           <End Type="Security_ServiceModel.ReviewTechnicals" Role="ReviewTechnicals" Multiplicity="*" />
           <End Type="Security_ServiceModel.Lots" Role="Lots" Multiplicity="1" />
+        </Association>
+        <Association Name="ReviewTechnicalsUsers">
+          <End Type="Security_ServiceModel.ReviewTechnicals" Role="ReviewTechnicals" Multiplicity="*" />
+          <End Type="Security_ServiceModel.Users" Role="Users" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

@@ -12,8 +12,8 @@ namespace Entity.Model.Operational
     {
         public int Id { get; set; } 
         public string Name { get; set; }
-        public int? DepartamentId { get; set; }
-        public Departament? Departament { get; set; }
+        public int? CityId { get; set; }
+        public City? City { get; set; }
         public int? UserId { get; set; }
         public User? User { get; set; }
         public Boolean State { get; set; }
