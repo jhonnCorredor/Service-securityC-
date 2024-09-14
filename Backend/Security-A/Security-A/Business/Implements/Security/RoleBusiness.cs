@@ -3,16 +3,19 @@ using Data.Interfaces.Security;
 using Entity.Dto;
 using Entity.Dto.Security;
 using Entity.Model.Security;
+using System.Text.Json;
 
 namespace Business.Implements.Security
 {
     public class RoleBusiness : IRoleBusiness
     {
         private readonly IRoleData data;
+        private readonly IRoleViewBusiness roleViewBusiness;
 
-        public RoleBusiness(IRoleData data)
+        public RoleBusiness(IRoleData data, IRoleViewBusiness roleViewBusiness)
         {
             this.data = data;
+            this.roleViewBusiness = roleViewBusiness;
         }
 
         public async Task Delete(int id)
@@ -22,15 +25,22 @@ namespace Business.Implements.Security
 
         public async Task<IEnumerable<RoleDto>> GetAll()
         {
-            IEnumerable<Role> roles = await data.GetAll();
-            var roleDtos = roles.Select(role => new RoleDto
+            IEnumerable<RoleDto> roles = await data.GetAll();
+            List<RoleDto> roleDtos = new List<RoleDto>();
+            foreach (var rol in roles)
             {
-                Id = role.Id,
-                Name = role.Name,
-                Description = role.Description,
-                State = role.State
-            });
-
+                RoleDto role = new RoleDto();
+                role.Id = rol.Id;
+                role.Name = rol.Name;
+                role.Description = rol.Description;
+                role.State = rol.State;
+                if(rol.viewString != null)
+                {
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    role.Views = JsonSerializer.Deserialize<List<DataSelectDto>>(rol.viewString, options);
+                }
+                roleDtos.Add(role);
+            }
             return roleDtos;
         }
 
@@ -41,13 +51,19 @@ namespace Business.Implements.Security
 
         public async Task<RoleDto> GetById(int id)
         {
-            Role role = await data.GetById(id);
+            RoleDto role = await data.GetByIdAndViews(id);
             RoleDto roleDto = new RoleDto();
 
             roleDto.Id = role.Id;
             roleDto.Name = role.Name;
             roleDto.Description = role.Description;
             roleDto.State = role.State;
+            if (role.viewString != null)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                roleDto.Views = JsonSerializer.Deserialize<List<DataSelectDto>>(role.viewString, options);
+            }
+            
             return roleDto;
         }
 
@@ -68,7 +84,21 @@ namespace Business.Implements.Security
             role.Updated_at = null;
             role.Deleted_at = null;
 
-            return await data.Save(role);
+            Role save = await data.Save(role);
+
+            if (entity.Views != null && entity.Views.Count > 0)
+            {
+                foreach(var view in entity.Views)
+                {
+                    RoleViewDto roleview = new RoleViewDto();
+                    roleview.ViewId = view.Id;
+                    roleview.RoleId = save.Id;
+                    roleview.State = true;
+                    await roleViewBusiness.Save(roleview);
+                }
+            }
+
+            return save;
         }
 
         public async Task Update(RoleDto entity)
@@ -80,6 +110,20 @@ namespace Business.Implements.Security
             }
             role = mapearDatos(role, entity);
             role.Updated_at = DateTime.Now;
+
+            await roleViewBusiness.DeleteViews(role.Id);
+
+            if (entity.Views.Count > 0)
+            {
+                foreach (var view in entity.Views)
+                {
+                    RoleViewDto roleview = new RoleViewDto();
+                    roleview.ViewId = view.Id;
+                    roleview.RoleId = role.Id;
+                    roleview.State = true;
+                    await roleViewBusiness.Save(roleview);
+                }
+            }
 
             await data.Update(role);
         }

@@ -13,5 +13,6 @@ namespace Business.Interfaces.Security
         Task Update(RoleViewDto entity);
         RoleView mapearDatos(RoleView roleView, RoleViewDto entity);
         Task<IEnumerable<RoleViewDto>> GetAll();
+        Task DeleteViews(int id);
     }
 }

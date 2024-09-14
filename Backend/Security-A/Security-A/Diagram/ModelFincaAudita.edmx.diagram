@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="83d680573c2947bdb6173abba5db6c5e" Name="Diagram1" ZoomLevel="83">
-        <EntityTypeShape EntityType="Security_ServiceModel.AssessmentCriterias" Width="1.5" PointX="6.625" PointY="2.25" IsExpanded="true" />
+      <Diagram DiagramId="83d680573c2947bdb6173abba5db6c5e" Name="Diagram1" ZoomLevel="108">
+        <EntityTypeShape EntityType="Security_ServiceModel.AssessmentCriterias" Width="2.375" PointX="5" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Security_ServiceModel.Checklists" Width="1.5" PointX="10.625" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Security_ServiceModel.Citys" Width="1.5" PointX="4" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Security_ServiceModel.Countrys" Width="1.5" PointX="1.625" PointY="11.5" IsExpanded="true" />
@@ -19,7 +19,7 @@
         <EntityTypeShape EntityType="Security_ServiceModel.FumigationSupplies" Width="1.5" PointX="20.75" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Security_ServiceModel.Modulos" Width="1.5" PointX="15.25" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Security_ServiceModel.Persons" Width="1.5" PointX="6.125" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Security_ServiceModel.Qualifications" Width="1.5" PointX="8.625" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Security_ServiceModel.Qualifications" Width="2.5" PointX="7.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Security_ServiceModel.ReviewTechnicals" Width="1.5" PointX="13.875" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Security_ServiceModel.Roles" Width="1.5" PointX="8.875" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Security_ServiceModel.RoleViews" Width="1.5" PointX="11.125" PointY="14.125" IsExpanded="true" />

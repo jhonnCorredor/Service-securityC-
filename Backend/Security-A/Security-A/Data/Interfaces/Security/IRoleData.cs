@@ -1,4 +1,5 @@
 ﻿using Entity.Dto;
+using Entity.Dto.Security;
 using Entity.Model.Security;
 
 namespace Data.Interfaces.Security
@@ -10,7 +11,8 @@ namespace Data.Interfaces.Security
         Task<Role> GetById(int id);
         Task<Role> Save(Role entity);
         Task Update(Role entity);
-        Task<IEnumerable<Role>> GetAll();
+        Task<RoleDto> GetByIdAndViews(int id);
+        Task<IEnumerable<RoleDto>> GetAll();
         Task<Role> GetByName(string name);
     }
 }

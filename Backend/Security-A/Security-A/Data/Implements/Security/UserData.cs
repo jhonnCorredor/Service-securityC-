@@ -51,6 +51,29 @@ namespace Data.Implements.Security
             return await context.QueryFirstOrDefaultAsync<User>(sql, new { Id = id });
         }
 
+        public async Task<UserDto> GetByIdAndRoles(int id)
+        {
+            var sql = @"SELECT 
+                            u.Id,
+                            u.Username,
+                            u.Password,
+	                        u.PersonId,
+                            (
+                                SELECT 
+                                    r.Id,
+                                    r.Name AS textoMostrar
+                                FROM Roles AS r
+                                LEFT JOIN UserRoles AS ur2 ON ur2.RoleId = r.Id
+                                WHERE ur2.UserId = u.Id AND ur2.Deleted_at IS NULL
+                                FOR JSON PATH
+                            ) AS roleString
+                            FROM Users AS u
+                            WHERE u.Deleted_at IS NULL and u.Id = @Id 
+                            GROUP BY u.Id, u.Username, u.Password, u.PersonId
+                            ORDER BY u.Id ASC;";
+            return await context.QueryFirstOrDefaultAsync<UserDto>(sql, new { Id = id });
+        }
+
         public async Task<User> Save(User entity)
         {
             context.Users.Add(entity);
@@ -74,10 +97,27 @@ namespace Data.Implements.Security
             return await context.Users.AsNoTracking().Where(item => item.Password == password).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<User>> GetAll()
+        public async Task<IEnumerable<UserDto>> GetAll()
         {
-            var sql = @"SELECT * FROM Users Where Deleted_at is null ORDER BY Id ASC";
-            return await context.QueryAsync<User>(sql);
+            var sql = @"SELECT 
+                            u.Id,
+                            u.Username,
+                            u.Password,
+	                        u.PersonId,
+                            (
+                                SELECT 
+                                    r.Id,
+                                    r.Name AS textoMostrar
+                                FROM Roles AS r
+                                LEFT JOIN UserRoles AS ur2 ON ur2.RoleId = r.Id
+                                WHERE ur2.UserId = u.Id AND ur2.Deleted_at IS NULL
+                                FOR JSON PATH
+                            ) AS roleString
+                            FROM Users AS u
+                            WHERE u.Deleted_at IS NULL 
+                            GROUP BY u.Id, u.Username, u.Password, u.PersonId
+                            ORDER BY u.Id ASC;";
+            return await context.QueryAsync<UserDto>(sql);
         }
 
         public async Task<IEnumerable<LoginDto>> Login(string username, string password)

@@ -11,7 +11,8 @@ namespace Data.Interfaces.Security
         Task<User> GetById(int id);
         Task<User> Save(User entity);
         Task Update(User entity);
-        Task<IEnumerable<User>> GetAll();
+        Task<IEnumerable<UserDto>> GetAll();
+        Task<UserDto> GetByIdAndRoles(int id);
         Task<User> GetByUsername(string username);
         Task<User> GetByPassword(string password);
         Task<IEnumerable<LoginDto>> Login(string username, string password);

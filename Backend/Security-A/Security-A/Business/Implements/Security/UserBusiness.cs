@@ -10,10 +10,12 @@ namespace Business.Implements.Security
     public class UserBusiness : IUserBusiness
     {
         private readonly IUserData data;
+        private readonly IUserRoleBusiness userRoleBusiness;
 
-        public UserBusiness(IUserData data)
+        public UserBusiness(IUserData data, IUserRoleBusiness userRoleBusiness)
         {
             this.data = data;
+            this.userRoleBusiness = userRoleBusiness;
         }
 
         public async Task Delete(int id)
@@ -28,15 +30,21 @@ namespace Business.Implements.Security
 
         public async Task<UserDto> GetById(int id)
         {
-            User user = await data.GetById(id);
-            UserDto UserDto = new UserDto();
+            UserDto user = await data.GetByIdAndRoles(id);
+            UserDto userDto = new UserDto();
 
-            UserDto.Id = user.Id;
-            UserDto.Username = user.Username;
-            UserDto.Password = user.Password;
-            UserDto.PersonId = user.PersonId;
-            UserDto.State = user.State;
-            return UserDto;
+            userDto.Id = user.Id;
+            userDto.Username = user.Username;
+            userDto.Password = user.Password;
+            userDto.PersonId = user.PersonId;
+            userDto.State = user.State;
+            if (user.roleString != null)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                userDto.Roles = JsonSerializer.Deserialize<List<DataSelectDto>>(user.roleString, options);
+            }
+
+            return userDto;
         }
 
         public async Task<User> Save(UserDto entity)
@@ -47,7 +55,21 @@ namespace Business.Implements.Security
             user.Deleted_at = null;
             user.Updated_at = null;
 
-            return await data.Save(user);
+            User save = await data.Save(user);
+
+            if (entity.Roles != null && entity.Roles.Count > 0)
+            {
+                foreach (var role in entity.Roles)
+                {
+                    UserRoleDto userole = new UserRoleDto();
+                    userole.UserId = save.Id;
+                    userole.RoleId = role.Id;
+                    userole.State = true;
+                    await userRoleBusiness.Save(userole);
+                }
+            }
+
+            return save;
         }
 
         public async Task Update(UserDto entity)
@@ -60,21 +82,42 @@ namespace Business.Implements.Security
             user = mapearDatos(user, entity);
             user.Updated_at = DateTime.Now;
 
+            await userRoleBusiness.DeleteRoles(user.Id);
+
+            if (entity.Roles != null && entity.Roles.Count > 0)
+            {
+                foreach (var role in entity.Roles)
+                {
+                    UserRoleDto userole = new UserRoleDto();
+                    userole.UserId = user.Id;
+                    userole.RoleId = role.Id;
+                    userole.State = true;
+                    await userRoleBusiness.Save(userole);
+                }
+            }
+
             await data.Update(user);
         }
 
         public async Task<IEnumerable<UserDto>> GetAll()
         {
-            IEnumerable<User> users = await data.GetAll();
-            var userDtos = users.Select(user => new UserDto
+            IEnumerable<UserDto> users = await data.GetAll();
+            List<UserDto> userDtos = new List<UserDto>();
+            foreach (var user in users)
             {
-                Id = user.Id,
-                Username = user.Username,
-                Password = user.Password,
-                PersonId = user.PersonId,
-                State = user.State
-            });
-
+                UserDto userDto = new UserDto();
+                userDto.Id = user.Id;
+                userDto.Username = user.Username;
+                userDto.Password = user.Password;
+                userDto.PersonId = user.PersonId;
+                userDto.State = user.State;
+                if (user.roleString != null)
+                {
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    userDto.Roles = JsonSerializer.Deserialize<List<DataSelectDto>>(user.roleString, options);
+                }
+                userDtos.Add(userDto);
+            }
             return userDtos;
         }
 

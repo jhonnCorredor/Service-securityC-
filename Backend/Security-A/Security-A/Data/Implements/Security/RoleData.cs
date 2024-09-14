@@ -1,6 +1,7 @@
 ﻿using Data.Interfaces.Security;
 using Entity.Context;
 using Entity.Dto;
+using Entity.Dto.Security;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,28 @@ namespace Data.Implements.Security
             return await context.QueryFirstOrDefaultAsync<Role>(sql, new { Id = id });
         }
 
+        public async Task<RoleDto> GetByIdAndViews(int id)
+        {
+            var sql = @"SELECT 
+                            r.Id,
+                            r.Name,
+                            r.Description,
+                            (
+                                SELECT 
+                                    v.Id,
+                                    v.Name AS textoMostrar
+                                FROM Views AS v
+                                LEFT JOIN RoleViews AS rv2 ON rv2.ViewId = v.Id
+                                WHERE rv2.RoleId = r.Id AND rv2.Deleted_at IS NULL
+                                FOR JSON PATH
+                            ) AS viewString
+                            FROM Roles AS r
+                            WHERE r.Deleted_at IS NULL AND r.Id = @Id
+                            GROUP BY r.Id, r.Name, r.Description
+                            ORDER BY r.Id ASC;";
+            return await context.QueryFirstOrDefaultAsync<RoleDto>(sql, new { Id = id });
+        }
+
         public async Task<Role> Save(Role entity)
         {
             context.Roles.Add(entity);
@@ -67,10 +90,26 @@ namespace Data.Implements.Security
             return await context.Roles.AsNoTracking().Where(item => item.Name == name).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<Role>> GetAll()
+        public async Task<IEnumerable<RoleDto>> GetAll()
         {
-            var sql = @"SELECT * FROM Roles Where Deleted_at is null ORDER BY Id ASC";
-            return await context.QueryAsync<Role>(sql);
+            var sql = @"SELECT 
+                            r.Id,
+                            r.Name,
+                            r.Description,
+                            (
+                                SELECT 
+                                    v.Id,
+                                    v.Name AS textoMostrar
+                                FROM Views AS v
+                                LEFT JOIN RoleViews AS rv2 ON rv2.ViewId = v.Id
+                                WHERE rv2.RoleId = r.Id AND rv2.Deleted_at IS NULL
+                                FOR JSON PATH
+                            ) AS viewString
+                            FROM Roles AS r
+                            WHERE r.Deleted_at IS NULL
+                            GROUP BY r.Id, r.Name, r.Description
+                            ORDER BY r.Id ASC;";
+            return await context.QueryAsync<RoleDto>(sql);
         }
     }
 }

@@ -10,6 +10,8 @@ namespace Data.Interfaces.Security
         Task<UserRole> GetById(int id);
         Task<UserRole> Save(UserRole entity);
         Task Update(UserRole entity);
+        Task DeleteRoles(int id);
+
         Task<IEnumerable<UserRole>> GetAll();
     }
 }

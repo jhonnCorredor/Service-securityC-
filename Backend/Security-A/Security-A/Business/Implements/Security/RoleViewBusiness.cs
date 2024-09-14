@@ -20,6 +20,11 @@ namespace Business.Implements.Security
             await data.Delete(id);
         }
 
+        public async Task DeleteViews(int id)
+        {
+            await data.DeleteViews(id);
+        }
+
         public async Task<IEnumerable<RoleViewDto>> GetAll()
         {
             IEnumerable<RoleView> roleViews = await data.GetAll();

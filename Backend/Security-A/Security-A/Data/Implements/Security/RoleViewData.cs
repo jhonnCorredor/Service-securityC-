@@ -30,6 +30,22 @@ namespace Data.Implements.Security
             await context.SaveChangesAsync();
         }
 
+        public async Task DeleteViews(int id)
+        {
+            var entitys = await GetByRoleId(id);
+            foreach (var entity in entitys)
+            {
+            if (entity == null)
+            {
+                throw new Exception("Registro no encontrado");
+            }
+            entity.Deleted_at = DateTime.Parse(DateTime.Today.ToString());
+            entity.State = false;
+            context.RoleViews.Update(entity);
+            await context.SaveChangesAsync();
+            }
+        }
+
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             var sql = @"SELECT 
@@ -46,6 +62,12 @@ namespace Data.Implements.Security
         {
             var sql = @"SELECT * FROM RoleViews WHERE Id = @Id ORDER BY Id ASC";
             return await context.QueryFirstOrDefaultAsync<RoleView>(sql, new { Id = id });
+        }
+
+        public async Task<IEnumerable<RoleView>> GetByRoleId(int id)
+        {
+            var sql = @"SELECT * FROM RoleViews WHERE RoleId = @Id ORDER BY Id ASC";
+            return await context.QueryAsync<RoleView>(sql, new { Id = id });
         }
 
         public async Task<RoleView> Save(RoleView entity)

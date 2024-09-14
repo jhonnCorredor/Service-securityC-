@@ -19,6 +19,10 @@ namespace Business.Implements.Security
         {
             await data.Delete(id);
         }
+        public async Task DeleteRoles(int id)
+        {
+            await data.DeleteRoles(id);
+        }
 
         public async Task<IEnumerable<UserRoleDto>> GetAll()
         {

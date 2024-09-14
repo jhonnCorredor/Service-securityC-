@@ -13,5 +13,7 @@ namespace Business.Interfaces.Security
         Task Update(UserRoleDto entity);
         UserRole mapearDatos(UserRole userRole, UserRoleDto entity);
         Task<IEnumerable<UserRoleDto>> GetAll();
+        Task DeleteRoles(int id);
+
     }
 }
