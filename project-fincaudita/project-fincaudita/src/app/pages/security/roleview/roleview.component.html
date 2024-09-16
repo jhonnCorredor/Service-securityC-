@@ -1,0 +1,25 @@
+<div>
+    <h1>Role Views</h1>
+  
+    <table *ngIf="roleViews.length > 0" class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Role ID</th>
+          <th>View ID</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let roleView of roleViews">
+          <td>{{ roleView.id }}</td>
+          <td>{{ roleView.roleId }}</td>
+          <td>{{ roleView.viewId }}</td>
+          <td>{{ roleView.state ? 'Activo' : 'Inactivo' }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p *ngIf="roleViews.length === 0">No hay datos disponibles.</p>
+  </div>
+  

@@ -1,0 +1,90 @@
+/* Fondo verde con degradado */
+.bg-green {
+    background: linear-gradient(135deg, #00ff95, #96ff82);
+    min-height: 100vh; /* Para cubrir toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Añade un poco de padding para que en pantallas pequeñas no quede pegado a los bordes */
+}
+
+/* Texto en verde */
+.text-green {
+    color: #006c3c;
+    text-align: center; /* Alinea el texto en el centro */
+}
+
+/* Estilo para la imagen de fondo */
+.bg-image {
+    background-image: url('../../assets/sveta-fedarava-tI_Odb7ZU6M-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+/* Para darle una capa de superposición */
+.bg-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Centrar contenido y asegurarse de que todo sea responsive */
+.login-container {
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* SVGs */
+app-svgs {
+    margin-bottom: 20px;
+    transform: translateY(-20px);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; /* Asegura que el SVG se ajuste a su contenedor */
+    max-width: 150px; /* Tamaño máximo para pantallas más grandes */
+}
+
+/* MEDIA QUERIES - Ajuste para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px;
+        max-width: 90%; /* Más ancho en pantallas pequeñas */
+    }
+
+    app-svgs {
+        max-width: 100px; /* Reducir el tamaño del SVG en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 15px;
+    }
+
+    .bg-green {
+        padding: 10px;
+    }
+
+    app-svgs {
+        max-width: 80px;
+    }
+}

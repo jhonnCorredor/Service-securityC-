@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Business\\Business.csproj": {}
+    "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Business.csproj": {}
   },
   "projects": {
-    "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Business\\Business.csproj": {
+    "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Business\\Business.csproj",
+        "projectUniqueName": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Business.csproj",
         "projectName": "Business",
-        "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Business\\Business.csproj",
-        "packagesPath": "C:\\Users\\srhad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Business\\obj\\",
+        "projectPath": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Business.csproj",
+        "packagesPath": "C:\\Users\\SANTIAGO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\srhad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SANTIAGO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,11 +29,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Data\\Data.csproj"
+              "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj"
               },
-              "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
-                "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj"
+              "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj"
               }
             }
           }
@@ -72,17 +72,17 @@
         }
       }
     },
-    "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Data\\Data.csproj": {
+    "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\srhad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Data\\obj\\",
+        "projectPath": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\SANTIAGO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\srhad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SANTIAGO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,8 +97,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
-                "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj"
+              "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj"
               }
             }
           }
@@ -137,17 +137,17 @@
         }
       }
     },
-    "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
+    "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj",
+        "projectUniqueName": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj",
-        "packagesPath": "C:\\Users\\srhad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Backend\\Security-A\\Security-A\\Entity\\obj\\",
+        "projectPath": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj",
+        "packagesPath": "C:\\Users\\SANTIAGO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SANTIAGO\\Documents\\Backend Frontend  Movil Fincaudita\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\srhad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SANTIAGO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
