@@ -11,8 +11,8 @@ namespace Entity.Model.Operational
         public Farm Farm { get; set; }
         public int Num_hectareas { get; set; }
         public bool State { get; set; }
-        public DateTime Created_at { get; set; }
-        public DateTime? Updated_at { get; set; }
-        public DateTime? Deleted_at { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
     }
 }

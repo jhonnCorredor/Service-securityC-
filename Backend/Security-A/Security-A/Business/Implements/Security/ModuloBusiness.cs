@@ -67,9 +67,10 @@ namespace Business.Implements.Security
         {
             Modulo modulo = new Modulo();
             modulo = mapearDatos(modulo, entity);
-            modulo.Created_at = DateTime.Now;
-            modulo.Deleted_at = null;
-            modulo.Updated_at = null;
+            modulo.CreatedAt = DateTime.Now;
+            modulo.State = true;
+            modulo.DeletedAt = null;
+            modulo.UpdatedAt = null;
 
 
             return await data.Save(modulo);
@@ -83,7 +84,7 @@ namespace Business.Implements.Security
                 throw new Exception("Registro no encontrado");
             }
             modulo = mapearDatos(modulo, entity);
-            modulo.Updated_at = DateTime.Now;
+            modulo.UpdatedAt = DateTime.Now;
 
             await data.Update(modulo);
         }

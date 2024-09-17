@@ -131,32 +131,6 @@
     <Property Name="Updated_at" Type="datetime2" Precision="7" />
     <Property Name="Deleted_at" Type="datetime2" Precision="7" />
   </EntityType>
-  <EntityType Name="Fumigations">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DateFumigation" Type="datetime2" Precision="7" Nullable="false" />
-    <Property Name="QuantityMix" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ReviewTechnicalId" Type="int" Nullable="false" />
-    <Property Name="State" Type="bit" Nullable="false" />
-    <Property Name="Created_at" Type="datetime2" Precision="7" Nullable="false" />
-    <Property Name="Updated_at" Type="datetime2" Precision="7" />
-    <Property Name="Deleted_at" Type="datetime2" Precision="7" />
-  </EntityType>
-  <EntityType Name="FumigationSupplies">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Dose" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SuppliesId" Type="int" Nullable="false" />
-    <Property Name="FumigationId" Type="int" Nullable="false" />
-    <Property Name="State" Type="bit" Nullable="false" />
-    <Property Name="Created_at" Type="datetime2" Precision="7" Nullable="false" />
-    <Property Name="Updated_at" Type="datetime2" Precision="7" />
-    <Property Name="Deleted_at" Type="datetime2" Precision="7" />
-  </EntityType>
   <EntityType Name="Modulos">
     <Key>
       <PropertyRef Name="Id" />
@@ -405,48 +379,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Fumigations_ReviewTechnicals_ReviewTechnicalId">
-    <End Role="ReviewTechnicals" Type="Self.ReviewTechnicals" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Fumigations" Type="Self.Fumigations" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ReviewTechnicals">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Fumigations">
-        <PropertyRef Name="ReviewTechnicalId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FumigationSupplies_Fumigations_FumigationId">
-    <End Role="Fumigations" Type="Self.Fumigations" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="FumigationSupplies" Type="Self.FumigationSupplies" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Fumigations">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="FumigationSupplies">
-        <PropertyRef Name="FumigationId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FumigationSupplies_Supplies_SuppliesId">
-    <End Role="Supplies" Type="Self.Supplies" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="FumigationSupplies" Type="Self.FumigationSupplies" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Supplies">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="FumigationSupplies">
-        <PropertyRef Name="SuppliesId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Persons_Citys_CityId">
     <End Role="Citys" Type="Self.Citys" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -626,8 +558,6 @@
     <EntitySet Name="Farms" EntityType="Self.Farms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Fertilizations" EntityType="Self.Fertilizations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FertilizationSupplies" EntityType="Self.FertilizationSupplies" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Fumigations" EntityType="Self.Fumigations" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="FumigationSupplies" EntityType="Self.FumigationSupplies" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Persons" EntityType="Self.Persons" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Qualifications" EntityType="Self.Qualifications" Schema="dbo" store:Type="Tables" />
@@ -669,18 +599,6 @@
     <AssociationSet Name="FK_FertilizationSupplies_Supplies_SuppliesId" Association="Self.FK_FertilizationSupplies_Supplies_SuppliesId">
       <End Role="Supplies" EntitySet="Supplies" />
       <End Role="FertilizationSupplies" EntitySet="FertilizationSupplies" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Fumigations_ReviewTechnicals_ReviewTechnicalId" Association="Self.FK_Fumigations_ReviewTechnicals_ReviewTechnicalId">
-      <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
-      <End Role="Fumigations" EntitySet="Fumigations" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FumigationSupplies_Fumigations_FumigationId" Association="Self.FK_FumigationSupplies_Fumigations_FumigationId">
-      <End Role="Fumigations" EntitySet="Fumigations" />
-      <End Role="FumigationSupplies" EntitySet="FumigationSupplies" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FumigationSupplies_Supplies_SuppliesId" Association="Self.FK_FumigationSupplies_Supplies_SuppliesId">
-      <End Role="Supplies" EntitySet="Supplies" />
-      <End Role="FumigationSupplies" EntitySet="FumigationSupplies" />
     </AssociationSet>
     <AssociationSet Name="FK_Persons_Citys_CityId" Association="Self.FK_Persons_Citys_CityId">
       <End Role="Citys" EntitySet="Citys" />

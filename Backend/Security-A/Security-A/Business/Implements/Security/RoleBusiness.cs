@@ -80,9 +80,10 @@ namespace Business.Implements.Security
         {
             Role role = new Role();
             role = mapearDatos(role, entity);
-            role.Created_at = DateTime.Now;
-            role.Updated_at = null;
-            role.Deleted_at = null;
+            role.CreatedAt = DateTime.Now;
+            role.State = true;
+            role.UpdatedAt = null;
+            role.DeletedAt = null;
 
             Role save = await data.Save(role);
 
@@ -109,7 +110,7 @@ namespace Business.Implements.Security
                 throw new Exception("Registro no encontrado");
             }
             role = mapearDatos(role, entity);
-            role.Updated_at = DateTime.Now;
+            role.UpdatedAt = DateTime.Now;
 
             await roleViewBusiness.DeleteViews(role.Id);
 

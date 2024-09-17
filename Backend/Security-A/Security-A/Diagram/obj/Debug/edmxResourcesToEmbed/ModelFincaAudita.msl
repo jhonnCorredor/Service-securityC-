@@ -9,9 +9,9 @@
           <ScalarProperty Name="Rating_range" ColumnName="Rating_range" />
           <ScalarProperty Name="Type_criterian" ColumnName="Type_criterian" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -22,9 +22,9 @@
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Calification_total" ColumnName="Calification_total" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -35,11 +35,11 @@
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="DepartamentId" ColumnName="CountryId" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -51,9 +51,9 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -65,9 +65,9 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -78,9 +78,9 @@
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Document" ColumnName="Document" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -90,11 +90,11 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CropId" ColumnName="CropId" />
           <ScalarProperty Name="FarmId" ColumnName="FarmId" />
-          <ScalarProperty Name="Num_hectareas" ColumnName="Num_hectareas" />
+          <ScalarProperty Name="Hectare" ColumnName="Num_hectareas" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -105,64 +105,37 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Fertilizations">
-      <EntityTypeMapping TypeName="Security_ServiceModel.Fertilizations">
+      <EntityTypeMapping TypeName="Security_ServiceModel.Treatments">
         <MappingFragment StoreEntitySet="Fertilizations">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="DateFertilization" ColumnName="DateFertilization" />
-          <ScalarProperty Name="TypeFertilization" ColumnName="TypeFertilization" />
+          <ScalarProperty Name="DateTreatment" ColumnName="DateFertilization" />
+          <ScalarProperty Name="TypeTreatment" ColumnName="TypeFertilization" />
           <ScalarProperty Name="QuantityMix" ColumnName="QuantityMix" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FertilizationSupplies">
-      <EntityTypeMapping TypeName="Security_ServiceModel.FertilizationSupplies">
+      <EntityTypeMapping TypeName="Security_ServiceModel.TreatmentSupplies">
         <MappingFragment StoreEntitySet="FertilizationSupplies">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Dose" ColumnName="Dose" />
           <ScalarProperty Name="SuppliesId" ColumnName="SuppliesId" />
-          <ScalarProperty Name="FertilizationId" ColumnName="FertilizationId" />
+          <ScalarProperty Name="TreatmentId" ColumnName="FertilizationId" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Fumigations">
-      <EntityTypeMapping TypeName="Security_ServiceModel.Fumigations">
-        <MappingFragment StoreEntitySet="Fumigations">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="DateFumigation" ColumnName="DateFumigation" />
-          <ScalarProperty Name="QuantityMix" ColumnName="QuantityMix" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="FumigationSupplies">
-      <EntityTypeMapping TypeName="Security_ServiceModel.FumigationSupplies">
-        <MappingFragment StoreEntitySet="FumigationSupplies">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Dose" ColumnName="Dose" />
-          <ScalarProperty Name="SuppliesId" ColumnName="SuppliesId" />
-          <ScalarProperty Name="FumigationId" ColumnName="FumigationId" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -174,9 +147,9 @@
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Position" ColumnName="Position" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -193,9 +166,9 @@
           <ScalarProperty Name="Document" ColumnName="Document" />
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Birth_of_date" ColumnName="Birth_of_date" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -208,9 +181,9 @@
           <ScalarProperty Name="AssessmentCriteriaId" ColumnName="AssessmentCriteriaId" />
           <ScalarProperty Name="ChecklistId" ColumnName="ChecklistId" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -225,9 +198,9 @@
           <ScalarProperty Name="TecnicoId" ColumnName="TecnicoId" />
           <ScalarProperty Name="ChecklistId" ColumnName="ChecklistId" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -238,9 +211,9 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -251,9 +224,9 @@
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="ViewId" ColumnName="ViewId" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -266,9 +239,9 @@
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="price" ColumnName="price" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -279,9 +252,9 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -293,9 +266,9 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="PersonId" ColumnName="PersonId" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -308,9 +281,9 @@
           <ScalarProperty Name="Route" ColumnName="Route" />
           <ScalarProperty Name="ModuloId" ColumnName="ModuloId" />
           <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
-          <ScalarProperty Name="Updated_at" ColumnName="Updated_at" />
-          <ScalarProperty Name="Deleted_at" ColumnName="Deleted_at" />
+          <ScalarProperty Name="CreatedAt" ColumnName="Created_at" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="Updated_at" />
+          <ScalarProperty Name="DeletedAt" ColumnName="Deleted_at" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

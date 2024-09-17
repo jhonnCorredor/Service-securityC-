@@ -69,9 +69,10 @@ namespace Business.Implements.Operational
         {
             Qualification Qualification = new Qualification();
             Qualification = mapearDatos(Qualification, entity);
-            Qualification.Created_at = DateTime.Now;
-            Qualification.Updated_at = null;
-            Qualification.Deleted_at = null;
+            Qualification.CreatedAt = DateTime.Now;
+            Qualification.State = true;
+            Qualification.UpdatedAt = null;
+            Qualification.DeletedAt = null;
 
             return await data.Save(Qualification);
         }
@@ -84,7 +85,7 @@ namespace Business.Implements.Operational
                 throw new Exception("Registro no encontrado");
             }
             Qualification = mapearDatos(Qualification, entity);
-            Qualification.Updated_at = DateTime.Now;
+            Qualification.UpdatedAt = DateTime.Now;
 
             await data.Update(Qualification);
         }

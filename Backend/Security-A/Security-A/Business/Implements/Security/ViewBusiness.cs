@@ -70,9 +70,10 @@ namespace Business.Implements.Security
         {
             View view = new View();
             view = mapearDatos(view, entity);
-            view.Created_at = DateTime.Now;
-            view.Updated_at = null;
-            view.Deleted_at = null;
+            view.CreatedAt = DateTime.Now;
+            view.State = true;
+            view.UpdatedAt = null;
+            view.DeletedAt = null;
 
 
             return await data.Save(view);
@@ -86,7 +87,7 @@ namespace Business.Implements.Security
                 throw new Exception("Registro no encontrado");
             }
             view = mapearDatos(view, entity);
-            view.Updated_at = DateTime.Now;
+            view.UpdatedAt = DateTime.Now;
 
             await data.Update(view);
         }

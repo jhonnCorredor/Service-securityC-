@@ -63,9 +63,10 @@ namespace Business.Implements.Operational
         {
             Checklist checklist = new Checklist();
             checklist = mapearDatos(checklist, entity);
-            checklist.Created_at = DateTime.Now;
-            checklist.Updated_at = null;
-            checklist.Deleted_at = null;
+            checklist.CreatedAt = DateTime.Now;
+            checklist.State = true;
+            checklist.UpdatedAt = null;
+            checklist.DeletedAt = null;
 
             return await data.Save(checklist);
         }
@@ -78,7 +79,7 @@ namespace Business.Implements.Operational
                 throw new Exception("Registro no encontrado");
             }
             checklist = mapearDatos(checklist, entity);
-            checklist.Updated_at = DateTime.Now;
+            checklist.UpdatedAt = DateTime.Now;
 
             await data.Update(checklist);
         }

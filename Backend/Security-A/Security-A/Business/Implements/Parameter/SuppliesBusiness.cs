@@ -69,9 +69,10 @@ namespace Business.Implements.Operational
         {
             Supplies Supplies = new Supplies();
             Supplies = mapearDatos(Supplies, entity);
-            Supplies.Created_at = DateTime.Now;
-            Supplies.Updated_at = null;
-            Supplies.Deleted_at = null;
+            Supplies.CreatedAt = DateTime.Now;
+            Supplies.State = true;
+            Supplies.UpdatedAt = null;
+            Supplies.DeletedAt = null;
 
             return await data.Save(Supplies);
         }
@@ -84,7 +85,7 @@ namespace Business.Implements.Operational
                 throw new Exception("Registro no encontrado");
             }
             Supplies = mapearDatos(Supplies, entity);
-            Supplies.Updated_at = DateTime.Now;
+            Supplies.UpdatedAt = DateTime.Now;
 
             await data.Update(Supplies);
         }

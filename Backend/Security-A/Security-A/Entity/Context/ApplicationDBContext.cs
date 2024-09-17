@@ -3,6 +3,7 @@ using Entity.Model.Operational;
 using Entity.Model.Parameter;
 using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using System.Data;
@@ -95,15 +96,13 @@ namespace Entity.Context
         public DbSet<Checklist> Checklists => Set<Checklist>();
         public DbSet<Crop> Crops => Set<Crop>();
         public DbSet<Lot> Lots => Set<Lot>();
-        public DbSet<Fertilization> Fertilizations => Set<Fertilization>();
-        public DbSet<FertilizationSupplies> FertilizationSupplies => Set<FertilizationSupplies>();
-        public DbSet<Fumigation> Fumigations => Set<Fumigation>();
-        public DbSet<FumigationSupplies> FumigationSupplies => Set<FumigationSupplies>();
-        public DbSet<LotFumigation> LotFumigations => Set<LotFumigation>();
-        public DbSet<LotFertilization> LotFertilizations => Set<LotFertilization>();
+        public DbSet<Treatment> Treatments => Set<Treatment>();
+        public DbSet<TreatmentSupplies> TreatmentSupplies => Set<TreatmentSupplies>();
+        public DbSet<LotTreatment> LotTreatments => Set<LotTreatment>();
         public DbSet<Qualification> Qualifications => Set<Qualification>();
         public DbSet<ReviewTechnical> ReviewTechnicals => Set<ReviewTechnical>();
         public DbSet<Evidence> Evidences => Set<Evidence>();
+        public DbSet<Alert> Alerts => Set<Alert>();
 
 
         //Operational

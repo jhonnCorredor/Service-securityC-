@@ -29,6 +29,8 @@ namespace Business.Implements.Operational
                 Name = Farm.Name,
                 UserId = (int)Farm.UserId,
                 CityId = (int)Farm.CityId,
+                Addres = Farm.Addres,
+                Dimension = Farm.Dimension,
                 State = Farm.State,
             });
 
@@ -47,6 +49,8 @@ namespace Business.Implements.Operational
             farmDto.Id = farm.Id;
             farmDto.CityId = (int)farm.CityId;
             farmDto.UserId = (int)farm.UserId;
+            farmDto.Addres = farm.Addres;
+            farmDto.Dimension = farm.Dimension;
             farmDto.Name = farm.Name;
             farmDto.State = farm.State;
             return farmDto;
@@ -58,6 +62,8 @@ namespace Business.Implements.Operational
             farm.CityId = entity.CityId;
             farm.UserId = entity.UserId;
             farm.Name = entity.Name;
+            farm.Addres = entity.Addres;
+            farm.Dimension = entity.Dimension;
             farm.State = entity.State;
             return farm;    
         }
@@ -66,9 +72,9 @@ namespace Business.Implements.Operational
         {
             Farm farm = new Farm();
             farm = mapearDatos(farm, entity);
-            farm.Created_at = DateTime.Now;
-            farm.Updated_at = null;
-            farm.Deleted_at = null;
+            farm.CreatedAt = DateTime.Now;
+            farm.UpdatedAt = null;
+            farm.DeletedAt = null;
 
             return await data.Save(farm);
         }
@@ -81,7 +87,7 @@ namespace Business.Implements.Operational
                 throw new Exception("Registro no encontrado");
             }
             farm = mapearDatos(farm, entity);
-            farm.Updated_at = DateTime.Now;
+            farm.UpdatedAt = DateTime.Now;
 
             await data.Update(farm);
         }

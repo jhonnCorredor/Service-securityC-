@@ -75,9 +75,10 @@ namespace Business.Implements.Operational
         {
             ReviewTechnical ReviewTechnical = new ReviewTechnical();
             ReviewTechnical = mapearDatos(ReviewTechnical, entity);
-            ReviewTechnical.Created_at = DateTime.Now;
-            ReviewTechnical.Updated_at = null;
-            ReviewTechnical.Deleted_at = null;
+            ReviewTechnical.CreatedAt = DateTime.Now;
+            ReviewTechnical.State = true;
+            ReviewTechnical.UpdatedAt = null;
+            ReviewTechnical.DeletedAt = null;
 
             return await data.Save(ReviewTechnical);
         }
@@ -90,7 +91,7 @@ namespace Business.Implements.Operational
                 throw new Exception("Registro no encontrado");
             }
             ReviewTechnical = mapearDatos(ReviewTechnical, entity);
-            ReviewTechnical.Updated_at = DateTime.Now;
+            ReviewTechnical.UpdatedAt = DateTime.Now;
 
             await data.Update(ReviewTechnical);
         }

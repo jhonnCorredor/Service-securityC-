@@ -12,8 +12,8 @@ namespace Entity.Model.Security
         public string Name { get; set; }
         public string Description { get; set; }
         public Boolean State {  get; set; } 
-        public DateTime Created_at { get; set; }
-        public DateTime? Updated_at { get; set; }
-        public DateTime? Deleted_at { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
     }
 }

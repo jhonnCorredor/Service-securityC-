@@ -25,7 +25,7 @@ namespace Data.Implements.Parameter
             {
                 throw new Exception("Registro no encontrado");
             }
-            entity.Deleted_at = DateTime.Parse(DateTime.Today.ToString());
+            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
             entity.State = false;
             context.Supplies.Update(entity);
             await context.SaveChangesAsync();
@@ -38,7 +38,7 @@ namespace Data.Implements.Parameter
                         Name AS TextoMostrar 
                     FROM 
                         Supplies
-                    WHERE Deleted_at IS NULL AND State = 1
+                    WHERE DeletedAt IS NULL AND State = 1
                     ORDER BY Id ASC";
             return await context.QueryAsync<DataSelectDto>(sql);
         }
@@ -64,7 +64,7 @@ namespace Data.Implements.Parameter
 
         public async Task<IEnumerable<Supplies>> GetAll()
         {
-            var sql = @"SELECT * FROM Supplies Where Deleted_at is null ORDER BY Id ASC";
+            var sql = @"SELECT * FROM Supplies Where DeletedAt is null ORDER BY Id ASC";
             return await context.QueryAsync<Supplies>(sql);
         }
     }

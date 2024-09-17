@@ -51,9 +51,10 @@ namespace Business.Implements.Security
         {
             User user = new User();
             user = mapearDatos(user, entity);
-            user.Created_at = DateTime.Now;
-            user.Deleted_at = null;
-            user.Updated_at = null;
+            user.CreatedAt = DateTime.Now;
+            user.State = true;
+            user.DeletedAt = null;
+            user.UpdatedAt = null;
 
             User save = await data.Save(user);
 
@@ -80,7 +81,7 @@ namespace Business.Implements.Security
                 throw new Exception("Registro no encontrado");
             }
             user = mapearDatos(user, entity);
-            user.Updated_at = DateTime.Now;
+            user.UpdatedAt = DateTime.Now;
 
             await userRoleBusiness.DeleteRoles(user.Id);
 

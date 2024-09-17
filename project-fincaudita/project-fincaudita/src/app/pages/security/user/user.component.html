@@ -38,21 +38,30 @@
                     [ngModel]="user.personId ? getPersonName(user.PersonId) : ''" 
                     required>
                 </div>
+
+    
+                 <div class="col">
+                <label for="roles">roles asociadas:</label>
+                <p-multiSelect id="roles" name="name" [options]="roles" [(ngModel)]="user.roles" optionLabel="name"
+                    placeholder="Selecciona vistas" scrollHeight="250px" display="chip">
+                </p-multiSelect>
+            </div>
+        </div>
                 
-                <div class="col">
-                    <label for="State">Estado:</label>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="State" name="State"
+            <div class="col">
+                <label for="State">Estado:</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="State" name="State"
                         [(ngModel)]="user.state">
-                    </div>
                 </div>
-                
             </div>
             <br>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
+        
         </form>
     </div>
 </div>
@@ -64,6 +73,7 @@
                     <th>Username</th>
                     <th>Password</th>
                     <th>Person</th>
+                    <th>Roles</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
@@ -73,14 +83,15 @@
                     <td>{{ user.username }}</td>
                     <td>{{ user.password }}</td>
                     <td>{{ getPersonName(user.personId) }}</td>
+                    <td>{{ user.roleString || 'Ningun' }}</td>
                     <td>{{ user.state ? 'Activo' : 'Inactivo' }}</td>
-                    <td>
-                        <button class="btn-icon edit" (click)="editUsers(user)" title="Editar">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon delete" (click)="deleteUsers(user.id)" title="Eliminar">
-                            <i class="fas fa-trash"></i>
-                        </button>
+            <td>
+                <button class="btn-icon edit" (click)="editUsers(user)" title="Editar">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-icon delete" (click)="deleteUsers(user.id)" title="Eliminar">
+                    <i class="fas fa-trash"></i>
+                </button>
                     </td>
                 </tr>
             </tbody>

@@ -6,7 +6,7 @@ using WebA.Controllers.Interfaces.Operational;
 
 namespace WebA.Controllers.Implements.Operational
 {
-    [Route("api/FarmCrop")]
+    [Route("api/Lot")]
     [ApiController]
     public class LotController : ControllerBase, ILotController
     {

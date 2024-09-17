@@ -25,7 +25,7 @@ namespace Data.Implements.Operational
             {
                 throw new Exception("Registro no encontrado");
             }
-            entity.Deleted_at = DateTime.Parse(DateTime.Today.ToString());
+            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
             entity.State = false;
             context.Checklists.Update(entity);
             await context.SaveChangesAsync();
@@ -38,7 +38,7 @@ namespace Data.Implements.Operational
                         Code AS TextoMostrar 
                     FROM 
                         Checklists
-                    WHERE Deleted_at IS NULL AND State = 1
+                    WHERE DeletedAt IS NULL AND State = 1
                     ORDER BY Id ASC";
             return await context.QueryAsync<DataSelectDto>(sql);
         }
@@ -64,7 +64,7 @@ namespace Data.Implements.Operational
 
         public async Task<IEnumerable<Checklist>> GetAll()
         {
-            var sql = @"SELECT * FROM Checklists Where Deleted_at is null ORDER BY Id ASC";
+            var sql = @"SELECT * FROM Checklists Where DeletedAt is null ORDER BY Id ASC";
             return await context.QueryAsync<Checklist>(sql);
         }
     }

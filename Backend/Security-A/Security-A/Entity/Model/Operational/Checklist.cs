@@ -12,8 +12,8 @@ namespace Entity.Model.Operational
         public string Code { get; set; }
         public int Calification_total {  get; set; }
         public Boolean State { get; set; }
-        public DateTime Created_at { get; set; }
-        public DateTime? Updated_at { get; set; }
-        public DateTime? Deleted_at { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
     }
 }

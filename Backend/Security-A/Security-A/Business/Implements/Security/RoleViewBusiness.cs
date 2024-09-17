@@ -69,9 +69,10 @@ namespace Business.Implements.Security
         {
             RoleView roleView = new RoleView();
             roleView = mapearDatos(roleView, entity);
-            roleView.Created_at = DateTime.Now;
-            roleView.Deleted_at = null;
-            roleView.Updated_at = null;
+            roleView.CreatedAt = DateTime.Now;
+            roleView.State = true;
+            roleView.DeletedAt = null;
+            roleView.UpdatedAt = null;
 
             return await data.Save(roleView);
         }
@@ -84,7 +85,7 @@ namespace Business.Implements.Security
                 throw new Exception("Registro no encontrado");
             }
             roleView = mapearDatos(roleView, entity);
-            roleView.Updated_at = DateTime.Now;
+            roleView.UpdatedAt = DateTime.Now;
 
             await data.Update(roleView);
         }

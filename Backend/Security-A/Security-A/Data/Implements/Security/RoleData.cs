@@ -26,7 +26,7 @@ namespace Data.Implements.Security
             {
                 throw new Exception("Registro no encontrado");
             }
-            entity.Deleted_at = DateTime.Parse(DateTime.Today.ToString());
+            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
             entity.State = false;
             context.Roles.Update(entity);
             await context.SaveChangesAsync();
@@ -39,7 +39,7 @@ namespace Data.Implements.Security
                         CONCAT(Name, ' - ', Description) AS TextoMostrar 
                     FROM 
                         Roles
-                    WHERE Deleted_at IS NULL AND State = 1
+                    WHERE DeletedAt IS NULL AND State = 1
                     ORDER BY Id ASC";
             return await context.QueryAsync<DataSelectDto>(sql);
         }
@@ -56,18 +56,19 @@ namespace Data.Implements.Security
                             r.Id,
                             r.Name,
                             r.Description,
+                            r.State
                             (
                                 SELECT 
                                     v.Id,
                                     v.Name AS textoMostrar
                                 FROM Views AS v
                                 LEFT JOIN RoleViews AS rv2 ON rv2.ViewId = v.Id
-                                WHERE rv2.RoleId = r.Id AND rv2.Deleted_at IS NULL
+                                WHERE rv2.RoleId = r.Id AND rv2.DeletedAt IS NULL
                                 FOR JSON PATH
                             ) AS viewString
                             FROM Roles AS r
-                            WHERE r.Deleted_at IS NULL AND r.Id = @Id
-                            GROUP BY r.Id, r.Name, r.Description
+                            WHERE r.DeletedAt IS NULL AND r.Id = @Id
+                            GROUP BY r.Id, r.Name, r.Description, r.State
                             ORDER BY r.Id ASC;";
             return await context.QueryFirstOrDefaultAsync<RoleDto>(sql, new { Id = id });
         }
@@ -96,18 +97,19 @@ namespace Data.Implements.Security
                             r.Id,
                             r.Name,
                             r.Description,
+                            r.State,
                             (
                                 SELECT 
                                     v.Id,
                                     v.Name AS textoMostrar
                                 FROM Views AS v
                                 LEFT JOIN RoleViews AS rv2 ON rv2.ViewId = v.Id
-                                WHERE rv2.RoleId = r.Id AND rv2.Deleted_at IS NULL
+                                WHERE rv2.RoleId = r.Id AND rv2.DeletedAt IS NULL
                                 FOR JSON PATH
                             ) AS viewString
                             FROM Roles AS r
-                            WHERE r.Deleted_at IS NULL
-                            GROUP BY r.Id, r.Name, r.Description
+                            WHERE r.DeletedAt IS NULL
+                            GROUP BY r.Id, r.Name, r.Description, r.State
                             ORDER BY r.Id ASC;";
             return await context.QueryAsync<RoleDto>(sql);
         }

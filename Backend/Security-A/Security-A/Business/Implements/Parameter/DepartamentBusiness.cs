@@ -69,9 +69,10 @@ namespace Business.Implements.Parameter
         {
             Departament departament = new Departament();
             departament = mapearDatos(departament, entity);
-            departament.Created_at = DateTime.Now;
-            departament.Updated_at = null;
-            departament.Deleted_at = null;
+            departament.CreatedAt = DateTime.Now;
+            departament.State = true;
+            departament.UpdatedAt = null;
+            departament.DeletedAt = null;
 
             return await data.Save(departament);
         }
@@ -84,7 +85,7 @@ namespace Business.Implements.Parameter
                 throw new Exception("Registro no encontrado");
             }
             departament = mapearDatos(departament, entity);
-            departament.Updated_at = DateTime.Now;
+            departament.UpdatedAt = DateTime.Now;
 
             await data.Update(departament);
         }

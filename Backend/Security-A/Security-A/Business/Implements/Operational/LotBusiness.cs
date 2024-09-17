@@ -66,9 +66,10 @@ namespace Business.Implements.Operational
         {
             Lot lot = new Lot();
             lot = mapearDatos(lot, entity);
-            lot.Created_at = DateTime.Now;
-            lot.Updated_at = null;
-            lot.Deleted_at = null;
+            lot.CreatedAt = DateTime.Now;
+            lot.State = true;
+            lot.UpdatedAt = null;
+            lot.DeletedAt = null;
 
             return await data.Save(lot);
         }
@@ -81,7 +82,7 @@ namespace Business.Implements.Operational
                 throw new Exception("Registro no encontrado");
             }
             farmCrop = mapearDatos(farmCrop, entity);
-            farmCrop.Updated_at = DateTime.Now;
+            farmCrop.UpdatedAt = DateTime.Now;
 
             await data.Update(farmCrop);
         }

@@ -66,9 +66,10 @@ namespace Business.Implements.Parameter
         {
             Country country = new Country();
             country = mapearDatos(country, entity);
-            country.Created_at = DateTime.Now;
-            country.Updated_at = null;
-            country.Deleted_at = null;
+            country.CreatedAt = DateTime.Now;
+            country.State = true;
+            country.UpdatedAt = null;
+            country.DeletedAt = null;
 
             return await data.Save(country);
         }
@@ -81,7 +82,7 @@ namespace Business.Implements.Parameter
                 throw new Exception("Registro no encontrado");
             }
             country = mapearDatos(country, entity);
-            country.Updated_at = DateTime.Now;
+            country.UpdatedAt = DateTime.Now;
 
             await data.Update(country);
         }

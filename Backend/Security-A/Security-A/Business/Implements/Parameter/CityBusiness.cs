@@ -69,9 +69,10 @@ namespace Business.Implements.Parameter
         {
             City city = new City();
             city = mapearDatos(city, entity);
-            city.Created_at = DateTime.Now;
-            city.Updated_at = null;
-            city.Deleted_at = null;
+            city.CreatedAt = DateTime.Now;
+            city.State = true;
+            city.UpdatedAt = null;
+            city.DeletedAt = null;
 
             return await data.Save(city);
         }
@@ -84,7 +85,7 @@ namespace Business.Implements.Parameter
                 throw new Exception("Registro no encontrado");
             }
             city = mapearDatos(city, entity);
-            city.Updated_at = DateTime.Now;
+            city.UpdatedAt = DateTime.Now;
 
             await data.Update(city);
         }

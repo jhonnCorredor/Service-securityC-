@@ -24,7 +24,7 @@ namespace Data.Implements.Security
             {
                 throw new Exception("Registro no encontrado");
             }
-            entity.Deleted_at = DateTime.Parse(DateTime.Today.ToString());
+            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
             entity.State = false;
             context.UserRoles.Update(entity);
             await context.SaveChangesAsync();
@@ -39,7 +39,7 @@ namespace Data.Implements.Security
                 {
                     throw new Exception("Registro no encontrado");
                 }
-                entity.Deleted_at = DateTime.Parse(DateTime.Today.ToString());
+                entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
                 entity.State = false;
                 context.UserRoles.Update(entity);
                 await context.SaveChangesAsync();
@@ -53,7 +53,7 @@ namespace Data.Implements.Security
                         CONCAT(Role_id, ' - ', User_id) AS TextoMostrar 
                     FROM 
                         UserRoles
-                    WHERE Deleted_at IS NULL AND State = 1
+                    WHERE DeletedAt IS NULL AND State = 1
                     ORDER BY Id ASC";
             return await context.QueryAsync<DataSelectDto>(sql);
         }
@@ -85,7 +85,7 @@ namespace Data.Implements.Security
 
         public async Task<IEnumerable<UserRole>> GetAll()
         {
-            var sql = @"SELECT * FROM UserRoles Where Deleted_at is null ORDER BY Id ASC";
+            var sql = @"SELECT * FROM UserRoles Where DeletedAt is null ORDER BY Id ASC";
             return await context.QueryAsync<UserRole>(sql);
         }
     }

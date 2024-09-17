@@ -68,9 +68,10 @@ namespace Business.Implements.Security
         {
             UserRole userRole = new UserRole();
             userRole = mapearDatos(userRole, entity);
-            userRole.Created_at = DateTime.Now;
-            userRole.Updated_at = null;
-            userRole.Deleted_at = null;
+            userRole.CreatedAt = DateTime.Now;
+            userRole.State = true; 
+            userRole.UpdatedAt = null;
+            userRole.DeletedAt = null;
 
             return await data.Save(userRole);
         }
@@ -83,7 +84,7 @@ namespace Business.Implements.Security
                 throw new Exception("Registro no encontrado");
             }
             userRole = mapearDatos(userRole, entity);
-            userRole.Updated_at = DateTime.Now;
+            userRole.UpdatedAt = DateTime.Now;
 
             await data.Update(userRole);
         }

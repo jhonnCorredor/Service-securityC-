@@ -66,9 +66,10 @@ namespace Business.Implements.Operational
         {
             AssessmentCriteria assessmentCriteria = new AssessmentCriteria();
             assessmentCriteria = mapearDatos(assessmentCriteria, entity);
-            assessmentCriteria.Created_at = DateTime.Now;
-            assessmentCriteria.Updated_at = null;
-            assessmentCriteria.Deleted_at = null;
+            assessmentCriteria.CreatedAt = DateTime.Now;
+            assessmentCriteria.State = true;
+            assessmentCriteria.UpdatedAt = null;
+            assessmentCriteria.DeletedAt = null;
 
             return await data.Save(assessmentCriteria);
         }
@@ -81,7 +82,7 @@ namespace Business.Implements.Operational
                 throw new Exception("Registro no encontrado");
             }
             assessmentCriteria = mapearDatos(assessmentCriteria, entity);
-            assessmentCriteria.Updated_at = DateTime.Now;
+            assessmentCriteria.UpdatedAt = DateTime.Now;
 
             await data.Update(assessmentCriteria);
         }

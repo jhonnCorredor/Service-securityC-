@@ -66,9 +66,10 @@ namespace Business.Implements.Operational
         {
             Evidence evidence = new Evidence();
             evidence = mapearDatos(evidence, entity);
-            evidence.Created_at = DateTime.Now;
-            evidence.Updated_at = null;
-            evidence.Deleted_at = null;
+            evidence.CreatedAt = DateTime.Now;
+            evidence.State = true;
+            evidence.UpdatedAt = null;
+            evidence.DeletedAt = null;
 
             return await data.Save(evidence);
         }
@@ -81,7 +82,7 @@ namespace Business.Implements.Operational
                 throw new Exception("Registro no encontrado");
             }
             evidence = mapearDatos(evidence, entity);
-            evidence.Updated_at = DateTime.Now;
+            evidence.UpdatedAt = DateTime.Now;
 
             await data.Update(evidence);
         }

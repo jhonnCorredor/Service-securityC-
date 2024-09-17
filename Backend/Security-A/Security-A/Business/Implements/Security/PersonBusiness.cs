@@ -85,9 +85,10 @@ namespace Business.Implements.Security
         {
             Person person = new Person();
             person = mapearDatos(person, entity);
-            person.Created_at = DateTime.Now;
-            person.Deleted_at = null;
-            person.Updated_at = null;
+            person.CreatedAt = DateTime.Now;
+            person.State = true;
+            person.DeletedAt = null;
+            person.UpdatedAt = null;
 
             return await data.Save(person);
         }
@@ -100,7 +101,7 @@ namespace Business.Implements.Security
                 throw new Exception("Registro no encontrado");
             }
             person = mapearDatos(person, entity);
-            person.Updated_at = DateTime.Now;
+            person.UpdatedAt = DateTime.Now;
 
             await data.Update(person);
         }

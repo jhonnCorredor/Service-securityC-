@@ -27,7 +27,7 @@ namespace Data.Implements.Security
             {
                 throw new Exception("Registro no encontrado");
             }
-            entity.Deleted_at = DateTime.Parse(DateTime.Today.ToString());
+            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
             entity.State = false;
             context.Users.Update(entity);
             await context.SaveChangesAsync();
@@ -40,7 +40,7 @@ namespace Data.Implements.Security
                         CONCAT(Username, ' - ', Password) AS TextoMostrar 
                     FROM 
                         Users
-                    WHERE Deleted_at IS NULL AND State = 1
+                    WHERE DeletedAt IS NULL AND State = 1
                     ORDER BY Id ASC";
             return await context.QueryAsync<DataSelectDto>(sql);
         }
@@ -58,18 +58,19 @@ namespace Data.Implements.Security
                             u.Username,
                             u.Password,
 	                        u.PersonId,
+                            u.State,
                             (
                                 SELECT 
                                     r.Id,
                                     r.Name AS textoMostrar
                                 FROM Roles AS r
                                 LEFT JOIN UserRoles AS ur2 ON ur2.RoleId = r.Id
-                                WHERE ur2.UserId = u.Id AND ur2.Deleted_at IS NULL
+                                WHERE ur2.UserId = u.Id AND ur2.DeletedAt IS NULL
                                 FOR JSON PATH
                             ) AS roleString
                             FROM Users AS u
-                            WHERE u.Deleted_at IS NULL and u.Id = @Id 
-                            GROUP BY u.Id, u.Username, u.Password, u.PersonId
+                            WHERE u.DeletedAt IS NULL and u.Id = @Id 
+                            GROUP BY u.Id, u.Username, u.Password, u.PersonId, u.State
                             ORDER BY u.Id ASC;";
             return await context.QueryFirstOrDefaultAsync<UserDto>(sql, new { Id = id });
         }
@@ -104,18 +105,19 @@ namespace Data.Implements.Security
                             u.Username,
                             u.Password,
 	                        u.PersonId,
+                            u.State,
                             (
                                 SELECT 
                                     r.Id,
                                     r.Name AS textoMostrar
                                 FROM Roles AS r
                                 LEFT JOIN UserRoles AS ur2 ON ur2.RoleId = r.Id
-                                WHERE ur2.UserId = u.Id AND ur2.Deleted_at IS NULL
+                                WHERE ur2.UserId = u.Id AND ur2.DeletedAt IS NULL
                                 FOR JSON PATH
                             ) AS roleString
                             FROM Users AS u
-                            WHERE u.Deleted_at IS NULL 
-                            GROUP BY u.Id, u.Username, u.Password, u.PersonId
+                            WHERE u.DeletedAt IS NULL 
+                            GROUP BY u.Id, u.Username, u.Password, u.PersonId, u.State
                             ORDER BY u.Id ASC;";
             return await context.QueryAsync<UserDto>(sql);
         }
@@ -141,7 +143,7 @@ namespace Data.Implements.Security
                                     v.Description
 				                FROM Views AS v
 				                INNER JOIN RoleViews AS rv ON rv.ViewId = v.Id
-				                WHERE v.Deleted_at IS null AND rv.RoleId = r.Id AND v.ModuloId = m.Id
+				                WHERE v.DeletedAt IS null AND rv.RoleId = r.Id AND v.ModuloId = m.Id
 				                GROUP BY v.Id, v.Name, v.Route, v.Description
 				                FOR JSON PATH
 			                ) AS views
@@ -157,7 +159,7 @@ namespace Data.Implements.Security
                 LEFT JOIN UserRoles AS ur ON ur.UserId = u.Id
                 LEFt JOIN Roles AS r ON r.Id = ur.RoleId
                 WHERE u.Username = @Username AND u.Password = @Password
-                AND u.Deleted_at is null
+                AND u.DeletedAt is null
                 GROUP BY u.Id, u.Username, u.Password, r.Id, r.Name;
             ";
 

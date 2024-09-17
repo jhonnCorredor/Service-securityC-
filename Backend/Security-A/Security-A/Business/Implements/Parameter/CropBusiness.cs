@@ -66,9 +66,10 @@ namespace Business.Implements.Operational
         {
             Crop crop = new Crop();
             crop = mapearDatos(crop, entity);
-            crop.Created_at = DateTime.Now;
-            crop.Updated_at = null;
-            crop.Deleted_at = null;
+            crop.CreatedAt = DateTime.Now;
+            crop.State = true;
+            crop.UpdatedAt = null;
+            crop.DeletedAt = null;
 
             return await data.Save(crop);
         }
@@ -81,7 +82,7 @@ namespace Business.Implements.Operational
                 throw new Exception("Registro no encontrado");
             }
             crop = mapearDatos(crop, entity);
-            crop.Updated_at = DateTime.Now;
+            crop.UpdatedAt = DateTime.Now;
 
             await data.Update(crop);
         }

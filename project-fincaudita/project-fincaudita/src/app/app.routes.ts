@@ -49,6 +49,10 @@ export const routes: Routes = [
         component: ForgotYourPasswordComponent,
     },
     {
+        path: 'creat-account',
+        component: CreatAccountComponent,
+    },
+    {
         path: 'dashboard',
         component: DashboardComponent,
         canActivate: [authGuard],

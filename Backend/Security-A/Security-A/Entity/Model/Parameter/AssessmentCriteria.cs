@@ -13,9 +13,9 @@ namespace Entity.Model.Parameter
         public int Rating_range { get; set; }
         public string Type_criterian { get; set; }
         public bool State { get; set; }
-        public DateTime Created_at { get; set; }
-        public DateTime? Updated_at { get; set; }
-        public DateTime? Deleted_at { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
 
     }
 }
