@@ -1,0 +1,150 @@
+<!-- Contenedor de fondo con imagen y modal -->
+<div class="background-container bg-image">
+  <!-- Modal con efecto de desenfoque -->
+  <div class="modal-overlay" [ngClass]="{'show': showModal}">
+    <div class="modal-content">
+      <div class="container forgot-password-form">
+        <div class="form-container">
+          <!-- Indicador de progreso con 3 pasos -->
+          <div class="progress-indicator">
+            <div class="step">
+              <div [ngClass]="{'step-number': true, 'completed': currentStep > 1, 'active': currentStep === 1}">1</div>
+              <div [ngClass]="{'line': true, 'completed': currentStep > 1}"></div>
+              <div [ngClass]="{'step-number': true, 'completed': currentStep > 2, 'active': currentStep === 2}">2</div>
+              <div [ngClass]="{'line': true, 'completed': currentStep > 2}"></div>
+              <div [ngClass]="{'step-number': true, 'active': currentStep === 3}">3</div>
+            </div>
+            <div class="static-line"></div>
+          </div>
+          
+
+          <!-- Primer Paso -->
+          <!-- Primer Paso -->
+<div *ngIf="currentStep === 1">
+  <form>
+    <!-- Fila para nombres y apellidos -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="first_name" class="form-label">Nombres</label>
+        <input type="text" id="first_name" class="form-control" placeholder="Nombres" [(ngModel)]="person.first_name" name="first_name" />
+      </div>
+      <div class="col-md-6">
+        <label for="last_name" class="form-label">Apellidos</label>
+        <input type="text" id="last_name" class="form-control" placeholder="Apellidos" [(ngModel)]="person.last_name" name="last_name" />
+      </div>
+    </div>
+
+    <!-- Fila para tipo de documento y número del documento -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="type_document" class="form-label">Tipo de documento</label>
+        <select id="type_document" class="form-control" [(ngModel)]="person.type_document" name="type_document">
+          <option value="">Seleccione</option>
+          <option value="CC">Cédula de ciudadanía</option>
+          <option value="TI">Tarjeta de identidad</option>
+          <option value="CE">Cédula de extranjería</option>
+          <option value="PS">Pasaporte</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="document" class="form-label">Número del documento</label>
+        <input type="number" id="document" class="form-control" placeholder="Número del documento" [(ngModel)]="person.document" name="document" pattern="\d*" min="0" />
+      </div>
+    </div>
+
+    <!-- Fila para teléfono y fecha de nacimiento -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Teléfono</label>
+        <input type="number" id="phone" class="form-control" placeholder="Teléfono" [(ngModel)]="person.phone" name="phone" pattern="\d*" min="0" />
+      </div>
+      <div class="col-md-6">
+        <label for="birth_date" class="form-label">Fecha de nacimiento</label>
+        <input type="date" id="birth_date" class="form-control" [(ngModel)]="person.birth_date" name="birth_date" />
+      </div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="button-group d-flex justify-content-between">
+      <button type="button" class="btn btn-secondary" (click)="confirmExit()">Anterior</button>
+      <button type="button" class="btn btn-success" (click)="nextStep()">Siguiente</button>
+    </div>
+  </form>
+</div>
+
+
+         <!-- Segundo Paso -->
+<!-- Segundo Paso -->
+<div *ngIf="currentStep === 2">
+  <!-- Fila para la búsqueda de la ciudad -->
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="CityId" class="form-label">Ciudad</label>
+      <input type="text" class="form-control" id="CityId" name="CityId" 
+             [ngbTypeahead]="searchCitys"
+             [inputFormatter]="formatCity" 
+             [resultFormatter]="formatCity"
+             (selectItem)="onCitySelect($event)"
+             [ngModel]="getCityName(person.cityId)"
+             placeholder="Buscar ciudad"
+             required>
+    </div>
+    <div class="col-md-6">
+      <label for="addres" class="form-label">Dirección</label>
+      <input type="text" id="addres" class="form-control" placeholder="Dirección" [(ngModel)]="person.addres" name="address" />
+    </div>
+  </div>
+
+  <!-- Fila para correo electrónico y nombre de usuario -->
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="email" class="form-label">Correo electrónico</label>
+      <input type="email" id="email" class="form-control" placeholder="Correo electrónico" [(ngModel)]="person.email" name="email" />
+    </div>
+    <div class="col-md-6">
+      <label for="Username" class="form-label">Nombre de usuario</label>
+      <input type="text" id="Username" class="form-control" placeholder="Nombre de usuario" [(ngModel)]="user.username" name="username" />
+    </div>
+  </div>
+
+  <!-- Fila para contraseña -->
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="Password" class="form-label">Contraseña</label>
+      <input type="password" id="Password" class="form-control" placeholder="Contraseña" [(ngModel)]="user.password" name="password" />
+    </div>
+  </div>
+
+  <!-- Botones de acción -->
+  <div class="button-group d-flex justify-content-between">
+    <button type="button" class="btn btn-secondary" (click)="prevStep()">Anterior</button>
+    <button type="button" class="btn btn-success" (click)="nextStep()">Siguiente</button>
+  </div>
+</div>
+
+
+
+          <!-- Tercer Paso -->
+          <div *ngIf="currentStep === 3">
+     
+            <ul>
+              <li><strong>Nombres:</strong> {{ person.first_name }}</li>
+              <li><strong>Apellidos:</strong> {{ person.last_name }}</li>
+              <li><strong>Tipo de documento:</strong> {{ person.type_document }}</li>
+              <li><strong>Documento:</strong> {{ person.document }}</li>
+              <li><strong>Teléfono:</strong> {{ person.phone }}</li>
+              <li><strong>Dirección:</strong> {{ person.addres }}</li>
+              <li><strong>Correo electrónico:</strong> {{ person.email }}</li>
+              <li><strong>Usuario:</strong> {{ user.username }}</li>
+              <li><strong>Contraseña:</strong> {{ user.password }}</li>
+            </ul>
+            <div class="button-group">
+              <button type="button" class="btn btn-secondary" (click)="prevStep()">Anterior</button>
+              <button type="submit" class="btn btn-success" (click)="onSubmit()">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

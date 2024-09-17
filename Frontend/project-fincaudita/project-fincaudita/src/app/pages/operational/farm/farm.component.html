@@ -1,0 +1,101 @@
+<!-- Título con estilo -->
+<h2 class="title">Lista de Farms</h2>
+
+<!-- Botón a la derecha -->
+<button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo <i class="fas fa-plus"></i></button>
+
+<div id="farmModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h2>{{ farm.id === 0 ? 'Agregar Farm' : 'Editar Farm' }}</h2>
+
+        <hr class="modal-border">
+
+        <form #farmForm="ngForm" (ngSubmit)="onSubmit(farmForm)">
+            <input type="hidden" name="id" [(ngModel)]="farm.id">
+
+            <div class="row">
+                <div class="col">
+                    <label for="Name">Nombre del farm:</label>
+                    <input type="text" class="form-control" id="Name" name="Name" [(ngModel)]="farm.name" required>
+                </div>
+
+                <div class="col">
+                    <!-- Eliminar campo de descripción -->
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <label for="Department">Departamento:</label>
+                    <input type="text" class="form-control" id="Department" name="Department" 
+                        [ngbTypeahead]="searchDepartments" 
+                        [inputFormatter]="formatDepartment" 
+                        [resultFormatter]="formatDepartment" 
+                        (selectItem)="onDepartmentSelect($event)"
+                        [ngModel]="farm.departamentId ? getDepartmentName(farm.departamentId) : ''" 
+                        required>
+                </div>
+
+                <div class="col">
+                    <label for="User">Usuario:</label>
+                    <input type="text" class="form-control" id="User" name="User" 
+                        [ngbTypeahead]="searchUsers" 
+                        [inputFormatter]="formatUser" 
+                        [resultFormatter]="formatUser" 
+                        (selectItem)="onUserSelect($event)"
+                        [ngModel]="farm.userId ? getUserName(farm.userId) : ''" 
+                        required>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <label for="State">Estado:</label>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="State" name="State"
+                            [(ngModel)]="farm.state">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- Table of farms -->
+<table *ngIf="farms.length > 0" class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Departamento</th>
+            <th>Usuario</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let farm of farms">
+            <td>{{ farm.name }}</td>
+            <td>{{ getDepartmentName(farm.departamentId) }}</td>
+            <td>{{ getUserName(farm.userId) }}</td>
+            <td>{{ farm.state ? 'Activo' : 'Inactivo' }}</td>
+            <td>
+                <button class="btn-icon edit" (click)="editFarm(farm)" title="Editar">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-icon delete" (click)="deleteFarm(farm.id)" title="Eliminar">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="farms.length === 0">No se encontraron farms.</p>
