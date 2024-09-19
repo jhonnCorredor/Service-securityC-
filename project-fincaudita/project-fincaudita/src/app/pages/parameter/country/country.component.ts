@@ -50,13 +50,13 @@ export class CountryComponent implements OnInit {
       this.http.post(this.apiUrl, this.country).subscribe(() => {
         this.getCountries();
         this.closeModal();
-        Swal.fire('Success', 'Country created successfully!', 'success');
+        Swal.fire('Éxito', 'País creado con éxito.', 'success');
       });
     } else {
       this.http.put(this.apiUrl, this.country).subscribe(() => {
         this.getCountries();
         this.closeModal();
-        Swal.fire('Success', 'Country updated successfully!', 'success');
+        Swal.fire('Éxito', 'País actualizado con éxito.', 'success');
       });
     }
   }
@@ -68,17 +68,17 @@ export class CountryComponent implements OnInit {
 
   deleteCountry(id: number): void {
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'You won\'t be able to revert this!',
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!'
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'No, cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.delete(`${this.apiUrl}/${id}`).subscribe(() => {
           this.getCountries();
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          Swal.fire('Eliminado', 'El país ha sido eliminado.', 'success');
         });
       }
     });

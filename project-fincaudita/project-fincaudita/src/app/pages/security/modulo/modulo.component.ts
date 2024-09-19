@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { DataTablesModule } from 'angular-datatables'
+import { DataTablesModule } from 'angular-datatables';
 import Swal from 'sweetalert2';
 import { Config } from 'datatables.net';
 import { Subject } from 'rxjs';
@@ -12,32 +12,31 @@ import { Subject } from 'rxjs';
   standalone: true,
   imports: [HttpClientModule, FormsModule, CommonModule, DataTablesModule],
   templateUrl: './modulo.component.html',
-  styleUrl: './modulo.component.css'
+  styleUrls: ['./modulo.component.css']
 })
 export class ModuloComponent implements OnInit {
   modulos: any[] = [];
   modulo: any = { id: 0, name: '', description: '', position: 0, state: false };
   isModalOpen = false;
-  dtoptions:Config={}
-  dttriger:Subject<any>= new Subject<any>()
+  dtoptions: Config = {};
+  dttriger: Subject<any> = new Subject<any>();
 
   private apiUrl = 'http://localhost:9191/api/Modulo';
 
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.dtoptions={
-      pagingType:'full_numbers',
-    }
+    this.dtoptions = {
+      pagingType: 'full_numbers',
+    };
     this.getModulos();
   }
-
 
   getModulos(): void {
     this.http.get<any[]>(this.apiUrl).subscribe(
       (modulos) => {
         this.modulos = modulos;
-        this.dttriger.next(null)
+        this.dttriger.next(null);
       },
       (error) => {
         console.error('Error fetching modules:', error);
@@ -59,13 +58,13 @@ export class ModuloComponent implements OnInit {
       this.http.post(this.apiUrl, this.modulo).subscribe(() => {
         this.getModulos();
         this.closeModal();
-        Swal.fire('Success', 'Modules created successfully!', 'success');
+        Swal.fire('Éxito', '¡Módulo creado exitosamente!', 'success');
       });
     } else {
       this.http.put(this.apiUrl, this.modulo).subscribe(() => {
         this.getModulos();
         this.closeModal();
-        Swal.fire('Success', 'Module updated successfully!', 'success');
+        Swal.fire('Éxito', '¡Módulo actualizado exitosamente!', 'success');
       });
     }
   }
@@ -77,20 +76,20 @@ export class ModuloComponent implements OnInit {
 
   deleteModulo(id: number): void {
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'You won\'t be able to revert this!',
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: 'Sí, eliminarlo',
+      cancelButtonText: 'No, cancelar',
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.delete(`${this.apiUrl}/${id}`).subscribe(() => {
           this.getModulos();
           Swal.fire(
-            'Deleted!',
-            'Your role has been deleted.',
+            '¡Eliminado!',
+            'Tu módulo ha sido eliminado.',
             'success'
           );
         });
@@ -102,4 +101,3 @@ export class ModuloComponent implements OnInit {
     this.modulo = { id: 0, name: '', description: '', position: 0, state: false };
   }
 }
-

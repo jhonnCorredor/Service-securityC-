@@ -1,1 +1,87 @@
-<p>lot-treatment works!</p>
+<h2 class="title">Gestión de Tratamientos de Lotes</h2>
+
+<!-- Botón para agregar nuevo tratamiento -->
+<button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo tratamiento <i class="fas fa-plus"></i></button>
+
+<!-- Modal para agregar/editar tratamiento -->
+<div id="treatmentModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ treatment.id === 0 ? 'Agregar Tratamiento' : 'Editar Tratamiento' }}</h2>
+    <hr class="modal-border">
+
+    <form #treatmentForm="ngForm" (ngSubmit)="onSubmit(treatmentForm)">
+      <input type="hidden" name="id" [(ngModel)]="treatment.id">
+
+      <!-- Autocompletado para el lote -->
+      <div class="row">
+        <div class="col">
+          <label for="lotId">Lote:</label>
+          <input type="text" class="form-control" id="lotId" name="lotId"
+            [ngbTypeahead]="searchLots"
+            [inputFormatter]="formatLot"
+            [resultFormatter]="formatLot"
+            (selectItem)="onLotSelect($event)"
+            [ngModel]="treatment.lotId"
+            required>
+        </div>
+
+        <!-- Autocompletado para el tratamiento -->
+        <div class="col">
+          <label for="treatmentId">Tratamiento:</label>
+          <input type="text" class="form-control" id="treatmentId" name="treatmentId"
+            [ngbTypeahead]="searchTreatments"
+            [inputFormatter]="formatTreatment"
+            [resultFormatter]="formatTreatment"
+            (selectItem)="onTreatmentSelect($event)"
+            [ngModel]="treatment.treatmentId"
+            required>
+        </div>
+      </div>
+
+      <!-- Estado -->
+      <div class="row">
+        <div class="col">
+          <label for="state">Estado:</label>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="state" name="state" [(ngModel)]="treatment.state">
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Lista de Tratamientos -->
+<table *ngIf="treatments.length > 0" class="table">
+  <thead>
+    <tr>
+      <th>Lote</th>
+      <th>Tratamiento</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let treatment of treatments">
+      <td>{{ getLotName(treatment.lotId) }}</td>
+      <td>{{ getTreatmentName(treatment.treatmentId) }}</td>
+      <td>{{ treatment.state ? 'Activo' : 'Inactivo' }}</td>
+      <td>
+        <button class="btn-icon edit" (click)="editTreatment(treatment)" title="Editar">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button class="btn-icon delete" (click)="deleteTreatment(treatment.id)" title="Eliminar">
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="treatments.length === 0">No se encontraron tratamientos.</p>

@@ -10,9 +10,9 @@ import Swal from 'sweetalert2';
   standalone: true,
   imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule],
   templateUrl: './assessment-criteria.component.html',
-  styleUrl: './assessment-criteria.component.css'
+  styleUrls: ['./assessment-criteria.component.css']
 })
-export class AssessmentCriteriaComponent {
+export class AssessmentCriteriaComponent implements OnInit {
   assesments: any[] = [];
   assesment: any = { id: 0, name: '', type_criterian: '', rating_range: 0, state: false };
   isModalOpen = false;
@@ -51,13 +51,13 @@ export class AssessmentCriteriaComponent {
       this.http.post(this.apiUrl, this.assesment).subscribe(() => {
         this.getassesments();
         this.closeModal();
-        Swal.fire('Success', 'assesment created successfully!', 'success');
+        Swal.fire('Éxito', 'Criterio de evaluación creado con éxito.', 'success');
       });
     } else {
       this.http.put(this.apiUrl, this.assesment).subscribe(() => {
         this.getassesments();
         this.closeModal();
-        Swal.fire('Success', 'assesment updated successfully!', 'success');
+        Swal.fire('Éxito', 'Criterio de evaluación actualizado con éxito.', 'success');
       });
     }
   }
@@ -69,23 +69,23 @@ export class AssessmentCriteriaComponent {
 
   deleteassesment(id: number): void {
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'You won\'t be able to revert this!',
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!'
+      confirmButtonText: 'Sí, elimínalo',
+      cancelButtonText: 'No, cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.delete(`${this.apiUrl}/${id}`).subscribe(() => {
           this.getassesments();
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          Swal.fire('Eliminado', 'El criterio de evaluación ha sido eliminado.', 'success');
         });
       }
     });
   }
 
   resetForm(): void {
-    this.assesment = { id: 0, name: '', description: '', code: '', price: 0, state: false };
+    this.assesment = { id: 0, name: '', type_criterian: '', rating_range: 0, state: false };
   }
 }

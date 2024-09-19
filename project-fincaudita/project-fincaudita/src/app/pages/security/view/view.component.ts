@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';  // Importa el módulo aquí
+import { FormsModule, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,11 +12,11 @@ import Swal from 'sweetalert2';
   standalone: true,
   imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule],
   templateUrl: './view.component.html',
-  styleUrl: './view.component.css'
+  styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
   views: any[] = [];
-  view: any = { id: 0, name: '', description: '',  route: '',  moduloId: 0, state: false };
+  view: any = { id: 0, name: '', description: '', route: '', moduloId: 0, state: false };
   modulos: any[] = [];  // Lista de módulos
   isModalOpen = false;
 
@@ -87,18 +87,17 @@ export class ViewComponent implements OnInit {
       this.http.post(this.apiUrl, this.view).subscribe(() => {
         this.getViews();
         this.closeModal();
-        Swal.fire('Success', 'View created successfully!', 'success');
+        Swal.fire('Éxito', 'Vista creada exitosamente.', 'success');
       });
     } else {
       this.http.put(this.apiUrl, this.view).subscribe(() => {
         this.getViews();
         this.closeModal();
-        Swal.fire('Success', 'View updated successfully!', 'success');
+        Swal.fire('Éxito', 'Vista actualizada exitosamente.', 'success');
       });
     }
   }
   
-
   editView(view: any): void {
     this.view = { ...view };
     this.openModal();
@@ -106,20 +105,20 @@ export class ViewComponent implements OnInit {
 
   deleteView(id: number): void {
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'You won\'t be able to revert this!',
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: 'Sí, elimínalo',
+      cancelButtonText: 'No, cancelar',
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.delete(`${this.apiUrl}/${id}`).subscribe(() => {
           this.getViews();
           Swal.fire(
-            'Deleted!',
-            'Your view has been deleted.',
+            '¡Eliminado!',
+            'La vista ha sido eliminada.',
             'success'
           );
         });
@@ -128,11 +127,11 @@ export class ViewComponent implements OnInit {
   }
 
   resetForm(): void {
-    this.view = { id: 0, name: '', description: '', route: '',  moduloId: 0, state: false };
+    this.view = { id: 0, name: '', description: '', route: '', moduloId: 0, state: false };
   }
 
   getModuloName(moduloId: number): string {
     const modulo = this.modulos.find(mod => mod.id === moduloId);
-    return modulo ? modulo.name : 'Unknown';
+    return modulo ? modulo.name : 'Desconocido';
   }
 }

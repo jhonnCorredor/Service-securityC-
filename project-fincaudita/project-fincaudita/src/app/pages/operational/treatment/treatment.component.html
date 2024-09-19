@@ -1,1 +1,92 @@
-<p>treatment works!</p>
+<h2 class="title">Lista de Tratamientos</h2>
+
+<button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo <i class="fas fa-plus"></i></button>
+
+<div id="treatmentModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h2>{{ treatment.id === 0 ? 'Agregar tratamiento' : 'Editar tratamiento' }}</h2>
+
+        <hr class="modal-border">
+
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+            <input type="hidden" name="id" [(ngModel)]="treatment.id">
+        
+            <div class="row">
+                <div class="col">
+                    <label for="DateTreatment">Fecha de tratamiento:</label>
+                    <ngb-datepicker
+                    #dp
+                    [(ngModel)]="treatment.dateTreatment"
+                    (ngModelChange)="onDateSelect($event)"
+                    name="dateTreatment"
+                    [displayMonths]="1"
+                    [outsideDays]="'visible'"
+                    class="form-control"
+                    id="DateTreatment"
+                    required>
+                </ngb-datepicker>
+                </div>
+
+                <div class="col">
+                    <label for="TypeTreatment">Tipo de tratamiento:</label>
+                    <input type="text" class="form-control" id="TypeTreatment" name="typeTreatment"
+                        [(ngModel)]="treatment.typeTreatment" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="QuantityMix">Cantidad de mezcla:</label>
+                    <input type="text" class="form-control" id="QuantityMix" name="quantityMix"
+                        [(ngModel)]="treatment.quantityMix" required>
+                </div>
+
+                <div class="col">
+                    <label for="State">Estado:</label>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="State" name="state"
+                            [(ngModel)]="treatment.state">
+                        <label class="form-check-label" for="State"></label>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<table *ngIf="treatments.length > 0" class="table">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Tipo de tratamiento</th>
+            <th>Cantidad de mezcla</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let treatment of treatments">
+            <td>{{ treatment.dateTreatment | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ treatment.typeTreatment }}</td>
+            <td>{{ treatment.quantityMix }}</td>
+            <td>{{ treatment.state ? 'Activo' : 'Inactivo' }}</td>
+            <td>
+                <button class="btn-icon edit" (click)="editTreatment(treatment)" title="Editar">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-icon delete" (click)="deleteTreatment(treatment.id)" title="Eliminar">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="treatments.length === 0">No se encontraron tratamientos.</p>

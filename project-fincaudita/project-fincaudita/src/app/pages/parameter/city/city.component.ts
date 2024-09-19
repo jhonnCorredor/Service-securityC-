@@ -79,7 +79,7 @@ export class CityComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     if (!this.city.departamentId) {
-      Swal.fire('Error', 'Debe seleccionar un país válido.', 'error');
+      Swal.fire('Error', 'Debe seleccionar un departamento válido.', 'error');
       return;
     }
   
@@ -87,13 +87,13 @@ export class CityComponent implements OnInit {
       this.http.post(this.apiUrl, this.city).subscribe(() => {
         this.getCities();
         this.closeModal();
-        Swal.fire('Success', 'City created successfully!', 'success');
+        Swal.fire('Éxito', 'Ciudad creada con éxito.', 'success');
       });
     } else {
       this.http.put(this.apiUrl, this.city).subscribe(() => {
         this.getCities();
         this.closeModal();
-        Swal.fire('Success', 'City updated successfully!', 'success');
+        Swal.fire('Éxito', 'Ciudad actualizada con éxito.', 'success');
       });
     }
   }
@@ -105,17 +105,17 @@ export class CityComponent implements OnInit {
 
   deleteCity(id: number): void {
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'You won\'t be able to revert this!',
+      title: '¿Estás seguro?',
+      text: '¡No podrás revertir esto!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!'
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'No, cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.delete(`${this.apiUrl}/${id}`).subscribe(() => {
           this.getCities();
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          Swal.fire('Eliminado', 'La ciudad ha sido eliminada.', 'success');
         });
       }
     });
