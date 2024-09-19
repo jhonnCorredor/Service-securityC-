@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EbrHCVwSQ44=",
+  "dgSpecHash": "FHtTD54VIX8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj",
+  "projectFilePath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Data\\Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\srhad\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\srhad\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

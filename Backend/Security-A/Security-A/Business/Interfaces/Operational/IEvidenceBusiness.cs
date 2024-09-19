@@ -16,6 +16,7 @@ namespace Business.Interfaces.Operational
         Task<EvidenceDto> GetById(int id);
         Task<Evidence> Save(EvidenceDto entity);
         Task Update(EvidenceDto entity);
+        Task DeleteEvidences(int id);
         Evidence mapearDatos(Evidence evidence, EvidenceDto entity);
         Task<IEnumerable<EvidenceDto>> GetAll();
     }

@@ -49,6 +49,13 @@ namespace WebA.Controllers.Implements.Operational
             return Ok(result);
         }
 
+        [HttpPost("Notifications")]
+        public async Task<ActionResult<ApiResponse<IEnumerable<AlertDto>>>> GetByUser([FromBody] DataSelectDto Alert)
+        {
+            var result = await business.GetByUser(Alert);
+            return Ok(result);
+        }
+
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] AlertDto Alert)
         {

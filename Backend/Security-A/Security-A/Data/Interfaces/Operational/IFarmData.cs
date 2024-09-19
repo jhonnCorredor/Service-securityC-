@@ -1,4 +1,5 @@
 ﻿using Entity.Dto;
+using Entity.Dto.Operational;
 using Entity.Model.Operational;
 
 namespace Data.Interfaces.Operational
@@ -9,7 +10,8 @@ namespace Data.Interfaces.Operational
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
         Task<Farm> GetById(int id);
         Task<Farm> Save(Farm entity);
+        Task<FarmDto> GetByIdLot(int id);
         Task Update(Farm entity);
-        Task<IEnumerable<Farm>> GetAll();
+        Task<IEnumerable<FarmDto>> GetAll();
     }
 }

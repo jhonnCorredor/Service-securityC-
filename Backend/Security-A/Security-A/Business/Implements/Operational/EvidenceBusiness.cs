@@ -20,6 +20,11 @@ namespace Business.Implements.Operational
             await data.Delete(id);
         }
 
+        public async Task DeleteEvidences(int id)
+        {
+            await data.DeleteEvidences(id);
+        }
+
         public async Task<IEnumerable<EvidenceDto>> GetAll()
         {
             IEnumerable<Evidence> evidences = await data.GetAll();
@@ -57,8 +62,8 @@ namespace Business.Implements.Operational
             evidence.Id = entity.Id;
             evidence.Document = entity.Document;
             evidence.Code = entity.Code;
-            evidence.ReviewId = entity.ReviewId;
-            evidence.State = entity.State;
+            evidence.ReviewId = (int)entity.ReviewId;
+            evidence.State = (bool)entity.State;
             return evidence;
         }
 

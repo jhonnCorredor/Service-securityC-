@@ -14,6 +14,8 @@ namespace Business.Interfaces.Parameter
         Task Delete(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
         Task<TreatmentSuppliesDto> GetById(int id);
+        Task DeleteSupplie(int id);
+
         Task<TreatmentSupplies> Save(TreatmentSuppliesDto entity);
         Task Update(TreatmentSuppliesDto entity);
         TreatmentSupplies mapearDatos(TreatmentSupplies TreatmentSupplies, TreatmentSuppliesDto entity);

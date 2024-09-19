@@ -16,5 +16,6 @@ namespace Data.Interfaces.Operational
         Task<Lot> Save(Lot entity);
         Task Update(Lot entity);
         Task<IEnumerable<Lot>> GetAll();
+        Task DeleteLots(int id);
     }
 }

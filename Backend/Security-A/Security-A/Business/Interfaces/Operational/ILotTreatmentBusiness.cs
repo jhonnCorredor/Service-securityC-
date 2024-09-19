@@ -11,6 +11,7 @@ namespace Business.Interfaces.Operational
         Task<LotTreatmentDto> GetById(int id);
         Task<LotTreatment> Save(LotTreatmentDto entity);
         Task Update(LotTreatmentDto entity);
+        Task DeleteLots(int id);
         LotTreatment mapearDatos(LotTreatment LotTreatment, LotTreatmentDto entity);
         Task<IEnumerable<LotTreatmentDto>> GetAll();
     }

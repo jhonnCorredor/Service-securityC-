@@ -16,5 +16,6 @@ namespace Data.Interfaces.Operational
         Task<TreatmentSupplies> Save(TreatmentSupplies entity);
         Task Update(TreatmentSupplies entity);
         Task<IEnumerable<TreatmentSupplies>> GetAll();
+        Task DeleteSupplie(int id);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Data.Interfaces.Operational;
 using Entity.Context;
 using Entity.Dto;
+using Entity.Dto.Operational;
 using Entity.Model.Operational;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,35 @@ namespace Data.Implements.Operational
             return await context.QueryFirstOrDefaultAsync<Farm>(sql, new { Id = id });
         }
 
+        public async Task<FarmDto> GetByIdLot(int id)
+        {
+            var sql = @"SELECT 
+                           f.Id,
+                           f.Name,
+                           f.CityId,
+                           f.UserId,
+                           f.Addres,
+                           f.Dimension,
+                           f.State,
+                           (
+                              SELECT 
+                                 l.Id,
+                                 l.Num_hectareas,
+                                 l.CropId,
+		                         c.Name AS cultivo
+                                 FROM Lots AS l
+		                         Inner join Crops AS c ON c.Id = l.CropId
+                                 WHERE l.FarmId = f.Id AND l.DeletedAt IS NULL
+                                 FOR JSON PATH
+	                        )AS lotString
+                        FROM Farms AS f
+                        WHERE f.DeletedAt IS NULL AND f.Id = @Id
+                        GROUP BY f.Id, f.Name, f.CityId, f.UserId, f.Addres, f.Dimension, f.State
+                        ORDER BY f.Id ASC;";
+            return await context.QueryFirstOrDefaultAsync<FarmDto>(sql, new { Id = id });
+        }
+
+
         public async Task<Farm> Save(Farm entity)
         {
             context.Farms.Add(entity);
@@ -62,10 +92,32 @@ namespace Data.Implements.Operational
             await context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Farm>> GetAll()
+        public async Task<IEnumerable<FarmDto>> GetAll()
         {
-            var sql = @"SELECT * FROM Farms Where DeletedAt is null ORDER BY Id ASC";
-            return await context.QueryAsync<Farm>(sql);
+            var sql = @"SELECT 
+                           f.Id,
+                           f.Name,
+                           f.CityId,
+                           f.UserId,
+                           f.Addres,
+                           f.Dimension,
+                           f.State,
+                           (
+                              SELECT 
+                                 l.Id,
+                                 l.Num_hectareas,
+                                 l.CropId,
+		                         c.Name AS cultivo
+                                 FROM Lots AS l
+		                         Inner join Crops AS c ON c.Id = l.CropId
+                                 WHERE l.FarmId = f.Id AND l.DeletedAt IS NULL
+                                 FOR JSON PATH
+	                        )AS lotString
+                        FROM Farms AS f
+                        WHERE f.DeletedAt IS NULL
+                        GROUP BY f.Id, f.Name, f.CityId, f.UserId, f.Addres, f.Dimension, f.State
+                        ORDER BY f.Id ASC;";
+            return await context.QueryAsync<FarmDto>(sql);
         }
     }
 }

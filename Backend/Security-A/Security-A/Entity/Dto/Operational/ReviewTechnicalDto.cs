@@ -14,9 +14,13 @@ namespace Entity.Dto.Operational
         public DateTime Date_review { get; set; }
         public string Code { get; set; }
         public string Observation { get; set; }
-        public int FarmId { get; set; }
+        public int LotId { get; set; }
         public int TecnicoId { get; set; }
         public int ChecklistId { get; set; }
         public Boolean State { get; set; }
+        public string? evidenceString { get; set; }
+        public string? checklistString {  get; set; }
+        public List<EvidenceDto>? evidences { get; set; }
+        public ChecklistDto? checklists { get; set; }
     }
 }

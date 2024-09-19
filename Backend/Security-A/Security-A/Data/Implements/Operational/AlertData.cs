@@ -54,6 +54,14 @@ namespace Data.Implements.Operational
             return await context.QueryFirstOrDefaultAsync<Alert>(sql, new { Id = id });
         }
 
+        public async Task<IEnumerable<Alert>> GetByUser(int id)
+        {
+            var sql = @"SELECT al.* FROM Alerts AS al WHERE al.UserId = @Id AND al.Date >= @Date ORDER BY Id ASC;";
+            var currentDate = DateTime.Now;
+            return await context.QueryAsync<Alert>(sql, new { Id = id, Date = currentDate });
+        }
+
+
         public async Task<Alert> Save(Alert entity)
         {
             context.Alerts.Add(entity);

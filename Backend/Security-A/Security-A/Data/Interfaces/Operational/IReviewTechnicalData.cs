@@ -1,4 +1,5 @@
 ﻿using Entity.Dto;
+using Entity.Dto.Operational;
 using Entity.Model.Operational;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Data.Interfaces.Operational
         Task<ReviewTechnical> GetById(int id);
         Task<ReviewTechnical> Save(ReviewTechnical entity);
         Task Update(ReviewTechnical entity);
-        Task<IEnumerable<ReviewTechnical>> GetAll();
+        Task<ReviewTechnicalDto> GetByIdPivote(int id);
+        Task<IEnumerable<ReviewTechnicalDto>> GetAll();
     }
 }

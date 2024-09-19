@@ -19,6 +19,10 @@ namespace Business.Implements.Operational
         {
             await data.Delete(id);
         }
+        public async Task DeleteSupplie(int id)
+        {
+            await data.DeleteSupplie(id);
+        }
 
         public async Task<IEnumerable<TreatmentSuppliesDto>> GetAll()
         {
@@ -55,10 +59,10 @@ namespace Business.Implements.Operational
         public TreatmentSupplies mapearDatos(TreatmentSupplies TreatmentSupplies, TreatmentSuppliesDto entity)
         {
             TreatmentSupplies.Id = entity.Id;
-            TreatmentSupplies.SuppliesId = entity.SuppliesId;
-            TreatmentSupplies.TreatmentId = entity.TreatmentId;
+            TreatmentSupplies.SuppliesId = (int)entity.SuppliesId;
+            TreatmentSupplies.TreatmentId = (int)entity.TreatmentId;
             TreatmentSupplies.Dose = entity.Dose;
-            TreatmentSupplies.State = entity.State;
+            TreatmentSupplies.State = (bool)entity.State;
             return TreatmentSupplies;
         }
 

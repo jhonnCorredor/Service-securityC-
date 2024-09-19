@@ -31,6 +31,19 @@ namespace Data.Implements.Operational
             await context.SaveChangesAsync();
         }
 
+        public async Task DeleteEvidences(int id)
+        {
+            var entity = await GetByReviewId(id);
+            if (entity == null)
+            {
+                throw new Exception("Registro no encontrado");
+            }
+            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+            entity.State = false;
+            context.Evidences.Update(entity);
+            await context.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             var sql = @"SELECT 
@@ -46,6 +59,12 @@ namespace Data.Implements.Operational
         public async Task<Evidence> GetById(int id)
         {
             var sql = @"SELECT * FROM Evidences WHERE Id = @Id ORDER BY Id ASC";
+            return await context.QueryFirstOrDefaultAsync<Evidence>(sql, new { Id = id });
+        }
+
+        public async Task<Evidence> GetByReviewId(int id)
+        {
+            var sql = @"SELECT * FROM Evidences WHERE ReviewId = @Id ORDER BY Id ASC";
             return await context.QueryFirstOrDefaultAsync<Evidence>(sql, new { Id = id });
         }
 

@@ -9,10 +9,12 @@ namespace Business.Implements.Operational
     public class ChecklistBusiness : IChecklistBusiness
     {
         private readonly IChecklistData data;
+        private readonly IQualificationBusiness qualificationBusiness;
 
-        public ChecklistBusiness(IChecklistData data)
+        public ChecklistBusiness(IChecklistData data, IQualificationBusiness qualificationBusiness)
         {
-            this.data = data; 
+            this.data = data;
+            this.qualificationBusiness = qualificationBusiness;
         }
 
         public async Task Delete(int id)
@@ -55,20 +57,36 @@ namespace Business.Implements.Operational
             checklist.Id = entity.Id;
             checklist.Calification_total = entity.Calification_total;
             checklist.Code = entity.Code;
-            checklist.State = entity.State;
+            checklist.State = (bool)entity.State;
             return checklist;
         }
 
         public async Task<Checklist> Save(ChecklistDto entity)
         {
+            entity.State = true;
             Checklist checklist = new Checklist();
             checklist = mapearDatos(checklist, entity);
             checklist.CreatedAt = DateTime.Now;
-            checklist.State = true;
             checklist.UpdatedAt = null;
             checklist.DeletedAt = null;
 
-            return await data.Save(checklist);
+            Checklist save = await data.Save(checklist);
+
+            if (entity.qualifications != null && entity.qualifications.Count > 0)
+            {
+                foreach (var q in entity.qualifications)
+                {
+                    QualificationDto dto = new QualificationDto();
+                    dto.ChecklistId = save.Id;
+                    dto.AssessmentCriteriaId = q.AssessmentCriteriaId;
+                    dto.Qualification_criteria = q.Qualification_criteria;
+                    dto.Observation = q.Observation;
+                    dto.State = true;
+                    await qualificationBusiness.Save(dto);
+                }
+            }
+
+            return save;
         }
 
         public async Task Update(ChecklistDto entity)

@@ -114,7 +114,7 @@ namespace Business.Implements.Security
 
             await roleViewBusiness.DeleteViews(role.Id);
 
-            if (entity.Views.Count > 0)
+            if (entity.Views.Count > 0 && entity.Views != null)
             {
                 foreach (var view in entity.Views)
                 {

@@ -16,5 +16,6 @@ namespace Data.Interfaces.Operational
         Task<Alert> Save(Alert entity);
         Task Update(Alert entity);
         Task<IEnumerable<Alert>> GetAll();
+        Task<IEnumerable<Alert>> GetByUser(int id);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Entity.Model.Operational;
+﻿using Entity.Dto.Parameter;
+using Entity.Model.Operational;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,9 @@ namespace Entity.Dto.Operational
         public string TypeTreatment { get; set; }
         public string QuantityMix { get; set; }
         public Boolean State { get; set; }
+        public string? lotString { get; set; }
+        public string? supplieString { get; set; }
+        public List<LotTreatmentDto>? lotList { get; set; }
+        public List<TreatmentSuppliesDto>? supplieList { get; set; }
     }
 }

@@ -283,7 +283,7 @@ namespace Entity.Migrations
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FarmId")
+                    b.Property<int>("LotId")
                         .HasColumnType("int");
 
                     b.Property<string>("Observation")
@@ -303,7 +303,7 @@ namespace Entity.Migrations
 
                     b.HasIndex("ChecklistId");
 
-                    b.HasIndex("FarmId");
+                    b.HasIndex("LotId");
 
                     b.HasIndex("TecnicoId");
 
@@ -1016,9 +1016,9 @@ namespace Entity.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entity.Model.Operational.Farm", "Farm")
+                    b.HasOne("Entity.Model.Operational.Lot", "Lot")
                         .WithMany()
-                        .HasForeignKey("FarmId")
+                        .HasForeignKey("LotId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1030,7 +1030,7 @@ namespace Entity.Migrations
 
                     b.Navigation("Checklist");
 
-                    b.Navigation("Farm");
+                    b.Navigation("Lot");
 
                     b.Navigation("Tecnico");
                 });

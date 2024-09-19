@@ -20,6 +20,11 @@ namespace Business.Implements.Operational
             await data.Delete(id);
         }
 
+        public async Task DeleteLots(int id)
+        {
+            await data.DeleteLots(id);
+        }
+
         public async Task<IEnumerable<LotDto>> GetAll()
         {
             IEnumerable<Lot> Lots = await data.GetAll();
@@ -56,9 +61,9 @@ namespace Business.Implements.Operational
         {
             lot.Id = entity.Id;
             lot.Num_hectareas = entity.Num_hectareas;
-            lot.CropId = entity.CropId;
-            lot.FarmId = entity.FarmId;
-            lot.State = entity.State;
+            lot.CropId = (int)entity.CropId;
+            lot.FarmId = (int)entity.FarmId;
+            lot.State = (bool)entity.State;
             return lot;
         }
 
@@ -83,6 +88,8 @@ namespace Business.Implements.Operational
             }
             farmCrop = mapearDatos(farmCrop, entity);
             farmCrop.UpdatedAt = DateTime.Now;
+
+
 
             await data.Update(farmCrop);
         }

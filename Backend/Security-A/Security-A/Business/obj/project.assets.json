@@ -2778,11 +2778,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Business.csproj",
+      "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Business.csproj",
+      "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\srhad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\obj\\",
+      "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\srhad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2800,11 +2800,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj": {
-              "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj"
+            "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Data\\Data.csproj": {
+              "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Data\\Data.csproj"
             },
-            "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
-              "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj"
+            "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Entity\\Entity.csproj": {
+              "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Entity\\Entity.csproj"
             }
           }
         }

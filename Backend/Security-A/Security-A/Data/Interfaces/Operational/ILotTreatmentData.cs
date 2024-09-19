@@ -10,6 +10,7 @@ namespace Data.Interfaces.Operational
         Task<LotTreatment> GetById(int id);
         Task<LotTreatment> Save(LotTreatment entity);
         Task Update(LotTreatment entity);
+        Task DeleteLots(int id);
         Task<IEnumerable<LotTreatment>> GetAll();
     }
 }

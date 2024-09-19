@@ -30,6 +30,19 @@ namespace Data.Implements.Operational
             await context.SaveChangesAsync();
         }
 
+        public async Task DeleteLots(int id)
+        {
+            var entity = await GetByTreatmenId(id);
+            if (entity == null)
+            {
+                throw new Exception("Registro no encontrado");
+            }
+            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+            entity.State = false;
+            context.LotTreatments.Update(entity);
+            await context.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             var sql = @"SELECT 
@@ -45,6 +58,12 @@ namespace Data.Implements.Operational
         public async Task<LotTreatment> GetById(int id)
         {
             var sql = @"SELECT * FROM LotTreatments WHERE Id = @Id ORDER BY Id ASC";
+            return await context.QueryFirstOrDefaultAsync<LotTreatment>(sql, new { Id = id });
+        }
+
+        public async Task<LotTreatment> GetByTreatmenId(int id)
+        {
+            var sql = @"SELECT * FROM LotTreatments WHERE TreatmentId = @Id ORDER BY Id ASC";
             return await context.QueryFirstOrDefaultAsync<LotTreatment>(sql, new { Id = id });
         }
 

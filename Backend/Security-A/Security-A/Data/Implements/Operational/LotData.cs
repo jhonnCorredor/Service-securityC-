@@ -2,6 +2,7 @@
 using Entity.Context;
 using Entity.Dto;
 using Entity.Model.Operational;
+using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -30,6 +31,21 @@ namespace Data.Implements.Operational
             context.Lots.Update(entity);
             await context.SaveChangesAsync();
         }
+        public async Task DeleteLots(int id)
+        {
+            var entitys = await GetByFarmId(id);
+            foreach (var entity in entitys)
+            {
+                if (entity == null)
+                {
+                    throw new Exception("Registro no encontrado");
+                }
+                entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+                entity.State = false;
+                context.Lots.Update(entity);
+                await context.SaveChangesAsync();
+            }
+        }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
@@ -41,6 +57,12 @@ namespace Data.Implements.Operational
                     WHERE DeletedAt IS NULL AND State = 1
                     ORDER BY Id ASC";
             return await context.QueryAsync<DataSelectDto>(sql);
+        }
+
+        public async Task<IEnumerable<Lot>> GetByFarmId(int id)
+        {
+            var sql = @"SELECT * FROM Lots WHERE FarmId = @Id ORDER BY Id ASC";
+            return await context.QueryAsync<Lot>(sql, new { Id = id });
         }
 
         public async Task<Lot> GetById(int id)

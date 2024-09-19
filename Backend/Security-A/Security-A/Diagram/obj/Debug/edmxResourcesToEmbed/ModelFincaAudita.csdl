@@ -568,7 +568,7 @@
       <End Role="Evidences" EntitySet="Evidences" />
       <End Role="ReviewTechnicals" EntitySet="ReviewTechnicals" />
     </AssociationSet>
-    <EntitySet Name="DepartamentSet" EntityType="Security_ServiceModel.Departament" />
+    <EntitySet Name="DepartamentsSet" EntityType="Security_ServiceModel.Departaments" />
     <EntitySet Name="LotTreatmentsSet" EntityType="Security_ServiceModel.LotTreatments" />
     <AssociationSet Name="LotFertilizationLots" Association="Security_ServiceModel.LotFertilizationLots">
       <End Role="LotFertilization" EntitySet="LotTreatmentsSet" />
@@ -583,12 +583,12 @@
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
     <AssociationSet Name="DepartamentCountrys" Association="Security_ServiceModel.DepartamentCountrys">
-      <End Role="Departament" EntitySet="DepartamentSet" />
+      <End Role="Departament" EntitySet="DepartamentsSet" />
       <End Role="Countrys" EntitySet="Countrys" />
     </AssociationSet>
     <AssociationSet Name="CitysDepartament" Association="Security_ServiceModel.CitysDepartament">
       <End Role="Citys" EntitySet="Citys" />
-      <End Role="Departament" EntitySet="DepartamentSet" />
+      <End Role="Departament" EntitySet="DepartamentsSet" />
     </AssociationSet>
     <AssociationSet Name="PersonsCitys" Association="Security_ServiceModel.PersonsCitys">
       <End Role="Persons" EntitySet="Persons" />
@@ -606,9 +606,9 @@
       <End Role="Treatment" EntitySet="Fertilizations" />
       <End Role="LotTreatment" EntitySet="LotTreatmentsSet" />
     </AssociationSet>
-    <EntitySet Name="AlertSet" EntityType="Security_ServiceModel.Alert" />
+    <EntitySet Name="AlertsSet" EntityType="Security_ServiceModel.Alerts" />
     <AssociationSet Name="AlertUsers" Association="Security_ServiceModel.AlertUsers">
-      <End Role="Alert" EntitySet="AlertSet" />
+      <End Role="Alert" EntitySet="AlertsSet" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
@@ -616,7 +616,7 @@
     <End Type="Security_ServiceModel.Evidences" Role="Evidences" Multiplicity="*" />
     <End Type="Security_ServiceModel.ReviewTechnicals" Role="ReviewTechnicals" Multiplicity="1" />
   </Association>
-  <EntityType Name="Departament">
+  <EntityType Name="Departaments">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -659,12 +659,12 @@
     <End Type="Security_ServiceModel.Users" Role="Users" Multiplicity="1" />
   </Association>
   <Association Name="DepartamentCountrys">
-    <End Type="Security_ServiceModel.Departament" Role="Departament" Multiplicity="*" />
+    <End Type="Security_ServiceModel.Departaments" Role="Departament" Multiplicity="*" />
     <End Type="Security_ServiceModel.Countrys" Role="Countrys" Multiplicity="1" />
   </Association>
   <Association Name="CitysDepartament">
     <End Type="Security_ServiceModel.Citys" Role="Citys" Multiplicity="*" />
-    <End Type="Security_ServiceModel.Departament" Role="Departament" Multiplicity="1" />
+    <End Type="Security_ServiceModel.Departaments" Role="Departament" Multiplicity="1" />
   </Association>
   <Association Name="PersonsCitys">
     <End Type="Security_ServiceModel.Persons" Role="Persons" Multiplicity="*" />
@@ -702,7 +702,7 @@
     <Member Name="Fertilization" />
     <Member Name="Fumigation" />
   </EnumType>
-  <EntityType Name="Alert">
+  <EntityType Name="Alerts">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -718,7 +718,7 @@
     <Property Name="State" Type="Boolean" Nullable="false" />
   </EntityType>
   <Association Name="AlertUsers">
-    <End Type="Security_ServiceModel.Alert" Role="Alert" Multiplicity="*" />
+    <End Type="Security_ServiceModel.Alerts" Role="Alert" Multiplicity="*" />
     <End Type="Security_ServiceModel.Users" Role="Users" Multiplicity="1" />
   </Association>
 </Schema>

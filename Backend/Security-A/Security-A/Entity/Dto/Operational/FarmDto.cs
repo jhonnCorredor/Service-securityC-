@@ -9,5 +9,7 @@
         public Boolean State { get; set; }
         public string Addres { get; set; }
         public int Dimension { get; set; }
+        public string? lotString { get; set; }
+        public List<LotDto>? Lots { get; set; }
     }
 }

@@ -11,8 +11,9 @@ namespace Entity.Dto.Parameter
     {
         public int Id { get; set; }
         public string Dose { get; set; }
-        public int SuppliesId { get; set; }
-        public int TreatmentId { get; set; }
-        public bool State { get; set; }
+        public int? SuppliesId { get; set; }
+        public int? TreatmentId { get; set; }
+        public bool? State { get; set; }
+        public string? supplie {  get; set; }
     }
 }

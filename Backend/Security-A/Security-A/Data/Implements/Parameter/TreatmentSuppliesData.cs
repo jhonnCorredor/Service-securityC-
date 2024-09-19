@@ -31,6 +31,19 @@ namespace Data.Implements.Parameter
             await context.SaveChangesAsync();
         }
 
+        public async Task DeleteSupplie(int id)
+        {
+            var entity = await GetByTreatmeId(id);
+            if (entity == null)
+            {
+                throw new Exception("Registro no encontrado");
+            }
+            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+            entity.State = false;
+            context.TreatmentSupplies.Update(entity);
+            await context.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             var sql = @"SELECT 
@@ -46,6 +59,12 @@ namespace Data.Implements.Parameter
         public async Task<TreatmentSupplies> GetById(int id)
         {
             var sql = @"SELECT * FROM TreatmentSupplies WHERE Id = @Id ORDER BY Id ASC";
+            return await context.QueryFirstOrDefaultAsync<TreatmentSupplies>(sql, new { Id = id });
+        }
+
+        public async Task<TreatmentSupplies> GetByTreatmeId(int id)
+        {
+            var sql = @"SELECT * FROM TreatmentSupplies WHERE TreatmentId = @Id ORDER BY Id ASC";
             return await context.QueryFirstOrDefaultAsync<TreatmentSupplies>(sql, new { Id = id });
         }
 

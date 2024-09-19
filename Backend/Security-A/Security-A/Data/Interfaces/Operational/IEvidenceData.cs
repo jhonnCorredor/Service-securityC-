@@ -13,6 +13,7 @@ namespace Data.Interfaces.Operational
         Task Delete(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
         Task<Evidence> GetById(int id);
+        Task DeleteEvidences(int id);
         Task<Evidence> Save(Evidence entity);
         Task Update(Evidence entity);
         Task<IEnumerable<Evidence>> GetAll();

@@ -18,5 +18,6 @@ namespace Business.Interfaces.Operational
         Task Update(AlertDto entity);
         Alert mapearDatos(Alert Alert, AlertDto entity);
         Task<IEnumerable<AlertDto>> GetAll();
+        Task<IEnumerable<AlertDto>> GetByUser(DataSelectDto dto);
     }
 }

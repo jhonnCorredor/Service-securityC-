@@ -12,6 +12,7 @@ namespace Business.Interfaces.Operational
     public interface ILotBusiness
     {
         Task Delete(int id);
+        Task DeleteLots(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
         Task<LotDto> GetById(int id);
         Task<Lot> Save(LotDto entity);

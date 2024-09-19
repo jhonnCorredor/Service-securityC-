@@ -28,6 +28,11 @@ namespace Business.Implements.Operational
             await data.Delete(id);
         }
 
+        public async Task DeleteLots(int id)
+        {
+            await data.DeleteLots(id);
+        }
+
         public async Task<IEnumerable<LotTreatmentDto>> GetAll()
         {
             IEnumerable<LotTreatment> LotTreatments = await data.GetAll();
@@ -62,9 +67,9 @@ namespace Business.Implements.Operational
         public LotTreatment mapearDatos(LotTreatment LotTreatment, LotTreatmentDto entity)
         {
             LotTreatment.Id = entity.Id;
-            LotTreatment.LotId = entity.LotId;
-            LotTreatment.TreatmentId = entity.TreatmentId;
-            LotTreatment.State = entity.State;
+            LotTreatment.LotId = (int)entity.LotId;
+            LotTreatment.TreatmentId = (int)entity.TreatmentId;
+            LotTreatment.State = (Boolean)entity.State;
             return LotTreatment;
         }
 

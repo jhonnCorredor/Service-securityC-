@@ -1,4 +1,5 @@
 ﻿using Entity.Dto;
+using Entity.Dto.Operational;
 using Entity.Model.Operational;
 
 namespace Data.Interfaces.Operational
@@ -10,6 +11,7 @@ namespace Data.Interfaces.Operational
         Task<Treatment> GetById(int id);
         Task<Treatment> Save(Treatment entity);
         Task Update(Treatment entity);
-        Task<IEnumerable<Treatment>> GetAll();
+        Task<TreatmentDto> GetByIdPivote(int id);
+        Task<IEnumerable<TreatmentDto>> GetAll();
     }
 }

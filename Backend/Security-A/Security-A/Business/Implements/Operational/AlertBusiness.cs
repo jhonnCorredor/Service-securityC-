@@ -41,6 +41,22 @@ namespace Business.Implements.Operational
             return AlertDtos;
         }
 
+        public async Task<IEnumerable<AlertDto>> GetByUser(DataSelectDto dto)
+        {
+            IEnumerable<Alert> Alerts = await data.GetByUser(dto.Id);
+            var AlertDtos = Alerts.Select(Alert => new AlertDto
+            {
+                Id = Alert.Id,
+                Title = Alert.Title,
+                Theme = Alert.Theme,
+                Date = Alert.Date,
+                UserId = Alert.UserId,
+                State = Alert.State,
+            });
+
+            return AlertDtos;
+        }
+
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             return await data.GetAllSelect();

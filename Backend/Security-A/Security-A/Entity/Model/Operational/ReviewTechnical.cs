@@ -13,8 +13,8 @@ namespace Entity.Model.Operational
         public DateTime Date_review {get; set; }
         public string Code { get; set; }
         public string Observation {  get; set; }
-        public int FarmId { get; set; }
-        public Farm Farm { get; set; } 
+        public int LotId { get; set; }
+        public Lot Lot { get; set; } 
         public int TecnicoId { get; set; }
         public User Tecnico { get; set; }
         public int ChecklistId {  get; set; }
