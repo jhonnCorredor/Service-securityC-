@@ -12,17 +12,11 @@ import { CityComponent } from './pages/parameter/city/city.component';
 import { CountryComponent } from './pages/parameter/country/country.component';
 import { CropComponent } from './pages/parameter/crop/crop.component';
 import { DepartamentComponent } from './pages/parameter/departament/departament.component';
-import { FertilizationComponent } from './pages/operational/fertilization/fertilization.component';
-import { FertilizationSuppliesComponent } from './pages/parameter/fertilization-supplies/fertilization-supplies.component';
-import { FumigationnSuppliesComponent } from './pages/parameter/fumigationn-supplies/fumigationn-supplies.component';
 import { SuppliesComponent } from './pages/parameter/supplies/supplies.component';
 import { ChecklistComponent } from './pages/operational/checklist/checklist.component';
 import { EvidenceComponent } from './pages/operational/evidence/evidence.component';
 import { FarmComponent } from './pages/operational/farm/farm.component';
-import { FumigationComponent } from './pages/operational/fumigation/fumigation.component';
 import { LotComponent } from './pages/operational/lot/lot.component';
-import { LotFertilizationComponent } from './pages/operational/lot-fertilization/lot-fertilization.component';
-import { LotFumationComponent } from './pages/operational/lot-fumigation/lot-fumigation.component';
 import { QualificationComponent } from './pages/operational/qualification/qualification.component';
 import { ReviewTechnicalComponent } from './pages/operational/review-technical/review-technical.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -32,6 +26,11 @@ import { RoleviewComponent } from './pages/security/roleview/roleview.component'
 import { ForgotYourPasswordComponent } from './pages/forgot-your-password/forgot-your-password.component';
 import { Component } from '@angular/core';
 import { CreatAccountComponent } from './pages/creat-account/creat-account.component';
+import { TreatmentsuppliesComponent } from './pages/parameter/treatmentsupplies/treatmentsupplies.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { UserprofileComponent } from './pages/userprofile/userprofile.component';
+import { TreatmentComponent } from './pages/operational/treatment/treatment.component';
+import { LotTreatmentComponent } from './pages/operational/lot-treatment/lot-treatment.component';
 
 
 export const routes: Routes = [
@@ -71,21 +70,20 @@ export const routes: Routes = [
             { path: 'country', component: CountryComponent, },
             { path: 'crop', component: CropComponent, },
             { path: 'departament', component: DepartamentComponent, },
-            { path: 'fertilization-supplies', component: FertilizationSuppliesComponent, },
-            { path: 'fumigation-supplies', component: FumigationnSuppliesComponent, },
+            { path: 'treatmentsupplies', component: TreatmentsuppliesComponent },
             { path: 'supplies', component: SuppliesComponent, },
-            { path: 'cheklist', component: ChecklistComponent, },
+            { path: 'lot-treatment', component: LotTreatmentComponent, },
+            { path: 'treatment', component: TreatmentComponent, },
+            { path: 'checklist', component: ChecklistComponent, },
             { path: 'evidence', component: EvidenceComponent, },
             { path: 'farm', component: FarmComponent, },
-            { path: 'fertilization', component: FertilizationComponent, },
-            { path: 'fumigation', component: FumigationComponent, },
             { path: 'lot', component: LotComponent, },
-            { path: 'lot-fertilization', component: LotFertilizationComponent, },
-            { path: 'lot-fumigation', component: LotFumationComponent, },
             { path: 'qualification', component: QualificationComponent, },
             { path: 'review-technical', component: ReviewTechnicalComponent, },
             { path: 'forgot-your-password', component: ForgotYourPasswordComponent, },  
-            { path: 'creat-account', component: CreatAccountComponent, }
+            { path: 'creat-account', component: CreatAccountComponent, },
+            { path: 'notifications', component: NotificationsComponent, },
+            { path: 'userprofile', component: UserprofileComponent, }
 
         ]
     },

@@ -16,39 +16,39 @@ import Swal from 'sweetalert2';
 })
 export class FarmComponent implements OnInit {
   farms: any[] = [];
-  farm: any = { id: 0, name: '', departamentId: 0, userId: 0, state: false };
-  departments: any[] = [];
+  farm: any = { id: 0, name: '', cityId: 0, userId: 0, addres: '', dimension: 0, state: false };
+  cities: any[] = [];
   users: any[] = [];
   isModalOpen = false;
 
-  private apiUrl = 'https://localhost:44312/api/Farm';
-  private departmentsUrl = 'https://localhost:44312/api/Departament';  
-  private usersUrl = 'https://localhost:44312/api/User';  
+  private apiUrl = 'http://localhost:9191/api/Farm';
+  private citiesUrl = 'http://localhost:9191/api/City';
+  private usersUrl = 'http://localhost:9191/api/User';
 
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
-  searchDepartments = (text$: Observable<string>) =>
+  searchCities = (text$: Observable<string>) =>
     text$.pipe(
       debounceTime(200),
       distinctUntilChanged(),
-      map(term => term.length < 1 ? []
-        : this.departments.filter(departament => departament.name?.toLowerCase().includes(term.toLowerCase())).slice(0, 10))
+      map(term => term.length < 1 ? [] : this.cities
+        .filter(city => city.name?.toLowerCase().includes(term.toLowerCase())).slice(0, 10))
     );
 
   searchUsers = (text$: Observable<string>) =>
     text$.pipe(
       debounceTime(200),
       distinctUntilChanged(),
-      map(term => term.length < 1 ? []
-        : this.users.filter(user => user.username?.toLowerCase().includes(term.toLowerCase())).slice(0, 10))
+      map(term => term.length < 1 ? [] : this.users
+        .filter(user => user.username?.toLowerCase().includes(term.toLowerCase())).slice(0, 10))
     );
 
-  formatDepartment = (departament: any) => departament.name;
+  formatCity = (city: any) => city.name;
   formatUser = (user: any) => user.username;
 
-  onDepartmentSelect(event: any): void {
-    const selectedDepartment = event.item;
-    this.farm.departamentId = selectedDepartment.id;
+  onCitySelect(event: any): void {
+    const selectedCity = event.item;
+    this.farm.cityId = selectedCity.id;
   }
 
   onUserSelect(event: any): void {
@@ -58,7 +58,7 @@ export class FarmComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFarms();
-    this.getDepartments();
+    this.getCities();
     this.getUsers();
   }
 
@@ -74,13 +74,13 @@ export class FarmComponent implements OnInit {
     );
   }
 
-  getDepartments(): void {
-    this.http.get<any[]>(this.departmentsUrl).subscribe(
-      (departments) => {
-        this.departments = departments;
+  getCities(): void {
+    this.http.get<any[]>(this.citiesUrl).subscribe(
+      (cities) => {
+        this.cities = cities;
       },
       (error) => {
-        console.error('Error fetching departments:', error);
+        console.error('Error fetching cities:', error);
       }
     );
   }
@@ -106,11 +106,11 @@ export class FarmComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
-    if (!this.farm.departamentId || !this.farm.userId) {
-      Swal.fire('Error', 'Debe seleccionar un departamento y un usuario válidos.', 'error');
+    if (!this.farm.cityId || !this.farm.userId) {
+      Swal.fire('Error', 'Debe seleccionar una ciudad y un usuario válidos.', 'error');
       return;
     }
-  
+
     if (this.farm.id === 0) {
       this.http.post(this.apiUrl, this.farm).subscribe(() => {
         this.getFarms();
@@ -149,9 +149,9 @@ export class FarmComponent implements OnInit {
     });
   }
 
-  getDepartmentName(id: number): string {
-    const department = this.departments.find(d => d.id === id);
-    return department ? department.name : '';
+  getCityName(id: number): string {
+    const city = this.cities.find(c => c.id === id);
+    return city ? city.name : '';
   }
 
   getUserName(id: number): string {
@@ -160,6 +160,6 @@ export class FarmComponent implements OnInit {
   }
 
   resetForm(): void {
-    this.farm = { id: 0, name: '', departamentId: 0, userId: 0, state: false };
+    this.farm = { id: 0, name: '', cityId: 0, userId: 0, addres: '', dimension: 0, state: false };
   }
 }

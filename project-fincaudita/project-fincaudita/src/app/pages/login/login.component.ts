@@ -24,6 +24,21 @@ export class LoginComponent {
   private apiUrl = 'http://localhost:9191/login'; 
 
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
+  
+  togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password') as HTMLInputElement;
+    const icon = document.getElementById('togglePassword');
+    
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      icon?.classList.remove('fa-eye');
+      icon?.classList.add('fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      icon?.classList.remove('fa-eye-slash');
+      icon?.classList.add('fa-eye');
+    }
+  }
 
   onSubmit(form: NgForm): void {
     const loginData = { username: this.username, password: this.password };
@@ -41,7 +56,7 @@ export class LoginComponent {
             icon: 'success',
             confirmButtonText: 'Aceptar'
           }).then(() => {
-            this.router.navigate(['/dashboard']); 
+            this.router.navigate(['/dashboard/home']); 
           });
         } else {
           Swal.fire({

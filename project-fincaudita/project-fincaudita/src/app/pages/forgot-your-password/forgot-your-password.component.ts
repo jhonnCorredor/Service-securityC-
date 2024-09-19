@@ -1,76 +1,147 @@
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
-import { Router, RouterModule } from '@angular/router'; // Importar Router para redirección
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-forgot-your-password',
   standalone: true,
-  imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule, RouterModule],
+  imports: [FormsModule, CommonModule, NgbTypeaheadModule],
   templateUrl: './forgot-your-password.component.html',
-  styleUrls: ['./forgot-your-password.component.css']
+  styleUrl: './forgot-your-password.component.css'
 })
-export class ForgotYourPasswordComponent implements OnInit {
+export class ForgotYourPasswordComponent {
   currentStep: number = 1;
-  person: any = { 
-    first_name: '', 
-    last_name: '', 
-    type_document: '', 
-    document: '', 
-    phone: '' 
-  };
+  email: string = '';
+  verificationCode: string = '';
+  newPassword: string = '';
+  confirmPassword: string = '';
+  timeLeft: number = 30; // Tiempo de espera para reenviar el código
+  timer: any;
+  showModal: boolean = true;  
+  constructor(private cdr: ChangeDetectorRef, private router: Router) {}
 
-  showModal: boolean = true;
-
-  private apiUrl = 'http://localhost:9191/api/Person';
-
-  constructor(private http: HttpClient, private router: Router) {}
-
-  ngOnInit(): void {
-    // Inicializa el componente
-  }
-
+  // Método para pasar al siguiente paso
   nextStep(): void {
+    if (this.currentStep === 1 && !this.validateEmail()) {
+      Swal.fire('Error', 'Por favor, ingrese un correo electrónico válido.', 'error');
+      return;
+    }
+    
+    if (this.currentStep === 2 && !this.validateCode()) {
+      Swal.fire('Error', 'Por favor, ingrese el código de verificación correctamente.', 'error');
+      return;
+    }
+
+    if (this.currentStep === 3 && !this.validatePasswords()) {
+      Swal.fire('Error', 'Las contraseñas no coinciden o están vacías.', 'error');
+      return;
+    }
+
     if (this.currentStep < 3) {
       this.currentStep++;
     } else {
-      this.onSubmit(); // Enviar datos cuando se llega al último paso
+      this.submitPassword();
     }
   }
 
+  // Método para regresar al paso anterior
   prevStep(): void {
     if (this.currentStep > 1) {
-      Swal.fire({
-        title: '¿Estás seguro?',
-        text: '¿Quieres regresar al inicio de sesión?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Sí, regresar',
-        cancelButtonText: 'Cancelar',
-        reverseButtons: true
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.router.navigate(['/login']); // Redirige al inicio de sesión
-        }
-      });
+      this.currentStep--;
     }
   }
 
-  setStep(step: number): void {
-    this.currentStep = step;
+  // Validación del correo electrónico
+  validateEmail(): boolean {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(this.email);
   }
 
-  onSubmit(): void {
-    this.http.post(this.apiUrl, this.person).subscribe({
-      next: (response) => {
-        Swal.fire('Success', 'Data submitted successfully', 'success');
-      },
-      error: (err) => {
-        Swal.fire('Error', 'Something went wrong', 'error');
+  // Validación del código de verificación
+  validateCode(): boolean {
+    return this.verificationCode.length === 6; // Código de 6 dígitos
+  }
+
+  // Validación de las contraseñas
+  validatePasswords(): boolean {
+    return !!this.newPassword && !!this.confirmPassword && this.newPassword === this.confirmPassword;
+  }
+  
+
+  // Reenviar código de verificación con temporizador
+  resendCode(): void {
+    if (this.timeLeft === 0) {
+      this.timeLeft = 30; // Reinicia el contador a 30 segundos
+
+      this.timer = setInterval(() => {
+        this.timeLeft--;
+        if (this.timeLeft === 0) {
+          clearInterval(this.timer);
+        }
+      }, 1000);
+    }
+  }
+
+  // Confirmar salir y perder datos
+  confirmExit(): void {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Si sales, perderás los datos ingresados.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, salir',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/login']); // Redirigir al inicio de sesión si se confirma
       }
     });
+  }
+
+  // Confirmar al ir atrás en el segundo paso
+  confirmExitToStep1(): void {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Perderás el código ingresado si retrocedes.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, regresar',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.currentStep = 1; // Volver al paso 1
+      }
+    });
+  }
+
+  // Confirmar al ir atrás en el tercer paso
+  confirmExitToStep2(): void {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Perderás las contraseñas ingresadas si retrocedes.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, regresar',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.currentStep = 2; // Volver al paso 2
+      }
+    });
+  }
+
+  // Enviar la nueva contraseña (solo validación por ahora)
+  submitPassword(): void {
+    if (this.validatePasswords()) {
+      Swal.fire('¡Éxito!', 'Contraseña cambiada con éxito.', 'success');
+      this.router.navigate(['/login']); // Redirige al inicio de sesión
+    }
   }
 }

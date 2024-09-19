@@ -1,17 +1,17 @@
 /* Fondo verde con degradado */
 .bg-green {
     background: linear-gradient(135deg, #00ff95, #96ff82);
-    min-height: 100vh; /* Para cubrir toda la pantalla */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px; /* Añade un poco de padding para que en pantallas pequeñas no quede pegado a los bordes */
+    padding: 20px;
 }
 
 /* Texto en verde */
 .text-green {
     color: #006c3c;
-    text-align: center; /* Alinea el texto en el centro */
+    text-align: center;
 }
 
 /* Estilo para la imagen de fondo */
@@ -28,7 +28,6 @@
     padding: 20px;
 }
 
-/* Para darle una capa de superposición */
 .bg-image::before {
     content: '';
     position: absolute;
@@ -37,41 +36,86 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    
 }
 
-/* Centrar contenido y asegurarse de que todo sea responsive */
 .login-container {
     position: relative;
     z-index: 2;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0px 8px 30px rgba(70, 197, 20, 0.3);
     max-width: 400px;
     width: 100%;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
-/* SVGs */
+.login-container:hover {
+    box-shadow: 0px 12px 40px rgba(79, 210, 27, 0.3);
+}
+
 app-svgs {
     margin-bottom: 20px;
     transform: translateY(-20px);
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%; /* Asegura que el SVG se ajuste a su contenedor */
-    max-width: 150px; /* Tamaño máximo para pantallas más grandes */
+    width: 100%;
+    max-width: 150px;
 }
 
-/* MEDIA QUERIES - Ajuste para pantallas más pequeñas */
+.btn-back {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-back:hover {
+    background-color: rgba(117, 202, 83, 0.3);
+    color: #f8f9fa;
+}
+
+.form-check-label {
+    color: #f8f9fa;
+}
+
+/* Estilo para el ícono del ojo */
+/* Estilo para el ícono del ojo */
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 75%; /* Ajuste la posición más abajo */
+    transform: translateY(-55%); /* Centrar el ojo */
+    cursor: pointer;
+    color: #27282a;
+}
+
+.toggle-password:hover {
+    color: #44E32A;
+}
+
+
 @media (max-width: 768px) {
     .login-container {
         padding: 20px;
-        max-width: 90%; /* Más ancho en pantallas pequeñas */
+        max-width: 90%;
     }
 
     app-svgs {
-        max-width: 100px; /* Reducir el tamaño del SVG en pantallas pequeñas */
+        max-width: 100px;
+    }
+
+    .btn-back {
+        font-size: 12px;
     }
 }
 
@@ -87,4 +131,31 @@ app-svgs {
     app-svgs {
         max-width: 80px;
     }
+
+    .btn-back {
+        font-size: 11px;
+    }
+}
+
+.btn-custom {
+    background: linear-gradient(135deg, #3c8c66, #3c8c66); /* Gradiente de tonos naranja cálido */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    padding: 12px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(135deg, #689c91, #428a71); /* Gradiente más oscuro en hover */
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Efecto de levitación en hover */
+}
+
+/* Ajustes para el botón al hacer clic */
+.btn-custom:active {
+    transform: translateY(0); /* Devuelve el botón a su posición normal */
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
 }

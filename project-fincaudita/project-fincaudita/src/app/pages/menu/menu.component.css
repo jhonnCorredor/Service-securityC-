@@ -1,5 +1,5 @@
-/* Estilo base del navbar */
-.navbar {
+/* Estilo base del dashboard */
+.dashboard {
   width: 200px;
   background-color: #F2F2F2;
   height: 100vh; /* Full height */
@@ -9,29 +9,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden; /* Evita que el contenido se desborde */
-  
+  overflow: hidden;
+  z-index: 1; /* Evita que el contenido se desborde */
 }
 
-/* Estilos para el título del navbar */
-.navbar-title {
+/* Estilos para el título del dashboard */
+.dashboard-title {
   margin: 20px 0;
   font-size: 24px;
   text-align: center;
 }
 
 /* Estilo para la lista de enlaces */
-.navbar ul {
+.dashboard ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
   flex-grow: 1; /* Permite que la lista crezca para ocupar el espacio disponible */
-  width: 100%; /* Asegura que ocupe todo el ancho del navbar */
+  width: 100%; /* Asegura que ocupe todo el ancho del dashboard */
 }
 
-
-/* Estilos para los enlaces dentro del navbar */
-.navbar a {
+/* Estilos para los enlaces dentro del dashboard */
+.dashboard a {
   color: black;
   text-decoration: none;
   font-size: 18px;
@@ -42,19 +41,16 @@
   width: 100%; /* Asegura que el enlace ocupe todo el ancho */
 }
 
-
-.navbar a:hover,
-.navbar a.active {
+.dashboard a:hover,
+.dashboard a.active {
   background-color: #44E32A; /* Color verde para hover y elemento activo */
   border: 1px solid #44E32A; /* Bordes verdes */
   border-radius: 5px; /* Bordes redondeados */
 }
 
-
-
-/* Estilos específicos para el acordeón dentro del navbar */
-.navbar .accordion-button {
-  background-color: #F2F2F2; /* Mismo color de fondo que el navbar */
+/* Estilos específicos para el acordeón dentro del dashboard */
+.dashboard .accordion-button {
+  background-color: #F2F2F2; /* Mismo color de fondo que el dashboard */
   color: black; /* Letra negra */
   border: none;
   width: 100%; /* Asegura que ocupe todo el ancho */
@@ -63,75 +59,126 @@
   font-size: 18px; /* Ajusta el tamaño de la fuente */
 }
 
-.navbar .accordion-button i {
+.dashboard .accordion-button i {
   margin-right: 8px; /* Añade espacio entre el ícono y el texto */
 }
 
 /* Elimina el efecto de selección del acordeón */
-.navbar .accordion-button:focus {
+.dashboard .accordion-button:focus {
   box-shadow: none; /* Elimina el efecto de foco */
   outline: none; /* Elimina el contorno de enfoque */
 }
 
-
-.navbar .accordion-button:hover {
+.dashboard .accordion-button:hover {
   color: black; /* Letra negra al hacer hover */
   background-color: #44E32A; /* Fondo verde al hacer hover */
 }
 
-.navbar .accordion-item {
+.dashboard .accordion-item {
   border: none;
   width: 100%; /* Asegura que el acordeón ocupe todo el ancho */
 }
 
 /* Elimina el borde en el acordeón */
-.navbar .accordion-collapse {
+.dashboard .accordion-collapse {
   border: none;
 }
 
 /* Estilo para el acordeón cuando está abierto */
-.navbar .accordion-button:not(.collapsed) {
+.dashboard .accordion-button:not(.collapsed) {
   color: black; /* Letra negra cuando está abierto */
   background-color: #44E32A; /* Fondo verde cuando está abierto */
 }
 
 /* Estilo para el cuerpo del acordeón */
-.navbar .accordion-body {
+.dashboard .accordion-body {
   padding: 0;
-  background-color: #F2F2F2; /* Mismo color de fondo que el navbar */
+  background-color: #F2F2F2; /* Mismo color de fondo que el dashboard */
 }
 
-
 /* Estilo para los elementos de la lista dentro del acordeón */
-.navbar .list-group-item {
+.dashboard .list-group-item {
   list-style-type: none;
   padding: 10px;
   margin: 0;
-  background-color: #F2F2F2; /* Asegura que el color de fondo coincida con el navbar */
+  background-color: #F2F2F2; /* Asegura que el color de fondo coincida con el dashboard */
   border: none; /* Elimina los bordes de los items */
   text-align: center;
 }
 
-.navbar .list-group-item {
+.dashboard .list-group-item {
   list-style-type: none;
   padding: 0;
   margin: 0;
   flex-grow: 1; 
-  width: 100%
-  
-  
+  width: 100%;
 }
 
-.navbar .list-group-item a {
+.dashboard .list-group-item a {
   display: flex; /* Flexbox para alinear ícono y texto */
   align-items: center;
 }
 
-.navbar .list-group-item a i {
+.dashboard .list-group-item a i {
   margin-right: 8px; /* Añade espacio entre el ícono y el texto */
 }
 
-.logout{
+.logout {
   margin-bottom: 20%;
   text-align: center !important;
+  color: black; /* Color original */
+}
+
+.logout:hover {
+  color: #008f39; /* Color verde en hover */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el enlace */
+}
+
+.logout i {
+  transition: color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.logout:hover i {
+  color: #008f39; /* Cambia el color del icono en hover */
+}
+
+/* Estilo base del navbar */
+.nav-container {
+  width: 100%;
+  max-width: 1920px; /* Aumenta el ancho máximo del navbar */
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+.nav-items {
+  background-color: #44E32A; /* Color verde */
+  padding: 10px 80px; /* Ajusta el espaciado interno para un navbar más amplio */
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end; /* Alinea los ítems a la derecha */
+  gap: 20px; /* Más espacio entre los ítems */
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.nav-item {
+  display: inline-block;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-item a:hover {
+  background-color: #44E32A;
+  transform: scale(1.1); /* Agranda ligeramente el icono al pasar el mouse */
+}
+
+.content {
+  padding-top: 60px;
+  margin-left: 0;
 }
