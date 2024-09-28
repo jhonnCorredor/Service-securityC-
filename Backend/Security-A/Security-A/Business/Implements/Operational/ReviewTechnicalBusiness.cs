@@ -36,7 +36,10 @@ namespace Business.Implements.Operational
                 ReviewTechnicalDto dto = new ReviewTechnicalDto();
                 dto.Id = item.Id;
                 dto.ChecklistId = item.ChecklistId;
+                dto.LotId = item.LotId;
                 dto.TecnicoId = item.TecnicoId;
+                dto.Tecnico = item.Tecnico;
+                dto.lot = item.lot;
                 dto.Code = item.Code;
                 dto.Date_review = item.Date_review;
                 dto.Observation = item.Observation;
@@ -68,6 +71,9 @@ namespace Business.Implements.Operational
             ReviewTechnicalDto dto = new ReviewTechnicalDto();
             dto.Id = ReviewTechnical.Id;
             dto.ChecklistId = ReviewTechnical.ChecklistId;
+            dto.LotId = ReviewTechnical.LotId;
+            dto.Tecnico = ReviewTechnical.Tecnico;
+            dto.lot = ReviewTechnical.lot;
             dto.Code = ReviewTechnical.Code;
             dto.Date_review = ReviewTechnical.Date_review;
             dto.LotId = ReviewTechnical.LotId;

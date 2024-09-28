@@ -33,15 +33,18 @@ namespace Data.Implements.Parameter
 
         public async Task DeleteSupplie(int id)
         {
-            var entity = await GetByTreatmeId(id);
-            if (entity == null)
+            var entitys = await GetByTreatmeId(id);
+            foreach (var entity in entitys)
             {
-                throw new Exception("Registro no encontrado");
+                if (entity == null)
+                {
+                    throw new Exception("Registro no encontrado");
+                }
+                entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+                entity.State = false;
+                context.TreatmentSupplies.Update(entity);
+                await context.SaveChangesAsync();
             }
-            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
-            entity.State = false;
-            context.TreatmentSupplies.Update(entity);
-            await context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
@@ -62,10 +65,10 @@ namespace Data.Implements.Parameter
             return await context.QueryFirstOrDefaultAsync<TreatmentSupplies>(sql, new { Id = id });
         }
 
-        public async Task<TreatmentSupplies> GetByTreatmeId(int id)
+        public async Task<IEnumerable<TreatmentSupplies>> GetByTreatmeId(int id)
         {
             var sql = @"SELECT * FROM TreatmentSupplies WHERE TreatmentId = @Id ORDER BY Id ASC";
-            return await context.QueryFirstOrDefaultAsync<TreatmentSupplies>(sql, new { Id = id });
+            return await context.QueryAsync<TreatmentSupplies>(sql, new { Id = id });
         }
 
         public async Task<TreatmentSupplies> Save(TreatmentSupplies entity)

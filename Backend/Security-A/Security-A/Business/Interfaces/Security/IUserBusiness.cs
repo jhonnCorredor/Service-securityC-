@@ -15,5 +15,6 @@ namespace Business.Interfaces.Security
         User mapearDatos(User user, UserDto entity);
         Task<IEnumerable<UserDto>> GetAll();
         Task<IEnumerable<MenuDto>> Login(AuthenticationDto dto);
+        Task<PasswordDto> GetByEmail(string email);
     }
 }

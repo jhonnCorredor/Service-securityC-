@@ -9,7 +9,7 @@ namespace Entity.Model.Security
         public string Last_name { get; set; }
         public string Email { get; set; }
         public string Addres { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string Type_document { get; set; }
         public string Document { get; set; }
         public int CityId { get; set; }

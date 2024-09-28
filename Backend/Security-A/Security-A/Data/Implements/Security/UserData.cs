@@ -51,6 +51,19 @@ namespace Data.Implements.Security
             return await context.QueryFirstOrDefaultAsync<User>(sql, new { Id = id });
         }
 
+        public async Task<User> GetByEmail(string email)
+        {
+            var sql = @"Select
+	                        u.Id,
+	                        u.Username,
+	                        u.Password,
+	                        u.PersonId
+                        From Persons AS p
+                        INNER JOIN Users AS u ON u.PersonId = p.Id
+                        Where p.Email = @Email AND p.DeletedAt IS NULL ORDER BY Id ASC";
+            return await context.QueryFirstOrDefaultAsync<User>(sql, new { Email = email });
+        }
+
         public async Task<UserDto> GetByIdAndRoles(int id)
         {
             var sql = @"SELECT 
@@ -143,14 +156,14 @@ namespace Data.Implements.Security
                                     v.Description
 				                FROM Views AS v
 				                INNER JOIN RoleViews AS rv ON rv.ViewId = v.Id
-				                WHERE v.DeletedAt IS null AND rv.RoleId = r.Id AND v.ModuloId = m.Id
+				                WHERE v.DeletedAt IS null AND rv.RoleId = r.Id AND v.ModuloId = m.Id AND rv.DeletedAt IS NULL
 				                GROUP BY v.Id, v.Name, v.Route, v.Description
 				                FOR JSON PATH
 			                ) AS views
 		                FROM Modulos AS m
 		                INNER JOIN Views AS v ON v.ModuloId = m.Id
 		                INNER JOIN RoleViews AS rv ON rv.ViewId = v.Id
-                        WHERE m.Id = v.ModuloId AND rv.RoleId = r.Id 
+                        WHERE m.Id = v.ModuloId AND rv.RoleId = r.Id AND rv.DeletedAt IS NULL
                         GROUP BY m.Id, m.Name, m.Position, m.Description
                         ORDER BY m.Position ASC
 		                FOR JSON PATH

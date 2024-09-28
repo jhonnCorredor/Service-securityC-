@@ -730,8 +730,8 @@ namespace Entity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
+                    b.Property<long>("Phone")
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("State")
                         .HasColumnType("bit");

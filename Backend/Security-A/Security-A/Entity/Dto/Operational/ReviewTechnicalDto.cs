@@ -16,6 +16,8 @@ namespace Entity.Dto.Operational
         public string Observation { get; set; }
         public int LotId { get; set; }
         public int TecnicoId { get; set; }
+        public string? Tecnico {  get; set; }
+        public string? lot {  get; set; }
         public int ChecklistId { get; set; }
         public Boolean State { get; set; }
         public string? evidenceString { get; set; }

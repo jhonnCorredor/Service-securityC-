@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Utilities
-build_property.ProjectDir = C:\Users\srhad\OneDrive\Documentos\FincauditaCode\Security-A\Security-A\Utilities\
+build_property.ProjectDir = C:\Users\srhad\OneDrive\Documentos\FincauditaCode\clone\Service-securityC-\Backend\Security-A\Security-A\Utilities\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

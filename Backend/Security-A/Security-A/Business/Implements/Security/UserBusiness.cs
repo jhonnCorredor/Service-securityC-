@@ -1,8 +1,11 @@
-﻿using Business.Interfaces.Security;
+﻿using Business.Implements.Additional;
+using Business.Interfaces.Additional;
+using Business.Interfaces.Security;
 using Data.Interfaces.Security;
 using Entity.Dto;
 using Entity.Dto.Security;
 using Entity.Model.Security;
+using Microsoft.Identity.Client;
 using System.Text.Json;
 
 namespace Business.Implements.Security
@@ -11,11 +14,13 @@ namespace Business.Implements.Security
     {
         private readonly IUserData data;
         private readonly IUserRoleBusiness userRoleBusiness;
+        private readonly IEmailBusiness emailBusiness;
 
-        public UserBusiness(IUserData data, IUserRoleBusiness userRoleBusiness)
+        public UserBusiness(IUserData data, IUserRoleBusiness userRoleBusiness, IEmailBusiness emailBusiness)
         {
             this.data = data;
             this.userRoleBusiness = userRoleBusiness;
+            this.emailBusiness = emailBusiness;
         }
 
         public async Task Delete(int id)
@@ -46,6 +51,45 @@ namespace Business.Implements.Security
 
             return userDto;
         }
+
+        public async Task<PasswordDto> GetByEmail(string email)
+        {
+            User user = await data.GetByEmail(email);
+            PasswordDto passwordDto = new PasswordDto();
+            Random random = new Random();
+
+            if (user == null)
+            {
+                throw new Exception("Correo no registrado");
+            }
+            int codigoAleatorio = random.Next(1000, 10000);
+
+            passwordDto.Id = user.Id;
+            passwordDto.PersonId = user.PersonId;
+            passwordDto.Code = codigoAleatorio.ToString();
+
+            EmailDto emailDto = new EmailDto
+            {
+                Para = email,
+                Asunto = "Código de verificación para restablecer contraseña",
+                Contenido = $"Estimado/a Usuario,\n\n" +
+            $"Hemos recibido una solicitud para restablecer su contraseña. Su código de verificación es: {codigoAleatorio}.\n\n" +
+            "Por favor, use este código para continuar con el proceso de cambio de contraseña.\n\n" +
+            "Si usted no solicitó este cambio, ignore este correo.\n\n" +
+            "Saludos,\nEl equipo de soporte de FincAudita\n" +
+            "Este correo ha sido generado automáticamente, por favor no responda al mismo."
+            };
+
+            bool emailEnviado = await emailBusiness.SendEmail(emailDto);
+
+            if (!emailEnviado)
+            {
+                throw new Exception("Error al enviar el correo");
+            }
+
+            return passwordDto;
+        }
+
 
         public async Task<User> Save(UserDto entity)
         {

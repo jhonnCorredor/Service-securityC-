@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Utilities\\Utilities.csproj": {}
+    "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Utilities\\Utilities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Utilities\\Utilities.csproj": {
+    "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Utilities\\Utilities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Utilities\\Utilities.csproj",
+        "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Utilities\\Utilities.csproj",
         "projectName": "Utilities",
-        "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Utilities\\Utilities.csproj",
+        "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Utilities\\Utilities.csproj",
         "packagesPath": "C:\\Users\\srhad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\Security-A\\Security-A\\Utilities\\obj\\",
+        "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Utilities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\srhad\\AppData\\Roaming\\NuGet\\NuGet.Config",

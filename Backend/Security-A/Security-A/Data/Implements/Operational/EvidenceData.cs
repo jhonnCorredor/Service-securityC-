@@ -33,15 +33,18 @@ namespace Data.Implements.Operational
 
         public async Task DeleteEvidences(int id)
         {
-            var entity = await GetByReviewId(id);
-            if (entity == null)
+            var entitys = await GetByReviewId(id);
+            foreach (var entity in entitys)
             {
-                throw new Exception("Registro no encontrado");
+                if (entity == null)
+                {
+                    throw new Exception("Registro no encontrado");
+                }
+                entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+                entity.State = false;
+                context.Evidences.Update(entity);
+                await context.SaveChangesAsync();
             }
-            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
-            entity.State = false;
-            context.Evidences.Update(entity);
-            await context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
@@ -62,10 +65,10 @@ namespace Data.Implements.Operational
             return await context.QueryFirstOrDefaultAsync<Evidence>(sql, new { Id = id });
         }
 
-        public async Task<Evidence> GetByReviewId(int id)
+        public async Task<IEnumerable<Evidence>> GetByReviewId(int id)
         {
             var sql = @"SELECT * FROM Evidences WHERE ReviewId = @Id ORDER BY Id ASC";
-            return await context.QueryFirstOrDefaultAsync<Evidence>(sql, new { Id = id });
+            return await context.QueryAsync<Evidence>(sql, new { Id = id });
         }
 
         public async Task<Evidence> Save(Evidence entity)

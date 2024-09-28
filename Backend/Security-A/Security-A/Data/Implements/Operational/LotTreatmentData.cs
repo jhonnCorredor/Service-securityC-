@@ -32,15 +32,18 @@ namespace Data.Implements.Operational
 
         public async Task DeleteLots(int id)
         {
-            var entity = await GetByTreatmenId(id);
-            if (entity == null)
+            var entitys = await GetByTreatmenId(id);
+            foreach (var entity in entitys)
             {
-                throw new Exception("Registro no encontrado");
+                if (entity == null)
+                {
+                    throw new Exception("Registro no encontrado");
+                }
+                entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+                entity.State = false;
+                context.LotTreatments.Update(entity);
+                await context.SaveChangesAsync();
             }
-            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
-            entity.State = false;
-            context.LotTreatments.Update(entity);
-            await context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
@@ -61,10 +64,10 @@ namespace Data.Implements.Operational
             return await context.QueryFirstOrDefaultAsync<LotTreatment>(sql, new { Id = id });
         }
 
-        public async Task<LotTreatment> GetByTreatmenId(int id)
+        public async Task<IEnumerable<LotTreatment>> GetByTreatmenId(int id)
         {
             var sql = @"SELECT * FROM LotTreatments WHERE TreatmentId = @Id ORDER BY Id ASC";
-            return await context.QueryFirstOrDefaultAsync<LotTreatment>(sql, new { Id = id });
+            return await context.QueryAsync<LotTreatment>(sql, new { Id = id });
         }
 
         public async Task<LotTreatment> Save(LotTreatment entity)

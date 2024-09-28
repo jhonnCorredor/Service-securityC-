@@ -37,6 +37,17 @@ namespace WebA.Controllers.Implements.Security
             return Ok(result);
         }
 
+        [HttpPost("/password")]
+        public async Task<ActionResult<ApiResponse<PasswordDto>>> GetByEmail([FromBody] RecoveryDto email)
+        {
+            if(email == null)
+            {
+                return BadRequest("Email is null");
+            }
+            var result = business.GetByEmail(email.email);
+            return CreatedAtAction(nameof(GetByEmail), new { data = result});
+        }
+
         [HttpGet]
         public async Task<ActionResult<ApiResponse<IEnumerable<UserDto>>>> GetAll()
         {

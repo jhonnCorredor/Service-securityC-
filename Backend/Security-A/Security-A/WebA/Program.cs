@@ -1,6 +1,8 @@
+using Business.Implements.Additional;
 using Business.Implements.Operational;
 using Business.Implements.Parameter;
 using Business.Implements.Security;
+using Business.Interfaces.Additional;
 using Business.Interfaces.Operational;
 using Business.Interfaces.Parameter;
 using Business.Interfaces.Security;
@@ -87,6 +89,7 @@ namespace WebA
             builder.Services.AddScoped<ITreatmentSuppliesBusiness, TreatmentSuppliesBusiness>();
             builder.Services.AddScoped<ILotTreatmentBusiness, LotTreatmentBusiness>();
             builder.Services.AddScoped<IAlertBusiness, AlertBusiness>();
+            builder.Services.AddScoped<IEmailBusiness, EmailBusiness>();
 
 
 

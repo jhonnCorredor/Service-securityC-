@@ -103,39 +103,39 @@ namespace Data.Implements.Operational
 
         public async Task<IEnumerable<TreatmentDto>> GetAll()
         {
-            var sql = @"SELECT 
-                           t.Id,
-                           t.QuantityMix,
-                           t.TypeTreatment,
-                           t.DateTreatment,
-                           t.State,
-                           (
-                              SELECT 
-                                 lt.Id,
-                                 lt.LotId,
-		                         CONCAT(f.Name, ': ',  c.Name) AS lot
-                                 FROM LotTreatments AS lt
-		                         Inner join Lots AS l ON l.Id = lt.LotId
-		                         Inner join Farms AS f ON f.Id = l.FarmId
-		                         Inner join Crops AS c ON c.Id = l.CropId
-                                 WHERE lt.TreatmentId = t.Id AND lt.DeletedAt IS NULL
-                                 FOR JSON PATH
-	                        )AS lotString,
-	                        (
-                              SELECT 
-                                 ts.Id,
-		                         ts.Dose,
-                                 ts.SuppliesId,
-		                         s.Name AS supplie
-                                 FROM TreatmentSupplies AS ts
-		                         Inner join Supplies AS s ON s.Id = ts.SuppliesId
-                                 WHERE ts.TreatmentId = t.Id AND ts.DeletedAt IS NULL
-                                 FOR JSON PATH
-	                        )AS supplieString
-                        FROM Treatments AS t
-                        WHERE t.DeletedAt IS NULL 
-                        GROUP BY t.Id, t.QuantityMix, t.TypeTreatment, t.DateTreatment, t.State
-                        ORDER BY t.Id ASC;";
+                var sql = @"SELECT 
+                               t.Id,
+                               t.QuantityMix,
+                               t.TypeTreatment,
+                               t.DateTreatment,
+                               t.State,
+                               (
+                                  SELECT 
+                                     lt.Id,
+                                     lt.LotId,
+		                             CONCAT(f.Name, ': ',  c.Name) AS lot
+                                     FROM LotTreatments AS lt
+		                             Inner join Lots AS l ON l.Id = lt.LotId
+		                             Inner join Farms AS f ON f.Id = l.FarmId
+		                             Inner join Crops AS c ON c.Id = l.CropId
+                                     WHERE lt.TreatmentId = t.Id AND lt.DeletedAt IS NULL
+                                     FOR JSON PATH
+	                            )AS lotString,
+	                            (
+                                  SELECT 
+                                     ts.Id,
+		                             ts.Dose,
+                                     ts.SuppliesId,
+		                             s.Name AS supplie
+                                     FROM TreatmentSupplies AS ts
+		                             Inner join Supplies AS s ON s.Id = ts.SuppliesId
+                                     WHERE ts.TreatmentId = t.Id AND ts.DeletedAt IS NULL
+                                     FOR JSON PATH
+	                            )AS supplieString
+                            FROM Treatments AS t
+                            WHERE t.DeletedAt IS NULL 
+                            GROUP BY t.Id, t.QuantityMix, t.TypeTreatment, t.DateTreatment, t.State
+                            ORDER BY t.Id ASC;";
             return await context.QueryAsync<TreatmentDto>(sql);
         }
 

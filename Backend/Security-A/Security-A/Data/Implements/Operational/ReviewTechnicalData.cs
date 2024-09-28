@@ -58,6 +58,8 @@ namespace Data.Implements.Operational
 	                        rt.Code,
 	                        rt.Observation,
 	                        rt.LotId,
+							u.Username AS 'Tecnico',
+							CONCAT('',f.Name, ': ', c.Name) AS 'lot',
 	                        rt.TecnicoId,
 	                        rt.ChecklistId,
 	                        rt.State,
@@ -89,8 +91,12 @@ namespace Data.Implements.Operational
 	                         FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 	                        )AS checklistString
                         FROM ReviewTechnicals AS rt
+						INNER JOIN Users AS u ON u.Id = rt.TecnicoId
+						INNER JOIN Lots AS l ON l.Id = rt.LotId
+						INNER JOIN Farms AS f ON f.Id = l.FarmId
+						INNER JOIN Crops AS c ON c.Id = l.CropId
                         WHERE rt.DeletedAt IS NULL AND rt.Id = @Id
-                        GROUP BY rt.Id, rt.Date_review, rt.Code, rt.Observation, rt.LotId, rt.TecnicoId, rt.ChecklistId, rt.State
+                        GROUP BY rt.Id, rt.Date_review, rt.Code, rt.Observation, rt.LotId, rt.TecnicoId, rt.ChecklistId, rt.State, u.Username, f.Name, c.Name
                         ORDER BY rt.Id ASC;";
             return await context.QueryFirstOrDefaultAsync<ReviewTechnicalDto>(sql, new { Id = id });
         }
@@ -116,6 +122,8 @@ namespace Data.Implements.Operational
 	                        rt.Code,
 	                        rt.Observation,
 	                        rt.LotId,
+							u.Username AS 'Tecnico',
+							CONCAT('',f.Name, ': ', c.Name) AS 'lot',
 	                        rt.TecnicoId,
 	                        rt.ChecklistId,
 	                        rt.State,
@@ -147,8 +155,12 @@ namespace Data.Implements.Operational
 	                         FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 	                        )AS checklistString
                         FROM ReviewTechnicals AS rt
+						INNER JOIN Users AS u ON u.Id = rt.TecnicoId
+						INNER JOIN Lots AS l ON l.Id = rt.LotId
+						INNER JOIN Farms AS f ON f.Id = l.FarmId
+						INNER JOIN Crops AS c ON c.Id = l.CropId
                         WHERE rt.DeletedAt IS NULL 
-                        GROUP BY rt.Id, rt.Date_review, rt.Code, rt.Observation, rt.LotId, rt.TecnicoId, rt.ChecklistId, rt.State
+                        GROUP BY rt.Id, rt.Date_review, rt.Code, rt.Observation, rt.LotId, rt.TecnicoId, rt.ChecklistId, rt.State, u.Username, f.Name, c.Name
                         ORDER BY rt.Id ASC;";
             return await context.QueryAsync<ReviewTechnicalDto>(sql);
         }
