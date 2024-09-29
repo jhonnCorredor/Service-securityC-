@@ -42,6 +42,17 @@ namespace WebA.Controllers.Implements.Operational
             return Ok(result);
         }
 
+        [HttpGet("user/{id}")]
+        public async Task<ActionResult<ApiResponse<IEnumerable<FarmDto>>>> GetAllUser(int id)
+        {
+            var result = await business.GetAllUSer(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
         [HttpGet("AllSelect")]
         public async Task<ActionResult<ApiResponse<IEnumerable<DataSelectDto>>>> GetAllSelect()
         {

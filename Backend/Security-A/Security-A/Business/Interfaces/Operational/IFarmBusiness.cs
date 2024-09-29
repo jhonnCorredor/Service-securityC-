@@ -14,6 +14,7 @@ namespace Business.Interfaces.Operational
     public interface IFarmBusiness
     {
         Task Delete(int id);
+        Task<IEnumerable<FarmDto>> GetAllUSer(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
         Task<FarmDto> GetById(int id);
         Task<Farm> Save(FarmDto entity);

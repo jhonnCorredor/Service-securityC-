@@ -3,6 +3,106 @@
   "WorkspaceRootPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\implements\\operational\\treatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\implements\\operational\\treatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\implements\\operational\\reviewtechnicalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\implements\\operational\\reviewtechnicalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\implements\\operational\\farmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\implements\\operational\\farmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\security\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\security\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\interfaces\\operational\\itreatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\interfaces\\operational\\itreatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\interfaces\\operational\\itreatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\interfaces\\operational\\itreatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\treatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\treatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\interfaces\\operational\\itreatmentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\operational\\itreatmentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\implements\\operational\\treatmentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\implements\\operational\\treatmentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\interfaces\\operational\\ifarmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\interfaces\\operational\\ifarmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\interfaces\\operational\\ireviewtechnicalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\interfaces\\operational\\ireviewtechnicalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\interfaces\\operational\\ifarmbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\interfaces\\operational\\ifarmbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\farmbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\farmbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\interfaces\\operational\\ifarmdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\operational\\ifarmdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\implements\\operational\\farmdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\implements\\operational\\farmdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\implements\\operational\\reviewtechnicaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\implements\\operational\\reviewtechnicaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\reviewtechnicalbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\reviewtechnicalbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\interfaces\\operational\\ireviewtechnicalbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\interfaces\\operational\\ireviewtechnicalbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\interfaces\\operational\\ireviewtechnicaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\operational\\ireviewtechnicaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\checklistbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\checklistbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\qualificationbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\qualificationbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240929120152_sextaMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entity\\Migrations\\20240929120152_sextaMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\migrations\\20240927215302_quintmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|solutionrelative:entity\\migrations\\20240927215302_quintmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\model\\security\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|solutionrelative:entity\\model\\security\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\implements\\security\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\implements\\security\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,10 +131,6 @@
       "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\interfaces\\security\\iuserbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\security\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\security\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\dto\\security\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\security\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,16 +147,8 @@
       "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\implements\\security\\roledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\migrations\\20240927215302_quintmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|solutionrelative:entity\\migrations\\20240927215302_quintmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\security\\personbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -69,10 +157,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\dto\\security\\persondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\security\\persondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\model\\security\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|solutionrelative:entity\\model\\security\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{86DF7C2E-F4A9-4A7A-A518-C722A03712C7}|Diagram\\Diagram.csproj|C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\diagram\\modelfincaaudita.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
@@ -87,10 +171,6 @@
       "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\implements\\operational\\evidencedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\implements\\operational\\reviewtechnicaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\implements\\operational\\reviewtechnicaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\implements\\parameter\\treatmentsuppliesdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\implements\\parameter\\treatmentsuppliesdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -103,10 +183,6 @@
       "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\implements\\operational\\lotdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\implements\\operational\\treatmentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\implements\\operational\\treatmentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\interfaces\\operational\\ilottreatmentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\operational\\ilottreatmentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -115,16 +191,8 @@
       "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\lottreatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\treatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\treatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\interfaces\\operational\\ilottreatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\interfaces\\operational\\ilottreatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\reviewtechnicalbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\reviewtechnicalbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\dto\\operational\\reviewtechnicaldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -133,18 +201,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\interfaces\\security\\iroleviewdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\security\\iroleviewdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\farmbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\farmbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\implements\\operational\\treatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\implements\\operational\\treatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\implements\\operational\\farmdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\implements\\operational\\farmdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\evidencebusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -159,20 +215,8 @@
       "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\operational\\ievidencedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\interfaces\\operational\\ireviewtechnicaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\operational\\ireviewtechnicaldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\checklistbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\checklistbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\dto\\operational\\checklistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|solutionrelative:entity\\dto\\operational\\checklistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\operational\\qualificationbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\operational\\qualificationbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\dto\\operational\\qualificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -223,10 +267,6 @@
       "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\interfaces\\parameter\\itreatmentsuppliesbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\interfaces\\operational\\itreatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\interfaces\\operational\\itreatmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\implements\\parameter\\treatmentsuppliesbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\implements\\parameter\\treatmentsuppliesbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -239,16 +279,8 @@
       "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\parameter\\itreatmentsuppliesdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\interfaces\\operational\\itreatmentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\operational\\itreatmentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\interfaces\\operational\\ilotdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\operational\\ilotdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\interfaces\\operational\\ifarmdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|solutionrelative:data\\interfaces\\operational\\ifarmdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\dto\\operational\\lottreatmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -261,10 +293,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\implements\\security\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\implements\\security\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\interfaces\\operational\\ifarmbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\interfaces\\operational\\ifarmbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\dto\\parameter\\treatmentsuppliesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -487,16 +515,8 @@
       "RelativeMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|solutionrelative:entity\\model\\security\\view.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\implements\\operational\\farmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\implements\\operational\\farmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\implements\\operational\\checklistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\implements\\operational\\checklistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\interfaces\\operational\\ifarmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\interfaces\\operational\\ifarmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{20EE5C24-662F-4175-B7C7-C5D5AE74AD6C}|Entity\\Entity.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\entity\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -529,10 +549,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\interfaces\\parameter\\itreatmentsuppliescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\interfaces\\parameter\\itreatmentsuppliescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\interfaces\\operational\\itreatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\interfaces\\operational\\itreatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\interfaces\\security\\iuserrolebusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -699,10 +715,6 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240807161452_FifthMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\implements\\operational\\reviewtechnicalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\implements\\operational\\reviewtechnicalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\implements\\parameter\\assesmentcriteriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\implements\\parameter\\assesmentcriteriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -711,20 +723,12 @@
       "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\interfaces\\parameter\\isuppliescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\interfaces\\operational\\ireviewtechnicalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\interfaces\\operational\\ireviewtechnicalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\interfaces\\operational\\iqualificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\interfaces\\operational\\iqualificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\weba\\controllers\\interfaces\\operational\\ievidencecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BF2A324-A23B-42E8-90BD-52BFF9902613}|WebA\\WebA.csproj|solutionrelative:weba\\controllers\\interfaces\\operational\\ievidencecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\business\\interfaces\\operational\\ireviewtechnicalbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A79544C9-A733-4C6C-B24E-FF680923A9E4}|Business\\Business.csproj|solutionrelative:business\\interfaces\\operational\\ireviewtechnicalbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF8606B6-F914-4434-A86B-57DB29BF90EE}|Data\\Data.csproj|c:\\users\\srhad\\onedrive\\documentos\\fincauditacode\\clone\\service-securityc-\\backend\\security-a\\security-a\\data\\interfaces\\parameter\\isuppliesdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -812,49 +816,358 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PasswordDto.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\PasswordDto.cs",
-              "RelativeDocumentMoniker": "Entity\\Dto\\Security\\PasswordDto.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\PasswordDto.cs",
-              "RelativeToolTip": "Entity\\Dto\\Security\\PasswordDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "DocumentIndex": 7,
+              "Title": "TreatmentBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\TreatmentBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Implements\\Operational\\TreatmentBusiness.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\TreatmentBusiness.cs",
+              "RelativeToolTip": "Business\\Implements\\Operational\\TreatmentBusiness.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAADwv0IAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T18:17:13.858Z",
+              "WhenOpened": "2024-08-30T23:59:48.502Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Program.cs",
-              "RelativeDocumentMoniker": "WebA\\Program.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Program.cs",
-              "RelativeToolTip": "WebA\\Program.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAgwHcAAAAMAAAA",
+              "DocumentIndex": 5,
+              "Title": "ITreatmentBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\ITreatmentBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\ITreatmentBusiness.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\ITreatmentBusiness.cs",
+              "RelativeToolTip": "Business\\Interfaces\\Operational\\ITreatmentBusiness.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:48.485Z"
+              "WhenOpened": "2024-08-30T23:59:49.343Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
+              "Title": "TreatmentController.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\TreatmentController.cs",
+              "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\TreatmentController.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\TreatmentController.cs",
+              "RelativeToolTip": "WebA\\Controllers\\Implements\\Operational\\TreatmentController.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAowC0AAABiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ITreatmentController.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\ITreatmentController.cs",
+              "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\ITreatmentController.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\ITreatmentController.cs",
+              "RelativeToolTip": "WebA\\Controllers\\Interfaces\\Operational\\ITreatmentController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\appsettings.json",
               "RelativeDocumentMoniker": "WebA\\appsettings.json",
               "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\appsettings.json",
               "RelativeToolTip": "WebA\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-08-30T23:59:49.038Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Security\\UserBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Implements\\Security\\UserBusiness.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Security\\UserBusiness.cs",
+              "RelativeToolTip": "Business\\Implements\\Security\\UserBusiness.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAAEIAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FarmController.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\FarmController.cs",
+              "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\FarmController.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\FarmController.cs",
+              "RelativeToolTip": "WebA\\Controllers\\Implements\\Operational\\FarmController.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAwwCwAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ReviewTechnicalController.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\ReviewTechnicalController.cs",
+              "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\ReviewTechnicalController.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\ReviewTechnicalController.cs",
+              "RelativeToolTip": "WebA\\Controllers\\Implements\\Operational\\ReviewTechnicalController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwCwAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ITreatmentData.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\ITreatmentData.cs",
+              "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\ITreatmentData.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\ITreatmentData.cs",
+              "RelativeToolTip": "Data\\Interfaces\\Operational\\ITreatmentData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TreatmentData.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\TreatmentData.cs",
+              "RelativeDocumentMoniker": "Data\\Implements\\Operational\\TreatmentData.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\TreatmentData.cs",
+              "RelativeToolTip": "Data\\Implements\\Operational\\TreatmentData.cs",
+              "ViewState": "AQIAAHAAAAAAAAAAAAAswI0AAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IFarmController.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IFarmController.cs",
+              "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\IFarmController.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IFarmController.cs",
+              "RelativeToolTip": "WebA\\Controllers\\Interfaces\\Operational\\IFarmController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IReviewTechnicalController.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IReviewTechnicalController.cs",
+              "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\IReviewTechnicalController.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IReviewTechnicalController.cs",
+              "RelativeToolTip": "WebA\\Controllers\\Interfaces\\Operational\\IReviewTechnicalController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IFarmBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IFarmBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\IFarmBusiness.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IFarmBusiness.cs",
+              "RelativeToolTip": "Business\\Interfaces\\Operational\\IFarmBusiness.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FarmBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\FarmBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Implements\\Operational\\FarmBusiness.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\FarmBusiness.cs",
+              "RelativeToolTip": "Business\\Implements\\Operational\\FarmBusiness.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAADwvzkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:48.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IFarmData.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IFarmData.cs",
+              "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\IFarmData.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IFarmData.cs",
+              "RelativeToolTip": "Data\\Interfaces\\Operational\\IFarmData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "FarmData.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\FarmData.cs",
+              "RelativeDocumentMoniker": "Data\\Implements\\Operational\\FarmData.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\FarmData.cs",
+              "RelativeToolTip": "Data\\Implements\\Operational\\FarmData.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAAwHoAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ReviewTechnicalData.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\ReviewTechnicalData.cs",
+              "RelativeDocumentMoniker": "Data\\Implements\\Operational\\ReviewTechnicalData.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\ReviewTechnicalData.cs",
+              "RelativeToolTip": "Data\\Implements\\Operational\\ReviewTechnicalData.cs",
+              "ViewState": "AQIAAJcAAAAAAAAAAAAwwKcAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "QualificationBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\QualificationBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Implements\\Operational\\QualificationBusiness.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\QualificationBusiness.cs",
+              "RelativeToolTip": "Business\\Implements\\Operational\\QualificationBusiness.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAcwD4AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IReviewTechnicalBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IReviewTechnicalBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\IReviewTechnicalBusiness.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IReviewTechnicalBusiness.cs",
+              "RelativeToolTip": "Business\\Interfaces\\Operational\\IReviewTechnicalBusiness.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IReviewTechnicalData.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IReviewTechnicalData.cs",
+              "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\IReviewTechnicalData.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IReviewTechnicalData.cs",
+              "RelativeToolTip": "Data\\Interfaces\\Operational\\IReviewTechnicalData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 20,
+              "Title": "ChecklistBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\ChecklistBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Implements\\Operational\\ChecklistBusiness.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\ChecklistBusiness.cs",
+              "RelativeToolTip": "Business\\Implements\\Operational\\ChecklistBusiness.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAA4wEkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ReviewTechnicalBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\ReviewTechnicalBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Implements\\Operational\\ReviewTechnicalBusiness.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\ReviewTechnicalBusiness.cs",
+              "RelativeToolTip": "Business\\Implements\\Operational\\ReviewTechnicalBusiness.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAIwDoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Security\\UserController.cs",
+              "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Security\\UserController.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Security\\UserController.cs",
+              "RelativeToolTip": "WebA\\Controllers\\Implements\\Security\\UserController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T22:14:57.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IUserBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Security\\IUserBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Interfaces\\Security\\IUserBusiness.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Security\\IUserBusiness.cs",
+              "RelativeToolTip": "Business\\Interfaces\\Security\\IUserBusiness.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T20:11:24.419Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IUserData.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Security\\IUserData.cs",
+              "RelativeDocumentMoniker": "Data\\Interfaces\\Security\\IUserData.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Security\\IUserData.cs",
+              "RelativeToolTip": "Data\\Interfaces\\Security\\IUserData.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T17:49:22.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "RoleData.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\RoleData.cs",
+              "RelativeDocumentMoniker": "Data\\Implements\\Security\\RoleData.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\RoleData.cs",
+              "RelativeToolTip": "Data\\Implements\\Security\\RoleData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGIAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T16:23:10.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "UserData.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\UserData.cs",
+              "RelativeDocumentMoniker": "Data\\Implements\\Security\\UserData.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\UserData.cs",
+              "RelativeToolTip": "Data\\Implements\\Security\\UserData.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAA9wDUAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T23:59:49.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
               "Title": "EvidenceData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\EvidenceData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Operational\\EvidenceData.cs",
@@ -866,72 +1179,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserData.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\UserData.cs",
-              "RelativeDocumentMoniker": "Data\\Implements\\Security\\UserData.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\UserData.cs",
-              "RelativeToolTip": "Data\\Implements\\Security\\UserData.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAA9wDUAAAA4AAAA",
+              "DocumentIndex": 22,
+              "Title": "20240929120152_sextaMigration.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240929120152_sextaMigration.cs",
+              "RelativeDocumentMoniker": "Entity\\Migrations\\20240929120152_sextaMigration.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240929120152_sextaMigration.cs",
+              "RelativeToolTip": "Entity\\Migrations\\20240929120152_sextaMigration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.029Z",
+              "WhenOpened": "2024-09-29T12:01:53.25Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RoleData.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\RoleData.cs",
-              "RelativeDocumentMoniker": "Data\\Implements\\Security\\RoleData.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\RoleData.cs",
-              "RelativeToolTip": "Data\\Implements\\Security\\RoleData.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGIAAAAqAAAA",
+              "DocumentIndex": 36,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Program.cs",
+              "RelativeDocumentMoniker": "WebA\\Program.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Program.cs",
+              "RelativeToolTip": "WebA\\Program.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAgwHcAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T16:23:10.52Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-30T23:59:48.485Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IUserData.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Security\\IUserData.cs",
-              "RelativeDocumentMoniker": "Data\\Interfaces\\Security\\IUserData.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Security\\IUserData.cs",
-              "RelativeToolTip": "Data\\Interfaces\\Security\\IUserData.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T17:49:22.957Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IUserBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Security\\IUserBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Interfaces\\Security\\IUserBusiness.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Security\\IUserBusiness.cs",
-              "RelativeToolTip": "Business\\Interfaces\\Security\\IUserBusiness.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T20:11:24.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Security\\UserController.cs",
-              "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Security\\UserController.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Security\\UserController.cs*",
-              "RelativeToolTip": "WebA\\Controllers\\Implements\\Security\\UserController.cs*",
-              "ViewState": "AQIAACgAAAAAAAAAAAA9wCsAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T22:14:57.514Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 26,
               "Title": "IUserController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Security\\IUserController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Security\\IUserController.cs",
@@ -939,12 +1212,11 @@
               "RelativeToolTip": "WebA\\Controllers\\Interfaces\\Security\\IUserController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T18:24:10.091Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-28T18:24:10.091Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 24,
               "Title": "Person.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Security\\Person.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Security\\Person.cs",
@@ -952,11 +1224,37 @@
               "RelativeToolTip": "Entity\\Model\\Security\\Person.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:48.788Z"
+              "WhenOpened": "2024-08-30T23:59:48.788Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 23,
+              "Title": "20240927215302_quintMigration.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240927215302_quintMigration.cs",
+              "RelativeDocumentMoniker": "Entity\\Migrations\\20240927215302_quintMigration.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240927215302_quintMigration.cs",
+              "RelativeToolTip": "Entity\\Migrations\\20240927215302_quintMigration.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T21:53:03.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "PasswordDto.cs",
+              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\PasswordDto.cs",
+              "RelativeDocumentMoniker": "Entity\\Dto\\Security\\PasswordDto.cs",
+              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\PasswordDto.cs",
+              "RelativeToolTip": "Entity\\Dto\\Security\\PasswordDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T18:17:13.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "ApiResponse.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\ApiResponse.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\ApiResponse.cs",
@@ -964,12 +1262,11 @@
               "RelativeToolTip": "Entity\\Dto\\ApiResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T19:41:17.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-16T19:41:17.894Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 28,
               "Title": "RecoveryDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\RecoveryDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\RecoveryDto.cs",
@@ -977,12 +1274,11 @@
               "RelativeToolTip": "Entity\\Dto\\Security\\RecoveryDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T18:29:55.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-28T18:29:55.463Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 30,
               "Title": "DataSelectDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\DataSelectDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\DataSelectDto.cs",
@@ -990,12 +1286,11 @@
               "RelativeToolTip": "Entity\\Dto\\DataSelectDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T16:15:01.118Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-14T16:15:01.118Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 43,
               "Title": "LotTreatmentData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\LotTreatmentData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Operational\\LotTreatmentData.cs",
@@ -1007,20 +1302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Security\\UserBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Implements\\Security\\UserBusiness.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Security\\UserBusiness.cs",
-              "RelativeToolTip": "Business\\Implements\\Security\\UserBusiness.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAIwEIAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.279Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 32,
               "Title": "UserDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\UserDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\UserDto.cs",
@@ -1028,12 +1310,11 @@
               "RelativeToolTip": "Entity\\Dto\\Security\\UserDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T17:45:18.265Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-14T17:45:18.265Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 39,
               "Title": "ModelFincaAudita.edmx [Diagram1]",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Diagram\\ModelFincaAudita.edmx",
               "RelativeDocumentMoniker": "Diagram\\ModelFincaAudita.edmx",
@@ -1044,7 +1325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 46,
               "Title": "LotTreatmentBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\LotTreatmentBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Operational\\LotTreatmentBusiness.cs",
@@ -1056,7 +1337,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 40,
               "Title": "QualificationData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\QualificationData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Operational\\QualificationData.cs",
@@ -1068,19 +1349,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "20240927215302_quintMigration.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240927215302_quintMigration.cs",
-              "RelativeDocumentMoniker": "Entity\\Migrations\\20240927215302_quintMigration.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240927215302_quintMigration.cs",
-              "RelativeToolTip": "Entity\\Migrations\\20240927215302_quintMigration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T21:53:03.462Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 42,
               "Title": "TreatmentSuppliesData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Parameter\\TreatmentSuppliesData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Parameter\\TreatmentSuppliesData.cs",
@@ -1092,7 +1361,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 38,
               "Title": "PersonDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\PersonDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\PersonDto.cs",
@@ -1104,7 +1373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 37,
               "Title": "PersonBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Security\\PersonBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Security\\PersonBusiness.cs",
@@ -1116,19 +1385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ReviewTechnicalData.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\ReviewTechnicalData.cs",
-              "RelativeDocumentMoniker": "Data\\Implements\\Operational\\ReviewTechnicalData.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\ReviewTechnicalData.cs",
-              "RelativeToolTip": "Data\\Implements\\Operational\\ReviewTechnicalData.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwFEAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.618Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 44,
               "Title": "LotData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\LotData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Operational\\LotData.cs",
@@ -1140,7 +1397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 45,
               "Title": "ILotTreatmentData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\ILotTreatmentData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\ILotTreatmentData.cs",
@@ -1152,31 +1409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "TreatmentData.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\TreatmentData.cs",
-              "RelativeDocumentMoniker": "Data\\Implements\\Operational\\TreatmentData.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\TreatmentData.cs",
-              "RelativeToolTip": "Data\\Implements\\Operational\\TreatmentData.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAA1wHkAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.289Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "TreatmentBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\TreatmentBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Implements\\Operational\\TreatmentBusiness.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\TreatmentBusiness.cs",
-              "RelativeToolTip": "Business\\Implements\\Operational\\TreatmentBusiness.cs",
-              "ViewState": "AQIAAIUAAAAAAAAAAAAwwJQAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:48.502Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 47,
               "Title": "ILotTreatmentBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\ILotTreatmentBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\ILotTreatmentBusiness.cs",
@@ -1188,19 +1421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "ReviewTechnicalBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\ReviewTechnicalBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Implements\\Operational\\ReviewTechnicalBusiness.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\ReviewTechnicalBusiness.cs",
-              "RelativeToolTip": "Business\\Implements\\Operational\\ReviewTechnicalBusiness.cs",
-              "ViewState": "AQIAAJUAAAAAAAAAAAAAwJEAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.503Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 49,
               "Title": "IRoleViewData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Security\\IRoleViewData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Security\\IRoleViewData.cs",
@@ -1212,31 +1433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "FarmBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\FarmBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Implements\\Operational\\FarmBusiness.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\FarmBusiness.cs",
-              "RelativeToolTip": "Business\\Implements\\Operational\\FarmBusiness.cs",
-              "ViewState": "AQIAAHEAAAAAAAAAAAAuwGcAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:48.824Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "TreatmentController.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\TreatmentController.cs",
-              "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\TreatmentController.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\TreatmentController.cs",
-              "RelativeToolTip": "WebA\\Controllers\\Implements\\Operational\\TreatmentController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.408Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 48,
               "Title": "ReviewTechnicalDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Operational\\ReviewTechnicalDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Operational\\ReviewTechnicalDto.cs",
@@ -1248,31 +1445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "IReviewTechnicalData.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IReviewTechnicalData.cs",
-              "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\IReviewTechnicalData.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IReviewTechnicalData.cs",
-              "RelativeToolTip": "Data\\Interfaces\\Operational\\IReviewTechnicalData.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.158Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "FarmData.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\FarmData.cs",
-              "RelativeDocumentMoniker": "Data\\Implements\\Operational\\FarmData.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\FarmData.cs",
-              "RelativeToolTip": "Data\\Implements\\Operational\\FarmData.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAwwGgAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.669Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 51,
               "Title": "IEvidenceBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IEvidenceBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\IEvidenceBusiness.cs",
@@ -1284,7 +1457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 50,
               "Title": "EvidenceBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\EvidenceBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Operational\\EvidenceBusiness.cs",
@@ -1296,7 +1469,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 52,
               "Title": "IEvidenceData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IEvidenceData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\IEvidenceData.cs",
@@ -1308,19 +1481,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "ChecklistBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\ChecklistBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Implements\\Operational\\ChecklistBusiness.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\ChecklistBusiness.cs",
-              "RelativeToolTip": "Business\\Implements\\Operational\\ChecklistBusiness.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAA0wEQAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.361Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 53,
               "Title": "ChecklistDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Operational\\ChecklistDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Operational\\ChecklistDto.cs",
@@ -1332,19 +1493,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "QualificationBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\QualificationBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Implements\\Operational\\QualificationBusiness.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\QualificationBusiness.cs",
-              "RelativeToolTip": "Business\\Implements\\Operational\\QualificationBusiness.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwF0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.073Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 54,
               "Title": "QualificationDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Operational\\QualificationDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Operational\\QualificationDto.cs",
@@ -1356,7 +1505,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 55,
               "Title": "IChecklistBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IChecklistBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\IChecklistBusiness.cs",
@@ -1368,7 +1517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 56,
               "Title": "moduloDao.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\moduloDao.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\moduloDao.cs",
@@ -1380,7 +1529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 57,
               "Title": "MenuDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\MenuDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\MenuDto.cs",
@@ -1392,7 +1541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 58,
               "Title": "RoleViewDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\RoleViewDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\RoleViewDto.cs",
@@ -1404,7 +1553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 59,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\LoginDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\LoginDto.cs",
@@ -1416,7 +1565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 60,
               "Title": "EvidenceDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Operational\\EvidenceDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Operational\\EvidenceDto.cs",
@@ -1428,7 +1577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 61,
               "Title": "Checklist.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Operational\\Checklist.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Operational\\Checklist.cs",
@@ -1440,7 +1589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 63,
               "Title": "ReviewTechnical.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Operational\\ReviewTechnical.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Operational\\ReviewTechnical.cs",
@@ -1452,7 +1601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 64,
               "Title": "Model1.edmx [Diagram1]",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Diagram\\Model1.edmx",
               "RelativeDocumentMoniker": "Diagram\\Model1.edmx",
@@ -1463,7 +1612,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 202,
+              "DocumentIndex": 203,
               "Title": "20240919154035_CuartaMigration.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240919154035_CuartaMigration.cs",
               "RelativeDocumentMoniker": "Entity\\Migrations\\20240919154035_CuartaMigration.cs",
@@ -1475,7 +1624,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 65,
               "Title": "ITreatmentSuppliesBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Parameter\\ITreatmentSuppliesBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Parameter\\ITreatmentSuppliesBusiness.cs",
@@ -1487,7 +1636,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 62,
               "Title": "FarmDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Operational\\FarmDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Operational\\FarmDto.cs",
@@ -1499,19 +1648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "ITreatmentBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\ITreatmentBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\ITreatmentBusiness.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\ITreatmentBusiness.cs",
-              "RelativeToolTip": "Business\\Interfaces\\Operational\\ITreatmentBusiness.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.343Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 66,
               "Title": "TreatmentSuppliesBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Parameter\\TreatmentSuppliesBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Parameter\\TreatmentSuppliesBusiness.cs",
@@ -1523,7 +1660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 67,
               "Title": "LotBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\LotBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Operational\\LotBusiness.cs",
@@ -1535,7 +1672,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 68,
               "Title": "ITreatmentSuppliesData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Parameter\\ITreatmentSuppliesData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Parameter\\ITreatmentSuppliesData.cs",
@@ -1547,19 +1684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "ITreatmentData.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\ITreatmentData.cs",
-              "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\ITreatmentData.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\ITreatmentData.cs",
-              "RelativeToolTip": "Data\\Interfaces\\Operational\\ITreatmentData.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.723Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 69,
               "Title": "ILotData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\ILotData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\ILotData.cs",
@@ -1571,19 +1696,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "IFarmData.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IFarmData.cs",
-              "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\IFarmData.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IFarmData.cs",
-              "RelativeToolTip": "Data\\Interfaces\\Operational\\IFarmData.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.242Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 70,
               "Title": "LotTreatmentDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Operational\\LotTreatmentDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Operational\\LotTreatmentDto.cs",
@@ -1595,7 +1708,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 71,
               "Title": "TreatmentDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Operational\\TreatmentDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Operational\\TreatmentDto.cs",
@@ -1607,7 +1720,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 72,
               "Title": "PersonController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Security\\PersonController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Security\\PersonController.cs",
@@ -1615,23 +1728,12 @@
               "RelativeToolTip": "WebA\\Controllers\\Implements\\Security\\PersonController.cs",
               "ViewState": "AQIAACkAAAAAAAAAAAAIwDYAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.777Z"
+              "WhenOpened": "2024-08-30T23:59:49.777Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
-              "Title": "IFarmBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IFarmBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\IFarmBusiness.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IFarmBusiness.cs",
-              "RelativeToolTip": "Business\\Interfaces\\Operational\\IFarmBusiness.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 73,
               "Title": "TreatmentSuppliesDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Parameter\\TreatmentSuppliesDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Parameter\\TreatmentSuppliesDto.cs",
@@ -1643,7 +1745,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 74,
               "Title": "LotDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Operational\\LotDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Operational\\LotDto.cs",
@@ -1655,7 +1757,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 75,
               "Title": "RoleBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Security\\RoleBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Security\\RoleBusiness.cs",
@@ -1667,7 +1769,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 76,
               "Title": "ILotBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\ILotBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\ILotBusiness.cs",
@@ -1679,7 +1781,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 77,
               "Title": "RoleViewBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Security\\RoleViewBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Security\\RoleViewBusiness.cs",
@@ -1691,7 +1793,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 78,
               "Title": "RoleViewData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\RoleViewData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Security\\RoleViewData.cs",
@@ -1703,7 +1805,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 79,
               "Title": "IRoleData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Security\\IRoleData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Security\\IRoleData.cs",
@@ -1715,7 +1817,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 80,
               "Title": "AlertController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\AlertController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\AlertController.cs",
@@ -1727,7 +1829,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 81,
               "Title": "IAlertController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IAlertController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\IAlertController.cs",
@@ -1739,7 +1841,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 82,
               "Title": "AlertBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Operational\\AlertBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Operational\\AlertBusiness.cs",
@@ -1751,7 +1853,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 83,
               "Title": "IAlertBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IAlertBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\IAlertBusiness.cs",
@@ -1763,7 +1865,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 84,
               "Title": "IAlertData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IAlertData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\IAlertData.cs",
@@ -1775,7 +1877,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 85,
               "Title": "AlertData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\AlertData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Operational\\AlertData.cs",
@@ -1787,7 +1889,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 86,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Security\\User.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Security\\User.cs",
@@ -1799,7 +1901,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 87,
               "Title": "LotController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\LotController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\LotController.cs",
@@ -1811,7 +1913,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 88,
               "Title": "CropController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Parameter\\CropController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Parameter\\CropController.cs",
@@ -1823,7 +1925,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 201,
+              "DocumentIndex": 202,
               "Title": "20240916204750_TerceraMigration.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240916204750_TerceraMigration.cs",
               "RelativeDocumentMoniker": "Entity\\Migrations\\20240916204750_TerceraMigration.cs",
@@ -1835,7 +1937,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 89,
               "Title": "AssesmentCriteriaBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Parameter\\AssesmentCriteriaBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Parameter\\AssesmentCriteriaBusiness.cs",
@@ -1847,7 +1949,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 90,
               "Title": "CityBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Parameter\\CityBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Parameter\\CityBusiness.cs",
@@ -1859,7 +1961,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 91,
               "Title": "CountryBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Parameter\\CountryBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Parameter\\CountryBusiness.cs",
@@ -1871,7 +1973,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 92,
               "Title": "CropBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Parameter\\CropBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Parameter\\CropBusiness.cs",
@@ -1883,7 +1985,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 93,
               "Title": "DepartamentBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Parameter\\DepartamentBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Parameter\\DepartamentBusiness.cs",
@@ -1895,7 +1997,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 94,
               "Title": "SuppliesBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Parameter\\SuppliesBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Parameter\\SuppliesBusiness.cs",
@@ -1907,7 +2009,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 95,
               "Title": "ModuloBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Security\\ModuloBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Security\\ModuloBusiness.cs",
@@ -1919,7 +2021,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 96,
               "Title": "UserRoleBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Security\\UserRoleBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Security\\UserRoleBusiness.cs",
@@ -1931,7 +2033,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 97,
               "Title": "ViewBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Implements\\Security\\ViewBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Implements\\Security\\ViewBusiness.cs",
@@ -1943,7 +2045,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 98,
               "Title": "IPersonBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Security\\IPersonBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Security\\IPersonBusiness.cs",
@@ -1955,7 +2057,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 92,
+              "DocumentIndex": 99,
               "Title": "ChecklistData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Operational\\ChecklistData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Operational\\ChecklistData.cs",
@@ -1967,7 +2069,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 100,
               "Title": "AssesmentCriteriaData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Parameter\\AssesmentCriteriaData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Parameter\\AssesmentCriteriaData.cs",
@@ -1979,7 +2081,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 101,
               "Title": "CityData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Parameter\\CityData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Parameter\\CityData.cs",
@@ -1991,7 +2093,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
+              "DocumentIndex": 102,
               "Title": "CountryData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Parameter\\CountryData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Parameter\\CountryData.cs",
@@ -2003,7 +2105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 103,
               "Title": "CropData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Parameter\\CropData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Parameter\\CropData.cs",
@@ -2015,7 +2117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 104,
               "Title": "DepartamentData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Parameter\\DepartamentData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Parameter\\DepartamentData.cs",
@@ -2027,7 +2129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 105,
               "Title": "SuppliesData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Parameter\\SuppliesData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Parameter\\SuppliesData.cs",
@@ -2039,7 +2141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
+              "DocumentIndex": 106,
               "Title": "ModuloData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\ModuloData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Security\\ModuloData.cs",
@@ -2051,7 +2153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
+              "DocumentIndex": 107,
               "Title": "PersonData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\PersonData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Security\\PersonData.cs",
@@ -2063,7 +2165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 101,
+              "DocumentIndex": 108,
               "Title": "UserRoleData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\UserRoleData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Security\\UserRoleData.cs",
@@ -2075,7 +2177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 102,
+              "DocumentIndex": 109,
               "Title": "ViewData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Implements\\Security\\ViewData.cs",
               "RelativeDocumentMoniker": "Data\\Implements\\Security\\ViewData.cs",
@@ -2087,7 +2189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 104,
+              "DocumentIndex": 111,
               "Title": "Evidence.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Operational\\Evidence.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Operational\\Evidence.cs",
@@ -2099,7 +2201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 105,
+              "DocumentIndex": 112,
               "Title": "Lot.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Operational\\Lot.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Operational\\Lot.cs",
@@ -2111,7 +2213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 106,
+              "DocumentIndex": 113,
               "Title": "LotTreatment.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Operational\\LotTreatment.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Operational\\LotTreatment.cs",
@@ -2123,7 +2225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 107,
+              "DocumentIndex": 114,
               "Title": "Qualification.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Operational\\Qualification.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Operational\\Qualification.cs",
@@ -2135,7 +2237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 108,
+              "DocumentIndex": 115,
               "Title": "Treatment.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Operational\\Treatment.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Operational\\Treatment.cs",
@@ -2147,7 +2249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 109,
+              "DocumentIndex": 116,
               "Title": "AssessmentCriteria.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Parameter\\AssessmentCriteria.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Parameter\\AssessmentCriteria.cs",
@@ -2159,7 +2261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 110,
+              "DocumentIndex": 117,
               "Title": "City.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Parameter\\City.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Parameter\\City.cs",
@@ -2171,7 +2273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 111,
+              "DocumentIndex": 118,
               "Title": "Country.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Parameter\\Country.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Parameter\\Country.cs",
@@ -2183,7 +2285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 112,
+              "DocumentIndex": 119,
               "Title": "Crop.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Parameter\\Crop.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Parameter\\Crop.cs",
@@ -2195,7 +2297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 103,
+              "DocumentIndex": 110,
               "Title": "Alert.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Operational\\Alert.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Operational\\Alert.cs",
@@ -2207,7 +2309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 113,
+              "DocumentIndex": 120,
               "Title": "Departament.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Parameter\\Departament.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Parameter\\Departament.cs",
@@ -2219,7 +2321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 114,
+              "DocumentIndex": 121,
               "Title": "Supplies.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Parameter\\Supplies.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Parameter\\Supplies.cs",
@@ -2231,7 +2333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 115,
+              "DocumentIndex": 122,
               "Title": "TreatmentSupplies.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Parameter\\TreatmentSupplies.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Parameter\\TreatmentSupplies.cs",
@@ -2243,7 +2345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 116,
+              "DocumentIndex": 123,
               "Title": "Modulo.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Security\\Modulo.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Security\\Modulo.cs",
@@ -2255,7 +2357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 117,
+              "DocumentIndex": 124,
               "Title": "Role.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Security\\Role.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Security\\Role.cs",
@@ -2267,7 +2369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 119,
+              "DocumentIndex": 126,
               "Title": "UserRole.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Security\\UserRole.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Security\\UserRole.cs",
@@ -2279,7 +2381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 120,
+              "DocumentIndex": 127,
               "Title": "View.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Security\\View.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Security\\View.cs",
@@ -2291,19 +2393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 121,
-              "Title": "FarmController.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\FarmController.cs",
-              "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\FarmController.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\FarmController.cs",
-              "RelativeToolTip": "WebA\\Controllers\\Implements\\Operational\\FarmController.cs",
-              "ViewState": "AQIAADEAAAAAAAAAAAAcwEIAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.456Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 122,
+              "DocumentIndex": 128,
               "Title": "ChecklistController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\ChecklistController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\ChecklistController.cs",
@@ -2315,7 +2405,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 118,
+              "DocumentIndex": 125,
               "Title": "RoleView.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Security\\RoleView.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Security\\RoleView.cs",
@@ -2327,7 +2417,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 124,
+              "DocumentIndex": 129,
               "Title": "ApplicationDBContext.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Context\\ApplicationDBContext.cs",
               "RelativeDocumentMoniker": "Entity\\Context\\ApplicationDBContext.cs",
@@ -2339,7 +2429,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 125,
+              "DocumentIndex": 130,
               "Title": "AlertDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Operational\\AlertDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Operational\\AlertDto.cs",
@@ -2351,19 +2441,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 123,
-              "Title": "IFarmController.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IFarmController.cs",
-              "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\IFarmController.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IFarmController.cs",
-              "RelativeToolTip": "WebA\\Controllers\\Interfaces\\Operational\\IFarmController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.511Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 127,
+              "DocumentIndex": 132,
               "Title": "WebA.csproj",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\WebA.csproj",
               "RelativeDocumentMoniker": "WebA\\WebA.csproj",
@@ -2375,7 +2453,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 128,
+              "DocumentIndex": 133,
               "Title": "LotTreatmentController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\LotTreatmentController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\LotTreatmentController.cs",
@@ -2387,7 +2465,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 129,
+              "DocumentIndex": 134,
               "Title": "ILotTreatmentController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\ILotTreatmentController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\ILotTreatmentController.cs",
@@ -2399,7 +2477,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 126,
+              "DocumentIndex": 131,
               "Title": "Farm.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\Operational\\Farm.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\Operational\\Farm.cs",
@@ -2411,7 +2489,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 130,
+              "DocumentIndex": 135,
               "Title": "TreatmentSuppliesController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Parameter\\TreatmentSuppliesController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Parameter\\TreatmentSuppliesController.cs",
@@ -2423,7 +2501,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 131,
+              "DocumentIndex": 136,
               "Title": "ITreatmentSuppliesController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Parameter\\ITreatmentSuppliesController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Parameter\\ITreatmentSuppliesController.cs",
@@ -2435,19 +2513,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 132,
-              "Title": "ITreatmentController.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\ITreatmentController.cs",
-              "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\ITreatmentController.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\ITreatmentController.cs",
-              "RelativeToolTip": "WebA\\Controllers\\Interfaces\\Operational\\ITreatmentController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.473Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 135,
+              "DocumentIndex": 139,
               "Title": "IUserRoleData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Security\\IUserRoleData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Security\\IUserRoleData.cs",
@@ -2459,7 +2525,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 133,
+              "DocumentIndex": 137,
               "Title": "IUserRoleBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Security\\IUserRoleBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Security\\IUserRoleBusiness.cs",
@@ -2471,7 +2537,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 134,
+              "DocumentIndex": 138,
               "Title": "IRoleViewBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Security\\IRoleViewBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Security\\IRoleViewBusiness.cs",
@@ -2483,7 +2549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 136,
+              "DocumentIndex": 140,
               "Title": "RoleDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\RoleDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\RoleDto.cs",
@@ -2495,7 +2561,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 137,
+              "DocumentIndex": 141,
               "Title": "RoleController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Security\\RoleController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Security\\RoleController.cs",
@@ -2503,11 +2569,12 @@
               "RelativeToolTip": "WebA\\Controllers\\Implements\\Security\\RoleController.cs",
               "ViewState": "AQIAAB0AAAAAAAAAAAApwDoAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T18:12:38.64Z"
+              "WhenOpened": "2024-09-13T18:12:38.64Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 140,
+              "DocumentIndex": 144,
               "Title": "IPersonData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Security\\IPersonData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Security\\IPersonData.cs",
@@ -2519,7 +2586,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 138,
+              "DocumentIndex": 142,
               "Title": "ViewDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\ViewDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\ViewDto.cs",
@@ -2531,7 +2598,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 139,
+              "DocumentIndex": 143,
               "Title": "ModuloController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Security\\ModuloController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Security\\ModuloController.cs",
@@ -2543,7 +2610,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 141,
+              "DocumentIndex": 145,
               "Title": "IModuloData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Security\\IModuloData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Security\\IModuloData.cs",
@@ -2555,7 +2622,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 142,
+              "DocumentIndex": 146,
               "Title": "IChecklistController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IChecklistController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\IChecklistController.cs",
@@ -2567,7 +2634,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 143,
+              "DocumentIndex": 147,
               "Title": "DepartamentDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Parameter\\DepartamentDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Parameter\\DepartamentDto.cs",
@@ -2579,7 +2646,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 144,
+              "DocumentIndex": 148,
               "Title": "CityDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Parameter\\CityDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Parameter\\CityDto.cs",
@@ -2591,7 +2658,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 200,
+              "DocumentIndex": 201,
               "Title": "20240904202232_segundaMigration.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240904202232_segundaMigration.cs",
               "RelativeDocumentMoniker": "Entity\\Migrations\\20240904202232_segundaMigration.cs",
@@ -2603,7 +2670,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 145,
+              "DocumentIndex": 149,
               "Title": "ViewDao.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\ViewDao.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\ViewDao.cs",
@@ -2615,7 +2682,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 147,
+              "DocumentIndex": 151,
               "Title": "GenericConfig.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Model\\GenericConfig.cs",
               "RelativeDocumentMoniker": "Entity\\Model\\GenericConfig.cs",
@@ -2627,7 +2694,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 146,
+              "DocumentIndex": 150,
               "Title": "ModuloDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Security\\ModuloDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Security\\ModuloDto.cs",
@@ -2639,7 +2706,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 199,
+              "DocumentIndex": 200,
               "Title": "20240831001118_Database.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Migrations\\20240831001118_Database.cs",
               "RelativeDocumentMoniker": "Entity\\Migrations\\20240831001118_Database.cs",
@@ -2651,7 +2718,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 198,
+              "DocumentIndex": 199,
               "Title": "20240827235516_Database.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240827235516_Database.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240827235516_Database.cs",
@@ -2663,7 +2730,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 148,
+              "DocumentIndex": 152,
               "Title": "20240827234925_Database.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240827234925_Database.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240827234925_Database.cs",
@@ -2675,7 +2742,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 149,
+              "DocumentIndex": 153,
               "Title": "RoleViewController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Security\\RoleViewController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Security\\RoleViewController.cs",
@@ -2687,7 +2754,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 150,
+              "DocumentIndex": 154,
               "Title": "IRoleViewController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Security\\IRoleViewController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Security\\IRoleViewController.cs",
@@ -2699,7 +2766,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 151,
+              "DocumentIndex": 155,
               "Title": "DepartamentController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Parameter\\DepartamentController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Parameter\\DepartamentController.cs",
@@ -2711,7 +2778,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 152,
+              "DocumentIndex": 156,
               "Title": "IDepartamentController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Parameter\\IDepartamentController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Parameter\\IDepartamentController.cs",
@@ -2723,7 +2790,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 153,
+              "DocumentIndex": 157,
               "Title": "IDepartamentBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Parameter\\IDepartamentBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Parameter\\IDepartamentBusiness.cs",
@@ -2735,7 +2802,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 154,
+              "DocumentIndex": 158,
               "Title": "IDepartamentData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Parameter\\IDepartamentData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Parameter\\IDepartamentData.cs",
@@ -2747,7 +2814,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 155,
+              "DocumentIndex": 159,
               "Title": "EvidenceController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\EvidenceController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\EvidenceController.cs",
@@ -2759,7 +2826,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 156,
+              "DocumentIndex": 160,
               "Title": "ILotController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\ILotController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\ILotController.cs",
@@ -2771,7 +2838,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 158,
+              "DocumentIndex": 162,
               "Title": "CountryDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Parameter\\CountryDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Parameter\\CountryDto.cs",
@@ -2783,7 +2850,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 160,
+              "DocumentIndex": 164,
               "Title": "ICropController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Parameter\\ICropController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Parameter\\ICropController.cs",
@@ -2795,7 +2862,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 157,
+              "DocumentIndex": 161,
               "Title": "CountryController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Parameter\\CountryController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Parameter\\CountryController.cs",
@@ -2807,7 +2874,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 159,
+              "DocumentIndex": 163,
               "Title": "ICityController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Parameter\\ICityController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Parameter\\ICityController.cs",
@@ -2819,7 +2886,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 161,
+              "DocumentIndex": 165,
               "Title": "SuppliesController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Parameter\\SuppliesController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Parameter\\SuppliesController.cs",
@@ -2831,7 +2898,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 162,
+              "DocumentIndex": 166,
               "Title": "ICropBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Parameter\\ICropBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Parameter\\ICropBusiness.cs",
@@ -2843,7 +2910,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 163,
+              "DocumentIndex": 167,
               "Title": "IAssesmentCriteriaController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Parameter\\IAssesmentCriteriaController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Parameter\\IAssesmentCriteriaController.cs",
@@ -2855,7 +2922,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 164,
+              "DocumentIndex": 168,
               "Title": "IAssesmentCriteriaBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Parameter\\IAssesmentCriteriaBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Parameter\\IAssesmentCriteriaBusiness.cs",
@@ -2867,7 +2934,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 165,
+              "DocumentIndex": 169,
               "Title": "IAssesmentCriteriaData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Parameter\\IAssesmentCriteriaData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Parameter\\IAssesmentCriteriaData.cs",
@@ -2879,7 +2946,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 168,
+              "DocumentIndex": 172,
               "Title": "AssesmentCriteriaDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Parameter\\AssesmentCriteriaDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Parameter\\AssesmentCriteriaDto.cs",
@@ -2891,7 +2958,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 167,
+              "DocumentIndex": 171,
               "Title": "SuppliesDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Parameter\\SuppliesDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Parameter\\SuppliesDto.cs",
@@ -2903,7 +2970,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 166,
+              "DocumentIndex": 170,
               "Title": "CropDto.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Dto\\Parameter\\CropDto.cs",
               "RelativeDocumentMoniker": "Entity\\Dto\\Parameter\\CropDto.cs",
@@ -2915,7 +2982,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 169,
+              "DocumentIndex": 173,
               "Title": "20240807170722_SecondMigration.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240807170722_SecondMigration.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240807170722_SecondMigration.cs",
@@ -2927,7 +2994,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 170,
+              "DocumentIndex": 174,
               "Title": "QualificationController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\QualificationController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\QualificationController.cs",
@@ -2939,7 +3006,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 171,
+              "DocumentIndex": 175,
               "Title": "ISuppliesBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Parameter\\ISuppliesBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Parameter\\ISuppliesBusiness.cs",
@@ -2951,7 +3018,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 172,
+              "DocumentIndex": 176,
               "Title": "IQualificationBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IQualificationBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\IQualificationBusiness.cs",
@@ -2963,7 +3030,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 173,
+              "DocumentIndex": 177,
               "Title": "20240807161732_SixthhMigration.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240807161732_SixthhMigration.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240807161732_SixthhMigration.cs",
@@ -2974,7 +3041,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 174,
+              "DocumentIndex": 178,
               "Title": "20240807161452_FifthMigration.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240807161452_FifthMigration.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240807161452_FifthMigration.cs",
@@ -2985,19 +3052,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 175,
-              "Title": "ReviewTechnicalController.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\ReviewTechnicalController.cs",
-              "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Operational\\ReviewTechnicalController.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Operational\\ReviewTechnicalController.cs",
-              "RelativeToolTip": "WebA\\Controllers\\Implements\\Operational\\ReviewTechnicalController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.391Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 176,
+              "DocumentIndex": 179,
               "Title": "AssesmentCriteriaController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Parameter\\AssesmentCriteriaController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Parameter\\AssesmentCriteriaController.cs",
@@ -3009,7 +3064,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 177,
+              "DocumentIndex": 180,
               "Title": "ISuppliesController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Parameter\\ISuppliesController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Parameter\\ISuppliesController.cs",
@@ -3021,19 +3076,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 178,
-              "Title": "IReviewTechnicalController.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IReviewTechnicalController.cs",
-              "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\IReviewTechnicalController.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IReviewTechnicalController.cs",
-              "RelativeToolTip": "WebA\\Controllers\\Interfaces\\Operational\\IReviewTechnicalController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.438Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 179,
+              "DocumentIndex": 181,
               "Title": "IQualificationController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IQualificationController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\IQualificationController.cs",
@@ -3045,7 +3088,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 180,
+              "DocumentIndex": 182,
               "Title": "IEvidenceController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Operational\\IEvidenceController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Operational\\IEvidenceController.cs",
@@ -3057,19 +3100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 181,
-              "Title": "IReviewTechnicalBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IReviewTechnicalBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Interfaces\\Operational\\IReviewTechnicalBusiness.cs",
-              "ToolTip": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Operational\\IReviewTechnicalBusiness.cs",
-              "RelativeToolTip": "Business\\Interfaces\\Operational\\IReviewTechnicalBusiness.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T23:59:49.54Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 182,
+              "DocumentIndex": 183,
               "Title": "ISuppliesData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Parameter\\ISuppliesData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Parameter\\ISuppliesData.cs",
@@ -3081,7 +3112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 183,
+              "DocumentIndex": 184,
               "Title": "IQualificationData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IQualificationData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\IQualificationData.cs",
@@ -3093,7 +3124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 184,
+              "DocumentIndex": 185,
               "Title": "ICropData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Parameter\\ICropData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Parameter\\ICropData.cs",
@@ -3105,7 +3136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 185,
+              "DocumentIndex": 186,
               "Title": "IChecklistData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Operational\\IChecklistData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Operational\\IChecklistData.cs",
@@ -3117,7 +3148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 187,
+              "DocumentIndex": 188,
               "Title": "IUserRoleController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Security\\IUserRoleController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Security\\IUserRoleController.cs",
@@ -3129,7 +3160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 186,
+              "DocumentIndex": 187,
               "Title": "UserRoleController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Security\\UserRoleController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Security\\UserRoleController.cs",
@@ -3141,7 +3172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 188,
+              "DocumentIndex": 189,
               "Title": "IPersonController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Security\\IPersonController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Security\\IPersonController.cs",
@@ -3153,7 +3184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 189,
+              "DocumentIndex": 190,
               "Title": "20240805010705_Security.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240805010705_Security.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240805010705_Security.cs",
@@ -3164,7 +3195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 191,
+              "DocumentIndex": 192,
               "Title": "20240805004824_farm.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240805004824_farm.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240805004824_farm.cs",
@@ -3175,7 +3206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 190,
+              "DocumentIndex": 191,
               "Title": "20240805010011_farm.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240805010011_farm.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240805010011_farm.cs",
@@ -3186,7 +3217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 197,
+              "DocumentIndex": 198,
               "Title": "20240804195330_Parameter.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240804195330_Parameter.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240804195330_Parameter.cs",
@@ -3197,7 +3228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 192,
+              "DocumentIndex": 193,
               "Title": "20240805003251_Farm.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240805003251_Farm.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\C#\\proyects\\Security-A\\Security-A\\Entity\\Migrations\\20240805003251_Farm.cs",
@@ -3208,7 +3239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 193,
+              "DocumentIndex": 194,
               "Title": "CityController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Implements\\Parameter\\CityController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Implements\\Parameter\\CityController.cs",
@@ -3220,7 +3251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 194,
+              "DocumentIndex": 195,
               "Title": "ICityBusiness.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Interfaces\\Parameter\\ICityBusiness.cs",
               "RelativeDocumentMoniker": "Business\\Interfaces\\Parameter\\ICityBusiness.cs",
@@ -3232,7 +3263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 195,
+              "DocumentIndex": 196,
               "Title": "ICityData.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Interfaces\\Parameter\\ICityData.cs",
               "RelativeDocumentMoniker": "Data\\Interfaces\\Parameter\\ICityData.cs",
@@ -3244,7 +3275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 196,
+              "DocumentIndex": 197,
               "Title": "IModuloController.cs",
               "DocumentMoniker": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\WebA\\Controllers\\Interfaces\\Security\\IModuloController.cs",
               "RelativeDocumentMoniker": "WebA\\Controllers\\Interfaces\\Security\\IModuloController.cs",

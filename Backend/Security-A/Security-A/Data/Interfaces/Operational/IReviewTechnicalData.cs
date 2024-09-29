@@ -17,6 +17,7 @@ namespace Data.Interfaces.Operational
         Task<ReviewTechnical> Save(ReviewTechnical entity);
         Task Update(ReviewTechnical entity);
         Task<ReviewTechnicalDto> GetByIdPivote(int id);
+        Task<IEnumerable<ReviewTechnicalDto>> GetAllUser(int id);
         Task<IEnumerable<ReviewTechnicalDto>> GetAll();
     }
 }

@@ -12,6 +12,7 @@ namespace Data.Interfaces.Operational
         Task<Treatment> Save(Treatment entity);
         Task Update(Treatment entity);
         Task<TreatmentDto> GetByIdPivote(int id);
+        Task<IEnumerable<TreatmentDto>> GetAllUser(int id);
         Task<IEnumerable<TreatmentDto>> GetAll();
     }
 }

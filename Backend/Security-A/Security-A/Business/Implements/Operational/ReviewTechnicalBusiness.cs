@@ -60,6 +60,39 @@ namespace Business.Implements.Operational
             return ReviewTechnicalDtos;
         }
 
+        public async Task<IEnumerable<ReviewTechnicalDto>> GetAllUser(int id)
+        {
+            IEnumerable<ReviewTechnicalDto> ReviewTechnicals = await data.GetAllUser(id);
+            List<ReviewTechnicalDto> ReviewTechnicalDtos = new List<ReviewTechnicalDto>();
+            foreach (var item in ReviewTechnicals)
+            {
+                ReviewTechnicalDto dto = new ReviewTechnicalDto();
+                dto.Id = item.Id;
+                dto.ChecklistId = item.ChecklistId;
+                dto.LotId = item.LotId;
+                dto.TecnicoId = item.TecnicoId;
+                dto.Tecnico = item.Tecnico;
+                dto.lot = item.lot;
+                dto.Code = item.Code;
+                dto.Date_review = item.Date_review;
+                dto.Observation = item.Observation;
+                dto.State = item.State;
+                if (item.evidenceString != null)
+                {
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    dto.evidences = JsonSerializer.Deserialize<List<EvidenceDto>>(item.evidenceString, options);
+                }
+                if (item.checklistString != null)
+                {
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    dto.checklists = JsonSerializer.Deserialize<ChecklistDto>(item.checklistString, options);
+                }
+                ReviewTechnicalDtos.Add(dto);
+            }
+
+            return ReviewTechnicalDtos;
+        }
+
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             return await data.GetAllSelect();

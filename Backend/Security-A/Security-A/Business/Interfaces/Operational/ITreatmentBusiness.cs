@@ -13,5 +13,6 @@ namespace Business.Interfaces.Operational
         Task Update(TreatmentDto entity);
         Treatment mapearDatos(Treatment treatment, TreatmentDto entity);
         Task<IEnumerable<TreatmentDto>> GetAll();
+        Task<IEnumerable<TreatmentDto>> GetAllUser(int id);
     }
 }

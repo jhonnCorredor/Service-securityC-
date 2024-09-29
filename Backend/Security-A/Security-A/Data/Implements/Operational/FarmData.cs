@@ -119,5 +119,33 @@ namespace Data.Implements.Operational
                         ORDER BY f.Id ASC;";
             return await context.QueryAsync<FarmDto>(sql);
         }
+
+        public async Task<IEnumerable<FarmDto>> GetAllUser(int id)
+        {
+            var sql = @"SELECT 
+                           f.Id,
+                           f.Name,
+                           f.CityId,
+                           f.UserId,
+                           f.Addres,
+                           f.Dimension,
+                           f.State,
+                           (
+                              SELECT 
+                                 l.Id,
+                                 l.Num_hectareas,
+                                 l.CropId,
+		                         c.Name AS cultivo
+                                 FROM Lots AS l
+		                         Inner join Crops AS c ON c.Id = l.CropId
+                                 WHERE l.FarmId = f.Id AND l.DeletedAt IS NULL
+                                 FOR JSON PATH
+	                        )AS lotString
+                        FROM Farms AS f
+                        WHERE f.DeletedAt IS NULL AND f.UserId = @Id
+                        GROUP BY f.Id, f.Name, f.CityId, f.UserId, f.Addres, f.Dimension, f.State
+                        ORDER BY f.Id ASC;";
+            return await context.QueryAsync<FarmDto>(sql, new { Id = id });
+        }
     }
 }

@@ -58,6 +58,34 @@ namespace Business.Implements.Operational
             return TreatmentDtos;
         }
 
+        public async Task<IEnumerable<TreatmentDto>> GetAllUser(int id)
+        {
+            IEnumerable<TreatmentDto> Treatments = await data.GetAllUser(id);
+            List<TreatmentDto> TreatmentDtos = new List<TreatmentDto>();
+            foreach (var item in Treatments)
+            {
+                TreatmentDto dto = new TreatmentDto();
+                dto.Id = item.Id;
+                dto.DateTreatment = item.DateTreatment;
+                dto.TypeTreatment = item.TypeTreatment;
+                dto.QuantityMix = item.QuantityMix;
+                dto.State = item.State;
+                if (item.lotString != null)
+                {
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    dto.lotList = JsonSerializer.Deserialize<List<LotTreatmentDto>>(item.lotString, options);
+                }
+                if (item.supplieString != null)
+                {
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    dto.supplieList = JsonSerializer.Deserialize<List<TreatmentSuppliesDto>>(item.supplieString, options);
+                }
+                TreatmentDtos.Add(dto);
+            }
+
+            return TreatmentDtos;
+        }
+
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             return await data.GetAllSelect();

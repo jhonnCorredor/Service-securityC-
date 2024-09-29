@@ -11,6 +11,7 @@ namespace WebA.Controllers.Interfaces.Operational
         Task<ActionResult<ApiResponse<FarmDto>>> Get(int id);
         Task<ActionResult> Post([FromBody] FarmDto farm);
         Task<ActionResult> Put([FromBody] FarmDto farm);
+        Task<ActionResult<ApiResponse<IEnumerable<FarmDto>>>> GetAllUser(int id);
         Task<ActionResult> Delete(int id);
     }
 }

@@ -12,6 +12,7 @@ namespace Data.Interfaces.Operational
         Task<Farm> Save(Farm entity);
         Task<FarmDto> GetByIdLot(int id);
         Task Update(Farm entity);
+        Task<IEnumerable<FarmDto>> GetAllUser(int id);
         Task<IEnumerable<FarmDto>> GetAll();
     }
 }

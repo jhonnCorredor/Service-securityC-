@@ -73,11 +73,12 @@ namespace Business.Implements.Security
                 Para = email,
                 Asunto = "Código de verificación para restablecer contraseña",
                 Contenido = $"Estimado/a Usuario,\n\n" +
-            $"Hemos recibido una solicitud para restablecer su contraseña. Su código de verificación es: {codigoAleatorio}.\n\n" +
-            "Por favor, use este código para continuar con el proceso de cambio de contraseña.\n\n" +
-            "Si usted no solicitó este cambio, ignore este correo.\n\n" +
-            "Saludos,\nEl equipo de soporte de FincAudita\n" +
-            "Este correo ha sido generado automáticamente, por favor no responda al mismo."
+                $"Hemos recibido una solicitud para restablecer su contraseña. Su código de verificación es:\n\n" +
+                $"**{codigoAleatorio}**\n\n" +
+                "Por favor, use este código para continuar con el proceso de cambio de contraseña.\n\n" +
+                "Si usted no solicitó este cambio, ignore este correo.\n\n" +
+                "Saludos,\nEl equipo de soporte de FincAudita\n\n" +
+                "*Este correo ha sido generado automáticamente, por favor no responda al mismo.*"
             };
 
             bool emailEnviado = await emailBusiness.SendEmail(emailDto);

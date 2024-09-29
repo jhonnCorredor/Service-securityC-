@@ -54,6 +54,31 @@ namespace Business.Implements.Operational
             return FarmDtos;
         }
 
+        public async Task<IEnumerable<FarmDto>> GetAllUSer(int id)
+        {
+            IEnumerable<FarmDto> farms = await data.GetAllUser(id);
+            List<FarmDto> FarmDtos = new List<FarmDto>();
+            foreach (var farm in farms)
+            {
+                FarmDto finca = new FarmDto();
+                finca.Id = farm.Id;
+                finca.CityId = (int)farm.CityId;
+                finca.UserId = (int)farm.UserId;
+                finca.Addres = farm.Addres;
+                finca.Dimension = farm.Dimension;
+                finca.Name = farm.Name;
+                finca.State = farm.State;
+                if (farm.lotString != null)
+                {
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    finca.Lots = JsonSerializer.Deserialize<List<LotDto>>(farm.lotString, options);
+                }
+                FarmDtos.Add(finca);
+            }
+
+            return FarmDtos;
+        }
+
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             return await data.GetAllSelect();

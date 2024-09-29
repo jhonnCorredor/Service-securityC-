@@ -164,5 +164,56 @@ namespace Data.Implements.Operational
                         ORDER BY rt.Id ASC;";
             return await context.QueryAsync<ReviewTechnicalDto>(sql);
         }
+
+        public async Task<IEnumerable<ReviewTechnicalDto>> GetAllUser(int id)
+        {
+            var sql = @"SELECT 
+	                        rt.Id,
+	                        rt.Date_review,
+	                        rt.Code,
+	                        rt.Observation,
+	                        rt.LotId,
+							u.Username AS 'Tecnico',
+							CONCAT('',f.Name, ': ', c.Name) AS 'lot',
+	                        rt.TecnicoId,
+	                        rt.ChecklistId,
+	                        rt.State,
+	                        (
+	                          SELECT 
+	                          e.Id,
+	                          e.Document
+	                          FROM Evidences AS e
+	                          WHERE e.ReviewId = rt.Id AND e.DeletedAt IS NULL
+	                        FOR JSON PATH
+	                        )AS evidenceString,
+	                        (
+	                          SELECT 
+	                          c.Id,
+	                          c.Code,
+	                          c.Calification_total,
+	                          (
+		                        SELECT
+		                        q.Id,
+		                        q.Observation,
+		                        q.Qualification_criteria,
+		                        q.AssessmentCriteriaId
+		                        FROM Qualifications AS q
+		                        WHERE q.ChecklistId = c.Id AND q.DeletedAt IS Null
+		                        FOR JSON PATH
+	                          ) AS qualifications
+	                          FROM Checklists AS c
+	                          WHERE c.Id = rt.ChecklistId AND c.DeletedAt IS NULL
+	                         FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
+	                        )AS checklistString
+                        FROM ReviewTechnicals AS rt
+						INNER JOIN Users AS u ON u.Id = rt.TecnicoId
+						INNER JOIN Lots AS l ON l.Id = rt.LotId
+						INNER JOIN Farms AS f ON f.Id = l.FarmId
+						INNER JOIN Crops AS c ON c.Id = l.CropId
+                        WHERE rt.DeletedAt IS NULL AND u.Id = @Id
+                        GROUP BY rt.Id, rt.Date_review, rt.Code, rt.Observation, rt.LotId, rt.TecnicoId, rt.ChecklistId, rt.State, u.Username, f.Name, c.Name
+                        ORDER BY rt.Id ASC;";
+            return await context.QueryAsync<ReviewTechnicalDto>(sql, new { Id = id });
+        }
     }
 }

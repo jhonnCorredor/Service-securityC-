@@ -18,5 +18,6 @@ namespace Business.Interfaces.Operational
         Task Update(ReviewTechnicalDto entity);
         ReviewTechnical mapearDatos(ReviewTechnical reviewTechnical, ReviewTechnicalDto entity);
         Task<IEnumerable<ReviewTechnicalDto>> GetAll();
+        Task<IEnumerable<ReviewTechnicalDto>> GetAllUser(int id);
     }
 }
