@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">FincAudita</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="finca_audita_terms">Bienvenido a FincaAudita, la plataforma dedicada al monitoreo y gestión de fincas. Antes de utilizar nuestros servicios, por favor lee atentamente los siguientes términos y condiciones:\n\n1. Uso del Servicio: FincaAudita proporciona herramientas tecnológicas para el monitoreo y gestión de fincas. Los administradores y técnicos que manejan la aplicación son responsables de garantizar la exactitud y veracidad de la información proporcionada durante el monitoreo de las fincas. Al utilizar nuestro servicio, aceptas cumplir con las leyes y regulaciones locales aplicables.\n\n2. Privacidad: Respetamos tu privacidad. Los datos recopilados durante el monitoreo de fincas se utilizarán únicamente con fines de análisis y mejora de nuestro servicio. No compartiremos tu información personal con terceros sin tu consentimiento explícito.\n\n3. Responsabilidades del Usuario: Los administradores y técnicos de FincaAudita son responsables de garantizar la exactitud y veracidad de la información proporcionada durante el monitoreo de las fincas. FincaAudita no se hace responsable por cualquier pérdida o daño derivado de la información incorrecta o incompleta proporcionada por los administradores y técnicos.\n\n4. Seguridad: Implementamos medidas de seguridad para proteger tus datos. Sin embargo, no podemos garantizar la seguridad absoluta de la información transmitida a través de internet.\n\n5. Modificaciones: Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigencia al ser publicadas en nuestro sitio web.\n\nAl utilizar FincaAudita, aceptas estos términos y condiciones. Si tienes alguna pregunta o inquietud, por favor contáctanos.</string>
+
+    <string-array name="type_document">
+        <item>Cédula de Ciudadanía</item>
+        <item>Tarjeta de Identidad</item>
+        <item>Cédula de Extranjería</item>
+        <item>Pasaporte</item>
+    </string-array>
+    <string-array name="gender">
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </string-array>
+    <string-array name="type_treatment">
+        <item>Fertilación</item>
+        <item>Fumigación</item>
+    </string-array>
+</resources>
