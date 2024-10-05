@@ -1,35 +1,63 @@
-// src/app/auth.service.ts
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, interval } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private authKey = 'isAuthenticated'; // Clave para almacenar el estado de autenticación
+  private authKey = 'isAuthenticated';
+  private authState = new BehaviorSubject<boolean>(false); 
 
-  private isBrowser(): boolean {
-    return typeof window !== 'undefined';
+  constructor(private router: Router, private ngZone: NgZone) {
+    this.loadInitialAuthState();
+    this.monitorAuthStateChanges();
   }
 
-  // Verifica si el usuario está autenticado
-  isAuthenticated(): boolean {
-    if (this.isBrowser()) {
-      return localStorage.getItem(this.authKey) === 'true'; // Retorna 'true' solo si es explícitamente 'true'
-    }
-    return false;
+  private loadInitialAuthState(): void {
+    const isAuthenticated = localStorage.getItem(this.authKey) === 'true';
+    this.authState.next(isAuthenticated); 
   }
 
-  // Realiza el login estableciendo la autenticación en 'true'
+  isAuthenticated(): Observable<boolean> {
+    return this.authState.asObservable().pipe(distinctUntilChanged());
+  }
+
   login(): void {
-    if (this.isBrowser()) {
-      localStorage.setItem(this.authKey, 'true'); // Almacena el estado de autenticación
-    }
+    localStorage.setItem(this.authKey, 'true');
+    this.authState.next(true);
   }
 
-  // Realiza el logout limpiando el estado de autenticación
   logout(): void {
-    if (this.isBrowser()) {
-      localStorage.setItem(this.authKey, 'false'); // Establece la autenticación en 'false'
-    }
+    localStorage.setItem(this.authKey, 'false');
+    this.authState.next(false);
+    this.router.navigate(['/login']);
+  }
+
+  private monitorAuthStateChanges(): void {
+    window.addEventListener('storage', (event) => {
+      if (event.key === this.authKey) {
+        this.ngZone.run(() => {
+          const isAuthenticated = event.newValue === 'true';
+          this.authState.next(isAuthenticated);
+          if (!isAuthenticated) {
+            this.router.navigate(['/login']);
+          }
+        });
+      }
+    });
+
+    interval(1000).subscribe(() => {
+      const isAuthenticated = localStorage.getItem(this.authKey) === 'true';
+      if (this.authState.getValue() !== isAuthenticated) {
+        this.ngZone.run(() => {
+          this.authState.next(isAuthenticated);
+          if (!isAuthenticated) {
+            this.router.navigate(['/login']);
+          }
+        });
+      }
+    });
   }
 }

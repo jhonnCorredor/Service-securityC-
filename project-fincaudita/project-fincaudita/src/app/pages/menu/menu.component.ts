@@ -26,11 +26,6 @@ export class MenuComponent implements OnInit {
     this.loadMenu();
     this.loadProfileImage();
 
-    setInterval(() => {
-      if (!this.authService.isAuthenticated()) {
-        this.router.navigate(['/login']); // Redirige al login si no está autenticado
-      }
-    }, 1000); // Verifica el estado de autenticación cada segundo
   }
   
   loadProfileImage() {
