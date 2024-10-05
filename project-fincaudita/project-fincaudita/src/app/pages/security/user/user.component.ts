@@ -1,33 +1,190 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';  
+import { FormsModule, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap'; 
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { NgSelectModule } from '@ng-select/ng-select';
+import * as XLSX from 'xlsx';
+import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule, MultiSelectModule],
+  imports: [
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
+    NgbTypeaheadModule,
+    MultiSelectModule,
+    NgSelectModule
+  ],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
   users: any[] = [];
-  user: any = { id: 0, username: '', password: '',  personId: 0, state: true };
-  persons: any[] = []; 
+  user: any = { id: 0, username: '', password: '', personId: 0, state: true };
+  persons: any[] = [];
   roles: any[] = [];
   isModalOpen = false;
+  filteredUsers: any[] = [];
+  currentPage = 1;
+  itemsPerPage = 5;
+  searchTerm = '';
+  itemsPerPageOptions = [5, 10, 20, 50];
+  isDropdownOpen = false;
 
   private apiUrl = 'http://localhost:9191/api/User';
   private personsUrl = 'http://localhost:9191/api/Person';
   private rolesUrl = 'http://localhost:9191/api/Role';
+
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
-  searchPersons= (text$: Observable<string>) =>
+  ngOnInit(): void {
+    this.getUsers();
+    this.getPersons();
+    this.getRoles();
+  }
+  getPersonName(personId: number): string | undefined {
+    const person = this.persons.find(p => p.id === personId);
+    return person ? person.first_name : undefined;
+  }
+  
+
+    filterUsers(): void {
+      const search = this.searchTerm.toLowerCase().trim();
+      this.filteredUsers = this.users.filter(user =>
+        user.username.toLowerCase().includes(search) ||
+        user.password.toLowerCase().includes(search) ||
+        user.personId.toString().includes(search) || // Asegúrate de que esto sea correcto
+        (user.state ? 'activo' : 'inactivo').includes(search) ||
+        this.getPersonName(user.personId)?.toLowerCase().includes(search) // Filtrar por nombre de persona
+      );
+      this.currentPage = 1; // Resetear a la primera página
+    }
+  
+
+  paginatedUser(): any[] {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    return this.filteredUsers.slice(start, end);
+  }
+
+  exportToExcel(): void {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.filteredUsers);
+    const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Usuarios');
+    XLSX.writeFile(workbook, 'listado de usuarios.xlsx');
+  }
+
+  exportToPDF(): void {
+    const doc = new jsPDF();
+    autoTable(doc, {
+      head: [['ID', 'Nombre de Usuario', 'ID de Persona', 'Estado']],
+      body: this.filteredUsers.map(user => [
+        user.personId,
+        user.username,
+        user.personId,
+        user.state ? 'Activo' : 'Inactivo'
+      ]),
+    });
+    doc.save('listado_de_usuarios.pdf');
+  }
+
+  onSearchChange(): void {
+    this.filterUsers();
+  }
+
+  handleExport(event: any): void {
+    const value = event;
+  
+    if (value === 'pdf') {
+      this.exportToPDF();
+    } else if (value === 'excel') {
+      this.exportToExcel();
+    }
+  
+    // Resetear el select después de la exportación
+    this.searchTerm = ''; // Esto restablece el valor
+  }
+  
+
+  updatePagination(): void {
+    this.currentPage = 1;
+    this.filterUsers();
+  }
+
+  onItemsPerPageChange(): void {
+    this.updatePagination();
+  }
+
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.filteredUsers.length / this.itemsPerPage);
+  }
+
+  getPageNumbers(): number[] {
+    return Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
+
+  goToPage(page: number): void {
+    this.currentPage = page;
+  }
+
+  hasSelected(): boolean {
+    return this.users.some(user => user.selected);
+  }
+
+  deleteSelected(): void {
+    const selectedIds = this.users.filter(user => user.selected).map(user => user.personId);
+
+    if (selectedIds.length > 0) {
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: '¡No podrás revertir esto!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminarlo',
+        cancelButtonText: 'No, cancelar',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const deleteRequests = selectedIds.map(id => this.http.delete(`${this.apiUrl}/${id}`).toPromise());
+
+          Promise.all(deleteRequests)
+            .then(() => {
+              this.users = this.users.filter(user => !selectedIds.includes(user.personId));
+              this.filterUsers();
+              Swal.fire('¡Eliminados!', 'Los usuarios seleccionados han sido eliminados.', 'success');
+            })
+            .catch((error) => {
+              console.error('Error eliminando usuarios seleccionados:', error);
+              Swal.fire('Error', 'Hubo un problema al eliminar los usuarios seleccionados.', 'error');
+            });
+        }
+      });
+    } else {
+      Swal.fire('Error', 'No hay usuarios seleccionados para eliminar.', 'error');
+    }
+  }
+
+  searchPersons = (text$: Observable<string>) =>
     text$.pipe(
       debounceTime(200),
       distinctUntilChanged(),
@@ -35,25 +192,19 @@ export class UserComponent implements OnInit {
         : this.persons.filter(person => person.first_name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
     );
 
-  formatPerson = (person: any) => person.first_name;  // Formato de los resultados mostrados en el autocompletado
+  formatPerson = (person: any) => person.first_name;
 
   onPersonSelect(event: any): void {
     const selectedPerson = event.item;
-    this.user.personId = selectedPerson.id;  // Asigna el ID del módulo seleccionado
-  }
-
-  ngOnInit(): void {
-    this.getUsers();
-    this.getPersons();  // Cargar los módulos al iniciar
-    this.getRoles();
+    this.user.personId = selectedPerson.id; 
   }
 
   getUsers(): void {
     this.http.get<any[]>(this.apiUrl).subscribe(
       (users) => {
         this.users = users;
-        
-        this.processUsers(); 
+        this.processUsers();
+        this.filterUsers();
         this.cdr.detectChanges();
       },
       (error) => {
@@ -90,7 +241,6 @@ export class UserComponent implements OnInit {
       }
     );
   }
-
 
   openModal(): void {
     this.isModalOpen = true;
@@ -133,18 +283,16 @@ export class UserComponent implements OnInit {
         Swal.fire('Success', 'Usuario actualizado exitosamente!', 'success');
       });
     }
-}
+  }
 
   editUsers(user: any): void {
     this.user = { ...user, roles: user.roles.map((role: any) => ({ id: role.id, textoMostrar: role.textoMostrar })) };
 
-    // Asegúrate de que los roles seleccionados se vinculen correctamente
     const selectedRoleIds = this.user.roles.map((role: any) => role.id);
     this.user.roles = this.roles.filter((role: any) => selectedRoleIds.includes(role.id));
-  
-    this.openModal();
-}
 
+    this.openModal();
+  }
 
   deleteUsers(id: number): void {
     Swal.fire({
@@ -159,22 +307,13 @@ export class UserComponent implements OnInit {
       if (result.isConfirmed) {
         this.http.delete(`${this.apiUrl}/${id}`).subscribe(() => {
           this.getUsers();
-          Swal.fire(
-            'Deleted!',
-            'Your view has been deleted.',
-            'success'
-          );
+          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
         });
       }
     });
   }
 
   resetForm(): void {
-    this.user = { id: 0, username: '', password: '',  personId: 0, state: true };
-  }
-
-  getPersonName(personId: number): string {
-    const person = this.persons.find(per => per.id === personId);
-    return person ? person.first_name : 'Unknown';
+    this.user = { id: 0, username: '', password: '', personId: 0, state: true, roles: [] };
   }
 }

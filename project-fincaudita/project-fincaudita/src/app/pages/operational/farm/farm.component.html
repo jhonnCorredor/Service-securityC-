@@ -1,9 +1,48 @@
 <!-- Título con estilo -->
 <h2 class="title">Lista de Fincas</h2>
 
+<div class="top-container"></div>
+    <!-- Select para exportar -->
+    <div class="export-select">
+      <ng-select 
+        (change)="handleExport($event)" 
+        [placeholder]="'Exportar Como'" 
+        [clearable]="true" 
+        [searchable]="false">
+        <ng-option value="pdf" class="custom-option">
+          <div class="option-container">
+            <i class="fas fa-file-pdf"></i>
+            <span class="custom-option-text">PDF</span>
+          </div>
+        </ng-option>
+        <ng-option value="excel" class="custom-option">
+          <div class="option-container">
+            <i class="fas fa-file-excel"></i>
+            <span class="custom-option-text">Excel</span>
+          </div>
+        </ng-option>
+      </ng-select>
+    </div>
+  
+    <!-- Selector de ítems por página -->
+    <div class="items-per-page">
+      <label for="itemsPerPage">Mostrar:</label>
+      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
+        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
 <!-- Botón a la derecha -->
 <button class="btn btn-success add-btn" (click)="openModal()">Agregar nueva <i class="fas fa-plus"></i></button>
 
+<div class="search-container">
+    <input 
+      type="text" 
+      placeholder="Buscar..." 
+      [(ngModel)]="searchTerm" 
+      (ngModelChange)="onSearchChange()" 
+      class="form-control input-field" 
+    />
+  </div>
 <!-- Modal para agregar o editar una finca -->
 <div id="farmModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
     <div class="modal-content">
@@ -18,13 +57,13 @@
             <div class="row">
                 <div class="col">
                     <label for="Name">Nombre de la finca:</label>
-                    <input type="text" class="form-control" id="Name" name="Name"
-                        [(ngModel)]="farm.name" required>
+                    <input type="text" class="form-control input-field" id="Name" name="Name" [(ngModel)]="farm.name"
+                        required>
                 </div>
 
                 <div class="col">
                     <label for="Addres">Dirección:</label>
-                    <input type="text" class="form-control" id="Addres" name="Addres"
+                    <input type="text" class="form-control input-field" id="Addres" name="Addres"
                         [(ngModel)]="farm.addres" required>
                 </div>
             </div>
@@ -32,34 +71,28 @@
             <div class="row">
                 <div class="col">
                     <label for="CityId">Ciudad:</label>
-                    <input type="text" class="form-control" id="CityId" name="CityId" 
-                        [ngbTypeahead]="searchCities"
-                        [inputFormatter]="formatCity" 
-                        [resultFormatter]="formatCity"
-                        (selectItem)="onCitySelect($event)"
-                        [ngModel]="getCityName(farm.cityId)"
-                        required>
+                    <input type="text" class="form-control input-field" id="CityId" name="CityId"
+                        [ngbTypeahead]="searchCities" [inputFormatter]="formatCity" [resultFormatter]="formatCity"
+                        (selectItem)="onCitySelect($event)" [ngModel]="getCityName(farm.cityId)" required>
                 </div>
 
                 <div class="col">
                     <label for="UserId">Usuario asignado:</label>
-                    <input type="text" class="form-control" id="UserId" name="UserId" 
-                        [ngbTypeahead]="searchUsers"
-                        [inputFormatter]="formatUser" 
-                        [resultFormatter]="formatUser"
-                        (selectItem)="onUserSelect($event)"
-                        [ngModel]="getUserName(farm.userId)"
-                        required>
+                    <input type="text" class="form-control input-field" id="UserId" name="UserId"
+                        [ngbTypeahead]="searchUsers" [inputFormatter]="formatUser" [resultFormatter]="formatUser"
+                        (selectItem)="onUserSelect($event)" [ngModel]="getUserName(farm.userId)" required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <label for="Dimension">Dimensión (ha):</label>
-                    <input type="text" class="form-control" id="Dimension" name="Dimension"
+                    <label for="Dimension">Dimensión:</label>
+                    <input type="number" class="form-control input-field" id="Dimension" name="Dimension"
                         [(ngModel)]="farm.dimension" required>
                 </div>
+            </div>
 
+            <div class="row">
                 <div class="col">
                     <label for="State">Estado:</label>
                     <div class="form-check form-switch">
@@ -68,17 +101,60 @@
                     </div>
                 </div>
             </div>
-            <br>
+
+
+
+            <div class="row">
+                <div class="col">
+                    <label for="farm">Cultivo:</label>
+                    <p-multiSelect id="selectedCropId" name="selectedCropId" [options]="crops"
+                    [(ngModel)]="selectedCropId" optionLabel="name" placeholder="Selecciona cultivos"
+                    scrollHeight="250px" display="chip"
+                    (onChange)="onFarmChange($event)">
+                </p-multiSelect>
+                </div>
+
+                <!-- Sección para agregar hectáreas de cultivos seleccionados -->
+                <div *ngIf="selectedCropId.length > 0">
+                <h5>Cultivos Seleccionados</h5>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Cultivo</th>
+                            <th>Número de hectáreas</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let lot of farm.lots; let i = index">
+                            <td>{{ lot.name }}</td>
+                            <td>
+                                <input type="number" [(ngModel)]="lot.num_hectareas" name="num_hectareas-{{i}}"
+                                    class="form-control" placeholder="Ingrese número de hectáreas" required>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger" (click)="removeLot(lot.id)">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
-        </form>
     </div>
+    </form>
+</div>
 </div>
 
 <!-- Tabla de Fincas -->
-<table *ngIf="farms.length > 0" class="table">
+<table *ngIf="filteredFarms. length > 0" class="table">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -86,17 +162,25 @@
             <th>Ciudad</th>
             <th>Usuario</th>
             <th>Dimensión</th>
+            <th>Lote</th>
             <th>Estado</th>
             <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let farm of farms">
+        <tr *ngFor="let farm of paginatedFarm()">
             <td>{{ farm.name }}</td>
             <td>{{ farm.addres }}</td>
             <td>{{ getCityName(farm.cityId) }}</td>
             <td>{{ getUserName(farm.userId) }}</td>
-            <td>{{ farm.dimension }} ha</td>
+            <td>{{ farm.dimension }}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let lot of farm.lots">
+                        {{ lot.cultivo }} - Núm-hectareas: {{ lot.num_hectareas }}
+                    </li>
+                </ul>
+            </td>
             <td>{{ farm.state ? 'Activo' : 'Inactivo' }}</td>
             <td>
                 <button class="btn-icon edit" (click)="editFarm(farm)" title="Editar">
@@ -111,4 +195,34 @@
 </table>
 
 <!-- Mensaje para cuando no haya fincas -->
-<p *ngIf="farms.length === 0">No se encontraron fincas.</p>
+<p *ngIf="filteredFarms.length === 0">No se encontraron fincas.</p>
+
+<div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">
+      &laquo; <!-- Flecha izquierda -->
+    </button>
+  
+    <ng-container *ngFor="let page of getPageNumbers()">
+      <button 
+        (click)="goToPage(page)" 
+        [class.active]="currentPage === page"
+      >
+        {{ page }}
+      </button>
+    </ng-container>
+  
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="arrow">
+      &raquo; <!-- Flecha derecha -->
+    </button>
+  </div>
+  
+  <!-- Eliminar seleccionados -->
+  <div class="delete-selected-container">
+    <button 
+      class="btn btn-danger" 
+      (click)="deleteSelected()" 
+      [disabled]="!hasSelected()"
+    >
+      <i class="fas fa-trash"></i> Eliminar seleccionados
+    </button>
+  </div>

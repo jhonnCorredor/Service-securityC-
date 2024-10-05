@@ -14,21 +14,27 @@ import Swal from 'sweetalert2';
 })
 export class MenuComponent implements OnInit {
   @ViewChildren('collapse') collapses!: QueryList<ElementRef>;
-  
+
   menu: any[] = [];
   private activeAccordion: string | undefined;
+  profileImageUrl: string | null = null;
   authService = inject(AuthService);
 
-  constructor(private router: Router){}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.loadMenu();
+    this.loadProfileImage();
 
     setInterval(() => {
       if (!this.authService.isAuthenticated()) {
         this.router.navigate(['/login']); // Redirige al login si no está autenticado
       }
     }, 1000); // Verifica el estado de autenticación cada segundo
+  }
+  
+  loadProfileImage() {
+    this.profileImageUrl = localStorage.getItem('profileImageUrl');
   }
 
   loadMenu() {
@@ -41,7 +47,7 @@ export class MenuComponent implements OnInit {
     }
   }
 
- logout(){
+  logout() {
     Swal.fire({
       title: '¿Estás seguro?',
       text: '¡Seguro que quieres cerrar sesión!',
@@ -52,14 +58,40 @@ export class MenuComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        this.authService.logout(); // Cambia el estado de autenticación a false
-        localStorage.removeItem("menu");
-        this.router.navigate(['/login']); 
+        this.showLoadingSpinner();
+        
+        // Simula el proceso de cierre de sesión con un temporizador
+        setTimeout(() => {
+          this.authService.logout(); // Cambia el estado de autenticación a false
+          localStorage.removeItem("menu");
+          Swal.close(); // Cierra el popup de carga
+          this.router.navigate(['/login']);
+  
+          // Mostrar mensaje personalizado después de cerrar sesión
+          Swal.fire({
+            title: '¡Cerraste sesión!',
+            text: '¡Vuelve pronto!',
+            icon: 'success',
+            timer: 2000, // El mensaje se cerrará automáticamente después de 3 segundos
+            showConfirmButton: false
+          });
+          
+        }, 2000); // Ajusta el tiempo según sea necesario para la animación de carga
       }
     });
   }
-
-
+  
+  showLoadingSpinner() {
+    Swal.fire({
+      title: 'Cerrando sesión...',
+      text: 'Por favor, espera un momento.',
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+  }
   toggleAccordion(module: string) {
     const collapseElement = this.collapses.find(collapse => collapse.nativeElement.id === module + 'Collapse');
     if (collapseElement) {
@@ -85,6 +117,4 @@ export class MenuComponent implements OnInit {
   isAccordionOpen(module: string): boolean {
     return this.activeAccordion === module;
   }
-
-  
 }

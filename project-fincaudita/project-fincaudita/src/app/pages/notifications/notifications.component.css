@@ -1,12 +1,14 @@
+/* Container Styling */
 .notifications-container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Back Button Styling */
 .back-button {
   display: flex;
   align-items: center;
@@ -19,23 +21,34 @@
   border: none;
   cursor: pointer;
   margin-right: 10px;
+  transition: transform 0.3s ease;
 }
 
 .back-btn svg {
   stroke: #44E32A;
+  width: 24px;
+  height: 24px;
 }
 
+.back-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Headings and Text */
 h2 {
-  font-size: 24px;
+  font-size: 26px;
   color: #333;
+  font-weight: 600;
+  text-align: center;
 }
 
 .no-notifications {
   text-align: center;
   font-size: 16px;
-  color: #666;
+  color: #999;
 }
 
+/* Notification List Styling */
 .notifications-list {
   list-style: none;
   padding: 0;
@@ -46,42 +59,54 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
   background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
 .notification-item.read {
-  background-color: #e0e0e0;
+  background-color: #ececec;
+}
+
+.notification-item:hover {
+  background-color: #f0f0f0;
 }
 
 .notification-content {
   flex: 1;
 }
 
+/* Notification Message */
 .notification-message {
   font-size: 16px;
   color: #333;
   margin: 0;
+  font-weight: 500;
 }
 
+/* Date Styling */
 .notification-date {
   font-size: 12px;
-  color: #999;
+  color: #aaa;
+  margin-top: 5px;
 }
 
+/* Mark Read Button */
 .mark-read-btn {
   background-color: #44E32A;
   color: #fff;
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+  padding: 10px 16px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .mark-read-btn:hover {
   background-color: #39c12a;
+  transform: translateY(-2px);
 }

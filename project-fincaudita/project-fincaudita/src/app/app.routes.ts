@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { RoleComponent } from './pages/security/role/role.component';
@@ -22,22 +23,26 @@ import { ReviewTechnicalComponent } from './pages/operational/review-technical/r
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { authGuard } from './guard/auth.guard';
-import { RoleviewComponent } from './pages/security/roleview/roleview.component';
 import { ForgotYourPasswordComponent } from './pages/forgot-your-password/forgot-your-password.component';
 import { Component } from '@angular/core';
 import { CreatAccountComponent } from './pages/creat-account/creat-account.component';
-import { TreatmentsuppliesComponent } from './pages/parameter/treatmentsupplies/treatmentsupplies.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { UserprofileComponent } from './pages/userprofile/userprofile.component';
 import { TreatmentComponent } from './pages/operational/treatment/treatment.component';
-import { LotTreatmentComponent } from './pages/operational/lot-treatment/lot-treatment.component';
+import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
+import { LandigPageComponent } from './pages/landig-page/landig-page.component';
+
 
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: '/login',  
+        redirectTo: '/landig-page',  
         pathMatch: 'full'
+    },
+    {
+        path: 'landig-page',
+        component: LandigPageComponent,
     },
     {
         path: 'login',
@@ -52,6 +57,10 @@ export const routes: Routes = [
         component: CreatAccountComponent,
     },
     {
+        path: 'terms-conditions',
+        component: TermsConditionsComponent,
+    },
+    {
         path: 'dashboard',
         component: DashboardComponent,
         canActivate: [authGuard],
@@ -59,7 +68,6 @@ export const routes: Routes = [
             { path: 'home', component: HomeComponent, },
             { path: 'menu', component: MenuComponent, },
             { path: 'role', component: RoleComponent, },
-            { path: 'roleview', component: RoleviewComponent, },
             { path: 'user', component: UserComponent, },
             { path: 'modulo', component: ModuloComponent, },
             { path: 'view', component: ViewComponent, },
@@ -70,9 +78,7 @@ export const routes: Routes = [
             { path: 'country', component: CountryComponent, },
             { path: 'crop', component: CropComponent, },
             { path: 'departament', component: DepartamentComponent, },
-            { path: 'treatmentsupplies', component: TreatmentsuppliesComponent },
             { path: 'supplies', component: SuppliesComponent, },
-            { path: 'lot-treatment', component: LotTreatmentComponent, },
             { path: 'treatment', component: TreatmentComponent, },
             { path: 'checklist', component: ChecklistComponent, },
             { path: 'evidence', component: EvidenceComponent, },
@@ -89,6 +95,6 @@ export const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: '/login'
+        redirectTo: '/landig-page'
     }
 ];

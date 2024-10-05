@@ -1,9 +1,41 @@
 <!-- Título con estilo -->
 <h2 class="title">Lista de Roles</h2>
 
+<div class="top-container">
+    <!-- Select para exportar -->
+    <div class="export-select">
+      <ng-select 
+        (change)="handleExport($event)" 
+        [placeholder]="'Exportar Como'" 
+        [clearable]="true" 
+        [searchable]="false">
+        <ng-option value="pdf" class="custom-option">
+          <div class="option-container">
+            <i class="fas fa-file-pdf"></i>
+            <span class="custom-option-text">PDF</span>
+          </div>
+        </ng-option>
+        <ng-option value="excel" class="custom-option">
+          <div class="option-container">
+            <i class="fas fa-file-excel"></i>
+            <span class="custom-option-text">Excel</span>
+          </div>
+        </ng-option>
+      </ng-select>
+    </div>
+
+<div class="items-per-page">
+    <label for="itemsPerPage">Mostrar:</label>
+    <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="updatePagination()">
+        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+    </select>
+</div>
 <!-- Botón a la derecha -->
 <button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo <i class="fas fa-plus"></i></button>
 
+<div class="search-container">
+    <input type="text" placeholder="Buscar..." [(ngModel)]="searchTerm" (ngModelChange)="filterRoles()" class="form-control input-field" />
+</div>
 <!-- The Modal -->
 <div id="roleModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
     <div class="modal-content">
@@ -18,12 +50,12 @@
             <div class="row">
                 <div class="col">
                     <label for="Name">Nombre del Rol:</label>
-                    <input type="text" class="form-control" id="Name" name="name" [(ngModel)]="role.name" required>
+                    <input type="text" class="form-control input-field" id="Name" name="name" [(ngModel)]="role.name" required>
                 </div>
 
                 <div class="col">
                     <label for="Description">Descripción:</label>
-                    <input type="text" class="form-control" id="Description" name="description"
+                    <input type="text" class="form-control input-field" id="Description" name="description"
                         [(ngModel)]="role.description" required>
                 </div>
             </div>
@@ -56,6 +88,7 @@
 <table *ngIf="roles.length > 0" class="table">
     <thead>
         <tr>
+            <th><input type="checkbox" (change)="selectAll($event)" [checked]="areAllSelected()" /></th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Vistas</th>
@@ -81,3 +114,24 @@
     </tbody>
 </table>
 <p *ngIf="roles.length === 0">No se encontraron roles.</p>
+
+<div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">
+      &laquo; <!-- Flecha izquierda -->
+    </button>
+
+    <ng-container *ngFor="let page of getPageNumbers()">
+      <button (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+    </ng-container>
+
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="arrow">
+      &raquo; <!-- Flecha derecha -->
+    </button>
+  </div>
+
+
+<div class="delete-selected-container">
+    <button class="btn btn-danger" (click)="deleteSelected()" [disabled]="!hasSelected()">
+        <i class="fas fa-trash"></i> Eliminar seleccionados
+    </button>
+</div>

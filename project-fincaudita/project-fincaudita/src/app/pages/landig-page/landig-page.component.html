@@ -1,0 +1,100 @@
+<header class="header">
+    <div class="container">
+      <div class="logo">
+        <h2>
+          <span class="green">F</span>
+          <span class="green">i</span>
+          <span class="green">n</span>
+          <span class="green">c</span>
+          <span class="green">a</span>
+          <span class="black">u</span>
+          <span class="black">d</span>
+          <span class="black">i</span>
+          <span class="black">t</span>
+          <span class="black">a</span>
+        </h2>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a (click)="scrollToSection('Inicio')">Inicio</a></li>
+          <li><a (click)="scrollToSection('SobreNosotros')">Sobre Nosotros</a></li>
+          <li><a (click)="scrollToSection('Servicios')">Servicios</a></li>
+        </ul>
+      </nav>
+      <button class="cta" [routerLink]="'/login'">Iniciar sesión</button>
+    </div>
+  </header>
+  
+  
+  <section class="hero">
+    <div class="hero-background"id= "Inicio"></div>
+    <div class="hero-content">
+      <h1>Bienvenidos a Fincaudita</h1>
+      <p>Gestión de fincas, cultivos y auditorías de manera eficiente.</p>
+    </div>
+  </section>
+
+  <section class="about" id="SobreNosotros">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Sobre Nosotros</h2>
+        <p>En FincAudita, somos una exportadora dedicada a la gestión eficiente de fincas y cultivos, comprometidos con la calidad y la sostenibilidad. Nuestro objetivo es proporcionar a nuestros clientes herramientas innovadoras que optimicen sus procesos, garantizando productos de alta calidad para el mercado internacional. Con un equipo de expertos en agricultura y auditoría, aseguramos que cada producto cumpla con los estándares más exigentes.</p>
+      </div>
+      <div class="about-image">
+        <img src="cultivo.jpg" alt="Imagen sobre nosotros" />
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  <section class="services" id="Servicios">
+    <h2>Nuestros Servicios</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="card-content">
+          <h3>Gestión de Fincas</h3>
+          <p>Optimiza la gestión de tu finca con nuestras herramientas.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="card-content">
+          <h3>Auditorías</h3>
+          <p>Realiza auditorías con precisión y facilidad.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="card-content">
+          <h3>Tratamiento de Cultivos</h3>
+          <p>Controla y optimiza el tratamiento de tus cultivos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <h3>FincAudita</h3>
+        <p>Optimiza la gestión de tu finca con herramientas innovadoras y sostenibles.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a [routerLink]="'/terms-conditions'" > terminos y condiciones </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+    
+  
+  
+
+  
+  

@@ -31,17 +31,15 @@
       <div class="flex flex-wrap border-t border-l">
         <div *ngFor="let blank of blankdays" style="width: 14.28%; height: 100px" class="border-r border-b"></div>
         <div *ngFor="let date of no_of_days" style="width: 14.28%; height: 100px" class="relative border-r border-b">
-          <div
-            (click)="showEventModal(date)"
+          <div (click)="showEventModal(date)"
             [ngClass]="{'bg-blue-500 text-white': isToday(date), 'bg-gray-200 text-gray-800': !isToday(date)}"
             class="calendar-day cursor-pointer mx-auto mt-2 flex items-center justify-center hover:bg-blue-300 transition duration-300">
             {{ date }}
           </div>
-      
+
           <div style="height: 65px;" class="overflow-y-auto mt-1">
             <div *ngFor="let event of getEventsForDate(date)"
-              class="px-2 py-1 rounded-lg mt-1 overflow-hidden border text-sm relative"
-              [ngClass]="{
+              class="px-2 py-1 rounded-lg mt-1 overflow-hidden border text-sm relative" [ngClass]="{
                 'border-blue-200 text-blue-800 bg-blue-100': event.event_theme === 'azul',
                 'border-red-200 text-red-800 bg-red-100': event.event_theme === 'rojo',
                 'border-yellow-200 text-yellow-800 bg-yellow-100': event.event_theme === 'amarillo',
@@ -58,21 +56,26 @@
                 </button>
               </div>
             </div>
-          </div>          
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   <!-- Modal para agregar eventos -->
   <div *ngIf="openEventModal" class="modal show-modal">
     <div class="modal-content">
       <span class="close" (click)="closeEventModal()">&times;</span>
       <h2 class="modal-title">{{ editingEvent ? 'Editar Evento' : 'Agregar Evento' }}</h2>
       <form (ngSubmit)="addEvent()">
-        <input [(ngModel)]="event_title" name="eventTitle" class="form-control" placeholder="Título del evento" required />
-        <input [(ngModel)]="event_date" name="eventDate" class="form-control" readonly />
-        <select [(ngModel)]="event_theme" name="eventTheme" class="form-control">
+        <input [(ngModel)]="alert.title" name="alertTitle" class="form-control" placeholder="Título del evento"
+          required /> 
+          <input [(ngModel)]="alert.date" name="alertDate" class="form-control" [value]="alert.date | date: 'yyyy-MM-dd'" readonly />
+          <label for="UserId">Usuario:</label>
+          <input id="user-search" type="text" class="form-control" [(ngModel)]="alert.userId"
+            [ngbTypeahead]="searchUsers" [resultFormatter]="formatUser" [inputFormatter]="formatUser"
+            (selectItem)="onUserSelect($event)" placeholder="Buscar usuario" />
+        <select [(ngModel)]="alert.theme" name="alertTheme" class="form-control">
           <option *ngFor="let theme of themes" [value]="theme.value">{{ theme.label }}</option>
         </select>
         <div class="modal-footer">

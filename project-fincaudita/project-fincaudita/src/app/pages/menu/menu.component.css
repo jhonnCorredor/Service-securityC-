@@ -171,6 +171,7 @@
   display: flex;
   align-items: center;
   transition: background-color 0.3s ease, transform 0.3s ease;
+
 }
 
 .nav-item a:hover {
@@ -182,3 +183,61 @@
   padding-top: 60px;
   margin-left: 0;
 }
+/* Estilos personalizados para las alertas SweetAlert2 */
+.custom-swal-container {
+  background-color: #f0f4f8; /* Color de fondo suave */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+.custom-swal-title {
+  font-size: 1.5rem; /* Tamaño de fuente más grande */
+  font-weight: 600; /* Fuente en negrita */
+  color: #333; /* Color de texto oscuro */
+  text-align: center; /* Centra el título */
+}
+
+.custom-swal-confirm {
+  background-color: #44E32A; /* Color de fondo verde */
+  color: white; /* Color de texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de fuente */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+.custom-swal-confirm:hover {
+  background-color: #36c236; /* Verde más oscuro al hacer hover */
+  transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+.custom-swal-cancel {
+  background-color: #f44336; /* Color de fondo rojo */
+  color: white; /* Color de texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de fuente */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+.custom-swal-cancel:hover {
+  background-color: #d32f2f; /* Rojo más oscuro al hacer hover */
+  transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+.custom-swal-popup {
+  border-radius: 15px; /* Bordes redondeados en el popup */
+  overflow: hidden; /* Evita el desbordamiento */
+}
+.profile-pic {
+  width: 40px; /* Ancho deseado */
+  height: 40px; /* Altura deseada */
+  border-radius: 50%; /* Para que sea circular, si lo deseas */
+  object-fit: cover; /* Para asegurar que la imagen se recorte adecuadamente */
+}
+.nav-item.calendar a:hover svg {
+  fill: #008f39; /* Cambia el color del ícono a verde al hacer hover */
+}
+

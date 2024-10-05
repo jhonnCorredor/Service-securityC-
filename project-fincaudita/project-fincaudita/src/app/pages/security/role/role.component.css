@@ -40,6 +40,7 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1100;  
 }
 
 .show-modal {
@@ -194,4 +195,179 @@
 .select-container {
     display: inline-block; /* Ajusta el tamaño del contenedor del select */
     width: 100%; /* Ajusta al ancho del contenedor */
+}
+.input-field {
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  /* Estilo cuando el campo de entrada está en foco */
+  .input-field:focus {
+    border: 1px solid #44E32A !important; /* Borde verde */
+    outline: none !important; /* Eliminar el contorno por defecto */
+    box-shadow: 0 0 5px rgba(68, 227, 42, 0.5); /* Sombra verde */
+  }
+  
+  /* Estilo para el checkbox cuando está en foco */
+  .form-check-input:focus {
+    box-shadow: 0 0 5px rgba(68, 227, 42, 0.5); /* Sombra verde */
+    border: 1px solid #44E32A !important; /* Borde verde */
+  }
+  
+  /* Estilo para el checkbox cuando está activado */
+  .form-check-input:checked {
+    background-color: #44E32A !important; /* Fondo verde cuando está seleccionado */
+    border-color: #44E32A !important; /* Borde verde */
+  }
+  .delete-selected-container {
+    margin-top: auto; /* Asegura que el botón esté al final */
+    right: 189px; /* Ajusta según la distancia que desees desde la derecha */
+    position: relative; /* Cambia a relative para poder usar top sin afectar a otros elementos */
+    top: -40px; /* Ajusta este valor para subir el botón */
+    display: flex;
+    justify-content: flex-end; /* Alinea el botón a la derecha */
+}
+
+.search-container {
+    margin-right:1060px ;
+    margin-top: 20px;
+    width: auto; /* Ajusta el ancho según sea necesario */
+}
+
+.form-control-sm {
+    width: 200px; /* Establece el ancho deseado del buscador */
+}
+
+  
+.pagination-container {
+    display: flex;
+    justify-content: flex-end; /* Alinear a la derecha */
+    align-items: center; /* Alinear verticalmente */
+    margin: 1rem 0; /* Espaciado alrededor */
+    border: 1px solid #44E32A; /* Borde alrededor del contenedor */
+    border-radius: 10px; /* Radio de borde para el contenedor */
+    padding: 0.5rem; /* Espaciado interno para el contenedor */
+    background-color: white; /* Fondo blanco para el contenedor */
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: flex-end;  /* Alinear verticalmente */
+  }
+  
+  .pagination button,
+  .arrow {
+    margin: 0 0.5rem; /* Espaciado entre los botones */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    border: none; /* Sin borde alrededor de cada número y flecha */
+    background-color: transparent; /* Fondo transparente */
+    color: #008f39; /* Color del texto */
+    cursor: pointer; /* Cambiar cursor */
+    transition: background-color 0.3s, color 0.3s; /* Transición para hover */
+    font-size: 1rem; /* Tamaño de fuente consistente */
+    display: flex; /* Alinear iconos y texto */
+    align-items: center; /* Centrar contenido verticalmente */
+    border-radius: 5px; /* Radio de borde para números y flechas */
+  }
+  
+  .arrow {
+    font-size: 1.5rem; /* Tamaño de la flecha */
+  }
+  
+  .pagination button:hover,
+  .arrow:hover {
+    background-color: #44E32A; /* Color de fondo al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
+  }
+  
+  .pagination button.active {
+    background-color: #44E32A; /* Color para el número de página activa */
+    color: white; /* Color del texto activo */
+  }
+  
+  .export-select {
+    width: 150px; /* Ajusta el ancho como desees */
+    margin: 10px;
+    margin-left: 950px; /* Mantiene la posición horizontal */
+    position: relative;
+}
+
+/* Estilo del contenedor de ng-select */
+.ng-select {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    height: 37px;
+    top: 47px;
+}
+
+/* Panel del dropdown */
+.ng-select .ng-dropdown-panel {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px; /* Ajusta el margen superior para más separación */
+    padding: 10px;
+    position: absolute; /* Cambia a posición absoluta */
+    top: 45px; /* Ajusta este valor según sea necesario */
+    left: 0; /* Alinea el dropdown con el contenedor */
+    z-index: 10; /* Asegúrate de que el dropdown esté por encima de otros elementos */
+}
+
+/* Estilo del contenedor de las opciones */
+.option-container {
+    width: 150px;
+    display: flex;
+    align-items: center;
+    padding: 5px; /* Reducimos el padding para que estén más juntos */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    margin-bottom: 1px; /* Reducimos el margen entre opciones */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Alineación y separación del icono */
+.option-container i {
+    margin-right: 1px; /* Reducimos el espacio entre el icono y el texto */
+    font-size: 18px;
+    color: #555;
+}
+
+/* Texto de la opción */
+.custom-option-text {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Hover en las opciones */
+.option-container:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+.container {
+    position: relative; /* Cambia esto al selector correcto de tu contenedor */
+}
+
+/* Cambia el estilo de .items-per-page */
+.items-per-page {
+    position: absolute; /* Posición absoluta */
+    bottom: 20px; /* Ajusta la distancia desde la parte inferior o superior */
+    margin-left: 830px;  /* Centra horizontalmente (opcional) */
+    top: 199px;
+    margin-bottom: 0; /* Elimina el margen inferior */
+    z-index: 10;
+}
+.items-per-page select {
+    padding: 4px ; /* Espaciado interno */
+    border: 2px solid #ccc; /* Color del borde por defecto */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: transparent; /* Sin fondo */
+    transition: border-color 0.3s; /* Suaviza el cambio de color */
+}
+.items-per-page select:focus {
+    border: 1px solid #44E32A !important; /* Borde verde */
+    outline: none !important; /* Eliminar el contorno por defecto */
+    box-shadow: 0 0 5px rgba(68, 227, 42, 0.5); /* Sombra verde */
 }
