@@ -119,33 +119,34 @@
     </tbody>
 </table>
 <p *ngIf="filteredcountry.length === 0">No se encontraron countries.</p>
-
-<div class="pagination">
-  <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">
-    &laquo; <!-- Flecha izquierda -->
-  </button>
-
-  <ng-container *ngFor="let page of getPageNumbers()">
-    <button 
-      (click)="goToPage(page)" 
-      [class.active]="currentPage === page"
-    >
-      {{ page }}
+<div class="data-table-footer">
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">
+      &laquo; <!-- Flecha izquierda -->
     </button>
-  </ng-container>
 
-  <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="arrow">
-    &raquo; <!-- Flecha derecha -->
-  </button>
+    <ng-container *ngFor="let page of getPageNumbers()">
+      <button 
+        (click)="goToPage(page)" 
+        [class.active]="currentPage === page"
+      >
+        {{ page }}
+      </button>
+    </ng-container>
+
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="arrow">
+      &raquo; <!-- Flecha derecha -->
+    </button>
+  </div>
+
+  <!-- Eliminar seleccionados -->
+  <div class="delete-selected-container">
+    <button 
+      class="btn btn-danger" 
+      (click)="deleteSelected()" 
+      [disabled]="!hasSelected()"
+    >
+      <i class="fas fa-trash"></i> Eliminar seleccionados
+    </button>
 </div>
-
-<!-- Eliminar seleccionados -->
-<div class="delete-selected-container">
-  <button 
-    class="btn btn-danger" 
-    (click)="deleteSelected()" 
-    [disabled]="!hasSelected()"
-  >
-    <i class="fas fa-trash"></i> Eliminar seleccionados
-  </button>
 </div>

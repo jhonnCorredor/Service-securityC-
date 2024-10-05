@@ -53,6 +53,17 @@ namespace WebA.Controllers.Implements.Operational
             return Ok(result);
         }
 
+        [HttpGet("productor/{id}")]
+        public async Task<ActionResult<ApiResponse<IEnumerable<ReviewTechnicalDto>>>> GetAllProductor(int id)
+        {
+            var result = await business.GetAllProductor(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
         [HttpGet("AllSelect")]
         public async Task<ActionResult<ApiResponse<IEnumerable<DataSelectDto>>>> GetAllSelect()
         {

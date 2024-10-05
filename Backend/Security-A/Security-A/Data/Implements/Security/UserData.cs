@@ -135,6 +135,31 @@ namespace Data.Implements.Security
             return await context.QueryAsync<UserDto>(sql);
         }
 
+        public async Task<IEnumerable<UserDto>> GetAllByRole(int id)
+        {
+            var sql = @"SELECT 
+                            u.Id,
+                            u.Username,
+                            u.Password,
+	                        u.PersonId,
+                            u.State,
+                            (
+                                SELECT 
+                                    r.Id,
+                                    r.Name AS textoMostrar
+                                FROM Roles AS r
+                                LEFT JOIN UserRoles AS ur2 ON ur2.RoleId = r.Id
+                                WHERE ur2.UserId = u.Id AND ur2.DeletedAt IS NULL
+                                FOR JSON PATH
+                            ) AS roleString
+                            FROM Users AS u
+                            INNER JOIN UserRoles AS ur2 ON ur2.UserId = u.Id
+                            WHERE u.DeletedAt IS NULL AND ur2.RoleId = @Id
+                            GROUP BY u.Id, u.Username, u.Password, u.PersonId, u.State
+                            ORDER BY u.Id ASC;";
+            return await context.QueryAsync<UserDto>(sql, new {Id = id});
+        }
+
         public async Task<IEnumerable<LoginDto>> Login(string username, string password)
         {
             var sql = @"

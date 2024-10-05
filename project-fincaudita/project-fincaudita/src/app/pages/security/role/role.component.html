@@ -114,24 +114,25 @@
     </tbody>
 </table>
 <p *ngIf="roles.length === 0">No se encontraron roles.</p>
+<div class="data-table-footer">
+    <div class="pagination">
+        <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">
+        &laquo; <!-- Flecha izquierda -->
+        </button>
 
-<div class="pagination">
-    <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">
-      &laquo; <!-- Flecha izquierda -->
-    </button>
+        <ng-container *ngFor="let page of getPageNumbers()">
+        <button (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+        </ng-container>
 
-    <ng-container *ngFor="let page of getPageNumbers()">
-      <button (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
-    </ng-container>
-
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="arrow">
-      &raquo; <!-- Flecha derecha -->
-    </button>
-  </div>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="arrow">
+        &raquo; <!-- Flecha derecha -->
+        </button>
+    </div>
 
 
-<div class="delete-selected-container">
-    <button class="btn btn-danger" (click)="deleteSelected()" [disabled]="!hasSelected()">
-        <i class="fas fa-trash"></i> Eliminar seleccionados
-    </button>
+    <div class="delete-selected-container">
+        <button class="btn btn-danger" (click)="deleteSelected()" [disabled]="!hasSelected()">
+            <i class="fas fa-trash"></i> Eliminar seleccionados
+        </button>
+    </div>
 </div>

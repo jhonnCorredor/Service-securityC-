@@ -12,6 +12,7 @@ namespace Data.Interfaces.Security
         Task<User> Save(User entity);
         Task Update(User entity);
         Task<IEnumerable<UserDto>> GetAll();
+        Task<IEnumerable<UserDto>> GetAllByRole(int id);
         Task<User> GetByEmail(string email);
         Task<UserDto> GetByIdAndRoles(int id);
         Task<User> GetByUsername(string username);

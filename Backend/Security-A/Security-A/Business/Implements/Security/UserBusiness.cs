@@ -167,6 +167,28 @@ namespace Business.Implements.Security
             return userDtos;
         }
 
+        public async Task<IEnumerable<UserDto>> GetAllByRole(int id)
+        {
+            IEnumerable<UserDto> users = await data.GetAllByRole(id);
+            List<UserDto> userDtos = new List<UserDto>();
+            foreach (var user in users)
+            {
+                UserDto userDto = new UserDto();
+                userDto.Id = user.Id;
+                userDto.Username = user.Username;
+                userDto.Password = user.Password;
+                userDto.PersonId = user.PersonId;
+                userDto.State = user.State;
+                if (user.roleString != null)
+                {
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    userDto.Roles = JsonSerializer.Deserialize<List<DataSelectDto>>(user.roleString, options);
+                }
+                userDtos.Add(userDto);
+            }
+            return userDtos;
+        }
+
         public User mapearDatos(User user, UserDto entity)
         {
             user.Id = entity.Id;

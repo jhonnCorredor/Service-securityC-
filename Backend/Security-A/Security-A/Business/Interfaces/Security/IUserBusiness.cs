@@ -16,5 +16,6 @@ namespace Business.Interfaces.Security
         Task<IEnumerable<UserDto>> GetAll();
         Task<IEnumerable<MenuDto>> Login(AuthenticationDto dto);
         Task<PasswordDto> GetByEmail(string email);
+        Task<IEnumerable<UserDto>> GetAllByRole(int id);
     }
 }

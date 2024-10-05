@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { AfterViewInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { log } from 'node:console';
 
 @Component({
   selector: 'app-review-technical',
@@ -21,7 +22,7 @@ export class ReviewTechnicalComponent implements OnInit, AfterViewInit {
 
   review: any = {
     id: 0,
-    date_review: '',
+    date_review: new Date().toISOString().slice(0, 10),
     code: '',
     observation: '',
     tecnicoId: 0,
@@ -31,7 +32,6 @@ export class ReviewTechnicalComponent implements OnInit, AfterViewInit {
     lot: '',
     evidences: [{ code: '', document: '' }],
     checklists: {
-      id: 0,
       code: '',
       calification_total: 0,
       qualifications: [{ observation: '', qualification_criteria: 0, assessmentCriteriaId: 0 }]
@@ -101,16 +101,19 @@ export class ReviewTechnicalComponent implements OnInit, AfterViewInit {
 
   getReviews(): void {
     this.http.get<any[]>(this.apiUrl).subscribe(
-      (data) => {
-        this.reviews = data;
+      (reviews) => {
+        this.reviews = reviews.map(review => ({
+          ...review,
+          date_review: new Date(review.date_review).toISOString().slice(0, 10)
+        }));
         console.log('Revisiones cargadas:', this.reviews);
       },
       (error) => {
         console.error('Error al cargar las revisiones:', error);
         this.cdr.detectChanges();
-      }
-    );
-  }
+      }
+    );
+  }
 
   getUsers(): void {
     this.http.get<any[]>(this.usersUrl).subscribe(
@@ -127,12 +130,20 @@ export class ReviewTechnicalComponent implements OnInit, AfterViewInit {
   getAssessmentCriterias(): void {
     this.http.get<any[]>(this.assessmentCriteriaUrl).subscribe(
       (criteria) => {
-        // Filtrar solo los campos id y name
         this.assessmentCriterias = criteria.map(criterion => ({
           id: criterion.id,
           name: criterion.name
         }));
-        console.log('assessmentCriterias loaded:', this.assessmentCriterias);
+
+        this.califications = this.assessmentCriterias.map(criterion => ({
+          observation: '', 
+          qualification_criteria: 0, 
+          assessmentCriteriaId: criterion.id,
+          name: criterion.name
+        }));
+
+        this.review.checklists.qualifications = this.califications
+        
       },
       (error) => {
         console.error('Error fetching assessment criteria:', error);
@@ -352,11 +363,31 @@ if (!this.review.checklists.code || this.review.checklists.code === '') {
 
   editReview(review: any): void {
     this.isEditMode = true;
+    console.log("parametro ",review);
+    
     this.review = { ...review };
+    this.review.date_review = new Date(review.date_review).toISOString().slice(0, 10);
     const selectedUser = this.users.find(user => user.id === this.review.tecnicoId);
+   // Mapea las calificaciones del review en función del assessmentCriteriaId
+    this.califications = this.assessmentCriterias.map(criterion => {
+        // Busca la calificación correspondiente en el review.checklists.qualifications que coincida con el assessmentCriteriaId
+        const matchingQualification = review.checklists.qualifications.find((q: any) => q.assessmentCriteriaId === criterion.id);
+
+        return {
+            // Asigna observation y qualification_criteria si existe una calificación que coincida, de lo contrario asigna valores predeterminados
+            observation: matchingQualification?.observation || '', 
+            qualification_criteria: matchingQualification?.qualification_criteria || 0, 
+            assessmentCriteriaId: criterion.id, // Siempre incluye el ID del criterio
+            name: criterion.name
+        };
+    });
+    this.review.checklists.qualifications = this.califications
+    delete this.review.checklists.id;
+    
     if (selectedUser) {
       this.review.tecnico = selectedUser.username;
     }
+    
     this.openModal();
   }
 
@@ -396,6 +427,7 @@ if (!this.review.checklists.code || this.review.checklists.code === '') {
         qualifications: [{ observation: '', qualification_criteria: 0, assessmentCriteriaId: 0 }]
       }
     };
+    this.getAssessmentCriterias()
     this.filteredUsers = [];
     this.filteredFarms = [];
 

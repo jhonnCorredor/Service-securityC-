@@ -96,7 +96,6 @@ export class CreatAccountComponent implements OnInit {
   }
 
   nextStep(): void {
-    // Guardar el estado actual del formulario en sessionStorage antes de avanzar
     sessionStorage.setItem('person', JSON.stringify(this.person));
     sessionStorage.setItem('termsAccepted', JSON.stringify(this.termsAccepted));
 
@@ -410,7 +409,7 @@ isValidPassword(password: string): boolean {
     const userData = {
       username: this.user.username,
       password: this.user.password,
-      roles: [{ id: 1 }],
+      roles: [{ id: 3 }],
       personId: this.personId
     };
 

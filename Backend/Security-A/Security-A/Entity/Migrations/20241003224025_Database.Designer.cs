@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20240916204750_TerceraMigration")]
-    partial class TerceraMigration
+    [Migration("20241003224025_Database")]
+    partial class Database
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -286,7 +286,7 @@ namespace Entity.Migrations
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FarmId")
+                    b.Property<int>("LotId")
                         .HasColumnType("int");
 
                     b.Property<string>("Observation")
@@ -306,7 +306,7 @@ namespace Entity.Migrations
 
                     b.HasIndex("ChecklistId");
 
-                    b.HasIndex("FarmId");
+                    b.HasIndex("LotId");
 
                     b.HasIndex("TecnicoId");
 
@@ -733,8 +733,9 @@ namespace Entity.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("State")
                         .HasColumnType("bit");
@@ -1019,9 +1020,9 @@ namespace Entity.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entity.Model.Operational.Farm", "Farm")
+                    b.HasOne("Entity.Model.Operational.Lot", "Lot")
                         .WithMany()
-                        .HasForeignKey("FarmId")
+                        .HasForeignKey("LotId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1033,7 +1034,7 @@ namespace Entity.Migrations
 
                     b.Navigation("Checklist");
 
-                    b.Navigation("Farm");
+                    b.Navigation("Lot");
 
                     b.Navigation("Tecnico");
                 });

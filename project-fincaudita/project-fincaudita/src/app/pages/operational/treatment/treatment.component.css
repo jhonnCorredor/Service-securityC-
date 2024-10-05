@@ -209,10 +209,7 @@
     border-color: #44E32A !important; /* Borde verde */
   }
   .delete-selected-container {
-    margin-top: auto; /* Asegura que el botón esté al final */
-    right: 190px; /* Ajusta según la distancia que desees desde la derecha */
     position: relative; /* Cambia a relative para poder usar top sin afectar a otros elementos */
-    top: -40px; /* Ajusta este valor para subir el botón */
     display: flex;
     justify-content: flex-end; /* Alinea el botón a la derecha */
 }
@@ -379,4 +376,8 @@
     border: 1px solid #44E32A !important; /* Borde verde */
     outline: none !important; /* Eliminar el contorno por defecto */
     box-shadow: 0 0 5px rgba(68, 227, 42, 0.5); /* Sombra verde */
+}
+.data-table-footer{
+    display: flex;
+    flex-direction: row-reverse;
 }

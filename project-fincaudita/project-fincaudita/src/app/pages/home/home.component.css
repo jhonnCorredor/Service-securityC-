@@ -38,9 +38,9 @@
 .custom-card-Fincaudita {
   background-image: url('../../assets/crispin-jones-sweDAVjbU3Q-unsplash.jpg'); /* Ruta de la imagen específica */
   width: 100%; /* Ajustar el ancho para que se mantenga dentro de la pantalla */
-  max-width: 1220px; /* Establecer un máximo ancho */
+  max-width: 100%; /* Establecer un máximo ancho */
   min-height: 300px; /* Mantener la altura mínima */
-  margin: 0 auto; /* Centrar la card */
+  margin: 0 auto;
 }
 
 /* Hover con sombra mínima y sin escalado */
@@ -67,7 +67,7 @@
 
 /* Hover effects */
 .custom-card:hover {
-  transform: scale(1.05); /* Escala más pronunciada al hacer hover */
+  transform: scale(1.01); /* Escala más pronunciada al hacer hover */
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Aumentar la sombra al hacer hover */
 }
 

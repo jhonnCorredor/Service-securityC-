@@ -55,6 +55,13 @@ namespace WebA.Controllers.Implements.Security
             return Ok(result);
         }
 
+        [HttpGet("byRole/{id}")]
+        public async Task<ActionResult<ApiResponse<IEnumerable<UserDto>>>> GetAllByRole(int id)
+        {
+            var result = await business.GetAllByRole(id);
+            return Ok(result);
+        }
+
         [HttpGet("AllSelect")]
         public async Task<ActionResult<ApiResponse<IEnumerable<DataSelectDto>>>> GetAllSelect()
         {

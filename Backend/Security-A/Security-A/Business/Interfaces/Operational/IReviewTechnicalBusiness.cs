@@ -19,5 +19,6 @@ namespace Business.Interfaces.Operational
         ReviewTechnical mapearDatos(ReviewTechnical reviewTechnical, ReviewTechnicalDto entity);
         Task<IEnumerable<ReviewTechnicalDto>> GetAll();
         Task<IEnumerable<ReviewTechnicalDto>> GetAllUser(int id);
+        Task<IEnumerable<ReviewTechnicalDto>> GetAllProductor(int id);
     }
 }

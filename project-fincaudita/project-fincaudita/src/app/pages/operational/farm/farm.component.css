@@ -359,3 +359,7 @@
     outline: none !important; /* Eliminar el contorno por defecto */
     box-shadow: 0 0 5px rgba(68, 227, 42, 0.5); /* Sombra verde */
 }
+.data-table-footer{
+    display: flex;
+    flex-direction: row-reverse;
+}

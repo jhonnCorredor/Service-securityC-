@@ -163,34 +163,35 @@
   </tbody>
 </table>
 <p *ngIf="filteredModulos.length === 0">No se encontraron módulos.</p>
-
-<!-- Paginación -->
-<div class="pagination">
-  <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">
-    &laquo; <!-- Flecha izquierda -->
-  </button>
-
-  <ng-container *ngFor="let page of getPageNumbers()">
-    <button 
-      (click)="goToPage(page)" 
-      [class.active]="currentPage === page"
-    >
-      {{ page }}
+<div class="data-table-footer">
+  <!-- Paginación -->
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">
+      &laquo; <!-- Flecha izquierda -->
     </button>
-  </ng-container>
 
-  <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="arrow">
-    &raquo; <!-- Flecha derecha -->
-  </button>
-</div>
+    <ng-container *ngFor="let page of getPageNumbers()">
+      <button 
+        (click)="goToPage(page)" 
+        [class.active]="currentPage === page"
+      >
+        {{ page }}
+      </button>
+    </ng-container>
 
-<!-- Eliminar seleccionados -->
-<div class="delete-selected-container">
-  <button 
-    class="btn btn-danger" 
-    (click)="deleteSelected()" 
-    [disabled]="!hasSelected()"
-  >
-    <i class="fas fa-trash"></i> Eliminar seleccionados
-  </button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="arrow">
+      &raquo; <!-- Flecha derecha -->
+    </button>
+  </div>
+
+  <!-- Eliminar seleccionados -->
+  <div class="delete-selected-container">
+    <button 
+      class="btn btn-danger" 
+      (click)="deleteSelected()" 
+      [disabled]="!hasSelected()"
+    >
+      <i class="fas fa-trash"></i> Eliminar seleccionados
+    </button>
+  </div>
 </div>

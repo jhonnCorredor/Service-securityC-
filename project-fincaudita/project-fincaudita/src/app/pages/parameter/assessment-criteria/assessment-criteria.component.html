@@ -126,8 +126,8 @@
     </tbody>
 </table>
 <p *ngIf="filteredCriteria.length === 0">No se encontraron Criterio Evaluativos.</p>
-
-<div class="pagination">
+<div class="data-table-footer">
+  <div class="pagination">
     <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">
       &laquo; <!-- Flecha izquierda -->
     </button>
@@ -156,3 +156,4 @@
       <i class="fas fa-trash"></i> Eliminar seleccionados
     </button>
   </div>
+</div>
