@@ -93,9 +93,12 @@ export class CreatAccountComponent implements OnInit {
   getCityName(cityId: number): string {
     const city = this.citys.find(c => c.id === cityId);
     return city ? city.name : 'Unknown';
+
+    
   }
 
   nextStep(): void {
+    // Guardar el estado actual del formulario en sessionStorage antes de avanzar
     sessionStorage.setItem('person', JSON.stringify(this.person));
     sessionStorage.setItem('termsAccepted', JSON.stringify(this.termsAccepted));
 
@@ -110,10 +113,27 @@ export class CreatAccountComponent implements OnInit {
 
   onTermsNavigation() {
     // Guardar el estado actual del formulario en sessionStorage
-    sessionStorage.setItem('person', JSON.stringify(this.person));
-    sessionStorage.setItem('termsAccepted', JSON.stringify(this.termsAccepted));
+    this.saveDataToSession();
+
     // Navegar a la página de términos y condiciones
     this.router.navigate(['/terms-conditions']);
+  }
+
+  private saveDataToSession(): void {
+    sessionStorage.setItem('person', JSON.stringify(this.person));
+    sessionStorage.setItem('termsAccepted', JSON.stringify(this.termsAccepted));
+  }
+
+  private loadStoredData(): void {
+    const storedPerson = sessionStorage.getItem('person');
+    const storedTermsAccepted = sessionStorage.getItem('termsAccepted');
+
+    if (storedPerson) {
+      this.person = JSON.parse(storedPerson);
+    }
+    if (storedTermsAccepted) {
+      this.termsAccepted = JSON.parse(storedTermsAccepted);
+    }
   }
 
   togglePasswordVisibility() {
@@ -409,7 +429,7 @@ isValidPassword(password: string): boolean {
     const userData = {
       username: this.user.username,
       password: this.user.password,
-      roles: [{ id: 3 }],
+      roles: [{ id: 1 }],
       personId: this.personId
     };
 

@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
@@ -75,6 +74,25 @@ export class CityComponent implements OnInit {
       }
     );
   }
+
+  
+  getdepartaments(): void {
+    this.http.get<any[]>(this.departamentsUrl).subscribe(
+      (departaments) => {
+        this.departaments = departaments;
+        console.log(this.departaments);
+      },
+      (error) => {
+        console.error('Error fetching departaments:', error);
+      }
+    );
+  }
+
+  getdepartamentName(id: number): string {
+    const departament = this.departaments.find(c => c.id === id);
+    return departament ? departament.name : '';
+  }
+
 
   filterCities(): void {
     const search = this.searchTerm.toLowerCase().trim();
@@ -167,6 +185,16 @@ hasSelected(): boolean {
   return this.cities.some(city => city.selected);
 }
 
+selectAll(event: any): void {
+  const checked = event.target.checked;
+  this.cities.forEach(city => (city.selected = checked));
+}
+
+// Verificar si todos los roles están seleccionados
+areAllSelected(): boolean {
+  return this.cities.length > 0 && this.cities.every(city => city.selected);
+}
+
 deleteSelected(): void {
   const selectedIds = this.cities.filter(city => city.selected).map(city => city.id); // Asegúrate de usar la propiedad correcta para el ID
 
@@ -181,8 +209,7 @@ deleteSelected(): void {
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        const deleteRequests = selectedIds.map(id => this.http.delete(`${this.apiUrl}/cities/${id}`).toPromise()); // Ajusta la URL según tu API
-
+        const deleteRequests = selectedIds.map(id => this.http.delete(`${this.apiUrl}/${id}`).toPromise());
         Promise.all(deleteRequests)
           .then(() => {
             this.cities = this.cities.filter(city => !selectedIds.includes(city.id)); // Asegúrate de usar la propiedad correcta para el ID
@@ -199,27 +226,6 @@ deleteSelected(): void {
     Swal.fire('Error', 'No hay ciudades seleccionadas para eliminar.', 'error');
   }
 }
-
-
-  
-
-  getdepartaments(): void {
-    this.http.get<any[]>(this.departamentsUrl).subscribe(
-      (departaments) => {
-        this.departaments = departaments;
-        console.log(this.departaments);
-      },
-      (error) => {
-        console.error('Error fetching departaments:', error);
-      }
-    );
-  }
-
-  getdepartamentName(id: number): string {
-    const departament = this.departaments.find(c => c.id === id);
-    return departament ? departament.name : '';
-  }
-
 
   openModal(): void {
     this.isModalOpen = true;

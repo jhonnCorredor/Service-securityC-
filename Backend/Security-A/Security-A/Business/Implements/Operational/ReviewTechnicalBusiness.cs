@@ -6,6 +6,7 @@ using Entity.Model.Operational;
 using System.Text.Json;
 using System;
 using System.Security.Principal;
+using static Dapper.SqlMapper;
 
 namespace Business.Implements.Operational
 {
@@ -24,6 +25,18 @@ namespace Business.Implements.Operational
 
         public async Task Delete(int id)
         {
+            ReviewTechnical ReviewTechnical = await data.GetById(id);
+            await evidenceBusiness.DeleteEvidences(ReviewTechnical.Id);
+            if (ReviewTechnical == null)
+            {
+                throw new Exception("Registro no encontrado");
+            }
+
+            if (ReviewTechnical.ChecklistId != null)
+            {
+                await checklistBusiness.Delete(ReviewTechnical.ChecklistId);
+
+            }
             await data.Delete(id);
         }
 
@@ -210,10 +223,16 @@ namespace Business.Implements.Operational
         public async Task Update(ReviewTechnicalDto entity)
         {
             ReviewTechnical ReviewTechnical = await data.GetById(entity.Id);
-
             if (ReviewTechnical == null)
             {
                 throw new Exception("Registro no encontrado");
+            }
+
+            if (entity.checklists != null && entity.checklists.Id != null)
+            {
+                await checklistBusiness.Delete(entity.checklists.Id);
+
+                entity.checklists.Id = 0;
             }
 
             Checklist cId = new Checklist();

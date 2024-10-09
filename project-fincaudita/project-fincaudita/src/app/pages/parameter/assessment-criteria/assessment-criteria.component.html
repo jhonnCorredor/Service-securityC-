@@ -1,14 +1,24 @@
 <h2 class="title">Lista de Criterios de evaluación</h2>
 
 <div class="top-container">
-</div>
+  <!-- Campo de búsqueda -->
+  <div class="search-container">
+    <input type="text" placeholder="Buscar..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()"
+      class="form-control input-field" />
+  </div>  
+  
+  <div class="export-container">
+    <!-- Selector de ítems por página -->
+    <div class="items-per-page">
+      <label for="itemsPerPage">Mostrar:</label>
+      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
+        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+  
     <!-- Select para exportar -->
     <div class="export-select">
-      <ng-select 
-        (change)="handleExport($event)" 
-        [placeholder]="'Exportar Como'" 
-        [clearable]="true" 
-        [searchable]="false">
+      <ng-select (change)="handleExport($event)" [placeholder]="'Exportar Como'" [clearable]="true" [searchable]="false">
         <ng-option value="pdf" class="custom-option">
           <div class="option-container">
             <i class="fas fa-file-pdf"></i>
@@ -23,26 +33,12 @@
         </ng-option>
       </ng-select>
     </div>
-  
-    <!-- Selector de ítems por página -->
-    <div class="items-per-page">
-      <label for="itemsPerPage">Mostrar:</label>
-      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
-        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
-      </select>
-    </div>
-
-<button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo<i class="fas fa-plus"></i></button>
-
-<div class="search-container">
-    <input 
-      type="text" 
-      placeholder="Buscar..." 
-      [(ngModel)]="searchTerm" 
-      (ngModelChange)="onSearchChange()" 
-      class="form-control input-field" 
-    />
   </div>
+
+  <!-- Botón para agregar un nuevo módulo -->
+  <button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo <i class="fas fa-plus"></i></button>
+</div>
+
 <div id="cityModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
     <div class="modal-content">
         <span class="close" (click)="closeModal()">&times;</span>
@@ -79,7 +75,8 @@
                         <option value="Control de Plagas">Control de Plagas</option>
                     </select>
                 </div>
-                <div class="col">
+
+                <div class="col" *ngIf="assesment.id !== 0">
                     <label for="State">Estado:</label>
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="State" name="State"
@@ -101,8 +98,15 @@
 <table *ngIf="filteredCriteria.length > 0" class="table">
     <thead>
         <tr>
+          <th>
+            <input 
+              type="checkbox" 
+              (change)="selectAll($event)" 
+              [checked]="areAllSelected()" 
+            />
+          </th>
             <th>Nombre</th>
-            <th>Rango de calificación</th>
+            <th>Rango de  calificación</th>
             <th>Tipo de criterio</th>
             <th>Estado</th>
             <th>Acciones</th>
@@ -110,6 +114,12 @@
     </thead>
     <tbody>
         <tr *ngFor="let assesment of paginatedCriteria()">
+          <td>
+            <label class="checkbox-container">
+              <input type="checkbox" [(ngModel)]="assesment.selected" />
+              <div class="checkbox-custom"></div>
+            </label>
+          </td>
             <td>{{ assesment.name }}</td>
             <td>{{ assesment.rating_range }}</td>
             <td>{{ assesment.type_criterian }}</td>

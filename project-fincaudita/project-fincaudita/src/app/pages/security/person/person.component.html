@@ -1,158 +1,150 @@
 <!-- Título con estilo -->
 <h2 class="title">Lista de Personas</h2>
 
-<div class="export-select">
-    <ng-select 
-        (change)="handleExport($event)" 
-        [placeholder]="'Exportar Como'" 
-        [clearable]="true" 
-        [searchable]="false"> <!-- Disable the search functionality -->
-        <ng-option value="pdf" class="custom-option">
-            <div class="option-container">
-                <i class="fas fa-file-pdf"></i>
-                <span class="custom-option-text">PDF</span>
-            </div>
-        </ng-option>
-        <ng-option value="excel" class="custom-option">
-            <div class="option-container">
-                <i class="fas fa-file-excel"></i>
-                <span class="custom-option-text">Excel</span>
-            </div>
-        </ng-option>
-    </ng-select>
+<div class="top-container">
+    <!-- Campo de búsqueda -->
+    <div class="search-container">
+        <input type="text" placeholder="Buscar..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()" class="form-control input-field" />
+    </div>
+
+    <div class="export-container">
+        <!-- Selector de ítems por página -->
+        <div class="items-per-page">
+            <label for="itemsPerPage">Mostrar:</label>
+            <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
+                <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+            </select>
+        </div>
+
+        <!-- Select para exportar -->
+        <div class="export-select">
+            <ng-select (change)="handleExport($event)" [placeholder]="'Exportar Como'" [clearable]="true" [searchable]="false">
+                <ng-option value="pdf" class="custom-option">
+                    <div class="option-container">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="custom-option-text">PDF</span>
+                    </div>
+                </ng-option>
+                <ng-option value="excel" class="custom-option">
+                    <div class="option-container">
+                        <i class="fas fa-file-excel"></i>
+                        <span class="custom-option-text">Excel</span>
+                    </div>
+                </ng-option>
+            </ng-select>
+        </div>
+    </div>
+
+    <!-- Botón para agregar una nueva persona -->
+    <button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo <i class="fas fa-plus"></i></button>
 </div>
-  
-<div class="items-per-page">
-    <label for="itemsPerPage">Mostrar:</label>
-    <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="updatePagination()">
-        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
-    </select>
-</div>
 
-
-<!-- Botón a la derecha -->
-<button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo <i class="fas fa-plus"></i></button>
-
-<div class="search-container">
-    <input type="text" placeholder="Buscar..." [(ngModel)]="searchTerm" (ngModelChange)="filterPersons()" class="form-control input-field" />
-</div>
-
-
-
-<div id="moduloModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
+<!-- Modal para agregar/editar persona -->
+<div id="personModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
     <div class="modal-content">
         <span class="close" (click)="closeModal()">&times;</span>
-        <h2>{{ person.id === 0 ? 'Agregar persona' : 'Editar persona' }}</h2>
+        <h2>{{ person.id === 0 ? 'Agregar Persona' : 'Editar Persona' }}</h2>
 
         <hr class="modal-border">
 
-        <form #moduloForm="ngForm" (ngSubmit)="onSubmit(moduloForm)">
+        <form #personForm="ngForm" (ngSubmit)="onSubmit(personForm)">
             <input type="hidden" name="id" [(ngModel)]="person.id">
 
             <div class="row">
                 <div class="col">
                     <label for="First_name">Primer nombre:</label>
-                    <input type="text" class="form-control input-field" id="First_name" name="First_name"
-                        [(ngModel)]="person.first_name" required>
+                    <input type="text" class="form-control input-field" id="First_name" name="First_name" [(ngModel)]="person.first_name" required>
                 </div>
 
                 <div class="col">
                     <label for="Last_name">Segundo nombre:</label>
-                    <input type="text" class="form-control input-field" id="Last_name" name="Last_name"
-                        [(ngModel)]="person.last_name" required>
+                    <input type="text" class="form-control input-field" id="Last_name" name="Last_name" [(ngModel)]="person.last_name" required>
                 </div>
             </div>
+            <br>
 
             <div class="row">
                 <div class="col">
                     <label for="Email">Email:</label>
-                    <input type="text" class="form-control input-field" id="Email" name="Email" [(ngModel)]="person.email" required>
+                    <input type="email" class="form-control input-field" id="Email" name="Email" [(ngModel)]="person.email" required>
                 </div>
 
                 <div class="col">
                     <label for="Type_document">Tipo de documento:</label>
                     <select class="form-control input-field" id="Type_document" name="Type_document" [(ngModel)]="person.type_document" required>
-                      <option value="">Seleccione</option>
-                      <option value="CC">Cédula de ciudadanía</option>
-                      <option value="TI">Tarjeta de identidad</option>
-                      <option value="CE">Cédula de extranjería</option>
-                      <option value="PS">Pasaporte</option>
+                        <option value="">Seleccione</option>
+                        <option value="CC">Cédula de ciudadanía</option>
+                        <option value="TI">Tarjeta de identidad</option>
+                        <option value="CE">Cédula de extranjería</option>
+                        <option value="PS">Pasaporte</option>
                     </select>
-                </div>   
-                </div>               
+                </div>
+            </div>
+            <br>
 
             <div class="row">
                 <div class="col">
                     <label for="Document">Documento:</label>
-                    <input type="text" class="form-control input-field" id="Document" name="Document" [(ngModel)]="person.document"
-                        required>
+                    <input type="text" class="form-control input-field" id="Document" name="Document" [(ngModel)]="person.document" required>
                 </div>
 
                 <div class="col">
-                    <label for="Addres">Dirección:</label>
-                    <input type="text" class="form-control input-field" id="Addres" name="Addres" [(ngModel)]="person.addres"
-                        required>
+                    <label for="Address">Dirección:</label>
+                    <input type="text" class="form-control input-field" id="Address" name="Address" [(ngModel)]="person.address" required>
                 </div>
             </div>
+            <br>
 
             <div class="row">
                 <div class="col">
-                    <label for="Phone">Telefono:</label>
+                    <label for="Phone">Teléfono:</label>
                     <input type="text" class="form-control input-field" id="Phone" name="Phone" [(ngModel)]="person.phone" required>
                 </div>
 
-                    <div class="col">
-                    <label for="Birth_of_date">Fecha de nacimiento:</label>
-                    <input type="date" class="form-control input-field" id="Birth_of_date" name="Birth_of_date"
-                        [(ngModel)]="person.birth_of_date" required>
-                    </div>
-                <br>
-
-                <div class="row">
-                    <div class="col">
-                        <label for="CityId">Ciudad:</label>
-                        <input type="text" class="form-control input-field" id="CityId" name="CityId" 
-                        [ngbTypeahead]="searchCitys"
-                        [inputFormatter]="formatCity" 
-                        [resultFormatter]="formatCity"
-                        (selectItem)="onCitySelect($event)"
-                        [ngModel]="getCityName(person.cityId)"
-                        required>
-                    </div>
-
                 <div class="col">
+                    <label for="Birth_of_date">Fecha de nacimiento:</label>
+                    <input type="date" class="form-control input-field" id="Birth_of_date" name="Birth_of_date" [(ngModel)]="person.birth_of_date" required>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <label for="City">Ciudad:</label>
+                    <input type="text" class="form-control input-field" id="City" name="City" [(ngModel)]="person.cityName" (input)="searchCitys($event)" required>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCitySelect($event)">
+                        <mat-option *ngFor="let city of filteredCitys" [value]="city.name">
+                            {{ city.name }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </div>
+
+                <div class="col" *ngIf="person.id !== 0">
                     <label for="State">Estado:</label>
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="State" name="State"
-                            [(ngModel)]="person.state">
+                        <input class="form-check-input" type="checkbox" id="State" name="State" [(ngModel)]="person.state">
                     </div>
                 </div>
-                
             </div>
-        </div>
-        <br>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-        </div>
+
+            <br>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
         </form>
     </div>
 </div>
 
-<!-- Table of modules -->
+<!-- Tabla de personas -->
 <table *ngIf="filteredPersons.length > 0" class="table">
     <thead>
         <tr>
             <th><input type="checkbox" (change)="selectAll($event)" [checked]="areAllSelected()" /></th>
-            <th>P. nombre</th>
-            <th>S. nombre</th>
-            <th>Email</th>
-            <th>T.D.</th>
+            <th>Nombre</th>
             <th>Documento</th>
-            <th>Dirección</th>
+            <th>Email</th>
             <th>Teléfono</th>
-            <th>F.N.</th>
-            <th>Ciudad</th>
             <th>Estado</th>
             <th>Acciones</th>
         </tr>
@@ -165,15 +157,10 @@
                     <div class="checkbox-custom"></div>
                 </label>
             </td>
-            <td>{{ person.first_name }}</td>
-            <td>{{ person.last_name }}</td>
-            <td>{{ person.email }}</td>
-            <td>{{ person.type_document }}</td>
+            <td>{{ person.first_name }} {{ person.last_name }}</td>
             <td>{{ person.document }}</td>
-            <td>{{ person.addres }}</td>
+            <td>{{ person.email }}</td>
             <td>{{ person.phone }}</td>
-            <td>{{ person.birth_of_date }}</td>
-            <td>{{ getCityName(person.cityId) }}</td>
             <td>{{ person.state ? 'Activo' : 'Inactivo' }}</td>
             <td>
                 <button class="btn-icon edit" (click)="editPersons(person)" title="Editar">
@@ -187,22 +174,18 @@
     </tbody>
 </table>
 <p *ngIf="filteredPersons.length === 0">No se encontraron personas.</p>
+
 <div class="data-table-footer">
+    <!-- Paginación -->
     <div class="pagination">
-        <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">
-        &laquo; <!-- Flecha izquierda -->
-        </button>
-
+        <button (click)="previousPage()" [disabled]="currentPage === 1" class="arrow">&laquo;</button>
         <ng-container *ngFor="let page of getPageNumbers()">
-        <button (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+            <button (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
         </ng-container>
-
-        <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="arrow">
-        &raquo; <!-- Flecha derecha -->
-        </button>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="arrow">&raquo;</button>
     </div>
 
-
+    <!-- Eliminar seleccionados -->
     <div class="delete-selected-container">
         <button class="btn btn-danger" (click)="deleteSelected()" [disabled]="!hasSelected()">
             <i class="fas fa-trash"></i> Eliminar seleccionados

@@ -2,15 +2,15 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
-import { MultiSelectModule } from 'primeng/multiselect';
 import { NgSelectModule } from '@ng-select/ng-select';
 import * as XLSX from 'xlsx';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @Component({
   selector: 'app-user',
@@ -20,8 +20,10 @@ import autoTable from 'jspdf-autotable';
     FormsModule,
     CommonModule,
     NgbTypeaheadModule,
+    NgSelectModule,
     MultiSelectModule,
-    NgSelectModule
+    MatInputModule,
+    MatAutocompleteModule
   ],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
@@ -33,6 +35,7 @@ export class UserComponent implements OnInit {
   roles: any[] = [];
   isModalOpen = false;
   filteredUsers: any[] = [];
+  filteredPersons: any[] = [];
   currentPage = 1;
   itemsPerPage = 5;
   searchTerm = '';
@@ -150,6 +153,16 @@ export class UserComponent implements OnInit {
   hasSelected(): boolean {
     return this.users.some(user => user.selected);
   }
+  selectAll(event: any): void {
+    const checked = event.target.checked;
+    this.users.forEach(user => (user.selected = checked));
+  }
+
+  // Verificar si todos los roles están seleccionados
+  areAllSelected(): boolean {
+    return this.users.length > 0 && this.users.every(role => role.selected);
+  }
+
 
   deleteSelected(): void {
     const selectedIds = this.users.filter(user => user.selected).map(user => user.personId);
@@ -166,7 +179,6 @@ export class UserComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed) {
           const deleteRequests = selectedIds.map(id => this.http.delete(`${this.apiUrl}/${id}`).toPromise());
-
           Promise.all(deleteRequests)
             .then(() => {
               this.users = this.users.filter(user => !selectedIds.includes(user.personId));
@@ -184,19 +196,23 @@ export class UserComponent implements OnInit {
     }
   }
 
-  searchPersons = (text$: Observable<string>) =>
-    text$.pipe(
-      debounceTime(200),
-      distinctUntilChanged(),
-      map(term => term.length < 1 ? []
-        : this.persons.filter(person => person.first_name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
-    );
-
-  formatPerson = (person: any) => person.first_name;
-
-  onPersonSelect(event: any): void {
-    const selectedPerson = event.item;
-    this.user.personId = selectedPerson.id; 
+    searchpersons(event: any): void {
+      const term = event.target.value.toLowerCase();
+      this.filteredPersons = this.persons.filter(person => 
+        person.first_name.toLowerCase().includes(term)
+      );
+    }
+  
+    onpersonSelect(event: any): void {
+      const selectedperson = this.persons.find(person => 
+        person.first_name === event.option.value
+      );
+      if (selectedperson) {
+          this.user.personId = selectedperson.id;
+          this.user.personFirst_name = selectedperson.first_name; // Agregar esto
+          // Cierra el autocompletar
+          this.filteredPersons = [];
+      }
   }
 
   getUsers(): void {
@@ -249,6 +265,7 @@ export class UserComponent implements OnInit {
   closeModal(): void {
     this.isModalOpen = false;
     this.resetForm();
+    this.filteredPersons = [];
   }
 
   onSubmit(form: NgForm): void {
@@ -274,20 +291,23 @@ export class UserComponent implements OnInit {
       this.http.post(this.apiUrl, userToSave).subscribe(() => {
         this.getUsers();
         this.closeModal();
-        Swal.fire('Success', 'Usuario creado exitosamente!', 'success');
+        Swal.fire('Éxito', 'Usuario creado exitosamente!', 'success');
       });
     } else {
       this.http.put(this.apiUrl, userToSave).subscribe(() => {
         this.getUsers();
         this.closeModal();
-        Swal.fire('Success', 'Usuario actualizado exitosamente!', 'success');
+        Swal.fire('Éxito', 'Usuario actualizado exitosamente!', 'success');
       });
     }
   }
 
   editUsers(user: any): void {
     this.user = { ...user, roles: user.roles.map((role: any) => ({ id: role.id, textoMostrar: role.textoMostrar })) };
-
+    const selectedperson = this.persons.find(per => per.id === this.user.personId);
+    if (selectedperson) {
+        this.user.personFirst_name = selectedperson.first_name; // Necesitas agregar esta propiedad a tu objeto city
+    }
     const selectedRoleIds = this.user.roles.map((role: any) => role.id);
     this.user.roles = this.roles.filter((role: any) => selectedRoleIds.includes(role.id));
 
@@ -315,5 +335,6 @@ export class UserComponent implements OnInit {
 
   resetForm(): void {
     this.user = { id: 0, username: '', password: '', personId: 0, state: true, roles: [] };
+    this.filteredPersons = [];
   }
 }

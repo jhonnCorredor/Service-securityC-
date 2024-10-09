@@ -12,6 +12,8 @@ import { Lot } from './interface-lots';
 import * as XLSX from 'xlsx';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 export interface Farm {
   id: number;
@@ -26,7 +28,8 @@ export interface Farm {
 @Component({
   selector: 'app-farm',
   standalone: true,
-  imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule, MultiSelectModule, NgSelectModule],
+  imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule, MultiSelectModule, NgSelectModule, MatInputModule,
+    MatAutocompleteModule],
   templateUrl: './farm.component.html',
   styleUrls: ['./farm.component.css']
 })
@@ -41,6 +44,8 @@ export class FarmComponent implements OnInit {
   hectares: number | null = null;
   isModalOpen = false;
   filteredFarms: any[] = [];
+  filteredCitys: any[] = [];
+  filteredUsers: any[] = [];
   currentPage = 1;
   itemsPerPage = 5;
   searchTerm = '';
@@ -61,13 +66,24 @@ export class FarmComponent implements OnInit {
     this.getCrops();
   }
 
-  searchCities = (text$: Observable<string>) =>
-    text$.pipe(
-      debounceTime(100),
-      distinctUntilChanged(),
-      map(term => term.length < 1 ? [] : this.cities
-        .filter(city => city.name?.toLowerCase().includes(term.toLowerCase())).slice(0, 10))
+  searchCitys(event: any): void {
+    const term = event.target.value.toLowerCase();
+    this.filteredCitys = this.cities.filter(city => 
+      city.name.toLowerCase().includes(term)
     );
+  }
+
+  onCitySelect(event: any): void {
+    const selectedcity = this.cities.find(city => 
+      city.name === event.option.value
+    );
+    if (selectedcity) {
+        this.farm.cityId = selectedcity.id;
+        this.farm.cityName = selectedcity.name; // Agregar esto
+        // Cierra el autocompletar
+        this.filteredCitys = [];
+    }
+}
 
   searchUsers = (text$: Observable<string>) =>
     text$.pipe(
@@ -90,10 +106,7 @@ export class FarmComponent implements OnInit {
     return city ? city.name : 'Desconocido';
   }
 
-  onCitySelect(event: any): void {
-    const selectedCity = event.item;
-    this.farm.cityId = selectedCity.id;
-  }
+
 
   onUserSelect(event: any): void {
     const selectedUser = event.item;
@@ -223,7 +236,15 @@ goToPage(page: number): void {
 hasSelected(): boolean {
   return this.farms.some(farm => farm.selected);
 }
+selectAll(event: any): void {
+  const checked = event.target.checked;
+  this.farms.forEach(farm => (farm.selected = checked));
+}
 
+// Verificar si todos los roles están seleccionados
+areAllSelected(): boolean {
+  return this.farms.length > 0 && this.farms.every(farm => farm.selected);
+}
 deleteSelected(): void {
   const selectedIds = this.farms.filter(farm => farm.selected).map(farm => farm.id);
 
@@ -441,13 +462,16 @@ removedLots.forEach((removedLot: any) => {
       num_hectareas: lot.num_hectareas
     }));
   
+    const selectedCity = this.cities.find(cit => cit.id === this.farm.cityId);
+    if (selectedCity) {
+        this.farm.cityName = selectedCity.name;
+    }
     // Populate selectedCropId with the full crop objects
     this.selectedCropId = this.farm.lots.map((lot: { id: any; name: any; }) => ({
       id: lot.id,
       name: lot.name
     }));
     console.log('Cultivos seleccionados:', this.selectedCropId);
-
 
     this.openModal();
   }

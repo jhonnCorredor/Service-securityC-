@@ -20,6 +20,11 @@ namespace Business.Implements.Operational
             await data.Delete(id);
         }
 
+        public async Task DeleteQualifications(int id)
+        {
+            await data.DeleteQualifications(id);
+        }
+
         public async Task<IEnumerable<QualificationDto>> GetAll()
         {
             IEnumerable<Qualification> Qualifications = await data.GetAll();

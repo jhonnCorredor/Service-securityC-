@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj": {}
+    "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj": {
+    "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj",
+        "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\srhad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\obj\\",
+        "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\srhad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
-                "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj"
+              "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj"
               }
             }
           }
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
+    "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj",
+        "projectUniqueName": "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj",
+        "projectPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\Entity.csproj",
         "packagesPath": "C:\\Users\\srhad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\FincauditaCode\\clone\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\obj\\",
+        "outputPath": "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\srhad\\AppData\\Roaming\\NuGet\\NuGet.Config",

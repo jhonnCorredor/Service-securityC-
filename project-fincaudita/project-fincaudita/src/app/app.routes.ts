@@ -31,6 +31,7 @@ import { UserprofileComponent } from './pages/userprofile/userprofile.component'
 import { TreatmentComponent } from './pages/operational/treatment/treatment.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 import { LandigPageComponent } from './pages/landig-page/landig-page.component';
+import { TermsConditionsLandingComponent } from './pages/terms-conditions-landing/terms-conditions-landing.component';
 
 
 
@@ -47,6 +48,10 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
+    },
+    {
+        path: 'terms-conditions-landing',
+        component: TermsConditionsLandingComponent,
     },
     {
         path: 'forgot-your-password',

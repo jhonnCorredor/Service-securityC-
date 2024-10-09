@@ -139,6 +139,15 @@ goToPage(page: number): void {
 hasSelected(): boolean {
   return this.supplies.some(supplie => supplie.selected); // Cambiado de crops a supplies
 }
+selectAll(event: any): void {
+  const checked = event.target.checked;
+  this.supplies.forEach(supplie => (supplie.selected = checked));
+}
+
+// Verificar si todos los roles están seleccionados
+areAllSelected(): boolean {
+  return this.supplies.length > 0 && this.supplies.every(supplie => supplie.selected);
+}
 
 deleteSelected(): void {
   const selectedIds = this.supplies.filter(supplie => supplie.selected).map(supplie => supplie.id); // Cambiado de crops a supplies y de personId a id
@@ -189,13 +198,13 @@ deleteSelected(): void {
       this.http.post(this.apiUrl, this.supplie).subscribe(() => {
         this.getsupplies();
         this.closeModal();
-        Swal.fire('Éxito', '¡Suministro creado con éxito!', 'success');
+        Swal.fire('Éxito', 'Insumo creado con éxito!', 'success');
       });
     } else {
       this.http.put(this.apiUrl, this.supplie).subscribe(() => {
         this.getsupplies();
         this.closeModal();
-        Swal.fire('Éxito', '¡Suministro actualizado con éxito!', 'success');
+        Swal.fire('Éxito', 'Insumo actualizado con éxito!', 'success');
       });
     }
   }

@@ -20,6 +20,7 @@ export class ForgotYourPasswordComponent {
   verificationCode: string = '';
   newPassword: string = '';
   confirmPassword: string = '';
+  passwordError: string = '';
   timeLeft: number = 30; // Tiempo de espera para reenviar el código
   timer: any;
   showModal: boolean = true;  
@@ -27,6 +28,54 @@ export class ForgotYourPasswordComponent {
   private apiUrl = 'http://localhost:9191/password'; 
   private apiUrlUser = 'http://localhost:9191/api/User';
   constructor(private cdr: ChangeDetectorRef, private router: Router, private http: HttpClient) {}
+
+  isValidPassword(password: string): boolean {
+    // Check if password meets the length requirement
+    if (!password || password.length < 8) {
+      this.passwordError = 'La contraseña debe tener al menos 8 caracteres.';
+      return false;
+    }
+  
+    // Check for at least one uppercase letter
+    const hasUpperCase = /[A-Z]/.test(password);
+    // Check for at least one number
+    const hasNumber = /[0-9]/.test(password);
+    
+    if (!hasUpperCase) {
+      this.passwordError = 'La contraseña debe contener al menos una mayúscula.';
+      return false;
+    }
+  
+    if (!hasNumber) {
+      this.passwordError = 'La contraseña debe contener al menos un número.';
+      return false;
+    }
+  
+    // Clear the error message if valid
+    this.passwordError = '';
+    return true;
+  }
+  
+  // Validación de coincidencia de contraseñas
+  isPasswordsMatching(password: string, confirmPassword: string): boolean {
+    return password === confirmPassword;
+  }
+  
+  togglePasswordVisibility(fieldId: string, iconId: string): void {
+    const passwordInput = document.getElementById(fieldId) as HTMLInputElement;
+    const icon = document.getElementById(iconId);
+  
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      icon?.classList.remove('fa-eye');
+      icon?.classList.add('fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      icon?.classList.remove('fa-eye-slash');
+      icon?.classList.add('fa-eye');
+    }
+  }
+  
 
   // Método para pasar al siguiente paso
   async nextStep(): Promise<void> {

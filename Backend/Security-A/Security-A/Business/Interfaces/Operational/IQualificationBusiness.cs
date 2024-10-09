@@ -12,6 +12,7 @@ namespace Business.Interfaces.Operational
     public interface IQualificationBusiness
     {
         Task Delete(int id);
+        Task DeleteQualifications(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
         Task<QualificationDto> GetById(int id);
         Task<Qualification> Save(QualificationDto entity);

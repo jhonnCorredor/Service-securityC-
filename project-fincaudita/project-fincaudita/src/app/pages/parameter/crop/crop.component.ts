@@ -136,6 +136,16 @@ hasSelected(): boolean {
   return this.crops.some(crop => crop.selected);
 }
 
+selectAll(event: any): void {
+  const checked = event.target.checked;
+  this.crops.forEach(crop => (crop.selected = checked));
+}
+
+// Verificar si todos los roles están seleccionados
+areAllSelected(): boolean {
+  return this.crops.length > 0 && this.crops.every(crop => crop.selected);
+}
+
 deleteSelected(): void {
   const selectedIds = this.crops.filter(crop => crop.selected).map(crop => crop.id); // Asegúrate de que el ID sea el correcto
 

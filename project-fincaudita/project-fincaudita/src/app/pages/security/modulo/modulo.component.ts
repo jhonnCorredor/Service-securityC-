@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
+import {  ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import * as XLSX from 'xlsx';
@@ -8,8 +9,7 @@ import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-
+import { ValidationService } from './validate.service';
 interface Modulo {
   id: number;
   name: string;
@@ -36,16 +36,32 @@ export class ModuloComponent implements OnInit {
   searchTerm = '';
   itemsPerPageOptions = [5, 10, 20, 50];
   isDropdownOpen = false;
-
+  moduloForm!: FormGroup;
+  
   private apiUrl = 'http://localhost:9191/api/Modulo';
 
-  constructor(private http: HttpClient, private cdr: ChangeDetectorRef, private library: FaIconLibrary) {
-    // Añade el paquete de íconos
-  }
+  constructor(
+    private http: HttpClient,
+    private cdr: ChangeDetectorRef,
+    private fb: FormBuilder,  // FormBuilder para manejar formularios
+    private validationService: ValidationService
+  ) {}
+
+
   ngOnInit(): void {
     this.getModulos();
+    this.createForm();
   }
 
+  createForm(): void {
+    this.moduloForm = this.fb.group({
+      id: [0],
+      name: ['', [this.validationService.validateName.bind(this.validationService), Validators.required]],
+      description: ['', [this.validationService.validateDescription.bind(this.validationService), Validators.required]],
+      position: ['', [this.validationService.validatePosition.bind(this.validationService), Validators.required]],
+      state: [true]
+    });
+  }
   // Obtener la lista de módulos desde la API
   getModulos(): void {
     this.http.get<Modulo[]>(this.apiUrl).subscribe(

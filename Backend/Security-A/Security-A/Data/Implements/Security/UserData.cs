@@ -196,7 +196,7 @@ namespace Data.Implements.Security
                 FROM Users AS u
                 LEFT JOIN UserRoles AS ur ON ur.UserId = u.Id
                 LEFt JOIN Roles AS r ON r.Id = ur.RoleId
-                WHERE u.Username = @Username AND u.Password = @Password
+                WHERE u.Username = @Username AND u.Password = @Password AND ur.DeletedAt IS NULL
                 AND u.DeletedAt is null
                 GROUP BY u.Id, u.Username, u.Password, r.Id, r.Name;
             ";

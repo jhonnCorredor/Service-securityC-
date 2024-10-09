@@ -20,6 +20,7 @@ namespace Business.Implements.Operational
         public async Task Delete(int id)
         {
             await data.Delete(id);
+            await qualificationBusiness.DeleteQualifications(id);
         }
 
         public async Task<IEnumerable<ChecklistDto>> GetAll()

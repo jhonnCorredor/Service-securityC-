@@ -185,6 +185,15 @@ goToPage(page: number): void {
 hasSelected(): boolean {
   return this.lots.some(lot => lot.selected);
 }
+selectAll(event: any): void {
+  const checked = event.target.checked;
+  this.lots.forEach(lot => (lot.selected = checked));
+}
+
+// Verificar si todos los roles están seleccionados
+areAllSelected(): boolean {
+  return this.lots.length > 0 && this.lots.every(lot => lot.selected);
+}
 deleteSelected(): void {
   const selectedIds = this.lots.filter(lot => lot.selected).map(lot => lot.id); // Assuming 'id' is the identifier for lots
 

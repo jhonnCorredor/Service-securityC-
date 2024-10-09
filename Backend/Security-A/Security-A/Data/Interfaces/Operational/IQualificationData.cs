@@ -15,6 +15,7 @@ namespace Data.Interfaces.Operational
         Task<Qualification> GetById(int id);
         Task<Qualification> Save(Qualification entity);
         Task Update(Qualification entity);
+        Task DeleteQualifications(int id);
         Task<IEnumerable<Qualification>> GetAll();
     }
 }

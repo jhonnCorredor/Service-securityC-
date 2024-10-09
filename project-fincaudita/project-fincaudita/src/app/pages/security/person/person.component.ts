@@ -1,20 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ChangeDetectorRef, Component, OnInit, HostListener } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import * as XLSX from 'xlsx';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-person',
   standalone: true,
-  imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule, NgSelectModule],
+  imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule, NgSelectModule, MatInputModule,
+    MatAutocompleteModule],
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.css']
 })
@@ -37,6 +38,7 @@ export class PersonComponent implements OnInit {
   citys: any[] = [];
   isModalOpen = false;
   filteredPersons: any[] = [];
+  filteredCitys: any[] = [];
   currentPage = 1;
   itemsPerPage = 5;
   searchTerm = '';
@@ -101,21 +103,25 @@ export class PersonComponent implements OnInit {
     return this.filteredPersons.slice(start, end); // Devuelve la porción filtrada
   }
 
-  // Typeahead for city search
-  searchCitys = (text$: Observable<string>) =>
-    text$.pipe(
-      debounceTime(200),
-      distinctUntilChanged(),
-      map(term => term.length < 1 ? []
-        : this.citys.filter(city => city.name.toLowerCase().includes(term.toLowerCase())).slice(0, 10))
-    );
+    searchCitys(event: any): void {
+      const term = event.target.value.toLowerCase();
+      this.filteredCitys = this.citys.filter(city => 
+        city.name.toLowerCase().includes(term)
+      );
+    }
 
-  formatCity = (city: any) => city.name;
-
-  onCitySelect(event: any): void {
-    const selectedCity = event.item;
-    this.person.cityId = selectedCity.id;
+    onCitySelect(event: any): void {
+      const selectedcity = this.citys.find(city => 
+        city.name === event.option.value
+      );
+      if (selectedcity) {
+          this.person.cityId = selectedcity.id;
+          this.person.cityName = selectedcity.name; // Agregar esto
+          // Cierra el autocompletar
+          this.filteredCitys = [];
+      }
   }
+  
 
   ngOnInit(): void {
     this.getPersons();
@@ -166,6 +172,14 @@ export class PersonComponent implements OnInit {
     this.currentPage = 1;
   }
   
+  onSearchChange(): void {
+    this.filterPersons();
+  }
+
+  // Manejar el cambio en el número de ítems por página
+  onItemsPerPageChange(): void {
+    this.updatePagination();
+  }
 
   openModal(): void {
     this.isModalOpen = true;
@@ -174,6 +188,7 @@ export class PersonComponent implements OnInit {
   closeModal(): void {
     this.isModalOpen = false;
     this.resetForm();
+    this.filteredCitys = [];
   }
 
   resetForm(): void {
@@ -191,6 +206,7 @@ export class PersonComponent implements OnInit {
       state: false,
       selected: false
     };
+    this.filteredCitys = [];
   }
 
   onSubmit(form: NgForm): void {
@@ -217,7 +233,12 @@ export class PersonComponent implements OnInit {
   }
 
   editPersons(person: any): void {
+    
     this.person = { ...person, birth_of_date: new Date(person.birth_of_date).toISOString().slice(0, 10) };
+    const selectedCity = this.citys.find(cit => cit.id === this.person.cityId);
+    if (selectedCity) {
+        this.person.cityName = selectedCity.name; // Necesitas agregar esta propiedad a tu objeto city
+    }
     this.openModal();
   }
 

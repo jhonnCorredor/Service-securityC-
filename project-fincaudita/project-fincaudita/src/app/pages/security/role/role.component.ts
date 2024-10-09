@@ -91,7 +91,7 @@ export class RoleComponent implements OnInit {
   // Procesar roles para concatenar las vistas en una cadena
   processRoles(): void {
     this.roles.forEach(role => {
-      role.viewString = role.views.map(view => view.textoMostrar || view.name).join(', ');
+      role.viewString = (role.views || []).map(view => view.textoMostrar || view.name).join(', ');
     });
   }
 
@@ -152,7 +152,7 @@ export class RoleComponent implements OnInit {
       ...this.role,
       views: this.role.views.map(view => ({
         id: view.id,
-        textoMostrar: view.textoMostrar || view.name
+        name: view.name
       }))
     };
 

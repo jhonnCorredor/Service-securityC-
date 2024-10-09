@@ -2,18 +2,19 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import { NgSelectModule } from '@ng-select/ng-select';
 import * as XLSX from 'xlsx';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 @Component({
   selector: 'app-departament',
   standalone: true,
-  imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule, NgSelectModule],
+  imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule,MatInputModule,
+    MatAutocompleteModule, NgSelectModule],
   templateUrl: './departament.component.html',
   styleUrl: './departament.component.css'
 })
@@ -24,6 +25,7 @@ export class DepartamentComponent {
   countrys: any[] = [];
   isModalOpen = false;
   filteredDepartament: any[] = [];
+  filteredCountrys: any[] = [];
   currentPage = 1;
   itemsPerPage = 20;
   searchTerm = '';
@@ -35,20 +37,30 @@ export class DepartamentComponent {
 
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
-  searchcountrys = (text$: Observable<string>) =>
-    text$.pipe(
-      debounceTime(200),
-      distinctUntilChanged(),
-      map(term => term.length < 1 ? []
-        : this.countrys.filter(country => country.name?.toLowerCase().includes(term.toLowerCase())).slice(0, 10))
+  searchcountrys(event: any): void {
+    const term = event.target.value.toLowerCase();
+    this.filteredCountrys = this.countrys.filter(country => 
+      country.name.toLowerCase().includes(term)
     );
-
-  formatcountry = (country: any) => country.name;
+  }
 
   oncountrySelect(event: any): void {
-    const selectedcountry = event.item;
-    this.departament.countryId = selectedcountry.id;
-  }
+    const selectedcountry = this.countrys.find(country => 
+      country.name === event.option.value
+    );
+    if (selectedcountry) {
+        this.departament.countryId = selectedcountry.id;
+        this.departament.countryName = selectedcountry.name; // Agregar esto
+        // Cierra el autocompletar
+        this.filteredCountrys = [];
+    }
+}
+
+getcountryName(id: number): string {
+  const country = this.countrys.find(c => c.id === id);
+  return country ? country.name : '';
+}
+
 
   ngOnInit(): void {
     this.getdepartaments();
@@ -65,6 +77,18 @@ export class DepartamentComponent {
       },
       (error) => {
         console.error('Error al obtener los departamentos:', error);
+      }
+    );
+  }
+
+  getcountrys(): void {
+    this.http.get<any[]>(this.countrysUrl).subscribe(
+      (countrys) => {
+        this.countrys = countrys;
+        console.log("PAISES", this.countrys);
+      },
+      (error) => {
+        console.error('Error al obtener los países:', error);
       }
     );
   }
@@ -159,6 +183,15 @@ hasSelected(): boolean {
   return this.departaments.some(departament => departament.selected);
 }
 
+selectAll(event: any): void {
+  const checked = event.target.checked;
+  this.departaments.forEach(departament => (departament.selected = checked));
+}
+
+// Verificar si todos los roles están seleccionados
+areAllSelected(): boolean {
+  return this.departaments.length > 0 && this.departaments.every(departament => departament.selected);
+}
 deleteSelected(): void {
   const selectedIds = this.departaments.filter(departament => departament.selected).map(departament => departament.id); // Asegúrate de que 'id' es la propiedad correcta.
 
@@ -173,7 +206,8 @@ deleteSelected(): void {
           reverseButtons: true
       }).then((result) => {
           if (result.isConfirmed) {
-              const deleteRequests = selectedIds.map(id => this.http.delete(`${this.apiUrl}/${id}`).toPromise());
+            const deleteRequests = selectedIds.map(id => this.http.delete(`${this.apiUrl}/${id}`).toPromise());
+
 
               Promise.all(deleteRequests)
                   .then(() => {
@@ -193,18 +227,6 @@ deleteSelected(): void {
 }
 
 
-
-  getcountrys(): void {
-    this.http.get<any[]>(this.countrysUrl).subscribe(
-      (countrys) => {
-        this.countrys = countrys;
-      },
-      (error) => {
-        console.error('Error al obtener los países:', error);
-      }
-    );
-  }
-
   openModal(): void {
     this.isModalOpen = true;
   }
@@ -212,6 +234,7 @@ deleteSelected(): void {
   closeModal(): void {
     this.isModalOpen = false;
     this.resetForm();
+    this.filteredCountrys = [];
   }
 
   onSubmit(form: NgForm): void {
@@ -237,6 +260,10 @@ deleteSelected(): void {
 
   editdepartament(departament: any): void {
     this.departament = { ...departament };
+    const selectedCountry = this.countrys.find(dep => dep.id === this.departament.countryId);
+    if (selectedCountry) {
+        this.departament.countryName = selectedCountry.name; // Necesitas agregar esta propiedad a tu objeto departament
+    }
     this.openModal();
   }
 
@@ -258,12 +285,8 @@ deleteSelected(): void {
     });
   }
 
-  getcountryName(id: number): string {
-    const country = this.countrys.find(c => c.id === id);
-    return country ? country.name : '';
-  }
-
   resetForm(): void {
     this.departament = { id: 0, name: '', description: '', code: '', countryId: 0, state: false };
+    this.filteredCountrys = [];
   }
 }

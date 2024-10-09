@@ -1,39 +1,44 @@
 <h2 class="title">Gestión de Lotes</h2>
 
 <div class="top-container">
-  <!-- Select para exportar -->
-  <div class="export-select">
-    <ng-select (change)="handleExport($event)" [placeholder]="'Exportar Como'" [clearable]="true" [searchable]="false">
-      <ng-option value="pdf" class="custom-option">
-        <div class="option-container">
-          <i class="fas fa-file-pdf"></i>
-          <span class="custom-option-text">PDF</span>
-        </div>
-      </ng-option>
-      <ng-option value="excel" class="custom-option">
-        <div class="option-container">
-          <i class="fas fa-file-excel"></i>
-          <span class="custom-option-text">Excel</span>
-        </div>
-      </ng-option>
-    </ng-select>
-  </div>
-
-  <!-- Selector de ítems por página -->
-  <div class="items-per-page">
-    <label for="itemsPerPage">Mostrar:</label>
-    <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
-      <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
-    </select>
-  </div>
-
-  <!-- Botón para agregar nuevo lote -->
-  <button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo lote <i class="fas fa-plus"></i></button>
-
+  <!-- Campo de búsqueda -->
   <div class="search-container">
     <input type="text" placeholder="Buscar..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()"
       class="form-control input-field" />
+  </div>  
+  
+  <div class="export-container">
+    <!-- Selector de ítems por página -->
+    <div class="items-per-page">
+      <label for="itemsPerPage">Mostrar:</label>
+      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
+        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+  
+    <!-- Select para exportar -->
+    <div class="export-select">
+      <ng-select (change)="handleExport($event)" [placeholder]="'Exportar Como'" [clearable]="true" [searchable]="false">
+        <ng-option value="pdf" class="custom-option">
+          <div class="option-container">
+            <i class="fas fa-file-pdf"></i>
+            <span class="custom-option-text">PDF</span>
+          </div>
+        </ng-option>
+        <ng-option value="excel" class="custom-option">
+          <div class="option-container">
+            <i class="fas fa-file-excel"></i>
+            <span class="custom-option-text">Excel</span>
+          </div>
+        </ng-option>
+      </ng-select>
+    </div>
   </div>
+
+  <!-- Botón para agregar un nuevo módulo -->
+  <button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo <i class="fas fa-plus"></i></button>
+</div>
+
   <!-- Modal para agregar/editar lote -->
   <div id="lotModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
     <div class="modal-content">
@@ -73,7 +78,7 @@
 
         <!-- Estado -->
         <div class="row">
-          <div class="col">
+          <div class="col" *ngIf="lot.id !== 0">
             <label for="state">Estado:</label>
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" id="state" name="state" [(ngModel)]="lot.state">
@@ -94,6 +99,13 @@
   <table *ngIf="filteredLot.length > 0" class="table">
     <thead>
       <tr>
+        <th>
+          <input 
+            type="checkbox" 
+            (change)="selectAll($event)" 
+            [checked]="areAllSelected()" 
+          />
+        </th>
         <th>Cultivo</th>
         <th>Finca</th>
         <th>Número de Hectáreas</th>
@@ -103,6 +115,12 @@
     </thead>
     <tbody>
       <tr *ngFor="let lot of paginatedLot()">
+        <td>
+          <label class="checkbox-container">
+            <input type="checkbox" [(ngModel)]="lot.selected" />
+            <div class="checkbox-custom"></div>
+          </label>
+        </td>
         <td>{{ getCropName(lot.cropId) }}</td>
         <td>{{ getFarmName(lot.farmId) }}</td>
         <td>{{ lot.num_hectareas }}</td>

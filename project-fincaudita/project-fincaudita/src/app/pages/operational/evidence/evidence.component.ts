@@ -56,13 +56,22 @@ export class EvidenceComponent implements OnInit {
   }
 
   viewDocument(evidence: any): void {
+    let documentSrc = evidence.document;
+
+    // Verificar si el string base64 no tiene el prefijo 'data:image/'
+    if (!documentSrc.startsWith('data:image/')) {
+        // Puedes asumir que el archivo es una imagen JPEG, o ajustar si esperas otro formato
+        documentSrc = 'data:image/jpeg;base64,' + documentSrc;
+    }
+
     Swal.fire({
       title: 'Documento',
-      html: `<img src="${evidence.document}" alt="Documento" style="max-width: 100%; height: auto;">`, // Mostrar el base64 como imagen
+      html: `<img src="${documentSrc}" alt="Documento" style="max-width: 100%; height: auto;">`, // Mostrar el base64 como imagen
       icon: 'info',
       confirmButtonText: 'Cerrar'
     });
-  }
+  }    
+
   
 
   getEvidences(): void {
@@ -168,6 +177,16 @@ hasSelected(): boolean {
   return this.evidences.some(evidence => evidence.selected);
 }
 
+selectAll(event: any): void {
+  const checked = event.target.checked;
+  this.evidences.forEach(evidence => (evidence.selected = checked));
+}
+
+// Verificar si todos los roles están seleccionados
+areAllSelected(): boolean {
+  return this.evidences.length > 0 && this.evidences.every(evidence => evidence.selected);
+}
+
 deleteSelected(): void {
   const selectedIds = this.evidences.filter(evidence => evidence.selected).map(evidence => evidence.id); // Cambia 'id' por el identificador real
 
@@ -182,8 +201,7 @@ deleteSelected(): void {
           reverseButtons: true
       }).then((result) => {
           if (result.isConfirmed) {
-              const deleteRequests = selectedIds.map(id => this.http.delete(`${this.apiUrl}/${id}`).toPromise());
-
+            const deleteRequests = selectedIds.map(id => this.http.delete(`${this.apiUrl}/${id}`).toPromise());
               Promise.all(deleteRequests)
                   .then(() => {
                       this.evidences = this.evidences.filter(evidence => !selectedIds.includes(evidence.id)); // Cambia 'id' por el identificador real

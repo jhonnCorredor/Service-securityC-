@@ -31,6 +31,22 @@ namespace Data.Implements.Operational
             await context.SaveChangesAsync();
         }
 
+        public async Task DeleteQualifications(int id)
+        {
+            var entitys = await GetByChecklist(id);
+            foreach (var entity in entitys)
+            {
+                if (entity == null)
+                {
+                    throw new Exception("Registro no encontrado");
+                }
+                entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+                entity.State = false;
+                context.Qualifications.Update(entity);
+                await context.SaveChangesAsync();
+            }
+        }
+
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             var sql = @"SELECT 
@@ -47,6 +63,12 @@ namespace Data.Implements.Operational
         {
             var sql = @"SELECT * FROM Qualifications WHERE Id = @Id ORDER BY Id ASC";
             return await context.QueryFirstOrDefaultAsync<Qualification>(sql, new { Id = id });
+        }
+
+        public async Task<IEnumerable<Qualification>> GetByChecklist(int id)
+        {
+            var sql = @"SELECT * FROM Qualifications WHERE ChecklistId = @Id ORDER BY Id ASC";
+            return await context.QueryAsync<Qualification>(sql, new { Id = id });
         }
 
         public async Task<Qualification> Save(Qualification entity)

@@ -2,19 +2,20 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import * as XLSX from 'xlsx';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-view',
   standalone: true,
-  imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule, NgSelectModule],
+  imports: [HttpClientModule, FormsModule, CommonModule, NgbTypeaheadModule, NgSelectModule, MatInputModule,
+    MatAutocompleteModule],
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.css']
 })
@@ -24,6 +25,7 @@ export class ViewComponent implements OnInit {
   modulos: any[] = [];  // Lista de módulos
   isModalOpen = false;
   filteredViews: any[] = [];
+  filteredModulos: any[] = [];
   currentPage = 1;
   itemsPerPage = 5;
   searchTerm = '';
@@ -31,23 +33,32 @@ export class ViewComponent implements OnInit {
   isDropdownOpen = false;
 
   private apiUrl = 'http://localhost:9191/api/View';
-  private modulosUrl = 'http://localhost:9191/api/Modulo';  // Endpoint para obtener módulos
+  private modulosUrl = 'http://localhost:9191/api/Modulo'; 
 
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
-  searchModulos = (text$: Observable<string>) =>
-    text$.pipe(
-      debounceTime(200),
-      distinctUntilChanged(),
-      map(term => term.length < 1 ? []
-        : this.modulos.filter(modulo => modulo.name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+  searchmodulos(event: any): void {
+    const term = event.target.value.toLowerCase();
+    this.filteredModulos = this.modulos.filter(modulo => 
+      modulo.name.toLowerCase().includes(term)
     );
+  }
 
-  formatModulo = (modulo: any) => modulo.name;  // Formato de los resultados mostrados en el autocompletado
+  onmoduloSelect(event: any): void {
+    const selectedmodulo = this.modulos.find(modulo => 
+      modulo.name === event.option.value
+    );
+    if (selectedmodulo) {
+        this.view.moduloId = selectedmodulo.id;
+        this.view.moduloName = selectedmodulo.name; // Agregar esto
+        // Cierra el autocompletar
+        this.filteredModulos = [];
+    }
+}
 
-  onModuloSelect(event: any): void {
-    const selectedModulo = event.item;
-    this.view.moduloId = selectedModulo.id;  // Asigna el ID del módulo seleccionado
+  getModuloName(moduloId: number): string {
+    const modulo = this.modulos.find(mod => mod.id === moduloId);
+    return modulo ? modulo.name : 'Desconocido';
   }
 
   ngOnInit(): void {
@@ -68,7 +79,6 @@ export class ViewComponent implements OnInit {
     );
   }
   
-
   getModulos(): void {
     this.http.get<any[]>(this.modulosUrl).subscribe(
       (modulos) => {
@@ -176,6 +186,16 @@ export class ViewComponent implements OnInit {
   hasSelected(): boolean {
     return this.views.some(view => view.selected);
   }
+  selectAll(event: any): void {
+    const checked = event.target.checked;
+    this.views.forEach(view => (view.selected = checked));
+  }
+
+  // Verificar si todos los roles están seleccionados
+  areAllSelected(): boolean {
+    return this.views.length > 0 && this.views.every(role => role.selected);
+  }
+
   deleteSelected(): void {
     const selectedIds = this.views.filter(view => view.selected).map(view => view.id);
   
@@ -213,11 +233,14 @@ export class ViewComponent implements OnInit {
 
   openModal(): void {
     this.isModalOpen = true;
+   
+      
   }
 
   closeModal(): void {
     this.isModalOpen = false;
     this.resetForm();
+    this.filteredModulos = [];
   }
 
   onSubmit(form: NgForm): void {
@@ -243,6 +266,10 @@ export class ViewComponent implements OnInit {
   
   editView(view: any): void {
     this.view = { ...view };
+    const selectedModulo = this.modulos.find(cit => cit.id === this.view.moduloId);
+    if (selectedModulo) {
+        this.view.moduloName = selectedModulo.name;
+    }
     this.openModal();
   }
 
@@ -271,10 +298,18 @@ export class ViewComponent implements OnInit {
 
   resetForm(): void {
     this.view = { id: 0, name: '', description: '', route: '', moduloId: 0, state: false };
+    this.filteredModulos = [];
   }
 
-  getModuloName(moduloId: number): string {
-    const modulo = this.modulos.find(mod => mod.id === moduloId);
-    return modulo ? modulo.name : 'Desconocido';
+  onRouteInput(event: any): void {
+    const inputValue = event.target.value;
+    
+    // Asegurar que el valor siempre comience con "/"
+    if (!inputValue.startsWith('/')) {
+      this.view.route = '/' + inputValue;
+    } else {
+      this.view.route = inputValue;
+    }
   }
+  
 }

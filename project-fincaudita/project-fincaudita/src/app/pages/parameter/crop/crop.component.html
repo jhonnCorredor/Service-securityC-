@@ -1,14 +1,25 @@
 <!-- Título con estilo -->
 <h2 class="title">Lista de Cultivos</h2>
 
-<div class="top-container"></div>
+<div class="top-container">
+  <!-- Campo de búsqueda -->
+  <div class="search-container">
+    <input type="text" placeholder="Buscar..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()"
+      class="form-control input-field" />
+  </div>  
+  
+  <div class="export-container">
+    <!-- Selector de ítems por página -->
+    <div class="items-per-page">
+      <label for="itemsPerPage">Mostrar:</label>
+      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
+        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+  
     <!-- Select para exportar -->
     <div class="export-select">
-      <ng-select 
-        (change)="handleExport($event)" 
-        [placeholder]="'Exportar Como'" 
-        [clearable]="true" 
-        [searchable]="false">
+      <ng-select (change)="handleExport($event)" [placeholder]="'Exportar Como'" [clearable]="true" [searchable]="false">
         <ng-option value="pdf" class="custom-option">
           <div class="option-container">
             <i class="fas fa-file-pdf"></i>
@@ -23,26 +34,12 @@
         </ng-option>
       </ng-select>
     </div>
-  
-    <!-- Selector de ítems por página -->
-    <div class="items-per-page">
-      <label for="itemsPerPage">Mostrar:</label>
-      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
-        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
-      </select>
-    </div>
-<!-- Botón a la derecha -->
-<button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo <i class="fas fa-plus"></i></button>
-
-<div class="search-container">
-    <input 
-      type="text" 
-      placeholder="Buscar..." 
-      [(ngModel)]="searchTerm" 
-      (ngModelChange)="onSearchChange()" 
-      class="form-control input-field" 
-    />
   </div>
+
+  <!-- Botón para agregar un nuevo módulo -->
+  <button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo <i class="fas fa-plus"></i></button>
+</div>
+
 <div id="cropModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
     <div class="modal-content">
         <span class="close" (click)="closeModal()">&times;</span>
@@ -71,7 +68,8 @@
                     <label for="Code">Código:</label>
                     <input type="text" class="form-control input-field" id="Code" name="Code" [(ngModel)]="crop.code" required>
                 </div>
-                <div class="col">
+
+                <div class="col" *ngIf="crop.id !== 0">
                     <label for="State">Estado:</label>
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="State" name="State"
@@ -95,6 +93,13 @@
 <table *ngIf="filteredCrop.length > 0" class="table">
     <thead>
         <tr>
+          <th>
+            <input 
+              type="checkbox" 
+              (change)="selectAll($event)" 
+              [checked]="areAllSelected()" 
+            />
+          </th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Código</th>
@@ -104,6 +109,12 @@
     </thead>
     <tbody>
         <tr *ngFor="let crop of paginatedCrop()">
+          <td>
+            <label class="checkbox-container">
+              <input type="checkbox" [(ngModel)]="crop.selected" />
+              <div class="checkbox-custom"></div>
+            </label>
+          </td>
             <td>{{ crop.name }}</td>
             <td>{{ crop.description }}</td>
             <td>{{ crop.code }}</td>

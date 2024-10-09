@@ -136,6 +136,15 @@ goToPage(page: number): void {
 hasSelected(): boolean {
   return this.checklists.some(checklist => checklist.selected);
 }
+selectAll(event: any): void {
+  const checked = event.target.checked;
+  this.checklists.forEach(checklist => (checklist.selected = checked));
+}
+
+// Verificar si todos los roles están seleccionados
+areAllSelected(): boolean {
+  return this.checklists.length > 0 && this.checklists.every(checklist => checklist.selected);
+}
 
 deleteSelected(): void {
   const selectedIds = this.checklists.filter(checklist => checklist.selected).map(checklist => checklist.code);
@@ -185,13 +194,13 @@ deleteSelected(): void {
       this.http.post(this.apiUrl, this.checklist).subscribe(() => {
         this.getChecklists();
         this.closeModal();
-        Swal.fire('Éxito', '¡Lista de verificación creada con éxito!', 'success');
+        Swal.fire('Éxito', '¡Lista de chequeo creada con éxito!', 'success');
       });
     } else {
       this.http.put(this.apiUrl, this.checklist).subscribe(() => {
         this.getChecklists();
         this.closeModal();
-        Swal.fire('Éxito', '¡Lista de verificación actualizada con éxito!', 'success');
+        Swal.fire('Éxito', '¡Lista de chequeo actualizada con éxito!', 'success');
       });
     }
   }

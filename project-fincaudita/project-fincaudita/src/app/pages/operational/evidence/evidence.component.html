@@ -1,14 +1,25 @@
 <!-- Título con estilo -->
 <h2 class="title">Lista de Evidencias</h2>
 
-<div class="top-container"></div>
+<div class="top-container">
+  <!-- Campo de búsqueda -->
+  <div class="search-container">
+    <input type="text" placeholder="Buscar..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()"
+      class="form-control input-field" />
+  </div>  
+  
+  <div class="export-container">
+    <!-- Selector de ítems por página -->
+    <div class="items-per-page">
+      <label for="itemsPerPage">Mostrar:</label>
+      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
+        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+  
     <!-- Select para exportar -->
     <div class="export-select">
-      <ng-select 
-        (change)="handleExport($event)" 
-        [placeholder]="'Exportar Como'" 
-        [clearable]="true" 
-        [searchable]="false">
+      <ng-select (change)="handleExport($event)" [placeholder]="'Exportar Como'" [clearable]="true" [searchable]="false">
         <ng-option value="pdf" class="custom-option">
           <div class="option-container">
             <i class="fas fa-file-pdf"></i>
@@ -23,26 +34,12 @@
         </ng-option>
       </ng-select>
     </div>
-  
-    <!-- Selector de ítems por página -->
-    <div class="items-per-page">
-      <label for="itemsPerPage">Mostrar:</label>
-      <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
-        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
-      </select>
-    </div>
-<!-- Botón a la derecha -->
-<button class="btn btn-success add-btn" (click)="openModal()">Agregar nueva evidencia<i class="fas fa-plus"></i></button>
+  </div>
 
-<div class="search-container">
-  <input 
-    type="text" 
-    placeholder="Buscar..." 
-    [(ngModel)]="searchTerm" 
-    (ngModelChange)="onSearchChange()" 
-    class="form-control input-field" 
-  />
+  <!-- Botón para agregar un nuevo módulo -->
+  <button class="btn btn-success add-btn" (click)="openModal()">Agregar nuevo <i class="fas fa-plus"></i></button>
 </div>
+
 <div id="moduloModal" class="modal" [ngClass]="{'show-modal': isModalOpen}">
     <div class="modal-content">
         <span class="close" (click)="closeModal()">&times;</span>
@@ -102,6 +99,13 @@
 <table *ngIf="filteredEvidence.length > 0" class="table">
     <thead>
         <tr>
+          <th>
+            <input 
+              type="checkbox" 
+              (change)="selectAll($event)" 
+              [checked]="areAllSelected()" 
+            />
+          </th>
             <th>Código</th>
             <th>Documento</th>
             <th>ID de Revisión</th>
@@ -111,7 +115,12 @@
     </thead>
     <tbody>
         <tr *ngFor="let evidence of paginatedEvidence()">
-          
+          <td>
+            <label class="checkbox-container">
+              <input type="checkbox" [(ngModel)]="evidence.selected" />
+              <div class="checkbox-custom"></div>
+            </label>
+          </td>
             <td>{{ evidence.code }}</td>
             <td>
               <button class="btn-icon view" (click)="viewDocument(evidence)" title="Ver Documento">

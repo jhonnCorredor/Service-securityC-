@@ -33,14 +33,13 @@
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1100;  
 }
 
 .show-modal {
@@ -230,9 +229,26 @@
     justify-content: flex-end; /* Alinea el botón a la derecha */
 }
 
+.search-export-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye espacio entre los elementos */
+    align-items: center; /* Alinea verticalmente al centro */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Estilo para el input de búsqueda */
+.search-export-container input {
+    width: 300px; /* Ajusta el ancho del campo de búsqueda */
+    margin-right: 10px; /* Espaciado entre el campo de búsqueda y los botones */
+}
+
+/* Botones de exportación */
+.export-buttons {
+    display: flex;
+    gap: 10px; /* Espaciado entre los botones */
+}
+
 .search-container {
-    margin-right:1060px ;
-    margin-top: 20px;
     width: auto; /* Ajusta el ancho según sea necesario */
 }
 
@@ -287,10 +303,8 @@
     color: white; /* Color del texto activo */
   }
   
-  .export-select {
+  export-select {
     width: 150px; /* Ajusta el ancho como desees */
-    margin: 10px;
-    margin-left: 950px; /* Mantiene la posición horizontal */
     position: relative;
 }
 
@@ -300,7 +314,6 @@
     border-radius: 6px;
     background-color: #fff;
     height: 37px;
-    top: 47px;
 }
 
 /* Panel del dropdown */
@@ -309,10 +322,8 @@
     border: 1px solid #ccc;
     border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 5px; /* Ajusta el margen superior para más separación */
     padding: 10px;
     position: absolute; /* Cambia a posición absoluta */
-    top: 45px; /* Ajusta este valor según sea necesario */
     left: 0; /* Alinea el dropdown con el contenedor */
     z-index: 10; /* Asegúrate de que el dropdown esté por encima de otros elementos */
 }
@@ -329,7 +340,6 @@
     margin-bottom: 1px; /* Reducimos el margen entre opciones */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 /* Alineación y separación del icono */
 .option-container i {
     margin-right: 1px; /* Reducimos el espacio entre el icono y el texto */
@@ -354,14 +364,6 @@
 }
 
 /* Cambia el estilo de .items-per-page */
-.items-per-page {
-    position: absolute; /* Posición absoluta */
-    bottom: 20px; /* Ajusta la distancia desde la parte inferior o superior */
-    margin-left: 830px;  /* Centra horizontalmente (opcional) */
-    top: 199px;
-    margin-bottom: 0; /* Elimina el margen inferior */
-    z-index: 10;
-}
 .items-per-page select {
     padding: 4px ; /* Espaciado interno */
     border: 2px solid #ccc; /* Color del borde por defecto */
@@ -377,6 +379,20 @@
 .data-table-footer{
     display: flex;
     flex-direction: row-reverse;
+}
+.top-container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.top-container > * {
+    flex-grow: 0.1; 
+}
+.export-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 

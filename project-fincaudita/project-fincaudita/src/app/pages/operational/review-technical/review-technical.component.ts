@@ -41,6 +41,7 @@ export class ReviewTechnicalComponent implements OnInit, AfterViewInit {
   farms: any[] = [];
   crops: any[] = [];
   users: any[] = [];
+  isEditing = false;
   filteredUsers: any[] = [];
   filteredFarms: any[] = [];
   assessmentCriterias: any[] = [];
@@ -61,7 +62,7 @@ export class ReviewTechnicalComponent implements OnInit, AfterViewInit {
   private farmsUrl = 'http://localhost:9191/api/Farm';
   private assessmentCriteriaUrl = 'http://localhost:9191/api/Assesmentcriteria';
 
-  private drawing = false; // Track drawing state
+  private drawing = false;
   private context: CanvasRenderingContext2D | null = null;
 
   signatureTechDrawn = false;
@@ -74,6 +75,7 @@ export class ReviewTechnicalComponent implements OnInit, AfterViewInit {
     this.getFarms();
     this.getAssessmentCriterias();
   }
+  
 
   ngAfterViewInit(): void {
     this.initializeSignaturePads();
@@ -106,14 +108,14 @@ export class ReviewTechnicalComponent implements OnInit, AfterViewInit {
           ...review,
           date_review: new Date(review.date_review).toISOString().slice(0, 10)
         }));
-        console.log('Revisiones cargadas:', this.reviews);
       },
       (error) => {
         console.error('Error al cargar las revisiones:', error);
         this.cdr.detectChanges();
-      }
-    );
-  }
+      }
+    );
+  }
+  
 
   getUsers(): void {
     this.http.get<any[]>(this.usersUrl).subscribe(
@@ -136,26 +138,25 @@ export class ReviewTechnicalComponent implements OnInit, AfterViewInit {
         }));
 
         this.califications = this.assessmentCriterias.map(criterion => ({
-          observation: '', 
-          qualification_criteria: 0, 
+          observation: '',
+          qualification_criteria: 0,
           assessmentCriteriaId: criterion.id,
           name: criterion.name
         }));
 
         this.review.checklists.qualifications = this.califications
-        
+
       },
       (error) => {
         console.error('Error fetching assessment criteria:', error);
       }
     );
-}
+  }
 
   getFarms(): void {
     this.http.get<any[]>(this.farmsUrl).subscribe(
       (farms) => {
         this.farms = farms;
-        console.log('Granjas cargadas:', this.farms);
         this.cdr.detectChanges();
       },
       (error) => {
@@ -201,52 +202,47 @@ export class ReviewTechnicalComponent implements OnInit, AfterViewInit {
 
   closeModal(): void {
     this.isModalOpen = false;
+    this.isEditing = false;
     this.resetForm();
     this.filteredUsers = [];
   }
 
-    onFileChange(event: any, type: 'technician' | 'producer' | 'evidence'): void {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (e: any) => {
-          const base64String = e.target.result;
-          if (type === 'technician') {
-            // Guardar firma del técnico como base64
-            this.review.signature_technician = base64String;
-          } else if (type === 'producer') {
-            // Guardar firma del productor como base64
-            this.review.signature_producer = base64String;
-          } else if (type === 'evidence') {
-            // Guardar evidencia del cultivo como base64, nombre de archivo y code
-            this.review.evidences[0] = {
-              document: base64String,  // Base64 del archivo
-              name: file.name,         // Nombre del archivo
-              code: this.review.code   // Usar el código que el usuario ingresó en el formulario
-            };
-          }
-        };
-        reader.readAsDataURL(file); // Leer archivo como base64
-      }
+  onFileChange(event: any, type: 'technician' | 'producer' | 'evidence'): void {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const base64String = e.target.result;
+        if (type === 'technician') {
+          this.review.signature_technician = base64String;
+        } else if (type === 'producer') {
+          this.review.signature_producer = base64String;
+        } else if (type === 'evidence') {
+          this.review.evidences[0] = {
+            document: base64String,
+            name: file.name,
+            code: this.review.code
+          };
+        }
+      };
+      reader.readAsDataURL(file);
     }
-   
-
-// Esta función recalcula la calificación total cada vez que cambie cualquier calificación individual.
-onQualificationChange(): void {
-  this.review.checklists.calification_total = this.calculateTotalQualification(this.review.checklists.qualifications);
-}
-
-// Función que suma todas las calificaciones y devuelve la calificación total
-calculateTotalQualification(qualifications: any[]): number {
-  if (!qualifications || !Array.isArray(qualifications)) {
-      return 0;
   }
 
-  return qualifications.reduce((total, qualification) => {
-      // Asegúrate de que 'qualification_criteria' es el campo correcto
-      return total + (qualification.qualification_criteria || 0); 
-  }, 0);
-}
+
+  onQualificationChange(): void {
+    this.review.checklists.calification_total = this.calculateTotalQualification(this.review.checklists.qualifications);
+  }
+
+  calculateTotalQualification(qualifications: any[]): number {
+    if (!qualifications || !Array.isArray(qualifications)) {
+      return 0;
+    }
+
+    return qualifications.reduce((total, qualification) => {
+      return total + (qualification.qualification_criteria || 0);
+    }, 0);
+  }
 
 
 
@@ -309,15 +305,44 @@ calculateTotalQualification(qualifications: any[]): number {
     });
   }
 
-  saveSignature(type: 'technician' | 'producer', canvas: HTMLCanvasElement): void {
-    const dataURL = canvas.toDataURL();
-    if (type === 'technician') {
-      this.review.signature_technician = dataURL;
-    } else {
-      this.review.signature_producer = dataURL;
+  saveSignature(metodo: number): void {
+    const technicianCanvas = this.signaturePadTechRef.nativeElement;
+    const producerCanvas = this.signaturePadProdRef.nativeElement;
+
+    const technicianDataURL = technicianCanvas.toDataURL();
+    const producerDataURL = producerCanvas.toDataURL();
+
+    const blankImageDataURL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7XSAAAAAXNSR0IArs4c6QAABGJJREFUeF7t1AEJAAAMAsHZv/RyPNwSyDncOQIECEQEFskpJgECBM5geQICBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAgQdWMQCX4yW9owAAAABJRU5ErkJggg==";
+
+    if (metodo == 0) {
+      if (technicianDataURL !== blankImageDataURL) {
+        this.review.signature_technician = technicianDataURL;
+        this.review.evidences.push({ code: this.review.code, document: technicianDataURL });
+      }
+
+      if (producerDataURL !== blankImageDataURL) {
+        this.review.signature_producer = producerDataURL;
+        this.review.evidences.push({ code: this.review.code, document: producerDataURL });
+      }
+
+    } else if (metodo == 1) {
+      const isTechnicianSignatureDifferent = this.review.signature_technician !== technicianDataURL && technicianDataURL !== blankImageDataURL;
+      const isProducerSignatureDifferent = this.review.signature_producer !== producerDataURL && producerDataURL !== blankImageDataURL;
+
+      if (isTechnicianSignatureDifferent) {
+        this.review.signature_technician = technicianDataURL;
+        this.review.evidences[1].document = technicianDataURL;
+      }
+
+      if (isProducerSignatureDifferent) {
+        this.review.signature_producer = producerDataURL;
+        this.review.evidences[2].document = producerDataURL;
+      }
     }
-    console.log('Saved signature:', dataURL);
   }
+
+
+
 
   onSubmit(form: NgForm): void {
     if (!this.review.tecnicoId) {
@@ -325,16 +350,15 @@ calculateTotalQualification(qualifications: any[]): number {
       return;
     }
 
-// Asegurar que el código del checklist esté asignado
-if (!this.review.checklists.code || this.review.checklists.code === '') {
-  Swal.fire('Error', 'Debe asignar un código válido al checklist.', 'error');
-  return;
-}
+    if (!this.review.checklists.code || this.review.checklists.code === '') {
+      Swal.fire('Error', 'Debe asignar un código válido al checklist.', 'error');
+      return;
+    }
 
     this.review.checklists.calification_total = this.calculateTotalQualification(this.review.checklists.qualifications);
 
-    console.log('Saving revision técnica :', this.review);
     if (this.review.id === 0) {
+      this.saveSignature(0)
       this.http.post(this.apiUrl, this.review).subscribe({
         next: () => {
           this.getReviews();
@@ -347,6 +371,7 @@ if (!this.review.checklists.code || this.review.checklists.code === '') {
         }
       });
     } else {
+      this.saveSignature(1)
       this.http.put(this.apiUrl, this.review).subscribe({
         next: () => {
           this.getReviews();
@@ -361,34 +386,71 @@ if (!this.review.checklists.code || this.review.checklists.code === '') {
     }
   }
 
-  editReview(review: any): void {
-    this.isEditMode = true;
-    console.log("parametro ",review);
-    
-    this.review = { ...review };
-    this.review.date_review = new Date(review.date_review).toISOString().slice(0, 10);
-    const selectedUser = this.users.find(user => user.id === this.review.tecnicoId);
-   // Mapea las calificaciones del review en función del assessmentCriteriaId
-    this.califications = this.assessmentCriterias.map(criterion => {
-        // Busca la calificación correspondiente en el review.checklists.qualifications que coincida con el assessmentCriteriaId
-        const matchingQualification = review.checklists.qualifications.find((q: any) => q.assessmentCriteriaId === criterion.id);
+  editReview(reviewId: number): void {
+    this.http.get<any>(`${this.apiUrl}/${reviewId}`).subscribe(
+      (review) => {
+        this.review = { ...review };
+        const evidences = this.review.evidences.map((evidence: any) => {
+          let documentSrc = evidence.document;
 
-        return {
-            // Asigna observation y qualification_criteria si existe una calificación que coincida, de lo contrario asigna valores predeterminados
-            observation: matchingQualification?.observation || '', 
-            qualification_criteria: matchingQualification?.qualification_criteria || 0, 
-            assessmentCriteriaId: criterion.id, // Siempre incluye el ID del criterio
+          if (!documentSrc.startsWith('data:image/')) {
+            documentSrc = 'data:image/jpeg;base64,' + documentSrc;
+          }
+
+          return {
+            ...evidence,
+            code: this.review.code,
+            document: documentSrc
+          };
+        });
+
+
+
+        this.review.signature_technician = evidences[1]?.document
+        this.review.signature_producer = evidences[2]?.document
+        this.review.date_review = new Date(review.date_review).toISOString().slice(0, 10);
+
+
+        this.califications = this.assessmentCriterias.map(criterion => {
+          const matchingQualification = review.checklists.qualifications.find((q: any) => q.assessmentCriteriaId === criterion.id);
+          return {
+            observation: matchingQualification?.observation || '',
+            qualification_criteria: matchingQualification?.qualification_criteria || 0,
+            assessmentCriteriaId: criterion.id,
             name: criterion.name
-        };
-    });
-    this.review.checklists.qualifications = this.califications
-    delete this.review.checklists.id;
-    
-    if (selectedUser) {
-      this.review.tecnico = selectedUser.username;
-    }
-    
-    this.openModal();
+          };
+        });
+
+        this.review.checklists.qualifications = this.califications;
+
+        const selectedUser = this.users.find(user => user.id === this.review.tecnicoId);
+        if (selectedUser) {
+          this.review.tecnico = selectedUser.username;
+        }
+
+        if (review.evidences && review.evidences.length > 0) {
+          this.review.evidences = review.evidences;
+        }
+        this.review.evidences = evidences;
+
+
+        this.openModal();
+      },
+      (error) => {
+        console.error('Error al obtener la revisión:', error);
+        Swal.fire('Error', 'Hubo un problema al cargar la revisión.', 'error');
+      }
+    );
+  }
+
+  selectAll(event: any): void {
+    const checked = event.target.checked;
+    this.reviews.forEach(review => (review.selected = checked));
+  }
+  
+  // Verificar si todos los roles están seleccionados
+  areAllSelected(): boolean {
+    return this.reviews.length > 0 && this.reviews.every(review => review.selected);
   }
 
   deleteReview(id: number): void {
@@ -427,9 +489,33 @@ if (!this.review.checklists.code || this.review.checklists.code === '') {
         qualifications: [{ observation: '', qualification_criteria: 0, assessmentCriteriaId: 0 }]
       }
     };
+    const technicianFileInput = document.querySelector('input[name="technician"]') as HTMLInputElement;
+    const producerFileInput = document.querySelector('input[name="producer"]') as HTMLInputElement;
+
+    technicianFileInput.value = '';
+    producerFileInput.value = '';
+    this.signaturePadTech.clear();
+    this.signaturePadProd.clear();
     this.getAssessmentCriterias()
     this.filteredUsers = [];
     this.filteredFarms = [];
+    this.clearEvidence();
+  }
 
+  clearEvidence(): void {
+    this.review.evidences[0] = {
+      document: null,
+      name: ''
+    };
+    const fileInput = document.getElementById('evidence') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = '';
+    }
+  }
+
+  adjustHeight(event: any) {
+    const textarea = event.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
   }
 }

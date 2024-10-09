@@ -137,6 +137,16 @@ export class AssessmentCriteriaComponent implements OnInit {
   hasSelected(): boolean {
     return this.assesments.some(assessment => assessment.selected);
   }
+  selectAll(event: any): void {
+    const checked = event.target.checked;
+    this.assesments.forEach(assesment => (assesment.selected = checked));
+  }
+
+  // Verificar si todos los roles están seleccionados
+  areAllSelected(): boolean {
+    return this.assesments.length > 0 && this.assesments.every(assesment => assesment.selected);
+  }
+
   deleteSelected(): void {
     const selectedIds = this.assesments.filter(assessment => assessment.selected).map(assessment => assessment.id); // Asegúrate de que 'id' sea el campo correcto para identificar evaluaciones
   

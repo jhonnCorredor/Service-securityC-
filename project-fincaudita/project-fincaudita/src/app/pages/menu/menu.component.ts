@@ -60,7 +60,7 @@ export class MenuComponent implements OnInit {
           this.authService.logout(); // Cambia el estado de autenticación a false
           localStorage.removeItem("menu");
           Swal.close(); // Cierra el popup de carga
-          this.router.navigate(['/login']);
+          this.router.navigate(['/landing-page']);
   
           // Mostrar mensaje personalizado después de cerrar sesión
           Swal.fire({

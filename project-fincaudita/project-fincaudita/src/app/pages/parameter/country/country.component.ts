@@ -138,6 +138,15 @@ goToPage(page: number): void {
 hasSelected(): boolean {
   return this.countries.some(country => country.selected);
 }
+selectAll(event: any): void {
+  const checked = event.target.checked;
+  this.countries.forEach(country => (country.selected = checked));
+}
+
+// Verificar si todos los roles están seleccionados
+areAllSelected(): boolean {
+  return this.countries.length > 0 && this.countries.every(country => country.selected);
+}
 
 deleteSelected(): void {
   const selectedIds = this.countries.filter(country => country.selected).map(country => country.countryId);

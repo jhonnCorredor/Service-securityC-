@@ -122,6 +122,17 @@ export class QualificationComponent implements OnInit {
   hasSelected(): boolean {
     return this.califications.some(calification => calification.selected);
   }
+
+  selectAll(event: any): void {
+    const checked = event.target.checked;
+    this.califications.forEach(calification => (calification.selected = checked));
+  }
+  
+  // Verificar si todos los roles están seleccionados
+  areAllSelected(): boolean {
+    return this.califications.length > 0 && this.califications.every(calification => calification.selected);
+  }
+
   deleteSelected(): void {
     const selectedIds = this.califications.filter(calification => calification.selected).map(calification => calification.id); // Assuming id is the unique identifier
 

@@ -188,6 +188,15 @@ hasSelected(): boolean {
   return this.filteredTreatment.some(treatment => treatment.selected); // Adjust to check the selected property
 }
 
+selectAll(event: any): void {
+  const checked = event.target.checked;
+  this.treatments.forEach(treatment => (treatment.selected = checked));
+}
+
+// Verificar si todos los roles están seleccionados
+areAllSelected(): boolean {
+  return this.treatments.length > 0 && this.treatments.every(treatment => treatment.selected);
+}
 deleteSelected(): void {
   const selectedIds = this.filteredTreatment
     .filter(treatment => treatment.selected)
