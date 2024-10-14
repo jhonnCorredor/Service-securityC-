@@ -8,20 +8,21 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.snackbar.Snackbar
 import com.sena.fincaudita.Config.urls
 import com.sena.fincaudita.Entity.Farm
 import com.sena.fincaudita.Entity.Lot
@@ -179,11 +180,11 @@ class FarmFragment : Fragment() {
             queue.add(request)
         } catch (error: Exception) {
             progressDialog.dismiss()
-            Toast.makeText(
-                context,
-                "Error al cargar data: ${error.message}",
-                Toast.LENGTH_SHORT
-            ).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar data: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -231,11 +232,11 @@ class FarmFragment : Fragment() {
             queue.add(request)
         } catch (error: Exception) {
             progressDialog.dismiss()
-            Toast.makeText(
-                context,
-                "Error al cargar data: ${error.message}",
-                Toast.LENGTH_SHORT
-            ).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar data: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -255,17 +256,21 @@ class FarmFragment : Fragment() {
                     }
                 },
                 { error ->
-                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                 }
             )
             val queue = Volley.newRequestQueue(context)
             queue.add(request)
         } catch (error: Exception) {
-            Toast.makeText(
-                context,
-                "Error al cargar cultivos: ${error.message}",
-                Toast.LENGTH_SHORT
-            ).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar cultivos: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 

@@ -1,27 +1,14 @@
 package com.sena.fincaudita
 
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.os.Bundle
-import android.util.Log
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.PopupMenu
-import android.widget.PopupWindow
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
 
         val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
         val userId = sharedPreferences.getInt("user_id", -1)

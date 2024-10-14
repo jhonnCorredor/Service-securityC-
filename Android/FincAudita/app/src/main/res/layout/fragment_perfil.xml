@@ -33,132 +33,491 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.035" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/circle_white"
-        app:cardCornerRadius="1000dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" >
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/ic_fincaudita_launcher_foreground" />
-    </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/circle_white"
+                    app:cardCornerRadius="1000dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/user" />
+
+                        <ImageButton
+                            android:id="@+id/buttonCamera"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_gravity="bottom"
+                            android:layout_margin="0dp"
+                            android:background="#803E3B3B"
+                            android:backgroundTint="#803E3B3B"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:src="@android:drawable/ic_menu_camera"
+                            android:textColor="#FFFFFF"
+                            app:iconGravity="start" />
+                    </FrameLayout>
+
+                </androidx.cardview.widget.CardView>
 
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="104dp"
-        android:fontFamily="sans-serif-black"
-        android:text="User"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="80dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="User"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/cardView"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
-        android:text="Nombre de usuario"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView">
 
-    <EditText
-        android:id="@+id/txtNombre"
-        android:layout_width="360dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_popup"
-        android:hint="Nombre de usuario"
-        android:inputType="text"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_popup"
+                        android:backgroundTint="@color/white"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:paddingHorizontal="10dp">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
-        android:text="Contraseña"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+                        <!-- Acordeón Cabezera -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/accordionCard1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:elevation="4dp"
+                            app:cardBackgroundColor="@color/white">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutPassword"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView2"
-        android:background="@drawable/rounded_popup"
-        app:layout_constraintWidth_percent="0.9">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
 
-        <EditText
-            android:id="@+id/txtPassword"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="40dp"
-            android:background="@drawable/rounded_popup"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Editar perfil"
+                                    android:textColor="#00B828"
+                                    android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/imgTogglePassword"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="end"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="Mostrar/Ocultar Contraseña"
-            android:src="@drawable/eye_svgrepo_com"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                                <ImageView
+                                    android:id="@+id/arrowIcon1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/baseline_keyboard_arrow_down_24" />
+                            </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+                        <!-- Acordeón Contenido -->
+                        <LinearLayout
+                            android:id="@+id/accordionContent1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rounded_toolbar"
+                            android:backgroundTint="#27F2F2F2"
+                            android:orientation="vertical"
+                            android:padding="5dp"
+                            android:visibility="gone">
 
-    <Button
-        android:id="@+id/btnActualizar"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="28dp"
-        android:backgroundTint="@color/green"
-        android:text="Guardar cambios"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutPassword" />
+                            <!-- Aquí se insertan los campos EditText y el botón de Guardar -->
+                            <TextView
+                                android:id="@+id/textView1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginBottom="8dp"
+                                android:text="Nombre de usuario"
+                                android:textColor="#000000"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+                            <EditText
+                                android:id="@+id/txtNombre"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:background="@drawable/rounded_popup"
+                                android:backgroundTint="@color/white"
+                                android:hint="Debe tener entre 4 y 10 caracteres, con mayúsculas y minúsculas, sin números ni caracteres especiales"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:paddingStart="16dp"
+                                android:paddingEnd="16dp"
+                                android:textColor="#000000"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.549"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginBottom="8dp"
+                                android:text="Contraseña"
+                                android:textColor="#000000"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/layoutPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:background="@drawable/rounded_popup"
+                                android:backgroundTint="@color/white"
+                                android:padding="10dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/textView2"
+                                app:layout_constraintWidth_percent="0.9">
+
+                                <EditText
+                                    android:id="@+id/txtPassword"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="40dp"
+                                    android:background="@drawable/rounded_popup"
+                                    android:hint="Debe tener al menos 8 caracteres, una mayúscula y un número"
+                                    android:inputType="textPassword"
+                                    android:paddingStart="16dp"
+                                    android:paddingEnd="16dp"
+                                    android:textColor="@color/black"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/imgTogglePassword"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="end"
+                                    android:layout_marginEnd="8dp"
+                                    android:contentDescription="Mostrar/Ocultar Contraseña"
+                                    android:src="@drawable/eye_svgrepo_com"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <Button
+                                android:id="@+id/btnActualizar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:backgroundTint="@color/green"
+                                android:paddingVertical="5dp"
+                                android:text="Guardar cambios"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.103"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/layoutPassword" />
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/green"/>
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/accordionCard2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:elevation="4dp"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Editar datos personales"
+                                    android:textColor="#00B828"
+                                    android:textSize="18sp" />
+
+                                <ImageView
+                                    android:id="@+id/arrowIcon2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:src="@drawable/baseline_keyboard_arrow_down_24" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:id="@+id/accordionContent2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_toolbar"
+                        android:backgroundTint="#52F2F2F2"
+                        android:orientation="vertical"
+                        android:padding="5dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginBottom="8dp"
+                            android:text="Nombre"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/txtfirstNombre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rounded_popup"
+                            android:hint="Mínimo 3 caracteres y máximo 25 caracteres"
+                            android:inputType="text"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginBottom="8dp"
+                            android:text="Apellido"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/txtApellido"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rounded_popup"
+                            android:hint="Mínimo 3 caracteres y máximo 25 caracteres"
+                            android:inputType="text"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginBottom="8dp"
+                            android:text="Tipo de documento"
+                            android:textColor="#000000" />
+
+                        <Spinner
+                            android:id="@+id/txtTipoDocumento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rounded_popup"
+                            android:entries="@array/type_document"
+                            android:inputType="text"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:popupBackground="@drawable/rounded_popup"
+                            android:textColor="#040404" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginBottom="8dp"
+                            android:text="Número del documento"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/txtNumeroDocumento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rounded_popup"
+                            android:hint="Debe tener entre 8 y 10 dígitos"
+                            android:inputType="number"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginBottom="8dp"
+                            android:text="Fecha de nacimiento"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/txtFechaNacimiento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rounded_popup"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:hint="Fecha de nacimiento: Debes ser mayor de 18 años"
+                            android:inputType="datetime"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginBottom="8dp"
+                            android:text="Teléfono"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/txtTelefono"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rounded_popup"
+                            android:hint="Debe tener entre 9 y 10 dígitos"
+                            android:inputType="number"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginBottom="8dp"
+                            android:text="Correo electrónico"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/txtCorreo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rounded_popup"
+                            android:hint="Correo válido (gmail.com o hotmail.com)"
+                            android:inputType="textEmailAddress"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginBottom="8dp"
+                            android:text="Dirección"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/txtDireccion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rounded_popup"
+                            android:hint="Dirección Ej: Calle 123 #45-67"
+                            android:inputType="text"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginBottom="8dp"
+                            android:text="Ciudad"
+                            android:textColor="#000000" />
+
+                        <AutoCompleteTextView
+                            android:id="@+id/txtCiudad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rounded_popup"
+                            android:hint="Ingrese una ciudad"
+                            android:inputType="text"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:popupBackground="@drawable/rounded_popup"
+                            android:textColor="#000000" />
+
+                        <Button
+                            android:id="@+id/btnActualizarPerson"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="5dp"
+                            android:layout_marginTop="10dp"
+                            android:backgroundTint="@color/green"
+                            android:text="Guardar cambios"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.103"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/layoutPassword" />
+                    </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -68,8 +68,10 @@ class FormSupplieFragment : Fragment() {
         val btnActualizar: Button = view.findViewById(R.id.btnActualizar)
         val btnEliminar: Button = view.findViewById(R.id.btnEliminar)
         val btnVolver: ImageButton = view.findViewById(R.id.btnVolver)
+        val txtRegistrarInsumo = view.findViewById<TextView>(R.id.txtRegistrarInsumo)
 
         if (supplie != null) {
+            txtRegistrarInsumo.text = "Detalle Insumo"
             txtCode.text = supplie!!.Code
             txtNombreProducto.text = supplie!!.Name
             txtDescripcion.text = supplie!!.Description
@@ -117,6 +119,7 @@ class FormSupplieFragment : Fragment() {
             if (!edit) {
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("Confirmar Edición")
+                    .setCancelable(false)
                     .setMessage("¿Desea editar el registro?")
                     .setPositiveButton("Sí") { dialog, _ ->
                         txtCode.isEnabled = true
@@ -149,6 +152,7 @@ class FormSupplieFragment : Fragment() {
                 if (updatedSupplie != null) {
                     val confirmUpdateDialog = AlertDialog.Builder(requireContext())
                     confirmUpdateDialog.setTitle("Confirmar Actualización")
+                        .setCancelable(false)
                         .setMessage("¿Está seguro de que desea actualizar el registro?")
                         .setPositiveButton("Sí") { dialog, _ ->
                             updateSupplie(updatedSupplie)
@@ -167,6 +171,7 @@ class FormSupplieFragment : Fragment() {
         btnEliminar.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Confirmar Eliminación")
+                .setCancelable(false)
                 .setMessage("¿Está seguro de que desea eliminar este registro?")
                 .setPositiveButton("Sí") { dialog, _ ->
                     supplie?.let {
@@ -207,6 +212,7 @@ class FormSupplieFragment : Fragment() {
 
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(successTitle)
+                        .setCancelable(false)
                         .setMessage("Registro Guardado Exitosamente")
                         .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                         .create()
@@ -220,6 +226,7 @@ class FormSupplieFragment : Fragment() {
 
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(errorTitle)
+                        .setCancelable(false)
                         .setMessage("Error: ${error}")
                         .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                         .create()
@@ -236,6 +243,7 @@ class FormSupplieFragment : Fragment() {
 
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
+                .setCancelable(false)
                 .setMessage("Error al guardar el supplie: ${error}")
                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                 .create()
@@ -268,6 +276,7 @@ class FormSupplieFragment : Fragment() {
                     edit = false
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(successTitle)
+                        .setCancelable(false)
                         .setMessage("Registro Actualizado Exitosamente")
                         .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                         .create()
@@ -282,6 +291,7 @@ class FormSupplieFragment : Fragment() {
                         errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
 
                         builder.setTitle(errorTitle)
+                            .setCancelable(false)
                             .setMessage("Error al actualizar el supplie: ${error}")
                             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                             .create()
@@ -292,6 +302,7 @@ class FormSupplieFragment : Fragment() {
                         successTitle.setSpan(ForegroundColorSpan(Color.GREEN), 0, successTitle.length, 0)
                         edit = false
                         builder.setTitle(successTitle)
+                            .setCancelable(false)
                             .setMessage("Registro Actualizado Exitosamente")
                             .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                             .create()
@@ -310,6 +321,7 @@ class FormSupplieFragment : Fragment() {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
                 .setMessage("Error al actualizar el supplie: ${error}")
+                .setCancelable(false)
                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                 .create()
                 .show()
@@ -334,6 +346,7 @@ class FormSupplieFragment : Fragment() {
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(successTitle)
                         .setMessage("Registro Eliminado Exitosamente")
+                        .setCancelable(false)
                         .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                         .create()
                         .show()
@@ -346,6 +359,7 @@ class FormSupplieFragment : Fragment() {
                         errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
 
                         builder.setTitle(errorTitle)
+                            .setCancelable(false)
                             .setMessage("Error al eliminar el supplie: ${error}")
                             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                             .create()
@@ -356,6 +370,7 @@ class FormSupplieFragment : Fragment() {
                         successTitle.setSpan(ForegroundColorSpan(Color.GREEN), 0, successTitle.length, 0)
 
                         builder.setTitle(successTitle)
+                            .setCancelable(false)
                             .setMessage("Registro Eliminado Exitosamente")
                             .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                             .create()
@@ -374,6 +389,7 @@ class FormSupplieFragment : Fragment() {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
                 .setMessage("Error al eliminar el supplie: ${error}")
+                .setCancelable(false)
                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                 .create()
                 .show()
@@ -390,17 +406,26 @@ class FormSupplieFragment : Fragment() {
         var isValid = true
 
         if (txtCode.text.isEmpty()) {
-            txtCode.error = "El código es obligatorio"
+            txtCode.error = "Ingresa un código."
+            isValid = false
+        } else if (!txtCode.text.matches("^[a-zA-Z0-9]*$".toRegex())) {
+            txtCode.error = "El código solo puede contener letras y números."
             isValid = false
         }
 
         if (txtNombre.text.isEmpty()) {
             txtNombre.error = "El nombre es obligatorio"
             isValid = false
+        } else if (txtNombre.text.length < 5 || txtNombre.text.length > 30) {
+            txtNombre.error = "El nombre debe tener entre 5 y 30 caracteres"
+            isValid = false
         }
 
         if (txtDescripcion.text.isEmpty()) {
-            txtDescripcion.error = "La descripción es obligatoria"
+            txtDescripcion.error = "El nombre es obligatorio"
+            isValid = false
+        } else if (txtDescripcion.text.length < 5 || txtDescripcion.text.length > 30) {
+            txtDescripcion.error = "El nombre debe tener entre 5 y 30 caracteres"
             isValid = false
         }
 

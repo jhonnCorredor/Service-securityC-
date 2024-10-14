@@ -29,192 +29,224 @@
         app:layout_constraintStart_toEndOf="@id/btnVolver"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardCode"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnMargin"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtRegistrarInsumo">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCode"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Código"
-                android:textColor="#000000" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:id="@+id/txtCode"
-                android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Código"
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/txtCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/white"
+                        android:hint="Código (Alfanumérico)"
+                        android:inputType="text"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="#000000" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CardView para el Nombre del producto -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardName"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/white"
-                android:hint="Código"
-                android:inputType="text"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:textColor="#000000" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardCode">
 
-    <!-- CardView para el Nombre del producto -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardCode">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nombre del producto"
+                        android:textColor="#000000" />
 
-            <TextView
-                android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/txtNombreProducto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/white"
+                        android:hint="Nombre del producto (min: 5, max:30)"
+                        android:inputType="text"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="#000000" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CardView para la Descripción -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDescription"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Nombre del producto"
-                android:textColor="#000000" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardName">
 
-            <EditText
-                android:id="@+id/txtNombreProducto"
-                android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Descripción"
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/txtDescripcion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/white"
+                        android:hint="Descripción (min: 5, max:30)"
+                        android:inputType="textMultiLine"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="#000000" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CardView para el Precio -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPrice"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/white"
-                android:hint="Nombre del producto"
-                android:inputType="text"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:textColor="#000000" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardDescription">
 
-    <!-- CardView para la Descripción -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardName">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Precio"
+                        android:textColor="#000000" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Descripción"
-                android:textColor="#000000" />
+                    <EditText
+                        android:id="@+id/txtPrecio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/white"
+                        android:hint="Precio"
+                        android:inputType="number"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="#000000" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            <EditText
-                android:id="@+id/txtDescripcion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/white"
-                android:hint="Descripción"
-                android:inputType="textMultiLine"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:textColor="#000000" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    </ScrollView>
 
-    <!-- CardView para el Precio -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardPrice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardDescription"
-        app:layout_constraintBottom_toTopOf="@id/btnCrear">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Precio"
-                android:textColor="#000000" />
-
-            <EditText
-                android:id="@+id/txtPrecio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/white"
-                android:hint="Precio"
-                android:inputType="numberDecimal"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:textColor="#000000" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
     <!-- Botón Crear -->
     <Button
         android:id="@+id/btnCrear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="28dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/green"
         android:text="Crear"
         android:textColor="#FFFFFF"
         app:icon="@drawable/add_circle_svgrepo_com"
         app:iconGravity="end"
         app:iconTint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardPrice" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:layout_marginEnd="28dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Botón Actualizar -->
     <Button
         android:id="@+id/btnActualizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/green"
         android:text="Actualizar"
@@ -224,14 +256,14 @@
         app:iconGravity="end"
         app:iconTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardPrice" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <!-- Botón Eliminar -->
     <Button
         android:id="@+id/btnEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/red"
         android:text="Eliminar"
@@ -241,6 +273,6 @@
         app:iconGravity="end"
         app:iconTint="@color/white"
         app:layout_constraintEnd_toStartOf="@id/btnActualizar"
-        app:layout_constraintTop_toBottomOf="@id/cardPrice" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,14 +4,12 @@ import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import com.sena.fincaudita.R
 
 class CodePassword : Fragment() {
@@ -31,12 +29,6 @@ class CodePassword : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
-            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
-            val bottomPadding = imeInsets.bottom - 180
-            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, bottomPadding)
-            WindowInsetsCompat.CONSUMED
-        }
 
         val btnAtras: Button = view.findViewById(R.id.btnAtras)
         val txtCodigo: EditText = view.findViewById(R.id.txtCodigo)
@@ -65,7 +57,7 @@ class CodePassword : Fragment() {
 
             if(Codigo.isEmpty()){
                 progressDialog.dismiss()
-                txtCodigo.error = "Ingrese un código."
+                txtCodigo.error = "Ingrese el código."
                 return@setOnClickListener
             }
             val sharedPreferences = activity?.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
@@ -80,6 +72,7 @@ class CodePassword : Fragment() {
             } else {
                 progressDialog.dismiss()
                 AlertDialog.Builder(requireContext())
+                    .setCancelable(false)
                     .setTitle("Código Incorrecto")
                     .setMessage("El código ingresado es incorrecto. Por favor, inténtelo de nuevo.")
                     .setPositiveButton("OK", null)

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/constraintLayout"
     tools:context=".review.FormReviewFragment">
 
     <ImageButton
@@ -93,7 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="6dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSiguiente"
+        app:layout_constraintBottom_toTopOf="@+id/btnMargin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayoutPasos"
         android:fillViewport="true">
@@ -140,7 +141,7 @@
                                 android:layout_marginTop="8dp"
                                 android:layout_marginBottom="8dp"
                                 android:background="@color/white"
-                                android:hint="Código"
+                                android:hint="Código (Alfanumérico)"
                                 android:inputType="text"
                                 android:paddingStart="16dp"
                                 android:paddingEnd="16dp"
@@ -297,7 +298,7 @@
                                 android:layout_marginTop="8dp"
                                 android:layout_marginBottom="8dp"
                                 android:background="@color/white"
-                                android:hint="Observación"
+                                android:hint="Observación (mínimo 5 caracteres, máximo 1000 caracteres)"
                                 android:inputType="text|textMultiLine"
                                 android:paddingStart="16dp"
                                 android:paddingEnd="16dp"
@@ -317,12 +318,32 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Lista de chequeo"
-                    android:textColor="@color/black" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Lista de chequeo"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtListCheck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:enabled="false"
+                        android:background="@android:color/transparent"
+                        android:clickable="false"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
@@ -360,6 +381,7 @@
                         android:padding="8dp">
 
                         <!-- Título para la imagen de evidencia -->
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -379,12 +401,33 @@
                             <!-- Placeholder de imagen -->
                             <ImageView
                                 android:id="@+id/imagenCultivo"
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:minWidth="80dp"
+                                android:minHeight="80dp"
+                                android:maxWidth="100dp"
+                                android:maxHeight="300dp"
                                 android:layout_marginEnd="16dp"
                                 android:contentDescription="Imagen del cultivo"
-                                android:scaleType="centerCrop"
                                 android:src="@android:drawable/ic_menu_gallery" />
+
+                            <TextView
+                                android:id="@+id/txvImagen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cargue una imagen"
+                                android:textColor="#000000"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/txtImagen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:background="@android:color/transparent"
+                                android:clickable="false"
+                                android:textColor="#000000"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -434,15 +477,27 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 app:srcCompat="@drawable/baseline_edit_square_24" />
+
+                            <EditText
+                                android:id="@+id/txtFirmaT"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="30dp"
+                                android:enabled="false"
+                                android:background="@android:color/transparent"
+                                android:clickable="false"
+                                android:hint="Cargue imagen de la firma del técnico"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <!-- Placeholder para la firma del técnico -->
                         <ImageView
                             android:id="@+id/firmaTecnico"
                             android:layout_width="match_parent"
-                            android:layout_height="100dp"
+                            android:layout_height="wrap_content"
+                            android:minHeight="100dp"
+                            android:maxHeight="300dp"
                             android:contentDescription="Firma del técnico"
-                            android:scaleType="centerCrop"
                             app:srcCompat="@android:drawable/ic_menu_upload" />
 
                     </LinearLayout>
@@ -478,15 +533,27 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             app:srcCompat="@drawable/baseline_edit_square_24" />
+
+                        <EditText
+                            android:id="@+id/txtFirmaP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:background="@android:color/transparent"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:textSize="12sp"
+                            android:hint="Cargue imagen de la firma del productor"/>
                     </LinearLayout>
 
                         <!-- Placeholder para la firma del productor -->
                         <ImageView
                             android:id="@+id/firmaProductor"
                             android:layout_width="match_parent"
-                            android:layout_height="100dp"
+                            android:layout_height="wrap_content"
+                            android:minHeight="100dp"
+                            android:maxHeight="300dp"
                             android:contentDescription="Firma del productor"
-                            android:scaleType="centerCrop"
                             app:srcCompat="@android:drawable/ic_menu_upload" />
 
                     </LinearLayout>
@@ -544,6 +611,17 @@
         app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:layout_marginEnd="28dp"
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnActualizar"

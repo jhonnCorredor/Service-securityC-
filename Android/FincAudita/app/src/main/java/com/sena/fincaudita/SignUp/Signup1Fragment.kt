@@ -4,9 +4,9 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.text.InputType
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,15 +15,18 @@ import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.snackbar.Snackbar
 import com.sena.fincaudita.Config.urls
 import com.sena.fincaudita.Entity.Person
 import com.sena.fincaudita.Entity.User
@@ -32,12 +35,10 @@ import com.sena.fincaudita.R
 import com.sena.fincaudita.components.DatePickerFragment
 import org.json.JSONArray
 import org.json.JSONObject
-import java.text.SimpleDateFormat
-import java.util.Locale
-import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
 import java.text.ParseException
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 class Signup1Fragment : Fragment() {
     private var listCitys = mutableListOf<String>()
@@ -60,12 +61,6 @@ class Signup1Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
-            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
-            val bottomPadding = imeInsets.bottom - 180
-            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, bottomPadding)
-            WindowInsetsCompat.CONSUMED
-        }
 
         val btnAtras: Button = view.findViewById(R.id.btnAtras)
         val btnSiguiente: Button = view.findViewById(R.id.btnSiguiente)
@@ -82,8 +77,22 @@ class Signup1Fragment : Fragment() {
         val txtNombreUsuario: EditText = view.findViewById(R.id.txtNombreUsuario)
         val txtContrasena: EditText = view.findViewById(R.id.txtPassword)
         checbox = view.findViewById(R.id.checkbox_remember)
+        val imgTogglePassword = view.findViewById<ImageView>(R.id.imgTogglePassword)
+        var isPasswordVisible = false
 
         checbox.setOnCheckedChangeListener(null)
+
+        imgTogglePassword.setOnClickListener {
+            if (isPasswordVisible) {
+                txtContrasena.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                imgTogglePassword.setImageResource(R.drawable.eye_svgrepo_com)
+            } else {
+                txtContrasena.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                imgTogglePassword.setImageResource(R.drawable.eye_cancelled)
+            }
+            isPasswordVisible = !isPasswordVisible
+            txtContrasena.setSelection(txtContrasena.text.length)
+        }
 
         checbox.setOnClickListener {
             if (checbox.isChecked) {
@@ -128,7 +137,11 @@ class Signup1Fragment : Fragment() {
                 val user = User(0, txtNombreUsuario.text.toString(), txtContrasena.text.toString(), 0)
                 guardarPerson(person, user)
             } else {
-                Toast.makeText(context, "Por favor completa todos los campos.", Toast.LENGTH_SHORT).show()
+                val view: View = requireView()
+                Snackbar.make(view, "Por favor completa todos los campos.", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    .show()
             }
         }
 
@@ -154,10 +167,23 @@ class Signup1Fragment : Fragment() {
     }
 
     private fun showDatePickerDialog(editText: EditText) {
-        val datePicker = DatePickerFragment { day, month, year ->
+        val calendar = Calendar.getInstance()
+
+        val minYear = calendar.get(Calendar.YEAR) - 70
+        val minDate = Calendar.getInstance().apply {
+            set(minYear, calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+        }.timeInMillis
+
+        val maxYear = calendar.get(Calendar.YEAR) - 18
+        val maxDate = Calendar.getInstance().apply {
+            set(maxYear, calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+        }.timeInMillis
+
+        val datePicker = DatePickerFragment({ day, month, year ->
             onDateSelected(day, month, year, editText)
-        }
-        datePicker.show(parentFragmentManager, "datapicker")
+        }, minDate, maxDate)
+
+        datePicker.show(parentFragmentManager, "datePicker")
     }
 
     private fun onDateSelected(day: Int, month: Int, year: Int, editText: EditText) {
@@ -183,13 +209,21 @@ class Signup1Fragment : Fragment() {
                     onComplete(listCitys, cityIdMap)
                 },
                 { error ->
-                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                 }
             )
             val queue = Volley.newRequestQueue(context)
             queue.add(request)
         } catch (error: Exception) {
-            Toast.makeText(context, "Error al cargar usuarios: ${error.message}", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar usuarios: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -239,7 +273,11 @@ class Signup1Fragment : Fragment() {
                         paramsUser,
                         {response ->
                             progressDialog.dismiss()
-                            Toast.makeText(context, "Registro Guardado Exitosamente", Toast.LENGTH_SHORT).show()
+                            val view: View = requireView()
+                            Snackbar.make(view, "Registro Guardado Exitosamente", Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                                .show()
                             val nuevoFragmento = Signup2Fragment.newInstance()
                             parentFragmentManager.beginTransaction()
                                 .replace(R.id.fragmentContainerView2, nuevoFragmento)
@@ -258,6 +296,7 @@ class Signup1Fragment : Fragment() {
                     errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
                     val builder = android.app.AlertDialog.Builder(requireContext())
                     builder.setTitle(errorTitle)
+                    builder.setCancelable(false)
                     builder.setMessage("Error al crear el usuario. \nError: ${error}")
                     builder.setPositiveButton("OK") { dialog, _ ->
                         dialog.dismiss()
@@ -274,6 +313,7 @@ class Signup1Fragment : Fragment() {
             errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
             val builder = android.app.AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
+            builder.setCancelable(false)
             builder.setMessage("Error al crear el usuario. \nError: ${error}")
             builder.setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
@@ -330,29 +370,29 @@ class Signup1Fragment : Fragment() {
         }
 
 
-        if (txtNombre.text.isEmpty() || txtNombre.text.length > 15) {
-            txtNombre.error = "El nombre es obligatorio y debe tener máximo 15 caracteres"
+        if (txtNombre.text.isEmpty() || txtNombre.text.length > 25 || txtNombre.text.length < 3) {
+            txtNombre.error = "El nombre es obligatorio, debe tener mínimo 3 caracteres y máximo 25 caracteres"
             isValid = false
         }
 
-        if (txtApellido.text.isEmpty() || txtApellido.text.length > 15) {
-            txtApellido.error = "El apellido es obligatorio y debe tener máximo 15 caracteres"
+        if (txtApellido.text.isEmpty() || txtApellido.text.length > 25 || txtApellido.text.length < 3) {
+            txtApellido.error = "El apellido es obligatorio, debe tener mínimo 3 caracteres y máximo 25 caracteres"
             isValid = false
         }
 
-        if (txtNumeroDocumento.text.isEmpty() || txtNumeroDocumento.text.length != 10) {
-            txtNumeroDocumento.error = "El número de documento debe tener 10 dígitos"
+        if (txtNumeroDocumento.text.isEmpty() || txtNumeroDocumento.text.length > 10 || txtNumeroDocumento.text.length < 8) {
+            txtNumeroDocumento.error = "El número de documento debe tener entre 8 y 10 dígitos"
             isValid = false
         }
 
-        if (txtTelefono.text.isEmpty() || txtTelefono.text.length != 10) {
-            txtTelefono.error = "El número de teléfono debe tener 10 dígitos"
+        if (txtTelefono.text.isEmpty() || txtTelefono.text.length > 10 || txtTelefono.text.length < 9) {
+            txtTelefono.error = "El número de teléfono debe tener entre 9 y 10 dígitos"
             isValid = false
         }
 
-        val direccionPattern = Regex("^(Calle|Carrera|Transversal)\\s.+$")
+        val direccionPattern = Regex("^(Calle|Carrera|Transversal)\\s[\\w#-]+.*$", RegexOption.IGNORE_CASE)
         if (txtDireccion.text.isEmpty() || !direccionPattern.matches(txtDireccion.text.toString())) {
-            txtDireccion.error = "La dirección debe comenzar con Calle, Carrera o Transversal"
+            txtDireccion.error = "La dirección debe comenzar con Calle, Carrera o Transversal y seguir el formato adecuado"
             isValid = false
         }
 
@@ -362,9 +402,9 @@ class Signup1Fragment : Fragment() {
             isValid = false
         }
 
-        val usernamePattern = Regex("^(?=.*[a-z])(?=.*[A-Z])[A-Za-z]{4,15}$")
+        val usernamePattern = Regex("^(?=.*[a-zñ])(?=.*[A-ZÑ])[A-Za-zñÑ ]{4,10}$")
         if (txtNombreUsuario.text.isEmpty() || !usernamePattern.matches(txtNombreUsuario.text.toString())) {
-            txtNombreUsuario.error = "El nombre de usuario debe tener entre 4 y 15 caracteres, con mayúsculas y minúsculas, sin números ni caracteres especiales"
+            txtNombreUsuario.error = "El nombre de usuario debe tener entre 4 y 10 caracteres, con mayúsculas y minúsculas, sin números ni caracteres especiales"
             isValid = false
         }
 
@@ -385,7 +425,11 @@ class Signup1Fragment : Fragment() {
         }
 
         if (!checbox.isChecked) {
-            Toast.makeText(context, "Debes aceptar los términos y condiciones.", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Debes aceptar los términos y condiciones.", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
             isValid = false
         }
 
@@ -395,6 +439,7 @@ class Signup1Fragment : Fragment() {
     private fun showTermsDialog() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("Términos y Condiciones")
+        builder.setCancelable(false)
         builder.setMessage(getString(R.string.finca_audita_terms))
         builder.setPositiveButton("Aceptar") { dialog, _ ->
             checbox.isChecked = true

@@ -80,12 +80,13 @@
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="0dp"
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11">
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_remember">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -99,25 +100,28 @@
                 android:padding="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
                 <TextView
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:layout_marginBottom="8dp"
                     android:text="Nombre"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp"/>
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/txtNombre"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/rounded_popup"
-                    android:hint="Nombre"
+                    android:hint="Mínimo 3 caracteres y máximo 25 caracteres"
                     android:inputType="text"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -128,34 +132,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:layout_marginBottom="8dp"
                     android:text="Apellido"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp"/>
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/txtApellido"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/rounded_popup"
-                    android:hint="Apellido"
+                    android:hint="Mínimo 3 caracteres y máximo 25 caracteres"
                     android:inputType="text"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="16dp"/>
+                    android:textColor="#000000" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tipo de documento"
-                    android:textColor="#000000"
                     android:layout_gravity="start"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:text="Tipo de documento"
+                    android:textColor="#000000" />
 
                 <Spinner
                     android:id="@+id/txtTipoDocumento"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/rounded_popup"
                     android:entries="@array/type_document"
@@ -168,40 +174,42 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Número del documento"
                     android:layout_gravity="start"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:text="Número del documento"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/txtNumeroDocumento"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/rounded_popup"
-                    android:hint="Número del documento"
+                    android:hint="Debe tener entre 8 y 10 dígitos"
                     android:inputType="number"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="16dp"/>
+                    android:textColor="#000000" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:layout_marginBottom="8dp"
                     android:text="Fecha de nacimiento"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp"/>
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/txtFechaNacimiento"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:clickable="false"
-                    android:focusable="false"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/rounded_popup"
-                    android:hint="Fecha de nacimiento"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:hint="Fecha de nacimiento: Debes ser mayor de 18 años"
                     android:inputType="datetime"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -210,18 +218,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Teléfono"
                     android:layout_gravity="start"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:text="Teléfono"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/txtTelefono"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/rounded_popup"
-                    android:hint="Teléfono"
+                    android:hint="Debe tener entre 9 y 10 dígitos"
                     android:inputType="number"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -230,58 +239,61 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Correo electrónico"
                     android:layout_gravity="start"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:text="Correo electrónico"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/txtCorreo"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/rounded_popup"
-                    android:hint="Correo electrónico"
+                    android:hint="Correo válido (gmail.com o hotmail.com)"
                     android:inputType="textEmailAddress"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="16dp"/>
+                    android:textColor="#000000" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dirección"
                     android:layout_gravity="start"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:text="Dirección"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/txtDireccion"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/rounded_popup"
-                    android:hint="Dirección"
+                    android:hint="Dirección Ej: Calle 123 #45-67"
                     android:inputType="text"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="16dp"/>
+                    android:textColor="#000000" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ciudad"
                     android:layout_gravity="start"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:text="Ciudad"
+                    android:textColor="#000000" />
 
                 <AutoCompleteTextView
                     android:id="@+id/txtCiudad"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/rounded_popup"
-                    android:hint="Ciudad"
+                    android:hint="Ingrese una ciudad"
                     android:inputType="text"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -291,42 +303,69 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nombre de usuario"
                     android:layout_gravity="start"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:text="Nombre de usuario"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/txtNombreUsuario"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/rounded_popup"
-                    android:hint="Nombre de usuario"
+                    android:hint="Debe tener entre 4 y 10 caracteres, con mayúsculas y minúsculas, sin números ni caracteres especiales"
                     android:inputType="text"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="16dp"/>
+                    android:textColor="#000000" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Contraseña"
-                    android:textColor="#000000"
                     android:layout_gravity="start"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:text="Contraseña"
+                    android:textColor="#000000" />
 
-                <EditText
-                    android:id="@+id/txtPassword"
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="15dp"
                     android:background="@drawable/rounded_popup"
-                    android:hint="Contraseña"
-                    android:inputType="textPassword"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:textColor="#000000"
-                    android:layout_marginBottom="16dp"/>
+                    app:cardElevation="4dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <EditText
+                            android:id="@+id/txtPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/imgTogglePassword"
+                            android:hint="Debe tener al menos 8 caracteres, una mayúscula y un número"
+                            android:inputType="textPassword"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="#000000"
+                            android:background="@drawable/rounded_popup"
+                            android:layout_marginEnd="10dp" />
+
+                        <ImageView
+                            android:id="@+id/imgTogglePassword"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/eye_svgrepo_com" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -351,33 +390,39 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/green"
         android:text="Crear cuenta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_remember" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_remember"
+        app:layout_constraintBottom_toTopOf="@+id/txtSignIn"/>
 
     <Button
         android:id="@+id/btnAtras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/green"
         android:text="Atras"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_remember" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_remember"
+        app:layout_constraintBottom_toTopOf="@+id/txtSignIn"/>
 
     <TextView
         android:id="@+id/txtSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:layout_marginStart="104dp"
         android:layout_marginTop="2dp"
         android:text="¿Ya tienes cuenta? Iniciar sesión"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAtras" />
 </androidx.constraintlayout.widget.ConstraintLayout>

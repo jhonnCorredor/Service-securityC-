@@ -7,34 +7,24 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.snackbar.Snackbar
 import com.sena.fincaudita.Config.urls
 import com.sena.fincaudita.MainActivity
 import com.sena.fincaudita.R
 import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
-/**
- * A simple [Fragment] subclass.
- * Use the [emailPassword.newInstance] factory method to
- * create an instance of this fragment.
- */
 class emailPassword : Fragment() {
-    // TODO: Rename and change types of parameters
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +36,6 @@ class emailPassword : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_email_password, container, false)
 
         return view
@@ -54,12 +43,6 @@ class emailPassword : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
-            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
-            val bottomPadding = imeInsets.bottom - 180
-            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, bottomPadding)
-            WindowInsetsCompat.CONSUMED
-        }
 
         val btnSiguiente: Button = view.findViewById(R.id.btnSiguiente)
         val txtEmail = view.findViewById<EditText>(R.id.txtEmail)
@@ -72,9 +55,9 @@ class emailPassword : Fragment() {
         }
 
         btnSiguiente.setOnClickListener {
-            val emailPattern = Regex("^[a-zA-Z0-9._%+-]+@gmail.com$")
+            val emailPattern = Regex("^[a-zA-Z0-9._%+-]+@(gmail|hotmail)\\.com$")
             if (txtEmail.text.isEmpty() || !emailPattern.matches(txtEmail.text.toString())) {
-                txtEmail.error = "Ingresa un correo de Gmail válido"
+                txtEmail.error = "Ingresa un correo válido (@gmail.com o @hotmail.com)"
             }else{
                 val email = txtEmail.text.toString()
                 recoveryEmail(email)
@@ -106,7 +89,11 @@ class emailPassword : Fragment() {
                     editor?.putInt("user_id", userId)
                     editor?.putString("code",code)
                     editor?.apply()
-                    Toast.makeText(context, "Correo Enviado", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Correo Enviado", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                     progressDialog.dismiss()
                     val nuevoFragmento = CodePassword.newInstance()
                     parentFragmentManager.beginTransaction()
@@ -119,6 +106,7 @@ class emailPassword : Fragment() {
                     errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
                     val builder = android.app.AlertDialog.Builder(requireContext())
                     builder.setTitle(errorTitle)
+                    builder.setCancelable(false)
                     builder.setMessage("Error al consultar el usuario. \nError: ${error}")
                     builder.setPositiveButton("OK") { dialog, _ ->
                         dialog.dismiss()
@@ -140,6 +128,7 @@ class emailPassword : Fragment() {
             errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
             val builder = android.app.AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
+            builder.setCancelable(false)
             builder.setMessage("Error al consultar el usuario. \nError: ${error}")
             builder.setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()

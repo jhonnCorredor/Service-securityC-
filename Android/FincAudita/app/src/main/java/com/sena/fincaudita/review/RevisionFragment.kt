@@ -8,17 +8,17 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import com.android.volley.Request
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -28,6 +28,8 @@ import com.sena.fincaudita.Entity.Evidence
 import com.sena.fincaudita.Entity.Qualification
 import com.sena.fincaudita.Entity.Review
 import com.sena.fincaudita.R
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class RevisionFragment : Fragment() {
 
@@ -67,7 +69,11 @@ class RevisionFragment : Fragment() {
                 val lot: TextView = view.findViewById(R.id.additional_info)
                 val icon: ImageView = view.findViewById(R.id.icon)
                 val Edit: ImageView = view.findViewById(R.id.detail_icon)
-                fecha.text = review.date
+                val dateFormatInput = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+                val dateFormatOutput = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+
+                val date = dateFormatInput.parse(review.date)
+                fecha.text = dateFormatOutput.format(date)
                 code.text = review.code
                 tecnico.text = "Técnico: ${review.tecnico}"
                 lot.text = review.lot

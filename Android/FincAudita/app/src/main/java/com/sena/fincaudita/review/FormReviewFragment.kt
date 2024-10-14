@@ -47,6 +47,7 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
 import com.sena.fincaudita.Config.urls
 import com.sena.fincaudita.Entity.Assesment
 import com.sena.fincaudita.Entity.Farm
@@ -80,7 +81,12 @@ class FormReviewFragment : Fragment() {
     private lateinit var divider2: View
     private lateinit var paso2: TextView
     private lateinit var paso3: TextView
+    private lateinit var txtImagen: EditText
+    private lateinit var txtFirmaT : EditText
+    private lateinit var txtFirmaP : EditText
+    private lateinit var txtListCheck: EditText
     private lateinit var adapter: GenericAdapter<Assesment>
+    private lateinit var horizontalScrollView: HorizontalScrollView
     private var assesments = mutableListOf<Assesment>()
     private val PICK_FILE_REQUEST = 1
     private val PERMISSION_REQUEST_CODE = 123
@@ -121,6 +127,11 @@ class FormReviewFragment : Fragment() {
             WindowInsetsCompat.CONSUMED
         }
 
+        txtListCheck = view.findViewById(R.id.txtListCheck)
+        txtImagen = view.findViewById(R.id.txtImagen)
+        txtFirmaT = view.findViewById(R.id.txtFirmaT)
+        txtFirmaP = view.findViewById(R.id.txtFirmaP)
+        val txvImagen: TextView = view.findViewById(R.id.txvImagen)
         val btnArchivo = view.findViewById<Button>(R.id.btnElegirArchivo)
         val evidence = view.findViewById<ImageView>(R.id.imagenCultivo)
         val firmTecnico = view.findViewById<ImageView>(R.id.firmaTecnico)
@@ -130,6 +141,39 @@ class FormReviewFragment : Fragment() {
         val txtCode = view.findViewById<EditText>(R.id.txtCode)
         val txtObservation = view.findViewById<EditText>(R.id.txtName)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        val defaultDrawable2 = ContextCompat.getDrawable(requireContext(), android.R.drawable.ic_menu_upload)
+        val defaultDrawable1 = ContextCompat.getDrawable(requireContext(), android.R.drawable.ic_menu_gallery)
+
+        evidence.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            val currentDrawable1 = evidence.drawable
+
+            if (currentDrawable1 == null || currentDrawable1.constantState == defaultDrawable1?.constantState) {
+            } else {
+                txvImagen.visibility = View.GONE
+                txtImagen.visibility = View.GONE
+                txtImagen.error = null
+            }
+        }
+
+        firmTecnico.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            val currentDrawable2 = firmTecnico.drawable
+
+            if (currentDrawable2 == null || currentDrawable2.constantState == defaultDrawable2?.constantState) {
+            } else {
+                txtFirmaT.visibility = View.GONE
+                txtFirmaT.error = null
+            }
+        }
+
+        firmProductor.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            val currentDrawable3 = firmProductor.drawable
+
+            if (currentDrawable3 == null || currentDrawable3.constantState == defaultDrawable2?.constantState) {
+            } else {
+                txtFirmaP.visibility = View.GONE
+                txtFirmaP.error = null
+            }
+        }
 
         recyclerView.layoutManager = LinearLayoutManager(context)
 
@@ -145,9 +189,9 @@ class FormReviewFragment : Fragment() {
         val cardUser = view.findViewById<CardView>(R.id.cardUserId)
         val txtFecha = view.findViewById<EditText>(R.id.txtFecha)
         val txtUserId = view.findViewById<AutoCompleteTextView>(R.id.txtUserId)
+        val txtRegistrartreatment = view.findViewById<TextView>(R.id.txtRegistrartreatment)
 
-
-        val horizontalScrollView = view.findViewById<HorizontalScrollView>(R.id.scrollView)
+        horizontalScrollView = view.findViewById(R.id.scrollView)
         horizontalScrollView.setOnTouchListener { _, _ ->
             true
         }
@@ -176,9 +220,18 @@ class FormReviewFragment : Fragment() {
 
         if(reviewUpdate != null){
             var i = 1
+            txvImagen.visibility = View.GONE
+            txtFirmaP.visibility = View.GONE
+            txtFirmaT.visibility = View.GONE
+            txtImagen.visibility = View.GONE
+            txtRegistrartreatment.setText("Detalle revisión técnica")
+            val dateFormatInput = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+            val dateFormatOutput = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+
+            val date = dateFormatInput.parse(reviewUpdate!!.date)
+            txtFecha.setText(dateFormatOutput.format(date))
             txtCode.setText(reviewUpdate!!.code)
             txtObservation.setText(reviewUpdate!!.observation)
-            txtFecha.setText(reviewUpdate!!.date)
             txtUserId.setText(reviewUpdate!!.tecnico)
             userId = reviewUpdate!!.tecnicoId
             val (beforeColon, afterColon) = reviewUpdate!!.lot.split(":", limit = 2)
@@ -337,7 +390,7 @@ class FormReviewFragment : Fragment() {
                 val txtObservation = view.findViewById<EditText>(R.id.txtObservation)
 
                 txtId.text = assesment.Id.toString()
-                txtAssesment.text = assesment.Name
+                txtAssesment.text = "- ${ assesment.Name }"
                 txtCalificacion.hint = "0 - ${assesment.rating}"
 
                 if(roleId == 3){
@@ -360,8 +413,16 @@ class FormReviewFragment : Fragment() {
 
                 txtObservation.setOnFocusChangeListener { _, hasFocus ->
                     if (!hasFocus) {
-                        if (txtObservation.text.isNullOrEmpty()) {
-                            txtObservation.error = "Campo obligatorio"
+                        val observationText = txtObservation.text.toString()
+                        val regex = "^[a-zA-Z0-9., ]*$".toRegex()
+                        if (observationText.isEmpty()) {
+                            txtObservation.error = "El campo de observación no puede estar vacío."
+                        } else if (observationText.length < 5 || observationText.length > 70) {
+                            txtObservation.error = "La observación debe tener entre 5 y 70 caracteres."
+                        } else if (!regex.matches(observationText)) {
+                            txtObservation.error = "La observación solo puede contener letras, números, comas, puntos y espacios."
+                        } else {
+                            txtObservation.error = null // Limpiar error si es válido
                         }
                         checkAllFieldsFilled()
                     }
@@ -369,12 +430,24 @@ class FormReviewFragment : Fragment() {
 
                 txtCalificacion.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
                     val input = StringBuilder(dest).replace(dstart, dend, source.toString()).toString()
-                    if (input.isEmpty() || (input.toInt() in 0..assesment.rating)) {
+
+                    if (input.isEmpty()) {
                         null
                     } else {
-                        ""
+                        try {
+                            val inputValue = input.toInt()
+
+                            if (inputValue in 0..assesment.rating) {
+                                null
+                            } else {
+                                ""
+                            }
+                        } catch (e: NumberFormatException) {
+                            ""
+                        }
                     }
                 })
+
 
                 txtCalificacion.addTextChangedListener(object : TextWatcher {
                     override fun afterTextChanged(s: Editable?) {
@@ -411,6 +484,9 @@ class FormReviewFragment : Fragment() {
         recyclerView.adapter = adapter
         cargar_assestCriteria()
 
+
+
+
         btnCrear.setOnClickListener {
             val txtUserId = view.findViewById<AutoCompleteTextView>(R.id.txtUserId)
             if(roleId == 2){
@@ -434,16 +510,25 @@ class FormReviewFragment : Fragment() {
                 val review = Review(0, date, code, observation, lotId!!, userId!!, "", "", 0, listOf(), null)
                 save_review(review)
             }else{
-                Toast.makeText(context, "Complete todos los campos del formulario", Toast.LENGTH_SHORT).show();
+                val view: View = requireView()
+                Snackbar.make(view, "Complete todos los campos del formulario", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    .show()
             }
         }
 
         btnActualizar.setOnClickListener {
             if (reviewUpdate == null) {
-                Toast.makeText(requireContext(), "No hay registro para actualizar", Toast.LENGTH_SHORT).show()
+                val view: View = requireView()
+                Snackbar.make(view, "No hay registro para actualizar", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    .show()
             } else if (!edit) {
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("Confirmar Edición")
+                    .setCancelable(false)
                     .setMessage("¿Desea editar el registro?")
                     .setPositiveButton("Sí") { dialog, _ ->
                         if(roleId != 2){
@@ -477,6 +562,7 @@ class FormReviewFragment : Fragment() {
 
                 val confirmUpdateDialog = AlertDialog.Builder(requireContext())
                 confirmUpdateDialog.setTitle("Confirmar Actualización")
+                    .setCancelable(false)
                     .setMessage("¿Está seguro de que desea actualizar el registro?")
                     .setPositiveButton("Sí") { dialog, _ ->
                         val date = txtFecha.text.toString()
@@ -504,6 +590,7 @@ class FormReviewFragment : Fragment() {
             } else {
                 val confirmDeleteDialog = AlertDialog.Builder(requireContext())
                 confirmDeleteDialog.setTitle("Confirmar Eliminación")
+                    .setCancelable(false)
                     .setMessage("¿Está seguro de que desea eliminar este registro?")
                     .setPositiveButton("Sí") { dialog, _ ->
                         delete_review(reviewUpdate!!)
@@ -516,15 +603,22 @@ class FormReviewFragment : Fragment() {
     }
 
     private fun checkAllFieldsFilled() {
-        adapterEditText = assesments.all { assest ->
-            val qualification = qualificationMap[assest.Id]
-            qualification != null &&
-                    qualification.qualificationCriteria != null &&
-                    qualification.observation != null &&
-                    qualification.qualificationCriteria > 0 &&
-                    qualification.observation.isNotEmpty()
+        val hasEmptyFields = assesments.any { assessment ->
+            val qualification = qualificationMap[assessment.Id]
+            qualification == null ||
+                    qualification.qualificationCriteria == null ||
+                    qualification.observation == null ||
+                    qualification.qualificationCriteria <= 0 ||
+                    qualification.observation.isEmpty()
+        }
+
+        if (hasEmptyFields) {
+        } else {
+            adapterEditText =true
+            txtListCheck.error = null
         }
     }
+
 
     private fun checkPermissionsAndOpenFileChooser(imageView: ImageView) {
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -537,7 +631,7 @@ class FormReviewFragment : Fragment() {
     private fun openFileChooser(imageView: ImageView) {
         selectedImageView = imageView
         val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "image/*" // Puedes especificar un tipo de archivo, como "image/*" para imágenes
+        intent.type = "image/*"
         intent.addCategory(Intent.CATEGORY_OPENABLE)
         startActivityForResult(Intent.createChooser(intent, "Selecciona un archivo"), PICK_FILE_REQUEST)
     }
@@ -600,7 +694,11 @@ class FormReviewFragment : Fragment() {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 openFileChooser(selectedImageView!!)
             } else {
-                Toast.makeText(requireContext(), "Permiso denegado", Toast.LENGTH_SHORT).show()
+                val view: View = requireView()
+                Snackbar.make(view, "Permiso denegado", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    .show()
             }
         }
     }
@@ -660,6 +758,7 @@ class FormReviewFragment : Fragment() {
         val blackColor = ContextCompat.getColor(requireContext(), R.color.black)
         val whiteColor = ContextCompat.getColor(requireContext(), R.color.white)
 
+
         when (currentSection) {
             1 -> {
                 paso2.setBackgroundResource(R.drawable.circle_white)
@@ -694,6 +793,7 @@ class FormReviewFragment : Fragment() {
                 divider2.setBackgroundResource(R.color.green)
                 btnSiguiente.visibility = View.GONE
                 if(roleId == 3){
+                    horizontalScrollView
                     btnCrear.visibility= View.GONE
                     btnActualizar.visibility = View.GONE
                     btnEliminar.visibility = View.GONE
@@ -710,10 +810,17 @@ class FormReviewFragment : Fragment() {
     }
 
     private fun showDatePickerDialog(editText: EditText) {
-        val datePicker = DatePickerFragment { day, month, year ->
+        val minDate = Calendar.getInstance().apply {
+            set(Calendar.DAY_OF_MONTH, 1)
+        }.timeInMillis
+
+        val maxDate = Calendar.getInstance().apply {
+            set(Calendar.DAY_OF_MONTH, getActualMaximum(Calendar.DAY_OF_MONTH))
+        }.timeInMillis
+        val datePicker = DatePickerFragment ({ day, month, year ->
             onDateSelected(day, month, year, editText)
-        }
-        datePicker.show(parentFragmentManager, "datapicker")
+        },minDate, maxDate)
+        datePicker.show(parentFragmentManager, "datePicker")
     }
 
     private fun onDateSelected(day: Int, month: Int, year: Int, editText: EditText) {
@@ -739,13 +846,21 @@ class FormReviewFragment : Fragment() {
                     onComplete(listUsers, userIdMap)
                 },
                 { error ->
-                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                 }
             )
             val queue = Volley.newRequestQueue(context)
             queue.add(request)
         } catch (error: Exception) {
-            Toast.makeText(context, "Error al cargar usuarios: ${error.message}", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar usuarios: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -783,13 +898,21 @@ class FormReviewFragment : Fragment() {
                     onComplete(lotsMap)
                 },
                 { error ->
-                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                 }
             )
             val queue = Volley.newRequestQueue(context)
             queue.add(request)
         } catch (error: Exception) {
-            Toast.makeText(context, "Error al cargar insumos: ${error.message}", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar insumos: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -815,17 +938,21 @@ class FormReviewFragment : Fragment() {
                     adapter.notifyDataSetChanged()
                 },
                 { error ->
-                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                 }
             )
             val queue = Volley.newRequestQueue(context)
             queue.add(request)
         } catch (error: Exception) {
-            Toast.makeText(
-                context,
-                "Error al cargar data: ${error.message}",
-                Toast.LENGTH_SHORT
-            ).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar data: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -841,9 +968,10 @@ class FormReviewFragment : Fragment() {
         txtTecnico: AutoCompleteTextView,
     ): Boolean {
         var isValid = true
-        val minParagraphLength = 100
+        val minParagraphLength = 5
+        val maxParagraphLength = 1000
 
-        if (txtTecnico.text.isEmpty()) {
+        if (txtTecnico.text.isEmpty() && userId == null) {
             txtTecnico.error = "Ingrese el nombre del técnico"
             isValid = false
         }
@@ -851,10 +979,17 @@ class FormReviewFragment : Fragment() {
         if (txtCode.text.isEmpty()) {
             txtCode.error = "Ingresa un código."
             isValid = false
+        } else if (!txtCode.text.matches("^[a-zA-Z0-9]*$".toRegex())) {
+            txtCode.error = "El código solo puede contener letras y números."
+            isValid = false
         }
 
-        if (txtObservation.text.isEmpty() || txtObservation.text.length < minParagraphLength) {
-            txtObservation.error = "Ingresa una observación de al menos 100 caracteres."
+        val observationText = txtObservation.text.toString()
+        if (observationText.isEmpty() || observationText.length < minParagraphLength || observationText.length > maxParagraphLength) {
+            txtObservation.error = "Ingresa una observación de al menos $minParagraphLength caracteres y hasta $maxParagraphLength caracteres."
+            isValid = false
+        } else if (!observationText.matches("^[a-zA-Z0-9., ]*$".toRegex())) {
+            txtObservation.error = "La observación solo puede contener letras, números, comas, puntos y espacios."
             isValid = false
         }
 
@@ -863,7 +998,7 @@ class FormReviewFragment : Fragment() {
             isValid = false
         }
 
-        if (txtLot.text.isEmpty()) {
+        if (txtLot.text.isEmpty() && lotId == null) {
             txtLot.error = "Selecciona al menos un lote"
             isValid = false
         } else {
@@ -885,19 +1020,24 @@ class FormReviewFragment : Fragment() {
                         set(Calendar.MILLISECOND, 0)
                     }
 
-                    val sixMonthsLater = Calendar.getInstance().apply {
+                    val startOfMonth = Calendar.getInstance().apply {
+                        set(Calendar.DAY_OF_MONTH, 1)
                         set(Calendar.HOUR_OF_DAY, 0)
                         set(Calendar.MINUTE, 0)
                         set(Calendar.SECOND, 0)
                         set(Calendar.MILLISECOND, 0)
-                        add(Calendar.MONTH, 6)
                     }
 
-                    if (date.before(currentDate.time)) {
-                        txtFecha.error = "La fecha debe ser hoy o futura"
-                        isValid = false
-                    } else if (date.after(sixMonthsLater.time)) {
-                        txtFecha.error = "La fecha no puede ser más de 6 meses en el futuro"
+                    val endOfMonth = Calendar.getInstance().apply {
+                        set(Calendar.DAY_OF_MONTH, getActualMaximum(Calendar.DAY_OF_MONTH))
+                        set(Calendar.HOUR_OF_DAY, 23)
+                        set(Calendar.MINUTE, 59)
+                        set(Calendar.SECOND, 59)
+                        set(Calendar.MILLISECOND, 999)
+                    }
+
+                    if (date.before(startOfMonth.time) || date.after(endOfMonth.time)) {
+                        txtFecha.error = "La fecha debe estar dentro del mes actual"
                         isValid = false
                     } else {
                         txtFecha.error = null
@@ -919,20 +1059,20 @@ class FormReviewFragment : Fragment() {
         val currentDrawable3 = imageView3.drawable
 
         if (currentDrawable1 == null || currentDrawable1.constantState == defaultDrawable1?.constantState) {
-            Toast.makeText(context, "Selecciona una imagen en la evidencía del cultivo.", Toast.LENGTH_SHORT).show()
+            txtImagen.error = "Selecciona una imagen en la evidencia del cultivo."
             isValid = false
         }
         if (currentDrawable2 == null || currentDrawable2.constantState == defaultDrawable2?.constantState) {
-            Toast.makeText(context, "Selecciona la imagen de la firma del técnico.", Toast.LENGTH_SHORT).show()
+            txtFirmaT.error = "Selecciona la imagen de la firma del técnico."
             isValid = false
         }
         if (currentDrawable3 == null || currentDrawable2.constantState == defaultDrawable2?.constantState) {
-            Toast.makeText(context, "Selecciona la imagen de la firma del productor", Toast.LENGTH_SHORT).show()
+            txtFirmaP.error = "Selecciona la imagen de la firma del productor."
             isValid = false
         }
 
         if(!adapterEditText){
-            Toast.makeText(context, "Realice la lista de chequeo.", Toast.LENGTH_SHORT).show()
+            txtListCheck.error ="Realice la lista de chequeo."
             isValid = false
         }
 
@@ -962,13 +1102,13 @@ class FormReviewFragment : Fragment() {
             checklist.put("calification_total", qualificationTotal)
             checklist.put("qualifications", qualifications)
             val image = JSONObject()
-            image.put("code", "image")
+            image.put("code", review.code)
             image.put("document", evidenceImage)
             val firmT = JSONObject()
-            firmT.put("code", "firmTecnico")
+            firmT.put("code", review.code)
             firmT.put("document", firmTecnicoImage)
             val firmP = JSONObject()
-            firmP.put("code", "firmProductor")
+            firmP.put("code", review.code)
             firmP.put("document", firmProductorImage)
             val evidences = JSONArray()
             evidences.put(image)
@@ -993,6 +1133,7 @@ class FormReviewFragment : Fragment() {
 
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(successTitle)
+                        .setCancelable(false)
                         .setMessage("Revisión guardada exitosamente")
                         .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                         .create()
@@ -1004,6 +1145,7 @@ class FormReviewFragment : Fragment() {
 
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(errorTitle)
+                        .setCancelable(false)
                         .setMessage("Error: ${error}")
                         .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                         .create()
@@ -1019,6 +1161,7 @@ class FormReviewFragment : Fragment() {
 
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
+                .setCancelable(false)
                 .setMessage("Error al guardar la revisión: ${error}")
                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                 .create()
@@ -1048,13 +1191,13 @@ class FormReviewFragment : Fragment() {
             checklist.put("calification_total", qualificationTotal)
             checklist.put("qualifications", qualifications)
             val image = JSONObject()
-            image.put("code", "image")
+            image.put("code", review.code)
             image.put("document", evidenceImage)
             val firmT = JSONObject()
-            firmT.put("code", "firmTecnico")
+            firmT.put("code", review.code)
             firmT.put("document", firmTecnicoImage)
             val firmP = JSONObject()
-            firmP.put("code", "firmProductor")
+            firmP.put("code", review.code)
             firmP.put("document", firmProductorImage)
             val evidences = JSONArray()
             evidences.put(image)
@@ -1080,6 +1223,7 @@ class FormReviewFragment : Fragment() {
                     successTitle.setSpan(ForegroundColorSpan(Color.GREEN), 0, successTitle.length, 0)
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(successTitle)
+                        .setCancelable(false)
                         .setMessage("Registro actualizado exitosamente")
                         .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                         .create()
@@ -1091,6 +1235,7 @@ class FormReviewFragment : Fragment() {
                         val errorTitle = SpannableString("Error")
                         errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
                         builder.setTitle(errorTitle)
+                            .setCancelable(false)
                             .setMessage("Error al actualizar el registro: ${error}")
                             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                             .create()
@@ -1101,6 +1246,7 @@ class FormReviewFragment : Fragment() {
                         val successTitle = SpannableString("Éxito")
                         successTitle.setSpan(ForegroundColorSpan(Color.GREEN), 0, successTitle.length, 0)
                         builder.setTitle(successTitle)
+                            .setCancelable(false)
                             .setMessage("Registro actualizado Exitosamente")
                             .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                             .create()
@@ -1117,6 +1263,7 @@ class FormReviewFragment : Fragment() {
 
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
+                .setCancelable(false)
                 .setMessage("Error al actualizar la revisión: ${error}")
                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                 .create()
@@ -1140,6 +1287,7 @@ class FormReviewFragment : Fragment() {
                     successTitle.setSpan(ForegroundColorSpan(Color.GREEN), 0, successTitle.length, 0)
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(successTitle)
+                        .setCancelable(false)
                         .setMessage("Registro eliminado Exitosamente")
                         .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                         .create()
@@ -1152,6 +1300,7 @@ class FormReviewFragment : Fragment() {
                         val errorTitle = SpannableString("Error")
                         errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
                         builder.setTitle(errorTitle)
+                            .setCancelable(false)
                             .setMessage("Error al eliminar el registro: ${error}")
                             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                             .create()
@@ -1161,6 +1310,7 @@ class FormReviewFragment : Fragment() {
                         val successTitle = SpannableString("Éxito")
                         successTitle.setSpan(ForegroundColorSpan(Color.GREEN), 0, successTitle.length, 0)
                         builder.setTitle(successTitle)
+                            .setCancelable(false)
                             .setMessage("Registro eliminado Exitosamente")
                             .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                             .create()
@@ -1176,12 +1326,14 @@ class FormReviewFragment : Fragment() {
             errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
+                .setCancelable(false)
                 .setMessage("Error al eliminar: ${error}")
                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                 .create()
                 .show()
         }
     }
+
 
     companion object {
         const val ARG_REVIEW = "review"

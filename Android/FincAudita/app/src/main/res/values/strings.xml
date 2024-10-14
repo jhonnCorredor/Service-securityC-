@@ -6,7 +6,6 @@
 
     <string-array name="type_document">
         <item>Cédula de Ciudadanía</item>
-        <item>Tarjeta de Identidad</item>
         <item>Cédula de Extranjería</item>
         <item>Pasaporte</item>
     </string-array>
@@ -15,7 +14,7 @@
         <item>Femenino</item>
     </string-array>
     <string-array name="type_treatment">
-        <item>Fertilación</item>
+        <item>Fertilización</item>
         <item>Fumigación</item>
     </string-array>
 </resources>

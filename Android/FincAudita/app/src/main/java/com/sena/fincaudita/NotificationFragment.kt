@@ -8,15 +8,13 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,15 +23,16 @@ import com.android.volley.ParseError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.HttpHeaderParser
-import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.JsonRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.snackbar.Snackbar
 import com.sena.fincaudita.Config.urls
 import com.sena.fincaudita.Entity.Alert
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class NotificationFragment : Fragment() {
     private var alerts = mutableListOf<Alert>()
@@ -74,11 +73,16 @@ class NotificationFragment : Fragment() {
             layoutResId = R.layout.item_notification,
             bindView = { view, alert ->
                 val title: TextView = view.findViewById(R.id.notification_title)
-                val date: TextView = view.findViewById(R.id.notification_date)
+                val fecha: TextView = view.findViewById(R.id.notification_date)
                 val theme: View = view.findViewById(R.id.notification_color)
 
+                val dateFormatInput = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+                val dateFormatOutput = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+
+                val date = dateFormatInput.parse(alert.Date)
+                fecha.text = dateFormatOutput.format(date)
+
                 title.text = alert.Title
-                date.text = alert.Date
                 val colorRes = when (alert.Theme) {
                     "rojo" -> R.color.red
                     "amarillo" -> R.color.yellow
@@ -141,7 +145,11 @@ class NotificationFragment : Fragment() {
                         } catch (e: JSONException) {
                             progressDialog.dismiss()
                             onComplete()
-                            Toast.makeText(context, "Error al procesar datos: ${e.message}", Toast.LENGTH_SHORT).show()
+                            val view: View = requireView()
+                            Snackbar.make(view, "Error al procesar datos: ${e.message}", Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                                .show()
                         }
                     },
                     Response.ErrorListener { error ->

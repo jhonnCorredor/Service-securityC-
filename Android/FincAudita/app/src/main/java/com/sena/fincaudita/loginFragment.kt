@@ -17,8 +17,6 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
@@ -47,12 +45,6 @@ class loginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
-            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
-            val bottomPadding = imeInsets.bottom - 180
-            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, bottomPadding)
-            WindowInsetsCompat.CONSUMED
-        }
 
         val txtUser: EditText = view.findViewById(R.id.txtUser)
         val txtPassword: EditText = view.findViewById(R.id.txtPassword)
@@ -67,10 +59,10 @@ class loginFragment : Fragment() {
         imgTogglePassword.setOnClickListener {
             if (isPasswordVisible) {
                 txtPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                imgTogglePassword.setImageResource(R.drawable.eye_cancelled)
+                imgTogglePassword.setImageResource(R.drawable.eye_svgrepo_com)
             } else {
                 txtPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                imgTogglePassword.setImageResource(R.drawable.eye_svgrepo_com)
+                imgTogglePassword.setImageResource(R.drawable.eye_cancelled)
             }
             isPasswordVisible = !isPasswordVisible
             txtPassword.setSelection(txtPassword.text.length)
@@ -143,6 +135,7 @@ class loginFragment : Fragment() {
                         val builder = AlertDialog.Builder(requireContext())
                         builder.setTitle(successTitle)
                         builder.setMessage("Inicio de sesión exitoso.")
+                        builder.setCancelable(false)
                         builder.setPositiveButton("OK") { dialog, _ ->
                             dialog.dismiss()
                             val intent = Intent(activity, MenuActivity::class.java)
@@ -161,6 +154,7 @@ class loginFragment : Fragment() {
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(errorTitle)
                     builder.setMessage("Error al iniciar sesión. \nErro: ${error}")
+                    builder.setCancelable(false)
                     builder.setPositiveButton("OK") { dialog, _ ->
                         dialog.dismiss()
                     }
@@ -178,6 +172,7 @@ class loginFragment : Fragment() {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
             builder.setMessage("Error al iniciar sesión: ${error}")
+            builder.setCancelable(false)
             builder.setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
             }

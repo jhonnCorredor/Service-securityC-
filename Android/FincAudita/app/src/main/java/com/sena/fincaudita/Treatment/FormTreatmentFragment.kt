@@ -21,7 +21,7 @@ import android.widget.ImageButton
 import android.widget.MultiAutoCompleteTextView
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
@@ -31,6 +31,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.snackbar.Snackbar
 import com.sena.fincaudita.Config.urls
 import com.sena.fincaudita.Entity.Farm
 import com.sena.fincaudita.Entity.Lot
@@ -102,6 +103,7 @@ class FormTreatmentFragment : Fragment() {
         val btnEliminar: Button = view.findViewById(R.id.btnEliminar)
         val recyclerViewInputs = view.findViewById<RecyclerView>(R.id.recyclerViewInputs)
         val txtFecha = view.findViewById<EditText>(R.id.txtFecha)
+        val txtRegistrartreatment = view.findViewById<TextView>(R.id.txtRegistrartreatment)
 
         recyclerViewInputs.layoutManager = LinearLayoutManager(context)
         inputsAdapter = GenericAdapter(
@@ -112,7 +114,7 @@ class FormTreatmentFragment : Fragment() {
                 val txtInputDose = itemView.findViewById<TextView>(R.id.dose)
                 val btnEliminar = itemView.findViewById<ImageButton>(R.id.eliminar)
                 txtInputName.text = item.first
-                txtInputDose.text = "Dosis: ${item.second} (L/ha)"
+                txtInputDose.text = "Dosis: ${item.second} (L/ha),(g/ha)"
                 btnEliminar.setOnClickListener {
                     inputsList.remove(item)
                     updateListView()
@@ -128,8 +130,8 @@ class FormTreatmentFragment : Fragment() {
                 btnEliminar.visibility = View.VISIBLE
             }else{
                 btnCrear.visibility = View.GONE
-                btnActualizar.visibility = View.GONE
-                btnEliminar.visibility = View.GONE
+                btnActualizar.visibility = View.VISIBLE
+                btnEliminar.visibility = View.VISIBLE
             }
 
             treatment?.lotList?.forEach { lotTreatment ->
@@ -137,10 +139,15 @@ class FormTreatmentFragment : Fragment() {
                 txtFarm.setText(beforeColon.trim())
                 txtLot.setText(txtLot.text.toString() + afterColon.trim() + ", ")
             }
+            txtRegistrartreatment.text = "Detalle tratamiento"
 
+            val dateFormatInput = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+            val dateFormatOutput = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+
+            val date = dateFormatInput.parse(treatment!!.dateTreatment)
+            txtFecha.setText(dateFormatOutput.format(date))
             txtTipo.setSelection(getSpinnerIndex(txtTipo, treatment!!.typeTreatment))
             txtMezcla.setText(treatment!!.quantityMix)
-            txtFecha.setText(treatment!!.dateTreatment)
             txtTipo.isEnabled = false
             txtMezcla.isEnabled = false
             txtFarm.isEnabled = false
@@ -163,7 +170,11 @@ class FormTreatmentFragment : Fragment() {
 
         btnActualizar.setOnClickListener {
             if (treatment == null) {
-                Toast.makeText(requireContext(), "No hay registro para actualizar", Toast.LENGTH_SHORT).show()
+                val view: View = requireView()
+                Snackbar.make(view, "No hay registro para actualizar", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    .show()
             } else if (!edit) {
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("Confirmar Edición")
@@ -208,7 +219,11 @@ class FormTreatmentFragment : Fragment() {
 
         btnEliminar.setOnClickListener {
             if (treatment == null) {
-                Toast.makeText(requireContext(), "No hay registro para eliminar", Toast.LENGTH_SHORT).show()
+                val view: View = requireView()
+                Snackbar.make(view, "No hay registro para eliminar", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    .show()
             } else {
                 val confirmDeleteDialog = AlertDialog.Builder(requireContext())
                 confirmDeleteDialog.setTitle("Confirmar Eliminación")
@@ -223,25 +238,31 @@ class FormTreatmentFragment : Fragment() {
         }
 
         btnAddInput.setOnClickListener {
+            var isValid = true
             val inputName = txtInput.text.toString()
             val dose = txtDose.text.toString()
 
             if(txtInput.text.isEmpty()){
                 txtInput.error = "Ingrese un insumo."
+                isValid = false
             }
 
-            if(txtDose.text.isEmpty()){
-                txtDose.error = "Ingrese dosis."
+            if (txtDose.text.isEmpty()) {
+                txtDose.error = "La dosis es obligatoria"
+                isValid = false
+            } else {
+                val DoseValue = txtDose.text.toString().toIntOrNull()
+                if (DoseValue == null || DoseValue <= 0 || DoseValue > 1000) {
+                    txtDose.error = "La dosis debe ser un número mayor a 0 y menor o igual a 1000"
+                    isValid = false
+                }
             }
 
-            if (inputName.isNotBlank() && dose.isNotBlank()) {
+            if (isValid) {
                 inputsList.add(Pair(inputName, dose))
                 updateListView()
                 txtInput.text.clear()
                 txtDose.text.clear()
-            } else {
-                txtInput.error = "Ingrese un insumo."
-                txtDose.error = "Ingrese dosis."
             }
         }
 
@@ -342,7 +363,11 @@ class FormTreatmentFragment : Fragment() {
         val supplies = mutableListOf<SupplieTreatment>()
 
         if (tipo.isBlank() || mezcla.isBlank() || date.isBlank() || inputsList.isEmpty() || listLotsId.isEmpty()) {
-            Toast.makeText(context, "Por favor, completa todos los campos obligatorios", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Por favor, completa todos los campos obligatorios", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
             return
         }
 
@@ -356,10 +381,17 @@ class FormTreatmentFragment : Fragment() {
     }
 
     private fun showDatePickerDialog(editText: EditText) {
-        val datePicker = DatePickerFragment { day, month, year ->
+        val minDate = Calendar.getInstance().apply {
+            set(Calendar.DAY_OF_MONTH, 1)
+        }.timeInMillis
+
+        val maxDate = Calendar.getInstance().apply {
+            set(Calendar.DAY_OF_MONTH, getActualMaximum(Calendar.DAY_OF_MONTH))
+        }.timeInMillis
+        val datePicker = DatePickerFragment ({ day, month, year ->
             onDateSelected(day, month, year, editText)
-        }
-        datePicker.show(parentFragmentManager, "datapicker")
+        },minDate, maxDate)
+        datePicker.show(parentFragmentManager, "datePicker")
     }
 
     private fun onDateSelected(day: Int, month: Int, year: Int, editText: EditText) {
@@ -385,13 +417,21 @@ class FormTreatmentFragment : Fragment() {
                     onComplete(listSupplie, supplieIdMap)
                 },
                 { error ->
-                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                 }
             )
             val queue = Volley.newRequestQueue(context)
             queue.add(request)
         } catch (error: Exception) {
-            Toast.makeText(context, "Error al cargar insumos: ${error.message}", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar insumos: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -429,13 +469,21 @@ class FormTreatmentFragment : Fragment() {
                     onComplete(lotsMap)
                 },
                 { error ->
-                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                 }
             )
             val queue = Volley.newRequestQueue(context)
             queue.add(request)
         } catch (error: Exception) {
-            Toast.makeText(context, "Error al cargar insumos: ${error.message}", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar insumos: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -687,13 +735,23 @@ class FormTreatmentFragment : Fragment() {
         var isValid = true
 
         if (txtTipo.selectedItem == null) {
-            Toast.makeText(context, "Selecciona un tipo", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Selecciona un tipo", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
             isValid = false
         }
 
         if (txtMezcla.text.isEmpty()) {
             txtMezcla.error = "La mezcla es obligatoria"
             isValid = false
+        } else {
+            val mezclaValue = txtMezcla.text.toString().toIntOrNull()
+            if (mezclaValue == null || mezclaValue <= 0 || mezclaValue > 1000) {
+                txtMezcla.error = "La mezcla debe ser un número mayor a 0 y menor o igual a 1000"
+                isValid = false
+            }
         }
 
         if (txtFarm.text.isEmpty()) {
@@ -723,19 +781,24 @@ class FormTreatmentFragment : Fragment() {
                         set(Calendar.MILLISECOND, 0)
                     }
 
-                    val sixMonthsLater = Calendar.getInstance().apply {
+                    val startOfMonth = Calendar.getInstance().apply {
+                        set(Calendar.DAY_OF_MONTH, 1)
                         set(Calendar.HOUR_OF_DAY, 0)
                         set(Calendar.MINUTE, 0)
                         set(Calendar.SECOND, 0)
                         set(Calendar.MILLISECOND, 0)
-                        add(Calendar.MONTH, 6)
                     }
 
-                    if (date.before(currentDate.time)) {
-                        txtFecha.error = "La fecha debe ser hoy o futura"
-                        isValid = false
-                    } else if (date.after(sixMonthsLater.time)) {
-                        txtFecha.error = "La fecha no puede ser más de 6 meses en el futuro"
+                    val endOfMonth = Calendar.getInstance().apply {
+                        set(Calendar.DAY_OF_MONTH, getActualMaximum(Calendar.DAY_OF_MONTH))
+                        set(Calendar.HOUR_OF_DAY, 23)
+                        set(Calendar.MINUTE, 59)
+                        set(Calendar.SECOND, 59)
+                        set(Calendar.MILLISECOND, 999)
+                    }
+
+                    if (date.before(startOfMonth.time) || date.after(endOfMonth.time)) {
+                        txtFecha.error = "La fecha debe estar dentro del mes actual"
                         isValid = false
                     } else {
                         txtFecha.error = null
@@ -751,7 +814,11 @@ class FormTreatmentFragment : Fragment() {
         }
 
         if (inputsList.isEmpty()) {
-            Toast.makeText(context, "Debes agregar al menos un insumo", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Debes agregar al menos un insumo", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
             isValid = false
         }
 

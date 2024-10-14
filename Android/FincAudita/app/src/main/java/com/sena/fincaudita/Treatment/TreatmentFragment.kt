@@ -8,7 +8,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,17 +15,22 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.snackbar.Snackbar
 import com.sena.fincaudita.Config.urls
 import com.sena.fincaudita.Entity.LotTreatment
 import com.sena.fincaudita.Entity.SupplieTreatment
 import com.sena.fincaudita.Entity.Treatment
 import com.sena.fincaudita.R
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class TreatmentFragment : Fragment() {
 
@@ -64,8 +68,11 @@ class TreatmentFragment : Fragment() {
                 val supplie: TextView = view.findViewById(R.id.additional_info)
                 val icon: ImageView = view.findViewById(R.id.icon)
                 val Edit: ImageView = view.findViewById(R.id.detail_icon)
+                val dateFormatInput = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+                val dateFormatOutput = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
-                fecha.text = treatment.dateTreatment
+                val date = dateFormatInput.parse(treatment.dateTreatment)
+                fecha.text = dateFormatOutput.format(date)
                 type.text = treatment.typeTreatment
                 val supplieNames = treatment.supplieList.joinToString { it.supplie }
                 supplie.text = supplieNames
@@ -279,7 +286,11 @@ class TreatmentFragment : Fragment() {
             queue.add(request)
         }catch (error: Exception){
             progressDialog.dismiss()
-            Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 

@@ -18,8 +18,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.MultiAutoCompleteTextView
-import android.widget.Toast
+import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
@@ -27,6 +28,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.snackbar.Snackbar
 import com.sena.fincaudita.Config.urls
 import com.sena.fincaudita.Entity.Farm
 import com.sena.fincaudita.Entity.Lot
@@ -90,6 +92,7 @@ class FormFarmFragment : Fragment() {
         val btnActualizar: Button = view.findViewById(R.id.btnActualizar)
         val btnEliminar: Button = view.findViewById(R.id.btnEliminar)
         val btnVolver = view.findViewById<ImageButton>(R.id.btnVolver)
+        val txtRegistrarFinca = view.findViewById<TextView>(R.id.txtRegistrarFinca)
 
         if (lots != null && lots!!.isNotEmpty()) {
             txtHectareas.setText(lots!![0].numHectareas.toString())
@@ -165,7 +168,7 @@ class FormFarmFragment : Fragment() {
                         val cropId = iterator.next()
                         val cropName = cropMap.entries.find { it.value == cropId }?.key
                         if (cropName != null && !currentSelectedCrops.contains(cropName)) {
-                            iterator.remove() // Eliminar el cropId de selectedCropIds
+                            iterator.remove()
                         }
                     }
                 }
@@ -175,6 +178,7 @@ class FormFarmFragment : Fragment() {
         }
 
         if (farm != null) {
+            txtRegistrarFinca.setText("Detalle Finca")
             txtFarmName.setText(farm!!.Name)
             txtDimension.setText(farm!!.Dimension.toString())
             txtAddress.setText(farm!!.Addres)
@@ -221,16 +225,25 @@ class FormFarmFragment : Fragment() {
                 )
                 saveFarm(newFarm, selectedCropIds)
             } else {
-                Toast.makeText(requireContext(), "Por favor, complete todos los campos obligatorios", Toast.LENGTH_SHORT).show()
+                val view: View = requireView()
+                Snackbar.make(view, "Por favor, complete todos los campos obligatorios", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    .show()
             }
         }
 
         btnActualizar.setOnClickListener {
             if (farm == null) {
-                Toast.makeText(requireContext(), "No hay registro para actualizar", Toast.LENGTH_SHORT).show()
+                val view: View = requireView()
+                Snackbar.make(view, "No hay registro para actualizar", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    .show()
             } else if (!edit) {
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("Confirmar Edición")
+                    .setCancelable(false)
                     .setMessage("¿Desea editar el registro?")
                     .setPositiveButton("Sí") { dialog, _ ->
                         txtCityId.isEnabled = true
@@ -261,6 +274,7 @@ class FormFarmFragment : Fragment() {
 
                 val confirmUpdateDialog = AlertDialog.Builder(requireContext())
                 confirmUpdateDialog.setTitle("Confirmar Actualización")
+                    .setCancelable(false)
                     .setMessage("¿Está seguro de que desea actualizar el registro?")
                     .setPositiveButton("Sí") { dialog, _ ->
                         updateFarm(updatedFarm, selectedCropIds)
@@ -280,10 +294,15 @@ class FormFarmFragment : Fragment() {
 
         btnEliminar.setOnClickListener {
             if (farm == null) {
-                Toast.makeText(requireContext(), "No hay registro para eliminar", Toast.LENGTH_SHORT).show()
+                val view: View = requireView()
+                Snackbar.make(view, "No hay registro para eliminar", Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                    .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    .show()
             } else {
                 val confirmDeleteDialog = AlertDialog.Builder(requireContext())
                 confirmDeleteDialog.setTitle("Confirmar Eliminación")
+                    .setCancelable(false)
                     .setMessage("¿Está seguro de que desea eliminar este registro?")
                     .setPositiveButton("Sí") { dialog, _ ->
                         deleteFarm(farm!!)
@@ -334,6 +353,7 @@ class FormFarmFragment : Fragment() {
 
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(successTitle)
+                        .setCancelable(false)
                         .setMessage("Granja guardada exitosamente")
                         .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                         .create()
@@ -346,6 +366,7 @@ class FormFarmFragment : Fragment() {
 
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(errorTitle)
+                        .setCancelable(false)
                         .setMessage("Error: ${error}")
                         .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                         .create()
@@ -362,6 +383,7 @@ class FormFarmFragment : Fragment() {
             errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
+                .setCancelable(false)
                 .setMessage("Error al guardar la granja: ${error}")
                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                 .create()
@@ -407,6 +429,7 @@ class FormFarmFragment : Fragment() {
 
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(successTitle)
+                        .setCancelable(false)
                         .setMessage("Granja actualizada exitosamente")
                         .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                         .create()
@@ -420,6 +443,7 @@ class FormFarmFragment : Fragment() {
                         errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
 
                         builder.setTitle(errorTitle)
+                            .setCancelable(false)
                             .setMessage("Error al actualizar la finca: ${error}")
                             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                             .create()
@@ -431,6 +455,7 @@ class FormFarmFragment : Fragment() {
                         edit = false
 
                         builder.setTitle(successTitle)
+                            .setCancelable(false)
                             .setMessage("Registro actualizado exitosamente")
                             .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                             .create()
@@ -446,6 +471,7 @@ class FormFarmFragment : Fragment() {
             errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
+                .setCancelable(false)
                 .setMessage("Error al actualizar la granja: ${error}")
                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                 .create()
@@ -470,6 +496,7 @@ class FormFarmFragment : Fragment() {
 
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle(successTitle)
+                        .setCancelable(false)
                         .setMessage("Registro eliminado exitosamente")
                         .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                         .create()
@@ -483,6 +510,7 @@ class FormFarmFragment : Fragment() {
                         errorTitle.setSpan(ForegroundColorSpan(Color.RED), 0, errorTitle.length, 0)
 
                         builder.setTitle(errorTitle)
+                            .setCancelable(false)
                             .setMessage("Error al eliminar la finca: ${error}")
                             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                             .create()
@@ -493,6 +521,7 @@ class FormFarmFragment : Fragment() {
                         successTitle.setSpan(ForegroundColorSpan(Color.GREEN), 0, successTitle.length, 0)
 
                         builder.setTitle(successTitle)
+                            .setCancelable(false)
                             .setMessage("Registro eliminado exitosamente")
                             .setPositiveButton("OK") { dialog, _ -> requireActivity().supportFragmentManager.popBackStack() }
                             .create()
@@ -511,6 +540,7 @@ class FormFarmFragment : Fragment() {
 
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle(errorTitle)
+                .setCancelable(false)
                 .setMessage("Error al eliminar la finca: ${error}")
                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                 .create()
@@ -535,13 +565,21 @@ class FormFarmFragment : Fragment() {
                     onComplete(listCitys, cityIdMap)
                 },
                 { error ->
-                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                 }
             )
             val queue = Volley.newRequestQueue(context)
             queue.add(request)
         } catch (error: Exception) {
-            Toast.makeText(context, "Error al cargar ciudades: ${error.message}", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar ciudades: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -562,13 +600,21 @@ class FormFarmFragment : Fragment() {
                     onComplete(listUsers, userIdMap)
                 },
                 { error ->
-                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                 }
             )
             val queue = Volley.newRequestQueue(context)
             queue.add(request)
         } catch (error: Exception) {
-            Toast.makeText(context, "Error al cargar usuarios: ${error.message}", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar usuarios: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -589,13 +635,21 @@ class FormFarmFragment : Fragment() {
                     onComplete(listCrops, cropIdMap)
                 },
                 { error ->
-                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    val view: View = requireView()
+                    Snackbar.make(view, "Error: ${error.message}", Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                        .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        .show()
                 }
             )
             val queue = Volley.newRequestQueue(context)
             queue.add(request)
         } catch (error: Exception) {
-            Toast.makeText(context, "Error al cargar cultivos: ${error.message}", Toast.LENGTH_SHORT).show()
+            val view: View = requireView()
+            Snackbar.make(view, "Error al cargar cultivos: ${error.message}", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(ContextCompat.getColor(requireContext(), R.color.white))
+                .setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                .show()
         }
     }
 
@@ -613,17 +667,29 @@ class FormFarmFragment : Fragment() {
         if (txtFarmName.text.isEmpty()) {
             txtFarmName.error = "El nombre de la finca es obligatorio"
             isValid = false
+        } else if (txtFarmName.text.length < 3) {
+            txtFarmName.error = "El nombre debe tener al menos 3 caracteres"
+            isValid = false
+        } else if (txtFarmName.text.length > 15) {
+            txtFarmName.error = "El nombre no debe exceder los 15 caracteres"
+            isValid = false
         } else {
             txtFarmName.error = null
         }
 
-        val direccionPattern = Regex("^(Calle|Carrera|Transversal)\\s.+$")
-        if (txtAddress.text.isEmpty() || !direccionPattern.matches(txtAddress.text.toString())) {
+        if (txtAddress.text.isEmpty()) {
             txtAddress.error = "La dirección es obligatoria"
+            isValid = false
+        } else if (txtAddress.text.length < 3) {
+            txtAddress.error = "La dirección debe tener al menos 3 caracteres"
+            isValid = false
+        } else if (txtAddress.text.length > 15) {
+            txtAddress.error = "La dirección no debe exceder los 15 caracteres"
             isValid = false
         } else {
             txtAddress.error = null
         }
+
 
         if (txtDimension.text.isEmpty()) {
             txtDimension.error = "La dimensión es obligatoria"
@@ -634,6 +700,9 @@ class FormFarmFragment : Fragment() {
                 if (dimension <= 0) {
                     txtDimension.error = "La dimensión debe ser mayor a cero"
                     isValid = false
+                } else if (dimension > 200) {
+                    txtDimension.error = "La dimensión no debe exceder los 200 hectáreas"
+                    isValid = false
                 } else {
                     txtDimension.error = null
                 }
@@ -642,6 +711,7 @@ class FormFarmFragment : Fragment() {
                 isValid = false
             }
         }
+
 
         if (cityId == null) {
             txtCityId.error = "La ciudad es obligatoria"

@@ -82,8 +82,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/green"
         android:text="Aceptar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
