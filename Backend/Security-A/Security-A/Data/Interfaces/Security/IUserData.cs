@@ -17,7 +17,7 @@ namespace Data.Interfaces.Security
         Task<UserDto> GetByIdAndRoles(int id);
         Task<User> GetByUsername(string username);
         Task<User> GetByPassword(string password);
-        Task<IEnumerable<LoginDto>> Login(string username, string password);
+        Task<IEnumerable<LoginDto>> Login(string username);
 
     }
 }

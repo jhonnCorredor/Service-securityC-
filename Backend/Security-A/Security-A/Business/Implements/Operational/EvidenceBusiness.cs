@@ -32,7 +32,7 @@ namespace Business.Implements.Operational
             {
                 Id = evidence.Id,
                 Code = evidence.Code,
-                Document = evidence.Document,
+                Document = Convert.ToBase64String(evidence.Document),
                 ReviewId = evidence.ReviewId,
                 State = evidence.State
             });
@@ -50,7 +50,7 @@ namespace Business.Implements.Operational
             Evidence evidence = await data.GetById(id);
             EvidenceDto dto = new EvidenceDto();
             dto.Id = evidence.Id;
-            dto.Document = evidence.Document;
+            dto.Document = Convert.ToBase64String(evidence.Document);
             dto.Code = evidence.Code;
             dto.ReviewId = evidence.ReviewId;
             dto.State = evidence.State;
@@ -60,7 +60,7 @@ namespace Business.Implements.Operational
         public Evidence mapearDatos(Evidence evidence, EvidenceDto entity)
         {
             evidence.Id = entity.Id;
-            evidence.Document = entity.Document;
+            evidence.Document = Convert.FromBase64String(entity.Document);
             evidence.Code = entity.Code;
             evidence.ReviewId = (int)entity.ReviewId;
             evidence.State = (bool)entity.State;

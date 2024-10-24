@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "xkJno3r/eyw=",
+  "dgSpecHash": "kflvUKH0VDs=",
   "success": true,
   "projectFilePath": "C:\\Users\\srhad\\OneDrive\\Documentos\\Nueva carpeta (6)\\Fincaudita repositorio\\Service-securityC-\\Backend\\Security-A\\Security-A\\Business\\Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\srhad\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\srhad\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\srhad\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\srhad\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
     "C:\\Users\\srhad\\.nuget\\packages\\dapper\\2.1.24\\dapper.2.1.24.nupkg.sha512",
     "C:\\Users\\srhad\\.nuget\\packages\\harfbuzzsharp\\2.6.1.5\\harfbuzzsharp.2.6.1.5.nupkg.sha512",

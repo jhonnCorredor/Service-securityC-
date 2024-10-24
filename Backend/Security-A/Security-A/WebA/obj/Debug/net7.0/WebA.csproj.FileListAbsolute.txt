@@ -617,3 +617,4 @@ C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Serv
 C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\obj\Debug\net7.0\WebA.pdb
 C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\obj\Debug\net7.0\WebA.genruntimeconfig.cache
 C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\obj\Debug\net7.0\ref\WebA.dll
+C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\bin\Debug\net7.0\BCrypt.Net-Next.dll

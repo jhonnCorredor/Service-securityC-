@@ -3,6 +3,7 @@ using Entity.Context;
 using Entity.Dto;
 using Entity.Dto.Security;
 using Entity.Model.Security;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Data;
@@ -160,12 +161,11 @@ namespace Data.Implements.Security
             return await context.QueryAsync<UserDto>(sql, new {Id = id});
         }
 
-        public async Task<IEnumerable<LoginDto>> Login(string username, string password)
+        public async Task<IEnumerable<LoginDto>> Login(string username)
         {
             var sql = @"
                 SELECT 
                     u.Id AS userID,
-                    u.Username,
                     u.Password,
                     r.Id AS roleID,
                     r.Name AS role,
@@ -196,12 +196,12 @@ namespace Data.Implements.Security
                 FROM Users AS u
                 LEFT JOIN UserRoles AS ur ON ur.UserId = u.Id
                 LEFt JOIN Roles AS r ON r.Id = ur.RoleId
-                WHERE u.Username = @Username AND u.Password = @Password AND ur.DeletedAt IS NULL
+                WHERE u.Username = @Username AND ur.DeletedAt IS NULL
                 AND u.DeletedAt is null
                 GROUP BY u.Id, u.Username, u.Password, r.Id, r.Name;
             ";
 
-            return await context.QueryAsync<LoginDto>(sql, new { Username = username, Password = password });
+            return await context.QueryAsync<LoginDto>(sql, new { Username = username });
         }
     }
 }

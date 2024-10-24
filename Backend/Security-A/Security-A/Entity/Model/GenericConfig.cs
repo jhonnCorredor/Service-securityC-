@@ -21,6 +21,7 @@ namespace Entity.Model
             builder.HasIndex(i => i.Document).IsUnique();
             builder.HasIndex(i => i.Email).IsUnique();
             builder.HasIndex(i => i.Phone).IsUnique();
+            builder.HasIndex(i => i.Document).IsUnique();
         }
         public void ConfigureModulo(EntityTypeBuilder<Modulo> builder)
         {

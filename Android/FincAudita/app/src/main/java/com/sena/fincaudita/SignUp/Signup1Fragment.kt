@@ -74,7 +74,6 @@ class Signup1Fragment : Fragment() {
         val txtCorreo: EditText = view.findViewById(R.id.txtCorreo)
         val txtDireccion: EditText = view.findViewById(R.id.txtDireccion)
         val txtCiudad: AutoCompleteTextView = view.findViewById(R.id.txtCiudad)
-        val txtNombreUsuario: EditText = view.findViewById(R.id.txtNombreUsuario)
         val txtContrasena: EditText = view.findViewById(R.id.txtPassword)
         checbox = view.findViewById(R.id.checkbox_remember)
         val imgTogglePassword = view.findViewById<ImageView>(R.id.imgTogglePassword)
@@ -114,7 +113,7 @@ class Signup1Fragment : Fragment() {
         }
 
         btnSiguiente.setOnClickListener {
-            if (validarCampos(txtNombre, txtApellido, txtNumeroDocumento, txtFechaNacimiento, txtTelefono, txtCorreo, txtDireccion, txtCiudad, txtNombreUsuario, txtContrasena, checbox)) {
+            if (validarCampos(txtNombre, txtApellido, txtNumeroDocumento, txtFechaNacimiento, txtTelefono, txtCorreo, txtDireccion, txtCiudad, txtContrasena, checbox)) {
                 val typeDocument = txtTipoDocumento.selectedItemId.toInt()
                 var type = ""
                 when (typeDocument) {
@@ -134,7 +133,7 @@ class Signup1Fragment : Fragment() {
                 txtNumeroDocumento.text.toString(),
                 cityId!!,
                 txtFechaNacimiento.text.toString())
-                val user = User(0, txtNombreUsuario.text.toString(), txtContrasena.text.toString(), 0)
+                val user = User(0, txtNombre.text.toString() + txtApellido.text.toString(), txtContrasena.text.toString(), 0)
                 guardarPerson(person, user)
             } else {
                 val view: View = requireView()
@@ -254,7 +253,6 @@ class Signup1Fragment : Fragment() {
                 urls.urlPerson,
                 params,
                 { response ->
-                    val result = response
                     val paramsUser = JSONObject().apply {
                         put("username", user.Username)
                         put("password", user.Password)
@@ -331,7 +329,6 @@ class Signup1Fragment : Fragment() {
         txtCorreo: EditText,
         txtDireccion: EditText,
         txtCiudad: AutoCompleteTextView,
-        txtNombreUsuario: EditText,
         txtContrasena: EditText,
         checbox: CheckBox
     ): Boolean {
@@ -399,12 +396,6 @@ class Signup1Fragment : Fragment() {
         val emailPattern = Regex("^[a-zA-Z0-9._%+-]+@(gmail|hotmail)\\.com$")
         if (txtCorreo.text.isEmpty() || !emailPattern.matches(txtCorreo.text.toString())) {
             txtCorreo.error = "Ingresa un correo válido (gmail.com o hotmail.com)"
-            isValid = false
-        }
-
-        val usernamePattern = Regex("^(?=.*[a-zñ])(?=.*[A-ZÑ])[A-Za-zñÑ ]{4,10}$")
-        if (txtNombreUsuario.text.isEmpty() || !usernamePattern.matches(txtNombreUsuario.text.toString())) {
-            txtNombreUsuario.error = "El nombre de usuario debe tener entre 4 y 10 caracteres, con mayúsculas y minúsculas, sin números ni caracteres especiales"
             isValid = false
         }
 

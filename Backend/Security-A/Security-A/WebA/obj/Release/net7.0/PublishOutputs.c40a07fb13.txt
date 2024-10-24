@@ -6,6 +6,7 @@ C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Serv
 C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\obj\Release\net7.0\PubTmp\Out\WebA.pdb
 C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\obj\Release\net7.0\PubTmp\Out\Azure.Core.dll
 C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\obj\Release\net7.0\PubTmp\Out\Azure.Identity.dll
+C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\obj\Release\net7.0\PubTmp\Out\BCrypt.Net-Next.dll
 C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\obj\Release\net7.0\PubTmp\Out\BouncyCastle.Cryptography.dll
 C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\obj\Release\net7.0\PubTmp\Out\Dapper.dll
 C:\Users\srhad\OneDrive\Documentos\Nueva carpeta (6)\Fincaudita repositorio\Service-securityC-\Backend\Security-A\Security-A\WebA\obj\Release\net7.0\PubTmp\Out\HarfBuzzSharp.dll

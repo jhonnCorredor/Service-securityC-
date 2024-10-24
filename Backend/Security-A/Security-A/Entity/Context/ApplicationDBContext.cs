@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Entity.Model;
 using Entity.Model.Operational;
 using Entity.Model.Parameter;
 using Entity.Model.Security;
@@ -22,6 +23,14 @@ namespace Entity.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            var config = new GenericConfig();
+            config.ConfigureUser(modelBuilder.Entity<User>());
+            config.ConfigurePerson(modelBuilder.Entity<Person>());
+            config.ConfigureModulo(modelBuilder.Entity<Modulo>());
+            config.ConfigureDepartament(modelBuilder.Entity<Departament>());
+            config.ConfigureCity(modelBuilder.Entity<City>());
+
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
         }

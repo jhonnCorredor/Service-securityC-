@@ -10,7 +10,7 @@ namespace Entity.Model.Operational
     {
         public int Id { get; set; }
         public string Code { get; set; }
-        public string Document {  get; set; }
+        public byte[] Document {  get; set; }
         public int ReviewId { get; set; }
         public ReviewTechnical? Review { get; set; }
         public Boolean State { get; set; }

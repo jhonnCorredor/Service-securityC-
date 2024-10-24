@@ -2,7 +2,7 @@ package com.sena.fincaudita.Config
 
 class urls {
     companion object{
-        val urlBasic="http://192.168.0.24:9191/"
+        val urlBasic="http://10.192.88.35:9191/"
         val urlLogin= urlBasic+"login"
         val urlPerson= urlBasic+"api/Person"
         val urlUser= urlBasic+"api/User"

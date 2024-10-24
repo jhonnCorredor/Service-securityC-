@@ -90,7 +90,7 @@ namespace WebA
             builder.Services.AddScoped<ILotTreatmentBusiness, LotTreatmentBusiness>();
             builder.Services.AddScoped<IAlertBusiness, AlertBusiness>();
             builder.Services.AddScoped<IEmailBusiness, EmailBusiness>();
-
+            builder.Services.AddScoped<IWhatsappBusiness, WhatsappBusiness>();
 
 
             // Add services to the container.

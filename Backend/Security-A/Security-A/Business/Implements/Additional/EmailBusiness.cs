@@ -54,7 +54,34 @@ namespace Business.Implements.Additional
             }
         }
 
+        public async Task<string> CrearEventoEnlaceAsync(string fechaEntrada, string fechaSalida, string descripcion, string ciudad, string departamento, string pais, string nombre)
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    string ciudadEncoded = Uri.EscapeDataString(ciudad);
+                    string departamentoEncoded = Uri.EscapeDataString(departamento);
+                    string paisEncoded = Uri.EscapeDataString(pais);
+                    string descripcionEncoded = Uri.EscapeDataString(descripcion);
+                    string nombreEncoded = Uri.EscapeDataString(nombre);
 
+                    string enlace = $"https://calendar.google.com/calendar/render?action=TEMPLATE&dates={fechaEntrada}%2F{fechaSalida}&details={descripcionEncoded}&location={ciudadEncoded}%2C%20{departamentoEncoded}%2C%20{paisEncoded}&text={nombreEncoded}";
+
+                    HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, enlace);
+
+                    HttpResponseMessage response = await client.SendAsync(request);
+                    response.EnsureSuccessStatusCode();
+                    string responseBody = await response.Content.ReadAsStringAsync();
+
+                    return enlace;
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error generando enlace del evento: {ex.Message}";
+            }
+        }
     }
 
 }

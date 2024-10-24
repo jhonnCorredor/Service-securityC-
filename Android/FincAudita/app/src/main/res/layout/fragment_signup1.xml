@@ -305,27 +305,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_marginBottom="8dp"
-                    android:text="Nombre de usuario"
-                    android:textColor="#000000" />
-
-                <EditText
-                    android:id="@+id/txtNombreUsuario"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/rounded_popup"
-                    android:hint="Debe tener entre 4 y 10 caracteres, con mayúsculas y minúsculas, sin números ni caracteres especiales"
-                    android:inputType="text"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:textColor="#000000" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginBottom="8dp"
                     android:text="Contraseña"
                     android:textColor="#000000" />
 

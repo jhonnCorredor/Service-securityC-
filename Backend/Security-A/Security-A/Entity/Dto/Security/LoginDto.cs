@@ -10,7 +10,6 @@ namespace Entity.Dto.Security
     public class LoginDto
     {
         public int userID { get; set; }
-        public string userName { get; set; }
         public string password { get; set; }
         public int? roleID { get; set; }
         public string? role { get; set; }
